@@ -35,7 +35,7 @@ namespace FlagConsole.Demo
             this.mainMenu.RelativeLocation = new Point(0, 6);
             this.mainMenu.Items.Add(new MenuItem<Action>("- Label demo", this.ShowLabelDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("- ListView demo", this.ShowListViewDemo));
-            this.mainMenu.Items.Add(new MenuItem<Action>("- TextFiled demo", this.ShowTextFieldDemo));
+            this.mainMenu.Items.Add(new MenuItem<Action>("- TextField demo", this.ShowTextFieldDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("- Exit", this.Exit));
 
             this.mainMenu.UpKeys.Add(ConsoleKey.W);
@@ -79,7 +79,9 @@ namespace FlagConsole.Demo
 
         public void ShowTextFieldDemo()
         {
-            this.SwitchDemoPanel(new TextFieldDemoPanel());
+            var panel = new TextFieldDemoPanel();
+            this.SwitchDemoPanel(panel);
+            panel.Activate();
         }
 
         public void Exit()
