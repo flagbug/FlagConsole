@@ -2,19 +2,19 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E9A18E35-68E2-4E26-8D41-4D19CA2A6914}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{BAF3775F-111A-4A3A-BE0F-662603F8D43F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FlagConsole</RootNamespace>
-    <AssemblyName>FlagConsole</AssemblyName>
+    <RootNamespace>FlagConsole.Tests</RootNamespace>
+    <AssemblyName>FlagConsole.Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +23,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,40 +33,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FlagLib">
-      <HintPath>..\Libraries\FlagLib.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\Container.cs" />
-    <Compile Include="Controls\Control.cs" />
-    <Compile Include="Controls\IFocusable.cs" />
-    <Compile Include="Controls\Label.cs" />
-    <Compile Include="Controls\ListView.cs" />
-    <Compile Include="Controls\Menu.cs" />
-    <Compile Include="Controls\MenuEventArgs.cs" />
-    <Compile Include="Controls\MenuItem.cs" />
-    <Compile Include="Controls\Panel.cs" />
-    <Compile Include="Controls\Screen.cs" />
-    <Compile Include="Controls\TextField.cs" />
-    <Compile Include="Drawing\HorizontalLine.cs" />
-    <Compile Include="Drawing\IArea.cs" />
-    <Compile Include="Drawing\Line.cs" />
-    <Compile Include="Drawing\Rectangle.cs" />
-    <Compile Include="Drawing\Shape.cs" />
-    <Compile Include="Drawing\VerticalLine.cs" />
-    <Compile Include="Measure\Position.cs" />
-    <Compile Include="Measure\Size.cs" />
+    <Compile Include="LabelPresentationPanel.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestScreen.cs" />
+    <Compile Include="TextFieldPresentationPanel.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FlagConsole\FlagConsole.csproj">
+      <Project>{E9A18E35-68E2-4E26-8D41-4D19CA2A6914}</Project>
+      <Name>FlagConsole</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

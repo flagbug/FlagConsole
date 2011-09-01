@@ -1,3 +1,6 @@
 syntax: glob
 FlagConsole/FlagConsole/obj
 *suo
+FlagConsole/FlagConsole.Tests/bin
+FlagConsole/FlagConsole.Tests/obj
+FlagConsole/FlagConsole/bin
