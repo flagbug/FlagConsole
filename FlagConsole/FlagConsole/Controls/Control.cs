@@ -1,4 +1,5 @@
-﻿using FlagConsole.Measure;
+﻿using FlagConsole.Drawing;
+using FlagConsole.Measure;
 
 namespace FlagConsole.Controls
 {
@@ -99,7 +100,7 @@ namespace FlagConsole.Controls
         /// </summary>
         protected virtual void Clear()
         {
-            FlagConsole.Drawing.Rectangle eraseArea = new FlagConsole.Drawing.Rectangle(this.AbsoluteLocation, this.Size, ' ', true);
+            Rectangle eraseArea = new Rectangle(this.AbsoluteLocation, this.Size, ' ', true);
             eraseArea.Draw();
         }
     }
