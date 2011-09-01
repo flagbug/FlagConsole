@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace FlagConsole.Controls
@@ -7,7 +8,7 @@ namespace FlagConsole.Controls
     /// Provides a list view, that displays items in a table with one column
     /// </summary>
     /// <typeparam name="T">Type of the item that gets displayed</typeparam>
-    public class ListView<T> : Control
+    public class ListView<T> : ListControl
     {
         private Collection<T> items = new Collection<T>();
 
@@ -21,6 +22,14 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="ListView&lt;T&gt;"/> class.
+        /// </summary>
+        public ListView()
+        {
+            this.Bullet = '+';
+        }
+
+        /// <summary>
         /// Draws the control.
         /// </summary>
         protected override void Draw()
@@ -28,7 +37,9 @@ namespace FlagConsole.Controls
             for (int i = 0; i < this.items.Count; i++)
             {
                 System.Console.SetCursorPosition(this.AbsoluteLocation.X, this.AbsoluteLocation.Y + i);
-                System.Console.Write(this.items[i].ToString());
+
+                string bulletString = this.DisplayBullets ? this.Bullet + " " : String.Empty;
+                System.Console.Write(bulletString + this.items[i].ToString());
             }
         }
     }

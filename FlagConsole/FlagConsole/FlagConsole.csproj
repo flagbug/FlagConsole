@@ -45,6 +45,7 @@
     <Compile Include="Controls\Control.cs" />
     <Compile Include="Controls\IFocusable.cs" />
     <Compile Include="Controls\Label.cs" />
+    <Compile Include="Controls\ListControl.cs" />
     <Compile Include="Controls\ListView.cs" />
     <Compile Include="Controls\Menu.cs" />
     <Compile Include="Controls\MenuEventArgs.cs" />

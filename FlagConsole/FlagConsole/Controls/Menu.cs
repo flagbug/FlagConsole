@@ -7,7 +7,7 @@ namespace FlagConsole.Controls
     /// Provides a text-based menu in the console, where the user can select an item
     /// </summary>
     /// <typeparam name="T">Type of the item that the user can select</typeparam>
-    public class Menu<T> : Control, IFocusable
+    public class Menu<T> : ListControl, IFocusable
     {
         private List<MenuItem<T>> items;
 
@@ -102,6 +102,7 @@ namespace FlagConsole.Controls
             this.BackgroundColor = ConsoleColor.Black;
             this.SelectionBackgroundColor = ConsoleColor.White;
             this.SelectionForegroundColor = ConsoleColor.Black;
+            this.Bullet = '-';
         }
 
         /// <summary>
@@ -121,7 +122,8 @@ namespace FlagConsole.Controls
 
                 System.Console.SetCursorPosition(this.AbsoluteLocation.X, this.AbsoluteLocation.Y + i);
 
-                System.Console.WriteLine(this.items[i].Name);
+                string bulletString = this.DisplayBullets ? this.Bullet + " " : String.Empty;
+                System.Console.WriteLine(bulletString + this.items[i].Name);
 
                 if (this.SelectedIndex == i)
                 {
