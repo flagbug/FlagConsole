@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace FlagConsole.Measure
 {
@@ -6,6 +7,7 @@ namespace FlagConsole.Measure
     /// Provides a immutable Position, which encapsulates a x and y coordinate
     /// </summary>
     [Serializable]
+    [DebuggerDisplay("X = {X}, Y = {Y}")]
     public class Point : ICloneable, IEquatable<Point>
     {
         private readonly int x;
@@ -31,10 +33,7 @@ namespace FlagConsole.Measure
         /// Initializes a new instance of the <see cref="Point"/> class with the coordinates (0|0).
         /// </summary>
         public Point()
-        {
-            this.x = 0;
-            this.y = 0;
-        }
+            : this(0, 0) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Point"/> class.

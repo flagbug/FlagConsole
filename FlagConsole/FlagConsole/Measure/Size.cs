@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace FlagConsole.Measure
 {
@@ -6,6 +7,7 @@ namespace FlagConsole.Measure
     /// Provides a immutable size, which encapsulates a width and a height
     /// </summary>
     [Serializable]
+    [DebuggerDisplay("Width = {Width}, Height = {Height}")]
     public class Size : ICloneable, IEquatable<Size>
     {
         private readonly int height;
@@ -33,10 +35,7 @@ namespace FlagConsole.Measure
         /// Initializes a new instance of the <see cref="Size"/> class.
         /// </summary>
         public Size()
-        {
-            this.height = 0;
-            this.width = 0;
-        }
+            : this(0, 0) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Size"/> class.
