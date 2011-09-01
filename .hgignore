@@ -1,0 +1,3 @@
+syntax: glob
+FlagConsole/FlagConsole/obj
+*suo
