@@ -74,10 +74,10 @@ namespace FlagConsole.Drawing
             line.BackgroundColor = this.BackgroundColor;
             line.ForegroundColor = this.ForegroundColor;
 
-            for (int y = this.Location.Y; y < this.Location.Y + this.Size.Width; y++)
+            for (int y = this.Location.Y - 1; y < this.Location.Y + this.Size.Height - 1; y++)
             {
-                line.Draw();
                 line.Location = new Point(line.Location.X, line.Location.Y + 1);
+                line.Draw();
             }
         }
 
