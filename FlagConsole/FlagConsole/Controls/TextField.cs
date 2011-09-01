@@ -47,6 +47,7 @@ namespace FlagConsole.Controls
         /// </summary>
         public TextField()
         {
+            this.Text = String.Empty;
             this.ForegroundColor = ConsoleColor.Black;
             this.BackgroundColor = ConsoleColor.White;
         }
@@ -86,11 +87,12 @@ namespace FlagConsole.Controls
             System.Console.BackgroundColor = this.BackgroundColor;
             System.Console.SetCursorPosition(this.AbsoluteLocation.X, this.AbsoluteLocation.Y);
             System.Console.Write(background);
-            System.Console.BackgroundColor = saveBackgroundColor;
 
             System.Console.ForegroundColor = this.ForegroundColor;
             System.Console.SetCursorPosition(this.AbsoluteLocation.X, this.AbsoluteLocation.Y);
             System.Console.Write(this.Text);
+
+            System.Console.BackgroundColor = saveBackgroundColor;
             System.Console.ForegroundColor = saveForegroundColor;
         }
 
