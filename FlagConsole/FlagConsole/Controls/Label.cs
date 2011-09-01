@@ -15,6 +15,14 @@ namespace FlagConsole.Controls
         public string Text { get; set; }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Label"/> class.
+        /// </summary>
+        public Label()
+        {
+            this.Text = String.Empty;
+        }
+
+        /// <summary>
         /// Draws the control.
         /// </summary>
         protected override void Draw()
