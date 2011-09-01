@@ -2,7 +2,7 @@
 using FlagConsole.Controls;
 using FlagConsole.Measure;
 
-namespace FlagLib.ConsoleTests
+namespace FlagConsole.Tests
 {
     internal class TestScreen : Screen
     {
@@ -23,7 +23,7 @@ namespace FlagLib.ConsoleTests
         public TestScreen()
         {
             this.mainMenuPanel = new Panel();
-            this.mainMenuPanel.RelativePosition = new Position(2, 2);
+            this.mainMenuPanel.RelativeLocation = new Point(2, 2);
             this.Controls.Add(this.mainMenuPanel);
 
             this.mainManuTextLabel = new Label();
@@ -32,7 +32,7 @@ namespace FlagLib.ConsoleTests
             this.mainMenuPanel.Controls.Add(mainManuTextLabel);
 
             this.mainMenu = new Menu<Action>();
-            this.mainMenu.RelativePosition = new Position(2, 2);
+            this.mainMenu.RelativeLocation = new Point(2, 2);
             this.mainMenu.Items.Add(new MenuItem<Action>("Label Presentation", this.ShowLabelPresentation));
             this.mainMenu.Items.Add(new MenuItem<Action>("Hide Text", this.HideText));
             this.mainMenu.Items.Add(new MenuItem<Action>("Show Text", this.ShowText));
@@ -67,7 +67,7 @@ namespace FlagLib.ConsoleTests
 
         public void ShowLabelPresentation()
         {
-            this.SwitchPresentationPanel(new LabelPresentationPanel { RelativePosition = new Position(35, 2) });
+            this.SwitchPresentationPanel(new LabelPresentationPanel { RelativeLocation = new Point(35, 2) });
         }
 
         public void HideText()

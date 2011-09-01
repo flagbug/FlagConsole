@@ -1,7 +1,7 @@
 ﻿using FlagConsole.Controls;
 using FlagConsole.Measure;
 
-namespace FlagLib.ConsoleTests
+namespace FlagConsole.Tests
 {
     internal class LabelPresentationPanel : Panel
     {

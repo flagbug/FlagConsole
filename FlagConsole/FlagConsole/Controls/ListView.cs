@@ -27,7 +27,7 @@ namespace FlagConsole.Controls
         {
             for (int i = 0; i < this.items.Count; i++)
             {
-                System.Console.SetCursorPosition(this.AbsolutePosition.X, this.AbsolutePosition.Y + i);
+                System.Console.SetCursorPosition(this.AbsoluteLocation.X, this.AbsoluteLocation.Y + i);
                 System.Console.Write(this.items[i].ToString());
             }
         }

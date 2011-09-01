@@ -1,4 +1,4 @@
-﻿namespace FlagLib.ConsoleTests
+﻿namespace FlagConsole.Tests
 {
     internal class Program
     {

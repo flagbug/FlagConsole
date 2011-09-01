@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace FlagLib.ConsoleTests
+﻿namespace FlagConsole.Tests
 {
-    class TextFieldPresentationPanel
+    internal class TextFieldPresentationPanel
     {
     }
 }

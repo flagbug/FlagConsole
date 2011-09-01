@@ -61,15 +61,6 @@ namespace FlagConsole.Measure
         }
 
         /// <summary>
-        /// Converts the <see cref="Size"/> to a <see cref="System.Drawing.Size"/>.
-        /// </summary>
-        /// <returns>A <see cref="System.Drawing.Size"/></returns>
-        public System.Drawing.Size ToSystemDrawingSize()
-        {
-            return new System.Drawing.Size(this.Width, this.Height);
-        }
-
-        /// <summary>
         /// Determines whether the specified <see cref="System.Object"/> is equal to this instance.
         /// </summary>
         /// <param name="obj">The <see cref="System.Object"/> to compare with this instance.</param>

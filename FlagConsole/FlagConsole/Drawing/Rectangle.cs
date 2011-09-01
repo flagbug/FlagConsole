@@ -29,12 +29,12 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Initializes a new instance of the <see cref="Rectangle"/> class.
         /// </summary>
-        /// <param name="position">The position.</param>
+        /// <param name="location">The location.</param>
         /// <param name="size">The size.</param>
         /// <param name="token">The token.</param>
         /// <param name="filled">if set to <c>true</c>, the rectangle is filled.</param>
-        public Rectangle(Position position, Size size, char token, bool filled)
-            : base(position, token)
+        public Rectangle(Point location, Size size, char token, bool filled)
+            : base(location, token)
         {
             this.Size = size;
             this.IsFilled = filled;
@@ -70,14 +70,14 @@ namespace FlagConsole.Drawing
         /// </summary>
         private void DrawFilledRectangle()
         {
-            HorizontalLine line = new HorizontalLine((Position)this.Position.Clone(), this.Size.Width, this.Token);
+            HorizontalLine line = new HorizontalLine(this.Location, this.Size.Width, this.Token);
             line.BackgroundColor = this.BackgroundColor;
             line.ForegroundColor = this.ForegroundColor;
 
-            for (int y = this.Position.Y; y < this.Position.Y + this.Size.Width; y++)
+            for (int y = this.Location.Y; y < this.Location.Y + this.Size.Width; y++)
             {
                 line.Draw();
-                line.Position = new Position(line.Position.X, line.Position.Y + 1);
+                line.Location = new Point(line.Location.X, line.Location.Y + 1);
             }
         }
 
@@ -86,18 +86,18 @@ namespace FlagConsole.Drawing
         /// </summary>
         private void DrawUnfilledRectangle()
         {
-            HorizontalLine xLine = new HorizontalLine(this.Position, this.Size.Width, this.Token);
+            HorizontalLine xLine = new HorizontalLine(this.Location, this.Size.Width, this.Token);
             xLine.BackgroundColor = this.BackgroundColor;
             xLine.ForegroundColor = this.ForegroundColor;
             xLine.Draw();
-            xLine.Position = new Position(xLine.Position.X, xLine.Position.Y + this.Size.Height - 1);
+            xLine.Location = new Point(xLine.Location.X, xLine.Location.Y + this.Size.Height - 1);
             xLine.Draw();
 
-            VerticalLine yLine = new VerticalLine(this.Position, this.Size.Height, this.Token);
+            VerticalLine yLine = new VerticalLine(this.Location, this.Size.Height, this.Token);
             yLine.BackgroundColor = this.BackgroundColor;
             yLine.ForegroundColor = this.ForegroundColor;
             yLine.Draw();
-            yLine.Position = new Position(yLine.Position.X + this.Size.Width - 1, yLine.Position.Y);
+            yLine.Location = new Point(yLine.Location.X + this.Size.Width - 1, yLine.Location.Y);
             yLine.Draw();
         }
     }

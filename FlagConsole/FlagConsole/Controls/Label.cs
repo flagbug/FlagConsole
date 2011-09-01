@@ -53,7 +53,7 @@ namespace FlagConsole.Controls
 
             for (int i = 0; i < lines.Count; i++)
             {
-                System.Console.SetCursorPosition(this.AbsolutePosition.X, this.AbsolutePosition.Y + i);
+                System.Console.SetCursorPosition(this.AbsoluteLocation.X, this.AbsoluteLocation.Y + i);
                 System.Console.Write(lines[i]);
             }
         }

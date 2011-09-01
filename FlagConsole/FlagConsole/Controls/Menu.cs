@@ -119,7 +119,7 @@ namespace FlagConsole.Controls
                     System.Console.BackgroundColor = this.SelectionBackgroundColor;
                 }
 
-                System.Console.SetCursorPosition(this.AbsolutePosition.X, this.AbsolutePosition.Y + i);
+                System.Console.SetCursorPosition(this.AbsoluteLocation.X, this.AbsoluteLocation.Y + i);
 
                 System.Console.WriteLine(this.items[i].Name);
 

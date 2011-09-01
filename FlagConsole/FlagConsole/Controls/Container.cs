@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using FlagLib.Collections;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 
 namespace FlagConsole.Controls
 {
@@ -9,7 +9,7 @@ namespace FlagConsole.Controls
     /// </summary>
     public abstract class Container : Control
     {
-        private EventCollection<Control> controls = new EventCollection<Control>();
+        private ObservableCollection<Control> controls = new ObservableCollection<Control>();
 
         /// <summary>
         /// Gets the underlying controls.
@@ -25,9 +25,7 @@ namespace FlagConsole.Controls
         /// </summary>
         protected Container()
         {
-            this.controls.ItemAdded += new EventHandler<EventCollectionEventArgs<Control>>(controls_ItemAdded);
-            this.controls.ItemRemoved += new EventHandler<EventCollectionEventArgs<Control>>(controls_ItemRemoved);
-            this.controls.ListClearing += new EventHandler(controls_BeforeListCleared);
+            this.controls.CollectionChanged += new NotifyCollectionChangedEventHandler(controls_CollectionChanged);
         }
 
         /// <summary>
@@ -55,36 +53,29 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Handles the BeforeListCleared event of the controls control.
+        /// Handles the CollectionChanged event of the controls control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        private void controls_BeforeListCleared(object sender, EventArgs e)
+        /// <param name="e">The <see cref="System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> instance containing the event data.</param>
+        private void controls_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            foreach (Control control in this.controls)
+            switch (e.Action)
             {
-                control.Parent = null;
+                case NotifyCollectionChangedAction.Add:
+                    foreach (Control control in e.NewItems)
+                    {
+                        control.Parent = this;
+                    }
+
+                    break;
+
+                case NotifyCollectionChangedAction.Remove:
+                    foreach (Control control in e.OldItems)
+                    {
+                        control.Parent = null;
+                    }
+                    break;
             }
-        }
-
-        /// <summary>
-        /// Handles the ItemRemoved event of the controls control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="FlagLib.Collections.EventCollectionEventArgs&lt;FlagLib.Console.Controls.Control&gt;"/> instance containing the event data.</param>
-        private void controls_ItemRemoved(object sender, EventCollectionEventArgs<Control> e)
-        {
-            e.Item.Parent = null;
-        }
-
-        /// <summary>
-        /// Handles the ItemAdded event of the controls control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="FlagLib.Collections.EventCollectionEventArgs&lt;FlagLib.Console.Controls.Control&gt;"/> instance containing the event data.</param>
-        private void controls_ItemAdded(object sender, EventCollectionEventArgs<Control> e)
-        {
-            e.Item.Parent = this;
         }
     }
 }

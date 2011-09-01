@@ -3,16 +3,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
+    <ProductVersion>
+    </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E9A18E35-68E2-4E26-8D41-4D19CA2A6914}</ProjectGuid>
+    <ProjectGuid>{166C1FC7-3576-4C88-9D6D-8EE1DC9C3B95}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FlagConsole</RootNamespace>
-    <AssemblyName>FlagConsole</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <RootNamespace>FlagConsole.UnitTests</RootNamespace>
+    <AssemblyName>FlagConsole.UnitTests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,38 +33,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\Container.cs" />
-    <Compile Include="Controls\Control.cs" />
-    <Compile Include="Controls\IFocusable.cs" />
-    <Compile Include="Controls\Label.cs" />
-    <Compile Include="Controls\ListView.cs" />
-    <Compile Include="Controls\Menu.cs" />
-    <Compile Include="Controls\MenuEventArgs.cs" />
-    <Compile Include="Controls\MenuItem.cs" />
-    <Compile Include="Controls\Panel.cs" />
-    <Compile Include="Controls\Screen.cs" />
-    <Compile Include="Controls\TextField.cs" />
-    <Compile Include="Drawing\HorizontalLine.cs" />
-    <Compile Include="Drawing\IArea.cs" />
-    <Compile Include="Drawing\Line.cs" />
-    <Compile Include="Drawing\Rectangle.cs" />
-    <Compile Include="Drawing\Shape.cs" />
-    <Compile Include="Drawing\VerticalLine.cs" />
-    <Compile Include="Measure\Point.cs" />
-    <Compile Include="Measure\Size.cs" />
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PositionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\FlagConsole\FlagConsole.csproj">
+      <Project>{E9A18E35-68E2-4E26-8D41-4D19CA2A6914}</Project>
+      <Name>FlagConsole</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -1,7 +1,6 @@
-﻿using FlagConsole.Drawing;
-using FlagConsole.Measure;
+﻿using FlagConsole.Measure;
 
-namespace FlagConsole.Console.Drawing
+namespace FlagConsole.Drawing
 {
     /// <summary>
     /// Base class for lines (horizontal line and vertical line)
@@ -26,11 +25,11 @@ namespace FlagConsole.Console.Drawing
         /// <summary>
         /// Initializes a new instance of the <see cref="Line"/> class.
         /// </summary>
-        /// <param name="position">The position.</param>
+        /// <param name="location">The location.</param>
         /// <param name="length">The lenght.</param>
         /// <param name="token">The token.</param>
-        protected Line(Position position, int length, char token)
-            : base(position, token)
+        protected Line(Point location, int length, char token)
+            : base(location, token)
         {
             this.Length = length;
         }

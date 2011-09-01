@@ -1,5 +1,4 @@
 ﻿using System;
-using FlagConsole.Console.Drawing;
 using FlagConsole.Measure;
 
 namespace FlagConsole.Drawing
@@ -27,7 +26,7 @@ namespace FlagConsole.Drawing
                 line += this.Token.ToString();
             }
 
-            System.Console.SetCursorPosition(this.Position.X, this.Position.Y);
+            System.Console.SetCursorPosition(this.Location.X, this.Location.Y);
             System.Console.Write(line);
 
             System.Console.ForegroundColor = saveForeColor;
@@ -37,11 +36,11 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Initializes a new instance of the <see cref="HorizontalLine"/> class.
         /// </summary>
-        /// <param name="position">The position.</param>
+        /// <param name="location">The location.</param>
         /// <param name="length">The lenght.</param>
         /// <param name="token">The token.</param>
-        public HorizontalLine(Position position, int length, char token)
-            : base(position, length, token)
+        public HorizontalLine(Point location, int length, char token)
+            : base(location, length, token)
         {
         }
     }

@@ -12,9 +12,9 @@ namespace FlagConsole.Controls
         /// Gets the absolute position to the console.
         /// </summary>
         /// <value>The absolute position to the console.</value>
-        public override Position AbsolutePosition
+        public override Point AbsoluteLocation
         {
-            get { return this.RelativePosition; }
+            get { return this.RelativeLocation; }
         }
 
         /// <summary>

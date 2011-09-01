@@ -84,12 +84,12 @@ namespace FlagConsole.Controls
             background = background.PadRight(this.Length, ' ');
 
             System.Console.BackgroundColor = this.BackgroundColor;
-            System.Console.SetCursorPosition(this.AbsolutePosition.X, this.AbsolutePosition.Y);
+            System.Console.SetCursorPosition(this.AbsoluteLocation.X, this.AbsoluteLocation.Y);
             System.Console.Write(background);
             System.Console.BackgroundColor = saveBackgroundColor;
 
             System.Console.ForegroundColor = this.ForegroundColor;
-            System.Console.SetCursorPosition(this.AbsolutePosition.X, this.AbsolutePosition.Y);
+            System.Console.SetCursorPosition(this.AbsoluteLocation.X, this.AbsoluteLocation.Y);
             System.Console.Write(this.Text);
             System.Console.ForegroundColor = saveForegroundColor;
         }

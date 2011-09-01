@@ -1,5 +1,4 @@
-﻿using FlagConsole.Drawing;
-using FlagConsole.Measure;
+﻿using FlagConsole.Measure;
 
 namespace FlagConsole.Controls
 {
@@ -24,18 +23,23 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Gets or sets the relative position to the parent container.
+        /// Gets or sets the relative location to the parent container.
         /// </summary>
-        /// <value>The relative position to the parent container.</value>
-        public virtual Position RelativePosition { get; set; }
+        /// <value>The relative location to the parent container.</value>
+        public virtual Point RelativeLocation { get; set; }
 
         /// <summary>
-        /// Gets the absolute position to the console.
+        /// Gets the absolute location in the console.
         /// </summary>
-        /// <value>The absolute position to the console.</value>
-        public virtual Position AbsolutePosition
+        /// <value>The absolute location in the console.</value>
+        public virtual Point AbsoluteLocation
         {
-            get { return this.RelativePosition + this.Parent.AbsolutePosition; }
+            get
+            {
+                return new Point(
+                    this.RelativeLocation.X + this.Parent.AbsoluteLocation.X,
+                    this.RelativeLocation.Y + this.Parent.AbsoluteLocation.Y);
+            }
         }
 
         /// <summary>
@@ -56,7 +60,7 @@ namespace FlagConsole.Controls
         public Control()
         {
             this.IsVisible = true;
-            this.RelativePosition = new Position();
+            this.RelativeLocation = new Point();
             this.Size = new Size();
         }
 
@@ -83,7 +87,7 @@ namespace FlagConsole.Controls
         /// </summary>
         protected virtual void Clear()
         {
-            Rectangle eraseArea = new Rectangle(this.AbsolutePosition, this.Size, ' ', true);
+            FlagConsole.Drawing.Rectangle eraseArea = new FlagConsole.Drawing.Rectangle(this.AbsoluteLocation, this.Size, ' ', true);
             eraseArea.Draw();
         }
     }
