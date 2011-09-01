@@ -41,7 +41,7 @@ namespace FlagConsole.Controls
                 {
                     if (line.Length + words[0].Length < this.Size.Width) //check if the line fits into the label
                     {
-                        string space = first ? "" : " ";
+                        string space = first ? String.Empty : " ";
                         first = false;
 
                         line += space + words[0];
