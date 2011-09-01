@@ -8,7 +8,7 @@
     <ProjectGuid>{BAF3775F-111A-4A3A-BE0F-662603F8D43F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FlagConsole.Tests</RootNamespace>
+    <RootNamespace>FlagConsole.Demo</RootNamespace>
     <AssemblyName>FlagConsole.Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -41,11 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LabelPresentationPanel.cs" />
+    <Compile Include="LabelDemoPanel.cs" />
+    <Compile Include="ListViewDemoPanel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestScreen.cs" />
-    <Compile Include="TextFieldPresentationPanel.cs" />
+    <Compile Include="DemoScreen.cs" />
+    <Compile Include="TextFieldDemoPanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FlagConsole\FlagConsole.csproj">

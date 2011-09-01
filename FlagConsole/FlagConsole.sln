@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlagConsole", "FlagConsole\FlagConsole.csproj", "{E9A18E35-68E2-4E26-8D41-4D19CA2A6914}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlagConsole.Tests", "FlagConsole.Tests\FlagConsole.Tests.csproj", "{BAF3775F-111A-4A3A-BE0F-662603F8D43F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlagConsole.Demo", "FlagConsole.Demo\FlagConsole.Demo.csproj", "{BAF3775F-111A-4A3A-BE0F-662603F8D43F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlagConsole.UnitTests", "FlagConsole.UnitTests\FlagConsole.UnitTests.csproj", "{166C1FC7-3576-4C88-9D6D-8EE1DC9C3B95}"
 EndProject
