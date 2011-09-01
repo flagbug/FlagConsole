@@ -82,7 +82,7 @@ namespace FlagConsole.Drawing
 
             for (int y = this.Location.Y - 1; y < this.Location.Y + this.Size.Height - 1; y++)
             {
-                line.Location = new Point(line.Location.X, line.Location.Y + 1);
+                line.Location = new Point(line.Location.X, y + 1);
                 line.Draw();
             }
         }
