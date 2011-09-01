@@ -10,13 +10,17 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Gets or sets the lenght.
         /// </summary>
-        /// <value>The lenght.</value>
+        /// <value>
+        /// The lenght.
+        /// </value>
         public virtual int Length { get; set; }
 
         /// <summary>
         /// Gets the area.
         /// </summary>
-        /// <value>The area.</value>
+        /// <value>
+        /// The area.
+        /// </value>
         public int Area
         {
             get { return this.Length; }

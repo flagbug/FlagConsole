@@ -16,7 +16,9 @@ namespace FlagConsole.Measure
         /// <summary>
         /// Gets the height.
         /// </summary>
-        /// <value>The height.</value>
+        /// <value>
+        /// The height.
+        /// </value>
         public int Height
         {
             get { return this.height; }
@@ -25,7 +27,9 @@ namespace FlagConsole.Measure
         /// <summary>
         /// Gets the width.
         /// </summary>
-        /// <value>The width.</value>
+        /// <value>
+        /// The width.
+        /// </value>
         public int Width
         {
             get { return this.width; }

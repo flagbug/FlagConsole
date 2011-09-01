@@ -8,7 +8,9 @@
         /// <summary>
         /// Gets or sets the name which is displayed in the menu.
         /// </summary>
-        /// <value>The name.</value>
+        /// <value>
+        /// The name.
+        /// </value>
         public string Name { get; private set; }
 
         /// <summary>

@@ -11,7 +11,9 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets the absolute position to the console.
         /// </summary>
-        /// <value>The absolute position to the console.</value>
+        /// <value>
+        /// The absolute position to the console.
+        /// </value>
         public override Point AbsoluteLocation
         {
             get { return this.RelativeLocation; }
@@ -20,7 +22,9 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets the top control (the screen).
         /// </summary>
-        /// <value>The top control.</value>
+        /// <value>
+        /// The top control.
+        /// </value>
         public override Control Top
         {
             get { return this; }

@@ -10,31 +10,41 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets or sets the color of the foreground.
         /// </summary>
-        /// <value>The color of the foreground.</value>
+        /// <value>
+        /// The color of the foreground.
+        /// </value>
         public virtual ConsoleColor ForegroundColor { get; set; }
 
         /// <summary>
         /// Gets or sets the color of the background.
         /// </summary>
-        /// <value>The color of the background.</value>
+        /// <value>
+        /// The color of the background.
+        /// </value>
         public virtual ConsoleColor BackgroundColor { get; set; }
 
         /// <summary>
         /// Gets the input.
         /// </summary>
-        /// <value>The input.</value>
+        /// <value>
+        /// The input.
+        /// </value>
         public virtual string Text { get; private set; }
 
         /// <summary>
         /// Gets or sets the length of the text field.
         /// </summary>
-        /// <value>The length of the text field.</value>
+        /// <value>
+        /// The length of the text field.
+        /// </value>
         public virtual int Length { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether this <see cref="IFocusable"/> is focused.
         /// </summary>
-        /// <value>true if focused; otherwise, false.</value>
+        /// <value>
+        /// true if focused; otherwise, false.
+        /// </value>
         public virtual bool IsFocused { get; set; }
 
         /// <summary>

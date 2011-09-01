@@ -11,7 +11,9 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets or sets the text.
         /// </summary>
-        /// <value>The text.</value>
+        /// <value>
+        /// The text.
+        /// </value>
         public string Text { get; set; }
 
         /// <summary>

@@ -15,7 +15,9 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets the items.
         /// </summary>
-        /// <value>The items.</value>
+        /// <value>
+        /// The items.
+        /// </value>
         public ICollection<T> Items
         {
             get { return this.items; }

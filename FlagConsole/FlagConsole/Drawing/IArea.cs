@@ -8,7 +8,9 @@
         /// <summary>
         /// Gets the area.
         /// </summary>
-        /// <value>The area.</value>
+        /// <value>
+        /// The area.
+        /// </value>
         int Area { get; }
     }
 }

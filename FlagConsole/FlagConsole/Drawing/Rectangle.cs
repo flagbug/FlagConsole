@@ -8,19 +8,25 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Rectangle"/> is filled.
         /// </summary>
-        /// <value><c>true</c> if filled; otherwise, <c>false</c>.</value>
+        /// <value>
+        ///   <c>true</c> if filled; otherwise, <c>false</c>.
+        /// </value>
         public bool IsFilled { get; set; }
 
         /// <summary>
         /// Gets or sets the size.
         /// </summary>
-        /// <value>The size.</value>
+        /// <value>
+        /// The size.
+        /// </value>
         public Size Size { get; set; }
 
         /// <summary>
         /// Gets the area.
         /// </summary>
-        /// <value>The area.</value>
+        /// <value>
+        /// The area.
+        /// </value>
         public int Area
         {
             get { return this.Size.Height * this.Size.Width; }

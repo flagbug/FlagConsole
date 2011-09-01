@@ -11,25 +11,33 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Gets or sets the fore color.
         /// </summary>
-        /// <value>The fore color.</value>
+        /// <value>
+        /// The fore color.
+        /// </value>
         public ConsoleColor ForegroundColor { get; set; }
 
         /// <summary>
         /// Gets or sets the back color.
         /// </summary>
-        /// <value>The back color.</value>
+        /// <value>
+        /// The back color.
+        /// </value>
         public ConsoleColor BackgroundColor { get; set; }
 
         /// <summary>
         /// Gets or sets the position.
         /// </summary>
-        /// <value>The position.</value>
+        /// <value>
+        /// The position.
+        /// </value>
         public Point Location { get; set; }
 
         /// <summary>
         /// Gets or sets the token.
         /// </summary>
-        /// <value>The token.</value>
+        /// <value>
+        /// The token.
+        /// </value>
         public char Token { get; set; }
 
         /// <summary>

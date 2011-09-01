@@ -8,7 +8,9 @@
         /// <summary>
         /// Gets a value indicating whether this <see cref="IFocusable"/> is focused.
         /// </summary>
-        /// <value>true if focused; otherwise, false.</value>
+        /// <value>
+        /// true if focused; otherwise, false.
+        /// </value>
         bool IsFocused { get; }
 
         /// <summary>

@@ -11,7 +11,9 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets the item.
         /// </summary>
-        /// <value>The item.</value>
+        /// <value>
+        /// The item.
+        /// </value>
         public MenuItem<T> Item { get; private set; }
 
         /// <summary>

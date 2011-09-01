@@ -14,7 +14,9 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets the underlying controls.
         /// </summary>
-        /// <value>The underlying controls.</value>
+        /// <value>
+        /// The underlying controls.
+        /// </value>
         public ICollection<Control> Controls
         {
             get { return this.controls; }
@@ -29,7 +31,7 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Updates the container and it's child controls if visible is set to true.
+        /// Updates the container and it's child controls if their visiblity is set to true.
         /// </summary>
         public override void Update()
         {

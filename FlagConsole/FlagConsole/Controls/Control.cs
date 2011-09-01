@@ -10,13 +10,17 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets or sets the parent control.
         /// </summary>
-        /// <value>The parent control.</value>
+        /// <value>
+        /// The parent control.
+        /// </value>
         public virtual Control Parent { get; set; }
 
         /// <summary>
         /// Gets the top control (the screen).
         /// </summary>
-        /// <value>The top control.</value>
+        /// <value>
+        /// The top control.
+        /// </value>
         public virtual Control Top
         {
             get { return this.Parent.Top; }
@@ -25,13 +29,17 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets or sets the relative location to the parent container.
         /// </summary>
-        /// <value>The relative location to the parent container.</value>
+        /// <value>
+        /// The relative location to the parent container.
+        /// </value>
         public virtual Point RelativeLocation { get; set; }
 
         /// <summary>
         /// Gets the absolute location in the console.
         /// </summary>
-        /// <value>The absolute location in the console.</value>
+        /// <value>
+        /// The absolute location in the console.
+        /// </value>
         public virtual Point AbsoluteLocation
         {
             get
@@ -45,13 +53,17 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets or sets the size of the control.
         /// </summary>
-        /// <value>The size of the control.</value>
+        /// <value>
+        /// The size of the control.
+        /// </value>
         public virtual Size Size { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Control"/> is visible.
         /// </summary>
-        /// <value><c>true</c> if visible; otherwise, <c>false</c>.</value>
+        /// <value>
+        ///   <c>true</c> if visible; otherwise, <c>false</c>.
+        /// </value>
         public virtual bool IsVisible { get; set; }
 
         /// <summary>
@@ -65,7 +77,7 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Updates the control if visible is set to true.
+        /// Updates the control if it's visibility is set to true.
         /// </summary>
         public virtual void Update()
         {
