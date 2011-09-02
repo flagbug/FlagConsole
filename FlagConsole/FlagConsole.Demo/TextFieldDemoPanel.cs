@@ -13,18 +13,18 @@ namespace FlagConsole.Demo
         public TextFieldDemoPanel()
         {
             this.descriptionLabel = new Label();
-            this.descriptionLabel.Text = "Enter some text and press enter. The maximum length is set to 8 characters.";
-            this.descriptionLabel.Size = new Size(this.descriptionLabel.Text.Length / 2 + 1, 2);
+            this.descriptionLabel.Text = "Enter some text and press enter. The maximum length is set to 8 characters. Of course, this limit can be increased.";
+            this.descriptionLabel.Size = new Size(this.descriptionLabel.Text.Length / 3 + 1, 3);
             this.Controls.Add(this.descriptionLabel);
 
             this.textField = new TextField();
             this.textField.Length = 8;
-            this.textField.RelativeLocation = new Point(0, 3);
+            this.textField.RelativeLocation = new Point(0, 4);
             this.textField.TextEntered += new System.EventHandler(textField_TextEntered);
             this.Controls.Add(this.textField);
 
             this.textLabel = new Label();
-            this.textLabel.RelativeLocation = new Point(0, 5);
+            this.textLabel.RelativeLocation = new Point(0, 6);
             this.Controls.Add(this.textLabel);
         }
 
