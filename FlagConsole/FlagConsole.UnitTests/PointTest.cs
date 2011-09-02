@@ -4,14 +4,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace FlagConsole.UnitTests
 {
     /// <summary>
-    ///This is a test class for PositionTest and is intended
-    ///to contain all PositionTest Unit Tests
+    ///This is a test class for PointTest and is intended
+    ///to contain all PointTest Unit Tests
     ///</summary>
-    [TestClass()]
-    public class PositionTest
+    [TestClass]
+    public class PointTest
     {
         [TestMethod]
-        public void PositionConstructorTest()
+        public void PointConstructorTest()
         {
             int x = 5;
             int y = 15;
@@ -21,8 +21,8 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(15, target.Y);
         }
 
-        [TestMethod()]
-        public void PositionConstructorTest1()
+        [TestMethod]
+        public void PointEmptyConstructorTest()
         {
             Point target = new Point();
 
