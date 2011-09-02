@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using FlagConsole.Measure;
 
 namespace FlagConsole.Drawing
@@ -49,14 +50,57 @@ namespace FlagConsole.Drawing
             System.Console.ForegroundColor = this.ForegroundColor;
             System.Console.BackgroundColor = this.BackgroundColor;
 
+            if (this.StartPoint.X == this.EndPoint.X)
+            {
+                this.DrawVerticalLine();
+            }
+
+            else if (this.StartPoint.Y == this.EndPoint.Y)
+            {
+                this.DrawHorizontalLine();
+            }
+
+            else
+            {
+                this.DrawGenericLine();
+            }
+
+            System.Console.ForegroundColor = saveForeColor;
+            System.Console.BackgroundColor = saveBackColor;
+        }
+
+        /// <summary>
+        /// Draws a horizontal line.
+        /// </summary>
+        private void DrawHorizontalLine()
+        {
+            string line = new string(Enumerable.Repeat(this.Token, this.EndPoint.X - this.StartPoint.X + 1).ToArray());
+            System.Console.SetCursorPosition(this.StartPoint.X, this.StartPoint.Y);
+            System.Console.Write(line);
+        }
+
+        /// <summary>
+        /// Draws a vertical line.
+        /// </summary>
+        private void DrawVerticalLine()
+        {
+            for (int y = this.StartPoint.Y; y < this.EndPoint.Y + 1; y++)
+            {
+                System.Console.SetCursorPosition(this.StartPoint.X, y);
+                System.Console.Write(this.Token);
+            }
+        }
+
+        /// <summary>
+        /// Draws a generic line.
+        /// </summary>
+        private void DrawGenericLine()
+        {
             foreach (Point point in this.GetLinePoints(this.StartPoint.X, this.StartPoint.Y, this.EndPoint.X, this.EndPoint.Y))
             {
                 Console.SetCursorPosition(point.X, point.Y);
                 Console.Write(this.Token);
             }
-
-            System.Console.ForegroundColor = saveForeColor;
-            System.Console.BackgroundColor = saveBackColor;
         }
 
         private static void Swap<T>(ref T lhs, ref T rhs)
