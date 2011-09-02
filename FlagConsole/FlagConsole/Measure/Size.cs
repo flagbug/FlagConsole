@@ -64,6 +64,36 @@ namespace FlagConsole.Measure
         }
 
         /// <summary>
+        /// Implements the operator ==.
+        /// </summary>
+        /// <param name="sizeA">The position A.</param>
+        /// <param name="sizeB">The position B.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator ==(Size sizeA, Size sizeB)
+        {
+            //Check reference
+            if (Object.ReferenceEquals(sizeA, sizeB))
+                return true;
+
+            //Check null (cast to object type to avoid infinite loop)
+            if ((object)sizeA == null || (object)sizeB == null)
+                return false;
+
+            return sizeA.Height == sizeB.Height && sizeA.Width == sizeB.Width;
+        }
+
+        /// <summary>
+        /// Implements the operator !=.
+        /// </summary>
+        /// <param name="positionA">The position A.</param>
+        /// <param name="positionB">The position B.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator !=(Size sizeA, Size sizeB)
+        {
+            return !(sizeA == sizeB);
+        }
+
+        /// <summary>
         /// Determines whether the specified <see cref="System.Object"/> is equal to this instance.
         /// </summary>
         /// <param name="obj">The <see cref="System.Object"/> to compare with this instance.</param>
@@ -75,16 +105,14 @@ namespace FlagConsole.Measure
         /// </exception>
         public override bool Equals(object obj)
         {
-            if (obj == null) return false;
-
             Size size = obj as Size;
 
-            if (size == null || this.GetType() != size.GetType())
+            if (size == null)
             {
                 return false;
             }
 
-            return this.Height == size.Height && this.Width == size.Width;
+            return this.Equals(size);
         }
 
         /// <summary>
