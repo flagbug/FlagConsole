@@ -6,6 +6,7 @@ namespace FlagConsole.Demo
     internal class ListViewDemoPanel : Panel
     {
         private ListView<string> listView;
+        private ListView<string> listView2;
 
         public ListViewDemoPanel()
         {
@@ -21,6 +22,20 @@ namespace FlagConsole.Demo
             this.listView.Items.Add("be selected.");
 
             this.Controls.Add(this.listView);
+
+            this.listView2 = new ListView<string>();
+            this.listView2.RelativeLocation = new Point(18, 0);
+            this.listView2.Size = new Size(5, 8);
+            this.listView2.Bullet = '-';
+            this.listView2.Items.Add("This");
+            this.listView2.Items.Add("list view");
+            this.listView2.Items.Add("has a other");
+            this.listView2.Items.Add("bullet type");
+            this.listView2.Items.Add("than the");
+            this.listView2.Items.Add("list view");
+            this.listView2.Items.Add("to the left.");
+
+            this.Controls.Add(this.listView2);
         }
     }
 }
