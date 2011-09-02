@@ -7,3 +7,5 @@ FlagConsole/FlagConsole.Demo/bin
 FlagConsole/FlagConsole.Demo/obj
 FlagConsole/FlagConsole/bin
 FlagConsole/TestResults
+*.psess
+*.vsp

@@ -20,12 +20,12 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Gets the top control (the screen).
+        /// Gets the top conainer (the screen).
         /// </summary>
         /// <value>
-        /// The top control.
+        /// The top conainer.
         /// </value>
-        public override Control Top
+        public override Container Top
         {
             get { return this; }
         }

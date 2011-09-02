@@ -9,20 +9,20 @@ namespace FlagConsole.Controls
     public abstract class Control
     {
         /// <summary>
-        /// Gets or sets the parent control.
+        /// Gets or sets the parent container.
         /// </summary>
         /// <value>
-        /// The parent control.
+        /// The parent container.
         /// </value>
-        public virtual Control Parent { get; set; }
+        public virtual Container Parent { get; set; }
 
         /// <summary>
-        /// Gets the top control (the screen).
+        /// Gets the top container (the screen).
         /// </summary>
         /// <value>
-        /// The top control.
+        /// The top container.
         /// </value>
-        public virtual Control Top
+        public virtual Container Top
         {
             get { return this.Parent.Top; }
         }
