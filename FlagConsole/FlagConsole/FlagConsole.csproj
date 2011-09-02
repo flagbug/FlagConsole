@@ -53,6 +53,7 @@
     <Compile Include="Controls\Panel.cs" />
     <Compile Include="Controls\Screen.cs" />
     <Compile Include="Controls\TextField.cs" />
+    <Compile Include="Drawing\GenericLine.cs" />
     <Compile Include="Drawing\HorizontalLine.cs" />
     <Compile Include="Drawing\IArea.cs" />
     <Compile Include="Drawing\Line.cs" />
