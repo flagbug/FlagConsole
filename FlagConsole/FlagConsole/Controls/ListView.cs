@@ -36,7 +36,7 @@ namespace FlagConsole.Controls
         /// </summary>
         protected override void Draw()
         {
-            for (int i = 0; i < this.items.Count; i++)
+            for (int i = 0; i < this.items.Count && i < this.Size.Height; i++)
             {
                 System.Console.SetCursorPosition(this.AbsoluteLocation.X, this.AbsoluteLocation.Y + i);
 
