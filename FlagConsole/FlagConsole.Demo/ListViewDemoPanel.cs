@@ -10,7 +10,7 @@ namespace FlagConsole.Demo
         public ListViewDemoPanel()
         {
             this.listView = new ListView<string>();
-            this.listView.Size = new Size(5, 3);
+            this.listView.Size = new Size(5, 8);
             this.listView.Items.Add("This");
             this.listView.Items.Add("is a");
             this.listView.Items.Add("list view.");
