@@ -1,28 +1,10 @@
-﻿using System;
-
-namespace FlagConsole.Drawing
+﻿namespace FlagConsole.Drawing
 {
     /// <summary>
     /// Base class for rectangles, lines, etc...
     /// </summary>
     public abstract class Shape
     {
-        /// <summary>
-        /// Gets or sets the fore color.
-        /// </summary>
-        /// <value>
-        /// The fore color.
-        /// </value>
-        public ConsoleColor ForegroundColor { get; set; }
-
-        /// <summary>
-        /// Gets or sets the back color.
-        /// </summary>
-        /// <value>
-        /// The back color.
-        /// </value>
-        public ConsoleColor BackgroundColor { get; set; }
-
         /// <summary>
         /// Gets or sets the token.
         /// </summary>
@@ -39,8 +21,6 @@ namespace FlagConsole.Drawing
         protected Shape(char token)
         {
             this.Token = token;
-            this.ForegroundColor = ConsoleColor.Gray;
-            this.BackgroundColor = ConsoleColor.Black;
         }
 
         /// <summary>

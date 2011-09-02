@@ -61,38 +61,6 @@ namespace FlagConsole.Controls
         public ICollection<ConsoleKey> DownKeys { get; private set; }
 
         /// <summary>
-        /// Gets or sets the color of the foreground.
-        /// </summary>
-        /// <value>
-        /// The color of the foreground.
-        /// </value>
-        public ConsoleColor ForegroundColor { get; set; }
-
-        /// <summary>
-        /// Gets or sets the color of the background.
-        /// </summary>
-        /// <value>
-        /// The color of the background.
-        /// </value>
-        public ConsoleColor BackgroundColor { get; set; }
-
-        /// <summary>
-        /// Gets or sets the color of the selection background.
-        /// </summary>
-        /// <value>
-        /// The color of the selection background.
-        /// </value>
-        public ConsoleColor SelectionBackgroundColor { get; set; }
-
-        /// <summary>
-        /// Gets or sets the color of the selection foreground.
-        /// </summary>
-        /// <value>
-        /// The color of the selection foreground.
-        /// </value>
-        public ConsoleColor SelectionForegroundColor { get; set; }
-
-        /// <summary>
         /// Gets a value indicating whether this <see cref="IFocusable"/> is focused.
         /// </summary>
         /// <value>
@@ -118,10 +86,6 @@ namespace FlagConsole.Controls
             this.items = new List<MenuItem<T>>();
             this.UpKeys = new List<ConsoleKey> { ConsoleKey.UpArrow };
             this.DownKeys = new List<ConsoleKey> { ConsoleKey.DownArrow };
-            this.ForegroundColor = ConsoleColor.Gray;
-            this.BackgroundColor = ConsoleColor.Black;
-            this.SelectionBackgroundColor = ConsoleColor.White;
-            this.SelectionForegroundColor = ConsoleColor.Black;
             this.Bullet = '-';
         }
 
@@ -130,14 +94,12 @@ namespace FlagConsole.Controls
         /// </summary>
         protected override void Draw()
         {
-            System.Console.BackgroundColor = this.BackgroundColor;
-
             for (int i = 0; i < this.Items.Count; i++)
             {
                 if (this.SelectedIndex == i)
                 {
-                    System.Console.ForegroundColor = this.SelectionForegroundColor;
-                    System.Console.BackgroundColor = this.SelectionBackgroundColor;
+                    System.Console.ForegroundColor = ConsoleColor.Black;
+                    System.Console.BackgroundColor = ConsoleColor.White;
                 }
 
                 System.Console.SetCursorPosition(this.AbsoluteLocation.X, this.AbsoluteLocation.Y + i);
@@ -145,11 +107,7 @@ namespace FlagConsole.Controls
                 string bulletString = this.DisplayBullets ? this.Bullet + " " : String.Empty;
                 System.Console.WriteLine(bulletString + this.items[i].Name);
 
-                if (this.SelectedIndex == i)
-                {
-                    System.Console.ForegroundColor = this.ForegroundColor;
-                    System.Console.BackgroundColor = this.BackgroundColor;
-                }
+                Console.ResetColor();
             }
         }
 

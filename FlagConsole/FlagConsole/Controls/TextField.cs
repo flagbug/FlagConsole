@@ -8,22 +8,6 @@ namespace FlagConsole.Controls
     public class TextField : Control, IFocusable
     {
         /// <summary>
-        /// Gets or sets the color of the foreground.
-        /// </summary>
-        /// <value>
-        /// The color of the foreground.
-        /// </value>
-        public virtual ConsoleColor ForegroundColor { get; set; }
-
-        /// <summary>
-        /// Gets or sets the color of the background.
-        /// </summary>
-        /// <value>
-        /// The color of the background.
-        /// </value>
-        public virtual ConsoleColor BackgroundColor { get; set; }
-
-        /// <summary>
         /// Gets the input.
         /// </summary>
         /// <value>
@@ -58,8 +42,6 @@ namespace FlagConsole.Controls
         public TextField()
         {
             this.Text = String.Empty;
-            this.ForegroundColor = ConsoleColor.Black;
-            this.BackgroundColor = ConsoleColor.White;
         }
 
         /// <summary>
@@ -85,25 +67,19 @@ namespace FlagConsole.Controls
         /// </summary>
         protected override void Draw()
         {
-            System.ConsoleColor saveBackgroundColor = System.Console.BackgroundColor;
-            System.ConsoleColor saveForegroundColor = System.Console.ForegroundColor;
-
-            System.Console.BackgroundColor = this.BackgroundColor;
-            System.Console.ForegroundColor = this.ForegroundColor;
+            System.Console.BackgroundColor = ConsoleColor.White;
+            System.Console.ForegroundColor = ConsoleColor.Black;
 
             string background = String.Empty;
             background = background.PadRight(this.Length, ' ');
 
-            System.Console.BackgroundColor = this.BackgroundColor;
             System.Console.SetCursorPosition(this.AbsoluteLocation.X, this.AbsoluteLocation.Y);
             System.Console.Write(background);
 
-            System.Console.ForegroundColor = this.ForegroundColor;
             System.Console.SetCursorPosition(this.AbsoluteLocation.X, this.AbsoluteLocation.Y);
             System.Console.Write(this.Text);
 
-            System.Console.BackgroundColor = saveBackgroundColor;
-            System.Console.ForegroundColor = saveForegroundColor;
+            Console.ResetColor();
         }
 
         /// <summary>

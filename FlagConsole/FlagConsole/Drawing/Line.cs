@@ -44,12 +44,6 @@ namespace FlagConsole.Drawing
         /// </summary>
         public override void Draw()
         {
-            ConsoleColor saveForeColor = System.Console.ForegroundColor;
-            ConsoleColor saveBackColor = System.Console.BackgroundColor;
-
-            System.Console.ForegroundColor = this.ForegroundColor;
-            System.Console.BackgroundColor = this.BackgroundColor;
-
             if (this.StartPoint.X == this.EndPoint.X)
             {
                 this.DrawVerticalLine();
@@ -64,9 +58,6 @@ namespace FlagConsole.Drawing
             {
                 this.DrawGenericLine();
             }
-
-            System.Console.ForegroundColor = saveForeColor;
-            System.Console.BackgroundColor = saveBackColor;
         }
 
         /// <summary>
