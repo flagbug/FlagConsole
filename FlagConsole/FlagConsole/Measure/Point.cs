@@ -130,7 +130,7 @@ namespace FlagConsole.Measure
                 return false;
             }
 
-            return this == position;
+            return this.Equals(position);
         }
 
         /// <summary>
