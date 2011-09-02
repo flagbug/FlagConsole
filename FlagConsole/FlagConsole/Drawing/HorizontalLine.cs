@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using FlagConsole.Measure;
 
 namespace FlagConsole.Drawing
@@ -19,12 +20,7 @@ namespace FlagConsole.Drawing
             System.Console.ForegroundColor = this.ForegroundColor;
             System.Console.BackgroundColor = this.BackgroundColor;
 
-            string line = "";
-
-            for (int i = 0; i < this.Length; i++)
-            {
-                line += this.Token.ToString();
-            }
+            string line = new string(Enumerable.Repeat(this.Token, this.Length).ToArray());
 
             System.Console.SetCursorPosition(this.Location.X, this.Location.Y);
             System.Console.Write(line);
