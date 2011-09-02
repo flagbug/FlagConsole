@@ -13,7 +13,7 @@ namespace FlagConsole.Demo
         public TextFieldDemoPanel()
         {
             this.descriptionLabel = new Label();
-            this.descriptionLabel.Text = "Enter some text and press enter. The maximum length is set to 8 characters";
+            this.descriptionLabel.Text = "Enter some text and press enter. The maximum length is set to 8 characters.";
             this.descriptionLabel.Size = new Size(this.descriptionLabel.Text.Length / 2 + 1, 2);
             this.Controls.Add(this.descriptionLabel);
 

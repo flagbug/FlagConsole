@@ -36,6 +36,7 @@ namespace FlagConsole.Demo
             this.mainMenu.Items.Add(new MenuItem<Action>("Label demo", this.ShowLabelDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("ListView demo", this.ShowListViewDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("TextField demo", this.ShowTextFieldDemo));
+            this.mainMenu.Items.Add(new MenuItem<Action>("Rectangle demo", this.ShowRectangleDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("Exit", this.Exit));
 
             this.mainMenu.UpKeys.Add(ConsoleKey.W);
@@ -82,6 +83,11 @@ namespace FlagConsole.Demo
             var panel = new TextFieldDemoPanel();
             this.SwitchDemoPanel(panel);
             panel.Activate();
+        }
+
+        public void ShowRectangleDemo()
+        {
+            this.SwitchDemoPanel(new RectangleDemoPanel());
         }
 
         public void Exit()
