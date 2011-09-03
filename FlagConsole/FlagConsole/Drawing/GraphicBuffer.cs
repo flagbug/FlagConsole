@@ -55,6 +55,7 @@ namespace FlagConsole.Drawing
         /// </summary>
         public void ResetColor()
         {
+            Console.ResetColor();
             this.ForegroundDrawingColor = Console.ForegroundColor;
             this.BackgroundDrawingColor = Console.BackgroundColor;
         }
