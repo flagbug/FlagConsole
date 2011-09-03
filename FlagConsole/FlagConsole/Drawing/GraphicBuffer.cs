@@ -152,8 +152,8 @@ namespace FlagConsole.Drawing
                 foreach (var pixel in pixels)
                 {
                     if (prevPixel != null
-                        && pixel.BackgroundColor == prevPixel.BackgroundColor
-                        && pixel.ForegroundColor == prevPixel.ForegroundColor)
+                        && pixel.BackgroundColor != prevPixel.BackgroundColor
+                        && pixel.ForegroundColor != prevPixel.ForegroundColor)
                     {
                         final.Add(currentGroup);
                         currentGroup = new List<Pixel>();
@@ -175,7 +175,8 @@ namespace FlagConsole.Drawing
                     Console.ForegroundColor = pixelLine[0].ForegroundColor;
                     Console.BackgroundColor = pixelLine[0].BackgroundColor;
 
-                    Console.Write(pixelLine.Select(pixel => pixel.Token));
+                    var l = pixelLine.Select(pixel => pixel.Token).ToArray();
+                    Console.Write(l);
                 }
             }
         }
