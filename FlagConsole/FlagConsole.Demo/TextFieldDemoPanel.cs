@@ -18,6 +18,7 @@ namespace FlagConsole.Demo
             this.Controls.Add(this.descriptionLabel);
 
             this.textField = new TextField();
+            this.textField.Size = new Size(8, 1);
             this.textField.Length = 8;
             this.textField.RelativeLocation = new Point(0, 4);
             this.textField.TextEntered += new System.EventHandler(textField_TextEntered);
