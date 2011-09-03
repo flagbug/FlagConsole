@@ -1,4 +1,6 @@
 ﻿using System;
+using FlagConsole.Drawing;
+using FlagConsole.Measure;
 
 namespace FlagConsole.Controls
 {
@@ -67,19 +69,18 @@ namespace FlagConsole.Controls
         /// </summary>
         protected override void Draw()
         {
-            System.Console.BackgroundColor = ConsoleColor.White;
-            System.Console.ForegroundColor = ConsoleColor.Black;
+            GraphicBuffer buffer = new GraphicBuffer(this.Size);
+            buffer.BackgroundDrawingColor = ConsoleColor.White;
+            buffer.ForegroundDrawingColor = ConsoleColor.Black;
 
             string background = String.Empty;
             background = background.PadRight(this.Length, ' ');
 
-            System.Console.SetCursorPosition(this.AbsoluteLocation.X, this.AbsoluteLocation.Y);
-            System.Console.Write(background);
+            buffer.DrawLine(background, new Point());
 
-            System.Console.SetCursorPosition(this.AbsoluteLocation.X, this.AbsoluteLocation.Y);
-            System.Console.Write(this.Text);
+            buffer.DrawLine(this.Text, new Point());
 
-            Console.ResetColor();
+            buffer.DrawToScreen(this.AbsoluteLocation);
         }
 
         /// <summary>
