@@ -28,14 +28,18 @@ namespace FlagConsole.Drawing
             this.buffer = new char[width, height];
         }
 
-        /*
+        /// <summary>
+        /// Draws the specified pixel at the specified location in the buffer.
+        /// </summary>
+        /// <param name="pixel">The pixel to draw.</param>
+        /// <param name="location">The location where the pixel shall be drawn.</param>
         public void DrawPixel(char pixel, Point location)
         {
             if (this.IsInBounds(location))
             {
+                this.buffer[location.X, location.Y] = pixel;
             }
         }
-        */
 
         /// <summary>
         /// Determines whether the specified point is in the bounds of the buffer.
