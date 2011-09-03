@@ -64,7 +64,7 @@ namespace FlagConsole.Drawing
         /// </summary>
         private void DrawFilledRectangle()
         {
-            Line line = new Line(this.Location, new Point(this.Location.X + this.Size.Width, this.Location.Y), this.Token);
+            Line line = new Line(this.Location, new Point(this.Location.X + this.Size.Width - 1, this.Location.Y), this.Token);
 
             for (int y = this.Location.Y - 1; y < this.Location.Y + this.Size.Height - 1; y++)
             {
@@ -79,7 +79,7 @@ namespace FlagConsole.Drawing
         /// </summary>
         private void DrawUnfilledRectangle()
         {
-            Line xLine = new Line(this.Location, new Point(this.Location.X + this.Size.Width, this.Location.Y), this.Token);
+            Line xLine = new Line(this.Location, new Point(this.Location.X + this.Size.Width - 1, this.Location.Y), this.Token);
             xLine.Draw();
             xLine.StartPoint = new Point(xLine.StartPoint.X, xLine.StartPoint.Y + this.Size.Height);
             xLine.EndPoint = new Point(xLine.EndPoint.X, xLine.EndPoint.Y + this.Size.Height);
@@ -87,8 +87,8 @@ namespace FlagConsole.Drawing
 
             Line yLine = new Line(this.Location, new Point(this.Location.X, this.Location.Y + this.Size.Height), this.Token);
             yLine.Draw();
-            yLine.StartPoint = new Point(yLine.StartPoint.X + this.Size.Width, yLine.StartPoint.Y);
-            yLine.EndPoint = new Point(yLine.EndPoint.X + this.Size.Width, yLine.EndPoint.Y);
+            yLine.StartPoint = new Point(yLine.StartPoint.X + this.Size.Width - 1, yLine.StartPoint.Y);
+            yLine.EndPoint = new Point(yLine.EndPoint.X + this.Size.Width - 1, yLine.EndPoint.Y);
             yLine.Draw();
         }
     }
