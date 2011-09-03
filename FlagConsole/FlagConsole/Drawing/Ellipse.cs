@@ -4,7 +4,7 @@ using FlagConsole.Measure;
 
 namespace FlagConsole.Drawing
 {
-    public class Circle : Shape
+    public class Ellipse : Shape
     {
         /// <summary>
         /// Gets or sets the mid point.
@@ -15,24 +15,32 @@ namespace FlagConsole.Drawing
         public Point MidPoint { get; set; }
 
         /// <summary>
-        /// Gets or sets the radius.
+        /// Gets or sets the size on the x-axis.
         /// </summary>
         /// <value>
-        /// The radius.
+        /// The size on the y-axis.
         /// </value>
-        public int Radius { get; set; }
+        public int A { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Circle"/> class.
+        /// Gets or sets the size on the y-axis.
+        /// </summary>
+        /// <value>
+        /// The size on the y-axis.
+        /// </value>
+        public int B { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Ellipse"/> class.
         /// </summary>
         /// <param name="midPoint">The mid point.</param>
-        /// <param name="radius">The radius.</param>
+        /// <param name="a">The radius.</param>
         /// <param name="token">The token.</param>
-        public Circle(Point midPoint, int radius, char token)
+        public Ellipse(Point midPoint, int a, int b, char token)
             : base(token)
         {
             this.MidPoint = midPoint;
-            this.Radius = radius;
+            this.A = a;
         }
 
         /// <summary>
@@ -43,8 +51,8 @@ namespace FlagConsole.Drawing
             foreach (System.Windows.Point point in this.RasterEllipse(
                 this.MidPoint.X,
                 this.MidPoint.Y,
-                this.Radius + (int)((double)this.Radius / (1.75)),
-                this.Radius))
+                this.A + (int)((double)this.A / (1.75)), //Compensate the proportions of the sympols in the console
+                this.A))
             {
                 Console.SetCursorPosition((int)point.X, (int)point.Y);
                 Console.Write(this.Token);
