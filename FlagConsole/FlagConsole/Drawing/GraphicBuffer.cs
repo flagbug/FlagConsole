@@ -5,7 +5,7 @@ namespace FlagConsole.Drawing
 {
     public class GraphicBuffer
     {
-        public char[,] buffer;
+        private char[,] buffer;
 
         /// <summary>
         /// Gets the width of this graphic buffer.
