@@ -21,11 +21,12 @@ namespace FlagConsole.Drawing
         /// </summary>
         /// <param name="width">The width of the buffer.</param>
         /// <param name="height">The height of the buffer.</param>
-        public GraphicBuffer(int width, int height)
+        public GraphicBuffer(Size size)
         {
-            this.Width = width;
-            this.Height = height;
-            this.buffer = new char[width, height];
+            this.Width = size.Width;
+            this.Height = size.Height;
+
+            this.buffer = new char[this.Width, this.Height];
         }
 
         /// <summary>
