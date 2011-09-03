@@ -44,9 +44,10 @@ namespace FlagConsole.Drawing
         {
             this.Width = size.Width;
             this.Height = size.Height;
-            this.Clear();
 
             this.buffer = new Pixel[this.Width, this.Height];
+
+            this.Clear();
         }
 
         /// <summary>
