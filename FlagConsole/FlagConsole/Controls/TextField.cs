@@ -104,11 +104,15 @@ namespace FlagConsole.Controls
             ConsoleKeyInfo key;
 
             Console.CursorVisible = true;
+
             do
             {
                 this.Update();
 
-                Console.SetCursorPosition(this.AbsoluteLocation.X + this.Text.Length, this.AbsoluteLocation.Y);
+                int offset = this.Text.Length == this.Length ? 1 : 0;
+
+                Console.SetCursorPosition(this.AbsoluteLocation.X + this.Text.Length - offset, this.AbsoluteLocation.Y);
+
                 key = System.Console.ReadKey(true);
 
                 if (key.Key != ConsoleKey.Enter)
