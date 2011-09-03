@@ -42,6 +42,7 @@ namespace FlagConsole.Drawing
         {
             this.Centre = midPoint;
             this.A = a;
+            this.B = b;
         }
 
         /// <summary>
@@ -53,7 +54,7 @@ namespace FlagConsole.Drawing
                 this.Centre.X,
                 this.Centre.Y,
                 this.A + (int)((double)this.A / (1.75)), //Compensate the proportions of the sympols in the console
-                this.A))
+                this.B))
             {
                 Console.SetCursorPosition((int)point.X, (int)point.Y);
                 Console.Write(this.Token);
