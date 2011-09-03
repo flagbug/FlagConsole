@@ -44,12 +44,18 @@ namespace FlagConsole.Drawing
         {
             this.Width = size.Width;
             this.Height = size.Height;
-            this.ForegroundDrawingColor = Console.ForegroundColor;
-            this.BackgroundDrawingColor = Console.BackgroundColor;
+            this.ResetColor();
 
             this.buffer = new char[this.Width, this.Height];
             this.foregroundColorBuffer = new ConsoleColor[this.Width, this.Height];
             this.backgroundColorBuffer = new ConsoleColor[this.Width, this.Height];
+        }
+
+        //Sets the foreground and background drawing colors to their default values
+        public void ResetColor()
+        {
+            this.ForegroundDrawingColor = Console.ForegroundColor;
+            this.BackgroundDrawingColor = Console.BackgroundColor;
         }
 
         /// <summary>
