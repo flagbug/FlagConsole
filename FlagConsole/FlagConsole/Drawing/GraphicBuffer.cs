@@ -120,7 +120,7 @@ namespace FlagConsole.Drawing
         /// <param name="location">The location where the line shall be drawn.</param>
         public void DrawLine(string line, Point location)
         {
-            this.DrawLine(line, location);
+            this.DrawLine(line.ToCharArray(), location);
         }
 
         /// <summary>
