@@ -30,6 +30,22 @@ namespace FlagConsole.Drawing
         }
 
         /// <summary>
+        /// Merges the specified buffer at the specified location into this buffer.
+        /// </summary>
+        /// <param name="otherBuffer">The other buffer.</param>
+        /// <param name="location">The location.</param>
+        public void Merge(GraphicBuffer otherBuffer, Point location)
+        {
+            for (int y = 0; y < otherBuffer.buffer.GetUpperBound(1); y++)
+            {
+                for (int x = 0; x < otherBuffer.buffer.GetLowerBound(0); x++)
+                {
+                    this.DrawPixel(otherBuffer.buffer[x, y], location + new Point(x, y));
+                }
+            }
+        }
+
+        /// <summary>
         /// Draws the specified pixel at the specified location in the buffer.
         /// </summary>
         /// <param name="pixel">The pixel to draw.</param>
@@ -48,6 +64,16 @@ namespace FlagConsole.Drawing
         /// <param name="line">The line to draw.</param>
         /// <param name="location">The location where the line shall be drawn.</param>
         public void DrawLine(string line, Point location)
+        {
+            this.DrawLine(line, location);
+        }
+
+        /// <summary>
+        /// Draws the specified line to the specified location.
+        /// </summary>
+        /// <param name="line">The line to draw.</param>
+        /// <param name="location">The location where the line shall be drawn.</param>
+        public void DrawLine(char[] line, Point location)
         {
             for (int i = 0; i < line.Length; i++)
             {
