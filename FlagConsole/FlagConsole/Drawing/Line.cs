@@ -87,7 +87,7 @@ namespace FlagConsole.Drawing
         /// </summary>
         private void DrawGenericLine()
         {
-            foreach (Point point in this.GetLinePoints(this.StartPoint.X, this.StartPoint.Y, this.EndPoint.X, this.EndPoint.Y))
+            foreach (Point point in this.RasterLine(this.StartPoint.X, this.StartPoint.Y, this.EndPoint.X, this.EndPoint.Y))
             {
                 Console.SetCursorPosition(point.X, point.Y);
                 Console.Write(this.Token);
@@ -100,7 +100,7 @@ namespace FlagConsole.Drawing
             lhs = rhs; rhs = temp;
         }
 
-        private IEnumerable<Point> GetLinePoints(int x0, int y0, int x1, int y1)
+        private IEnumerable<Point> RasterLine(int x0, int y0, int x1, int y1)
         {
             bool steep = Math.Abs(y1 - y0) > Math.Abs(x1 - x0);
 
