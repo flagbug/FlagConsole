@@ -100,12 +100,15 @@ namespace FlagConsole.Controls
         /// </summary>
         protected virtual void ScanInput()
         {
+            bool cursorVisible = Console.CursorVisible;
             ConsoleKeyInfo key;
 
+            Console.CursorVisible = true;
             do
             {
                 this.Update();
 
+                Console.SetCursorPosition(this.AbsoluteLocation.X + this.Text.Length, this.AbsoluteLocation.Y);
                 key = System.Console.ReadKey(true);
 
                 if (key.Key != ConsoleKey.Enter)
@@ -127,6 +130,8 @@ namespace FlagConsole.Controls
             while (key.Key != ConsoleKey.Enter && this.IsVisible);
 
             this.OnTextEntered(EventArgs.Empty);
+
+            Console.CursorVisible = cursorVisible;
         }
     }
 }
