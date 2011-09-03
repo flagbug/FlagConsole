@@ -66,13 +66,10 @@ namespace FlagConsole.Drawing
         {
             this.ResetColor();
 
-            for (int y = 0; y < this.buffer.GetUpperBound(1); y++)
-            {
-                for (int x = 0; x < this.buffer.GetUpperBound(0); x++)
+            this.TraversePixels((x, y) =>
                 {
                     this.DrawPixel(' ', new Point(x, y));
-                }
-            }
+                });
         }
 
         /// <summary>
@@ -85,16 +82,13 @@ namespace FlagConsole.Drawing
             var fColor = this.ForegroundDrawingColor;
             var bColor = this.BackgroundDrawingColor;
 
-            for (int y = 0; y < otherBuffer.buffer.GetUpperBound(1); y++)
-            {
-                for (int x = 0; x < otherBuffer.buffer.GetUpperBound(0); x++)
+            this.TraversePixels((x, y) =>
                 {
                     this.ForegroundDrawingColor = otherBuffer.buffer[x, y].ForegroundColor;
                     this.BackgroundDrawingColor = otherBuffer.buffer[x, y].BackgroundColor;
 
                     this.DrawPixel(otherBuffer.buffer[x, y].Token, location + new Point(x, y));
-                }
-            }
+                });
 
             this.ForegroundDrawingColor = fColor;
             this.BackgroundDrawingColor = bColor;
@@ -142,11 +136,11 @@ namespace FlagConsole.Drawing
         /// <param name="location">The location.</param>
         public void DrawToScreen(Point location)
         {
-            for (int y = 0; y < this.buffer.GetUpperBound(1); y++)
+            for (int y = 0; y <= this.buffer.GetUpperBound(1); y++)
             {
-                Pixel[] pixels = new Pixel[this.buffer.GetUpperBound(0)];
+                Pixel[] pixels = new Pixel[this.buffer.GetUpperBound(0) + 1];
 
-                for (int x = 0; x < this.buffer.GetUpperBound(0); x++)
+                for (int x = 0; x <= this.buffer.GetUpperBound(0); x++)
                 {
                     pixels[x] = this.buffer[x, y];
                 }
@@ -158,7 +152,7 @@ namespace FlagConsole.Drawing
                 foreach (var pixel in pixels)
                 {
                     if (prevPixel != null
-                        && pixel.BackgroundColor != prevPixel.BackgroundColor
+                        && pixel.BackgroundColor == prevPixel.BackgroundColor
                         && pixel.ForegroundColor == prevPixel.ForegroundColor)
                     {
                         final.Add(currentGroup);
@@ -201,6 +195,24 @@ namespace FlagConsole.Drawing
             }
 
             return this.buffer.GetUpperBound(0) >= point.X && this.buffer.GetUpperBound(1) >= point.Y;
+        }
+
+        /// <summary>
+        /// Calls the specified action for each pixel.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        private void TraversePixels(Action<int, int> action)
+        {
+            int yBound = this.buffer.GetUpperBound(1);
+            int xBound = this.buffer.GetUpperBound(0);
+
+            for (int y = 0; y <= yBound; y++)
+            {
+                for (int x = 0; x <= xBound; x++)
+                {
+                    action(x, y);
+                }
+            }
         }
     }
 }
