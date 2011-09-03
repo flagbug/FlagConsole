@@ -44,7 +44,7 @@ namespace FlagConsole.Drawing
         {
             this.Width = size.Width;
             this.Height = size.Height;
-            this.ResetColor();
+            this.Clear();
 
             this.buffer = new Pixel[this.Width, this.Height];
         }
@@ -56,6 +56,22 @@ namespace FlagConsole.Drawing
         {
             this.ForegroundDrawingColor = Console.ForegroundColor;
             this.BackgroundDrawingColor = Console.BackgroundColor;
+        }
+
+        /// <summary>
+        /// Clears the graphic buffer and resets the drawing colors.
+        /// </summary>
+        public void Clear()
+        {
+            this.ResetColor();
+
+            for (int y = 0; y < this.buffer.GetUpperBound(1); y++)
+            {
+                for (int x = 0; x < this.buffer.GetLowerBound(0); x++)
+                {
+                    this.DrawPixel(' ', new Point(x, y));
+                }
+            }
         }
 
         /// <summary>
