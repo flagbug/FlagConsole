@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EllipseDemoPanel.cs" />
     <Compile Include="LabelDemoPanel.cs" />
     <Compile Include="LineDemoPanel.cs" />
     <Compile Include="ListViewDemoPanel.cs" />
