@@ -6,13 +6,6 @@ namespace FlagConsole.Demo
 {
     internal class DemoScreen : Screen
     {
-        private enum MainMenuAction
-        {
-            Item1,
-            Item2,
-            Item3
-        }
-
         private Menu<Action> mainMenu;
 
         private Panel mainMenuPanel;
