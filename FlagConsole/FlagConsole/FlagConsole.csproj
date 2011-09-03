@@ -54,7 +54,6 @@
     <Compile Include="Controls\Screen.cs" />
     <Compile Include="Controls\TextField.cs" />
     <Compile Include="Drawing\Ellipse.cs" />
-    <Compile Include="Drawing\IArea.cs" />
     <Compile Include="Drawing\Line.cs" />
     <Compile Include="Drawing\Rectangle.cs" />
     <Compile Include="Drawing\Shape.cs" />

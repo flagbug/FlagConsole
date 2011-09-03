@@ -2,7 +2,7 @@
 
 namespace FlagConsole.Drawing
 {
-    public class Rectangle : Shape, IArea
+    public class Rectangle : Shape
     {
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Rectangle"/> is filled.
