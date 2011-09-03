@@ -29,17 +29,6 @@ namespace FlagConsole.Drawing
         public Point Location { get; set; }
 
         /// <summary>
-        /// Gets the area.
-        /// </summary>
-        /// <value>
-        /// The area.
-        /// </value>
-        public int Area
-        {
-            get { return this.Size.Height * this.Size.Width; }
-        }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="Rectangle"/> class.
         /// </summary>
         /// <param name="location">The location.</param>
