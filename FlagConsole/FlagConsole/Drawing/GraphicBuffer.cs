@@ -67,13 +67,22 @@ namespace FlagConsole.Drawing
         /// <param name="location">The location.</param>
         public void Merge(GraphicBuffer otherBuffer, Point location)
         {
+            var fColor = this.ForegroundDrawingColor;
+            var bColor = this.BackgroundDrawingColor;
+
             for (int y = 0; y < otherBuffer.buffer.GetUpperBound(1); y++)
             {
                 for (int x = 0; x < otherBuffer.buffer.GetLowerBound(0); x++)
                 {
+                    this.ForegroundDrawingColor = otherBuffer.foregroundColorBuffer[x, y];
+                    this.BackgroundDrawingColor = otherBuffer.backgroundColorBuffer[x, y];
+
                     this.DrawPixel(otherBuffer.buffer[x, y], location + new Point(x, y));
                 }
             }
+
+            this.ForegroundDrawingColor = fColor;
+            this.BackgroundDrawingColor = bColor;
         }
 
         /// <summary>
