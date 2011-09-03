@@ -12,7 +12,7 @@ namespace FlagConsole.Drawing
         /// <value>
         /// The mid point.
         /// </value>
-        public Point MidPoint { get; set; }
+        public Point Centre { get; set; }
 
         /// <summary>
         /// Gets or sets the size on the x-axis.
@@ -35,11 +35,12 @@ namespace FlagConsole.Drawing
         /// </summary>
         /// <param name="midPoint">The mid point.</param>
         /// <param name="a">The radius.</param>
+        /// <param name="b">The b.</param>
         /// <param name="token">The token.</param>
         public Ellipse(Point midPoint, int a, int b, char token)
             : base(token)
         {
-            this.MidPoint = midPoint;
+            this.Centre = midPoint;
             this.A = a;
         }
 
@@ -49,8 +50,8 @@ namespace FlagConsole.Drawing
         public override void Draw()
         {
             foreach (System.Windows.Point point in this.RasterEllipse(
-                this.MidPoint.X,
-                this.MidPoint.Y,
+                this.Centre.X,
+                this.Centre.Y,
                 this.A + (int)((double)this.A / (1.75)), //Compensate the proportions of the sympols in the console
                 this.A))
             {
