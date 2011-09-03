@@ -68,7 +68,7 @@ namespace FlagConsole.Drawing
 
             for (int y = 0; y < this.buffer.GetUpperBound(1); y++)
             {
-                for (int x = 0; x < this.buffer.GetLowerBound(0); x++)
+                for (int x = 0; x < this.buffer.GetUpperBound(0); x++)
                 {
                     this.DrawPixel(' ', new Point(x, y));
                 }
@@ -87,7 +87,7 @@ namespace FlagConsole.Drawing
 
             for (int y = 0; y < otherBuffer.buffer.GetUpperBound(1); y++)
             {
-                for (int x = 0; x < otherBuffer.buffer.GetLowerBound(0); x++)
+                for (int x = 0; x < otherBuffer.buffer.GetUpperBound(0); x++)
                 {
                     this.ForegroundDrawingColor = otherBuffer.buffer[x, y].ForegroundColor;
                     this.BackgroundDrawingColor = otherBuffer.buffer[x, y].BackgroundColor;
