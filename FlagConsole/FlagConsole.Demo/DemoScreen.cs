@@ -26,6 +26,7 @@ namespace FlagConsole.Demo
 
             this.mainMenu = new Menu<Action>();
             this.mainMenu.RelativeLocation = new Point(0, 6);
+            this.mainMenu.Size = new Size(15, 10);
             this.mainMenu.Items.Add(new MenuItem<Action>("Label", this.ShowLabelDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("ListView", this.ShowListViewDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("TextField", this.ShowTextFieldDemo));

@@ -11,7 +11,7 @@ namespace FlagConsole.Demo
         public ListViewDemoPanel()
         {
             this.listView = new ListView<string>();
-            this.listView.Size = new Size(5, 8);
+            this.listView.Size = new Size(14, 8);
             this.listView.Items.Add("This");
             this.listView.Items.Add("is a");
             this.listView.Items.Add("list view.");
@@ -25,7 +25,7 @@ namespace FlagConsole.Demo
 
             this.listView2 = new ListView<string>();
             this.listView2.RelativeLocation = new Point(18, 0);
-            this.listView2.Size = new Size(5, 8);
+            this.listView2.Size = new Size(14, 8);
             this.listView2.Bullet = '-';
             this.listView2.Items.Add("This");
             this.listView2.Items.Add("list view");
