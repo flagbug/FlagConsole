@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using FlagConsole.Drawing;
+using FlagConsole.Measure;
 
 namespace FlagConsole.Controls
 {
@@ -94,21 +96,24 @@ namespace FlagConsole.Controls
         /// </summary>
         protected override void Draw()
         {
+            GraphicBuffer buffer = new GraphicBuffer(this.Size);
+
             for (int i = 0; i < this.Items.Count; i++)
             {
                 if (this.SelectedIndex == i)
                 {
-                    System.Console.ForegroundColor = ConsoleColor.Black;
-                    System.Console.BackgroundColor = ConsoleColor.White;
+                    buffer.ForegroundDrawingColor = ConsoleColor.Black;
+                    buffer.BackgroundDrawingColor = ConsoleColor.White;
                 }
 
-                System.Console.SetCursorPosition(this.AbsoluteLocation.X, this.AbsoluteLocation.Y + i);
-
                 string bulletString = this.DisplayBullets ? this.Bullet + " " : String.Empty;
-                System.Console.WriteLine(bulletString + this.items[i].Name);
 
-                Console.ResetColor();
+                buffer.DrawLine(bulletString + this.items[i].Name, new Point(0, i));
+
+                buffer.ResetColor();
             }
+
+            buffer.DrawToScreen(this.AbsoluteLocation);
         }
 
         /// <summary>
