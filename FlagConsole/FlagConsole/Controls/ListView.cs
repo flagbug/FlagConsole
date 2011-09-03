@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using FlagConsole.Drawing;
+using FlagConsole.Measure;
 
 namespace FlagConsole.Controls
 {
@@ -36,13 +38,16 @@ namespace FlagConsole.Controls
         /// </summary>
         protected override void Draw()
         {
+            GraphicBuffer buffer = new GraphicBuffer(this.Size);
+
             for (int i = 0; i < this.items.Count && i < this.Size.Height; i++)
             {
-                System.Console.SetCursorPosition(this.AbsoluteLocation.X, this.AbsoluteLocation.Y + i);
-
                 string bulletString = this.DisplayBullets ? this.Bullet + " " : String.Empty;
-                System.Console.Write(bulletString + this.items[i].ToString());
+
+                buffer.DrawLine(bulletString + this.items[i].ToString(), new Point(0, i));
             }
+
+            buffer.DrawToScreen(this.AbsoluteLocation);
         }
     }
 }
