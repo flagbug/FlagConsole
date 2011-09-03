@@ -1,4 +1,6 @@
-﻿namespace FlagConsole.Drawing
+﻿using FlagConsole.Measure;
+
+namespace FlagConsole.Drawing
 {
     public class GraphicBuffer
     {
@@ -24,6 +26,32 @@
             this.Width = width;
             this.Height = height;
             this.buffer = new char[width, height];
+        }
+
+        /*
+        public void DrawPixel(char pixel, Point location)
+        {
+            if (this.IsInBounds(location))
+            {
+            }
+        }
+        */
+
+        /// <summary>
+        /// Determines whether the specified point is in the bounds of the buffer.
+        /// </summary>
+        /// <param name="point">The point.</param>
+        /// <returns>
+        /// true if the specified point is in the bounds of the buffer; otherwise, false.
+        /// </returns>
+        private bool IsInBounds(Point point)
+        {
+            if (point.X < 0 || point.Y < 0)
+            {
+                return false;
+            }
+
+            return this.buffer.GetUpperBound(0) >= point.X && this.buffer.GetUpperBound(1) >= point.Y;
         }
     }
 }
