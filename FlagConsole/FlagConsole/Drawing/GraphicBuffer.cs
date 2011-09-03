@@ -51,7 +51,9 @@ namespace FlagConsole.Drawing
             this.backgroundColorBuffer = new ConsoleColor[this.Width, this.Height];
         }
 
-        //Sets the foreground and background drawing colors to their default values
+        /// <summary>
+        /// Sets the foreground and background drawing colors to their default values.
+        /// </summary>
         public void ResetColor()
         {
             this.ForegroundDrawingColor = Console.ForegroundColor;
