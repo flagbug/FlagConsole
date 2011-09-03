@@ -33,11 +33,12 @@ namespace FlagConsole.Demo
 
             this.mainMenu = new Menu<Action>();
             this.mainMenu.RelativeLocation = new Point(0, 6);
-            this.mainMenu.Items.Add(new MenuItem<Action>("Label demo", this.ShowLabelDemo));
-            this.mainMenu.Items.Add(new MenuItem<Action>("ListView demo", this.ShowListViewDemo));
-            this.mainMenu.Items.Add(new MenuItem<Action>("TextField demo", this.ShowTextFieldDemo));
-            this.mainMenu.Items.Add(new MenuItem<Action>("Rectangle demo", this.ShowRectangleDemo));
-            this.mainMenu.Items.Add(new MenuItem<Action>("Line demo", this.ShowLineDemo));
+            this.mainMenu.Items.Add(new MenuItem<Action>("Label", this.ShowLabelDemo));
+            this.mainMenu.Items.Add(new MenuItem<Action>("ListView", this.ShowListViewDemo));
+            this.mainMenu.Items.Add(new MenuItem<Action>("TextField", this.ShowTextFieldDemo));
+            this.mainMenu.Items.Add(new MenuItem<Action>("Rectangle", this.ShowRectangleDemo));
+            this.mainMenu.Items.Add(new MenuItem<Action>("Line", this.ShowLineDemo));
+            this.mainMenu.Items.Add(new MenuItem<Action>("Ellipse", this.ShowEllipseDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("Exit", this.Exit));
 
             this.mainMenu.UpKeys.Add(ConsoleKey.W);
@@ -94,6 +95,11 @@ namespace FlagConsole.Demo
         public void ShowLineDemo()
         {
             this.SwitchDemoPanel(new LineDemoPanel());
+        }
+
+        public void ShowEllipseDemo()
+        {
+            this.SwitchDemoPanel(new EllipseDemoPanel());
         }
 
         public void Exit()
