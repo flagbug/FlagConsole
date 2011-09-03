@@ -1,13 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using FlagConsole.Measure;
 
 namespace FlagConsole.Drawing
 {
     public class GraphicBuffer
     {
-        private char[,] buffer;
-        private ConsoleColor[,] foregroundColorBuffer;
-        private ConsoleColor[,] backgroundColorBuffer;
+        private Pixel[,] buffer;
 
         /// <summary>
         /// Gets the width of this graphic buffer.
@@ -46,9 +46,7 @@ namespace FlagConsole.Drawing
             this.Height = size.Height;
             this.ResetColor();
 
-            this.buffer = new char[this.Width, this.Height];
-            this.foregroundColorBuffer = new ConsoleColor[this.Width, this.Height];
-            this.backgroundColorBuffer = new ConsoleColor[this.Width, this.Height];
+            this.buffer = new Pixel[this.Width, this.Height];
         }
 
         /// <summary>
@@ -74,10 +72,10 @@ namespace FlagConsole.Drawing
             {
                 for (int x = 0; x < otherBuffer.buffer.GetLowerBound(0); x++)
                 {
-                    this.ForegroundDrawingColor = otherBuffer.foregroundColorBuffer[x, y];
-                    this.BackgroundDrawingColor = otherBuffer.backgroundColorBuffer[x, y];
+                    this.ForegroundDrawingColor = otherBuffer.buffer[x, y].ForegroundColor;
+                    this.BackgroundDrawingColor = otherBuffer.buffer[x, y].BackgroundColor;
 
-                    this.DrawPixel(otherBuffer.buffer[x, y], location + new Point(x, y));
+                    this.DrawPixel(otherBuffer.buffer[x, y].Token, location + new Point(x, y));
                 }
             }
 
@@ -94,9 +92,7 @@ namespace FlagConsole.Drawing
         {
             if (this.IsInBounds(location))
             {
-                this.buffer[location.X, location.Y] = pixel;
-                this.foregroundColorBuffer[location.X, location.Y] = this.ForegroundDrawingColor;
-                this.backgroundColorBuffer[location.X, location.Y] = this.BackgroundDrawingColor;
+                this.buffer[location.X, location.Y] = new Pixel(pixel, this.ForegroundDrawingColor, this.BackgroundDrawingColor);
             }
         }
 
@@ -131,15 +127,45 @@ namespace FlagConsole.Drawing
         {
             for (int y = 0; y < this.buffer.GetUpperBound(1); y++)
             {
-                string line = String.Empty;
+                Pixel[] pixels = new Pixel[this.buffer.GetUpperBound(0)];
 
-                for (int x = 0; x < this.buffer.GetLowerBound(0); x++)
+                for (int x = 0; x < this.buffer.GetUpperBound(0); x++)
                 {
-                    line += this.buffer[x, y];
+                    pixels[x] = this.buffer[x, y];
+                }
+
+                var final = new List<List<Pixel>>();
+                var currentGroup = new List<Pixel>();
+                Pixel prevPixel = null;
+
+                foreach (var pixel in pixels)
+                {
+                    if (prevPixel != null
+                        && pixel.BackgroundColor != prevPixel.BackgroundColor
+                        && pixel.ForegroundColor == prevPixel.ForegroundColor)
+                    {
+                        final.Add(currentGroup);
+                        currentGroup = new List<Pixel>();
+                    }
+
+                    currentGroup.Add(pixel);
+                    prevPixel = pixel;
+                }
+
+                if (currentGroup.Count > 0)
+                {
+                    final.Add(currentGroup);
                 }
 
                 Console.SetCursorPosition(location.X, location.Y + y);
-                Console.WriteLine(line);
+
+                foreach (var pixelLine in final)
+                {
+                    Console.ForegroundColor = pixelLine[0].ForegroundColor;
+                    Console.BackgroundColor = pixelLine[0].BackgroundColor;
+
+                    Console.Write(pixelLine.Select(pixel => pixel.Token));
+                }
             }
         }
 
