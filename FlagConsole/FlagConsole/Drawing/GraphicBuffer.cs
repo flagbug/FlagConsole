@@ -6,6 +6,8 @@ namespace FlagConsole.Drawing
     public class GraphicBuffer
     {
         private char[,] buffer;
+        private ConsoleColor[,] foregroundColorBuffer;
+        private ConsoleColor[,] backgroundColorBuffer;
 
         /// <summary>
         /// Gets the width of this graphic buffer.
@@ -18,6 +20,22 @@ namespace FlagConsole.Drawing
         public int Height { get; private set; }
 
         /// <summary>
+        /// Gets or sets the foreground drawing color.
+        /// </summary>
+        /// <value>
+        /// The foreground drawing color.
+        /// </value>
+        public ConsoleColor ForegroundDrawingColor { get; set; }
+
+        /// <summary>
+        /// Gets or sets the background drawing color.
+        /// </summary>
+        /// <value>
+        /// The background drawing color.
+        /// </value>
+        public ConsoleColor BackgroundDrawingColor { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="GraphicBuffer"/> class.
         /// </summary>
         /// <param name="width">The width of the buffer.</param>
@@ -26,8 +44,12 @@ namespace FlagConsole.Drawing
         {
             this.Width = size.Width;
             this.Height = size.Height;
+            this.ForegroundDrawingColor = Console.ForegroundColor;
+            this.BackgroundDrawingColor = Console.BackgroundColor;
 
             this.buffer = new char[this.Width, this.Height];
+            this.foregroundColorBuffer = new ConsoleColor[this.Width, this.Height];
+            this.backgroundColorBuffer = new ConsoleColor[this.Width, this.Height];
         }
 
         /// <summary>
@@ -56,6 +78,8 @@ namespace FlagConsole.Drawing
             if (this.IsInBounds(location))
             {
                 this.buffer[location.X, location.Y] = pixel;
+                this.foregroundColorBuffer[location.X, location.Y] = this.ForegroundDrawingColor;
+                this.backgroundColorBuffer[location.X, location.Y] = this.BackgroundDrawingColor;
             }
         }
 
