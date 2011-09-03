@@ -1,4 +1,5 @@
-﻿using FlagConsole.Measure;
+﻿using System;
+using FlagConsole.Measure;
 
 namespace FlagConsole.Drawing
 {
@@ -78,6 +79,26 @@ namespace FlagConsole.Drawing
             for (int i = 0; i < line.Length; i++)
             {
                 this.DrawPixel(line[i], location + new Point(i, 0));
+            }
+        }
+
+        /// <summary>
+        /// Draws the buffer at the specified location to the screen.
+        /// </summary>
+        /// <param name="location">The location.</param>
+        public void DrawToScreen(Point location)
+        {
+            for (int y = 0; y < this.buffer.GetUpperBound(1); y++)
+            {
+                string line = String.Empty;
+
+                for (int x = 0; x < this.buffer.GetLowerBound(0); x++)
+                {
+                    line += this.buffer[x, y];
+                }
+
+                Console.SetCursorPosition(location.X, location.Y + y);
+                Console.WriteLine(line);
             }
         }
 
