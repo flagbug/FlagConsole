@@ -42,6 +42,19 @@ namespace FlagConsole.Drawing
         }
 
         /// <summary>
+        /// Draws the specified line to the specified location.
+        /// </summary>
+        /// <param name="line">The line to draw.</param>
+        /// <param name="location">The location where the line shall be drawn.</param>
+        public void DrawLine(string line, Point location)
+        {
+            for (int i = 0; i < line.Length; i++)
+            {
+                this.DrawPixel(line[i], location + new Point(i, 0));
+            }
+        }
+
+        /// <summary>
         /// Determines whether the specified point is in the bounds of the buffer.
         /// </summary>
         /// <param name="point">The point.</param>
