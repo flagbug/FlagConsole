@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using FlagConsole.Drawing;
+using FlagConsole.Measure;
 
 namespace FlagConsole.Controls
 {
@@ -61,11 +63,14 @@ namespace FlagConsole.Controls
             }
             while (words.Count > 0 && lines.Count < this.Size.Height);
 
+            GraphicBuffer buffer = new GraphicBuffer(this.Size);
+
             for (int i = 0; i < lines.Count; i++)
             {
-                System.Console.SetCursorPosition(this.AbsoluteLocation.X, this.AbsoluteLocation.Y + i);
-                System.Console.Write(lines[i]);
+                buffer.DrawLine(lines[i], new Point(0, i));
             }
+
+            buffer.DrawToScreen(this.AbsoluteLocation);
         }
     }
 }
