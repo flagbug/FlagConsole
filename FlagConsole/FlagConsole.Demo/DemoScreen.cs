@@ -57,10 +57,10 @@ namespace FlagConsole.Demo
             Timer t = new Timer(250);
             t.Elapsed += (sender, e) =>
             {
-                this.Update(new GraphicBuffer(this.Size));
+                //this.Update(new GraphicBuffer(this.Size));
             };
             t.Start();
-            //this.Update();
+            this.Update(new GraphicBuffer(this.Size));
             this.mainMenu.Focus();
         }
 
