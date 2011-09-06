@@ -8,14 +8,14 @@ namespace FlagConsole.UnitTests
     ///to contain all PointTest Unit Tests
     ///</summary>
     [TestClass]
-    public class PointTest
+    public class CoordinateTest
     {
         [TestMethod]
         public void PointConstructorTest()
         {
             int x = 5;
             int y = 15;
-            Point target = new Point(x, y);
+            Coordinate target = new Coordinate(x, y);
 
             Assert.AreEqual(5, target.X);
             Assert.AreEqual(15, target.Y);
@@ -24,7 +24,7 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void PointEmptyConstructorTest()
         {
-            Point target = new Point();
+            Coordinate target = new Coordinate();
 
             Assert.AreEqual(0, target.X);
             Assert.AreEqual(0, target.Y);
@@ -36,10 +36,10 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void AddTest()
         {
-            Point target = new Point(5, 15);
-            Point position = new Point(5, 15);
-            Point expected = new Point(10, 30);
-            Point actual;
+            Coordinate target = new Coordinate(5, 15);
+            Coordinate position = new Coordinate(5, 15);
+            Coordinate expected = new Coordinate(10, 30);
+            Coordinate actual;
 
             actual = target.Add(position);
 
@@ -52,8 +52,8 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void CloneTest()
         {
-            Point target = new Point(5, 15);
-            object expected = new Point(5, 15);
+            Coordinate target = new Coordinate(5, 15);
+            object expected = new Coordinate(5, 15);
             object actual;
 
             actual = target.Clone();
@@ -67,8 +67,8 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void EqualsTest()
         {
-            Point target = new Point(5, 15);
-            object obj = new Point(5, 15);
+            Coordinate target = new Coordinate(5, 15);
+            object obj = new Coordinate(5, 15);
             bool expected = true;
             bool actual;
 
@@ -83,8 +83,8 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void EqualsInverseTest()
         {
-            Point target = new Point(5, 15);
-            object obj = new Point(15, 5);
+            Coordinate target = new Coordinate(5, 15);
+            object obj = new Coordinate(15, 5);
             bool expected = false;
             bool actual;
 
@@ -99,7 +99,7 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void EqualsNullTest()
         {
-            Point target = new Point(5, 15);
+            Coordinate target = new Coordinate(5, 15);
             object obj = null;
             bool expected = false;
             bool actual;
@@ -115,7 +115,7 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void EqualsReferenceTest()
         {
-            Point target = new Point(5, 15);
+            Coordinate target = new Coordinate(5, 15);
             object obj = target;
             bool expected = true;
             bool actual;
@@ -131,8 +131,8 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void GenericEqualsTest()
         {
-            Point target = new Point(5, 15);
-            Point position = new Point(5, 15);
+            Coordinate target = new Coordinate(5, 15);
+            Coordinate position = new Coordinate(5, 15);
             bool expected = true;
             bool actual;
 
@@ -147,8 +147,8 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void GenericEqualsInverseTest()
         {
-            Point target = new Point(5, 15);
-            Point position = new Point(15, 5);
+            Coordinate target = new Coordinate(5, 15);
+            Coordinate position = new Coordinate(15, 5);
             bool expected = false;
             bool actual;
 
@@ -163,8 +163,8 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void GenericEqualsNullTest()
         {
-            Point target = new Point(5, 15);
-            Point position = null;
+            Coordinate target = new Coordinate(5, 15);
+            Coordinate position = null;
             bool expected = false;
             bool actual;
 
@@ -179,8 +179,8 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void GenericEqualsReferenceTest()
         {
-            Point target = new Point(5, 15);
-            Point position = target;
+            Coordinate target = new Coordinate(5, 15);
+            Coordinate position = target;
             bool expected = true;
             bool actual;
 
@@ -195,9 +195,9 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void GetHashCodeTest()
         {
-            int positionHash1 = new Point().GetHashCode();
-            int positionHash2 = new Point(1, 1).GetHashCode();
-            int positionHash3 = new Point(2, 2).GetHashCode();
+            int positionHash1 = new Coordinate().GetHashCode();
+            int positionHash2 = new Coordinate(1, 1).GetHashCode();
+            int positionHash3 = new Coordinate(2, 2).GetHashCode();
 
             Assert.IsTrue(positionHash1 != positionHash2 && positionHash1 != positionHash3 && positionHash2 != positionHash3);
         }
@@ -208,10 +208,10 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void op_AdditionTest()
         {
-            Point positionA = new Point(5, 15);
-            Point positionB = new Point(5, 15);
-            Point expected = new Point(10, 30);
-            Point actual;
+            Coordinate positionA = new Coordinate(5, 15);
+            Coordinate positionB = new Coordinate(5, 15);
+            Coordinate expected = new Coordinate(10, 30);
+            Coordinate actual;
 
             actual = (positionA + positionB);
 
@@ -224,8 +224,8 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void op_EqualityTest()
         {
-            Point positionA = new Point(5, 15);
-            Point positionB = new Point(5, 15);
+            Coordinate positionA = new Coordinate(5, 15);
+            Coordinate positionB = new Coordinate(5, 15);
             bool expected = true;
             bool actual;
 
@@ -240,8 +240,8 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void op_EqualityInverseTest()
         {
-            Point positionA = new Point(5, 15);
-            Point positionB = new Point(15, 5);
+            Coordinate positionA = new Coordinate(5, 15);
+            Coordinate positionB = new Coordinate(15, 5);
             bool expected = false;
             bool actual;
 
@@ -256,8 +256,8 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void op_EqualityNullTest()
         {
-            Point positionA = new Point(5, 15);
-            Point positionB = null;
+            Coordinate positionA = new Coordinate(5, 15);
+            Coordinate positionB = null;
             bool expected = false;
             bool actual;
 
@@ -272,8 +272,8 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void op_EqualityReferenceTest()
         {
-            Point positionA = new Point(5, 15);
-            Point positionB = positionA;
+            Coordinate positionA = new Coordinate(5, 15);
+            Coordinate positionB = positionA;
             bool expected = true;
             bool actual;
 
@@ -288,8 +288,8 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void op_InequalityTest()
         {
-            Point positionA = new Point(5, 15);
-            Point positionB = new Point(10, 30);
+            Coordinate positionA = new Coordinate(5, 15);
+            Coordinate positionB = new Coordinate(10, 30);
             bool expected = true;
             bool actual;
 
@@ -304,8 +304,8 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void op_InequalityInverseTest()
         {
-            Point positionA = new Point(5, 15);
-            Point positionB = new Point(5, 15);
+            Coordinate positionA = new Coordinate(5, 15);
+            Coordinate positionB = new Coordinate(5, 15);
             bool expected = false;
             bool actual;
 
@@ -320,8 +320,8 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void op_InequalityNullTest()
         {
-            Point positionA = new Point(5, 15);
-            Point positionB = null;
+            Coordinate positionA = new Coordinate(5, 15);
+            Coordinate positionB = null;
             bool expected = true;
             bool actual;
 
@@ -336,8 +336,8 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void op_InequalityReferenceTest()
         {
-            Point positionA = new Point(5, 15);
-            Point positionB = positionA;
+            Coordinate positionA = new Coordinate(5, 15);
+            Coordinate positionB = positionA;
             bool expected = false;
             bool actual;
 

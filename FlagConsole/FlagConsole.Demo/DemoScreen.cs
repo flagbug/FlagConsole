@@ -16,7 +16,7 @@ namespace FlagConsole.Demo
         public DemoScreen()
         {
             this.mainMenuPanel = new Panel();
-            this.mainMenuPanel.RelativeLocation = new Point(2, 1);
+            this.mainMenuPanel.RelativeLocation = new Coordinate(2, 1);
             this.Controls.Add(this.mainMenuPanel);
 
             this.mainManuTextLabel = new Label();
@@ -25,7 +25,7 @@ namespace FlagConsole.Demo
             this.mainMenuPanel.Controls.Add(mainManuTextLabel);
 
             this.mainMenu = new Menu<Action>();
-            this.mainMenu.RelativeLocation = new Point(0, 6);
+            this.mainMenu.RelativeLocation = new Coordinate(0, 6);
             this.mainMenu.Size = new Size(15, 10);
             this.mainMenu.Items.Add(new MenuItem<Action>("Label", this.ShowLabelDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("ListView", this.ShowListViewDemo));
@@ -59,7 +59,7 @@ namespace FlagConsole.Demo
         {
             this.Controls.Remove(this.presentationPanel);
             this.presentationPanel = panel;
-            this.presentationPanel.RelativeLocation = new Point(35, 7);
+            this.presentationPanel.RelativeLocation = new Coordinate(35, 7);
             this.Controls.Add(this.presentationPanel);
             this.Update();
         }

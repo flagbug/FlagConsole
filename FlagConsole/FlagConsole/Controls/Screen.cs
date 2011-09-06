@@ -14,7 +14,7 @@ namespace FlagConsole.Controls
         /// <value>
         /// The absolute position to the console.
         /// </value>
-        public override Point AbsoluteLocation
+        public override Coordinate AbsoluteLocation
         {
             get { return this.RelativeLocation; }
         }

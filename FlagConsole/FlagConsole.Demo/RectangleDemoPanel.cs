@@ -14,13 +14,13 @@ namespace FlagConsole.Demo
             this.filledRectangleLabel = new Label();
             this.filledRectangleLabel.Text = "This is a filled rectangle";
             this.filledRectangleLabel.Size = new Size(this.filledRectangleLabel.Text.Length, 1);
-            this.filledRectangleLabel.RelativeLocation = new Point(17, 0);
+            this.filledRectangleLabel.RelativeLocation = new Coordinate(17, 0);
             this.Controls.Add(this.filledRectangleLabel);
 
             this.emptyRectangleLabel = new Label();
             this.emptyRectangleLabel.Text = "This is an empty rectangle";
             this.emptyRectangleLabel.Size = new Size(this.emptyRectangleLabel.Text.Length, 1);
-            this.emptyRectangleLabel.RelativeLocation = new Point(17, 11);
+            this.emptyRectangleLabel.RelativeLocation = new Coordinate(17, 11);
             this.Controls.Add(this.emptyRectangleLabel);
         }
 
@@ -29,7 +29,7 @@ namespace FlagConsole.Demo
             base.Draw();
 
             Rectangle filledRectangle = new Rectangle(this.AbsoluteLocation, new Size(15, 10), '#', true);
-            Rectangle emptyRectangle = new Rectangle(this.AbsoluteLocation + new Point(0, 11), new Size(15, 10), '#', false);
+            Rectangle emptyRectangle = new Rectangle(this.AbsoluteLocation + new Coordinate(0, 11), new Size(15, 10), '#', false);
 
             filledRectangle.Draw();
             emptyRectangle.Draw();

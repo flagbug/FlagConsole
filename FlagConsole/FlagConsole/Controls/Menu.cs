@@ -108,7 +108,7 @@ namespace FlagConsole.Controls
 
                 string bulletString = this.DisplayBullets ? this.Bullet + " " : String.Empty;
 
-                buffer.DrawLine(bulletString + this.items[i].Name, new Point(0, i));
+                buffer.DrawLine(bulletString + this.items[i].Name, new Coordinate(0, i));
 
                 buffer.ResetColor();
             }

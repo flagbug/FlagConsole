@@ -14,13 +14,13 @@ namespace FlagConsole.Demo
             this.ellipseLabel = new Label();
             this.ellipseLabel.Text = "This is an ellipse.";
             this.ellipseLabel.Size = new Size(this.ellipseLabel.Text.Length, 1);
-            this.ellipseLabel.RelativeLocation = new Point(17, 0);
+            this.ellipseLabel.RelativeLocation = new Coordinate(17, 0);
             this.Controls.Add(this.ellipseLabel);
 
             this.circleLabel = new Label();
             this.circleLabel.Text = "This is a circle.";
             this.circleLabel.Size = new Size(this.circleLabel.Text.Length, 1);
-            this.circleLabel.RelativeLocation = new Point(19, 18);
+            this.circleLabel.RelativeLocation = new Coordinate(19, 18);
             this.Controls.Add(this.circleLabel);
         }
 
@@ -28,10 +28,10 @@ namespace FlagConsole.Demo
         {
             base.Draw();
 
-            Ellipse ellipse = new Ellipse(this.AbsoluteLocation + new Point(10, 7), 4, 7, '#');
+            Ellipse ellipse = new Ellipse(this.AbsoluteLocation + new Coordinate(10, 7), 4, 7, '#');
             ellipse.Draw();
 
-            Ellipse circle = new Ellipse(this.AbsoluteLocation + new Point(10, 25), 7, 7, '#');
+            Ellipse circle = new Ellipse(this.AbsoluteLocation + new Coordinate(10, 25), 7, 7, '#');
             circle.Draw();
         }
     }

@@ -44,7 +44,7 @@ namespace FlagConsole.Controls
             {
                 string bulletString = this.DisplayBullets ? this.Bullet + " " : String.Empty;
 
-                buffer.DrawLine(bulletString + this.items[i].ToString(), new Point(0, i));
+                buffer.DrawLine(bulletString + this.items[i].ToString(), new Coordinate(0, i));
             }
 
             buffer.DrawToScreen(this.AbsoluteLocation);
