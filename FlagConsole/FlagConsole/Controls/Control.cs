@@ -80,20 +80,18 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Updates the control if it's visibility is set to true.
         /// </summary>
-        public virtual void Update()
+        public virtual void Update(GraphicBuffer buffer)
         {
-            this.Clear();
-
             if (this.IsVisible)
             {
-                this.Draw();
+                this.Draw(buffer);
             }
         }
 
         /// <summary>
         /// Draws the control.
         /// </summary>
-        protected abstract void Draw();
+        protected abstract void Draw(GraphicBuffer buffer);
 
         /// <summary>
         /// Clears the control's area.

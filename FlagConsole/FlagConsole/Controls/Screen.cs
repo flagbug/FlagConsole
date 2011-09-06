@@ -29,5 +29,12 @@ namespace FlagConsole.Controls
         {
             get { return this; }
         }
+
+        protected override void Draw(Drawing.GraphicBuffer buffer)
+        {
+            base.Draw(buffer);
+
+            buffer.DrawToScreen(this.AbsoluteLocation);
+        }
     }
 }

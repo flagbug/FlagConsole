@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Timers;
 using FlagConsole.Controls;
+using FlagConsole.Drawing;
 using FlagConsole.Measure;
 
 namespace FlagConsole.Demo
@@ -43,12 +43,15 @@ namespace FlagConsole.Demo
 
             this.mainMenuPanel.Controls.Add(this.mainMenu);
 
+            /*
             Timer t = new Timer(250);
             t.Elapsed += (sender, e) =>
             {
-                this.Update();
+                this.Update(new GraphicBuffer(this.Size));
             };
-            t.Start();
+            t.Start();*/
+
+            this.Update(new GraphicBuffer(this.Size));
         }
 
         private void mainMenu_ItemChosen(object sender, MenuEventArgs<Action> e)
@@ -59,7 +62,7 @@ namespace FlagConsole.Demo
 
         public void Activate()
         {
-            this.Update();
+            //this.Update();
             this.mainMenu.Focus();
         }
 
@@ -69,7 +72,7 @@ namespace FlagConsole.Demo
             this.presentationPanel = panel;
             this.presentationPanel.RelativeLocation = new Coordinate(35, 7);
             this.Controls.Add(this.presentationPanel);
-            this.Update();
+            //this.Update();
         }
 
         public void ShowLabelDemo()

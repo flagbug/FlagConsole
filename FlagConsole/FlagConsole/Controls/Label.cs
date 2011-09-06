@@ -29,7 +29,7 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Draws the control.
         /// </summary>
-        protected override void Draw()
+        protected override void Draw(GraphicBuffer buffer)
         {
             List<string> words = new List<string>();
             words.AddRange(this.Text.Split(' ')); //Split text into words
@@ -63,14 +63,10 @@ namespace FlagConsole.Controls
             }
             while (words.Count > 0 && lines.Count < this.Size.Height);
 
-            GraphicBuffer buffer = new GraphicBuffer(this.Size, this.AbsoluteLocation);
-
             for (int i = 0; i < lines.Count; i++)
             {
                 buffer.DrawLine(lines[i], new Coordinate(0, i));
             }
-
-            buffer.DrawToScreen(this.AbsoluteLocation);
         }
     }
 }

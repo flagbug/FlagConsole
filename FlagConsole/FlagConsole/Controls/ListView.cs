@@ -36,18 +36,14 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Draws the control.
         /// </summary>
-        protected override void Draw()
+        protected override void Draw(GraphicBuffer buffer)
         {
-            GraphicBuffer buffer = new GraphicBuffer(this.Size, this.AbsoluteLocation);
-
             for (int i = 0; i < this.items.Count && i < this.Size.Height; i++)
             {
                 string bulletString = this.DisplayBullets ? this.Bullet + " " : String.Empty;
 
                 buffer.DrawLine(bulletString + this.items[i].ToString(), new Coordinate(0, i));
             }
-
-            buffer.DrawToScreen(this.AbsoluteLocation);
         }
     }
 }

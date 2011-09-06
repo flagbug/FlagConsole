@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using FlagConsole.Drawing;
+using FlagConsole.Measure;
 
 namespace FlagConsole.Controls
 {
@@ -33,25 +35,31 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Updates the container and it's child controls if their visiblity is set to true.
         /// </summary>
-        public override void Update()
+        public override void Update(GraphicBuffer buffer)
         {
-            base.Update();
-
             if (this.IsVisible)
             {
                 foreach (Control control in this.controls)
                 {
-                    control.Update();
+                    GraphicBuffer localBuffer = new GraphicBuffer(control.Size);
+
+                    control.Update(buffer);
+
+                    buffer.Merge(localBuffer, control.RelativeLocation);
                 }
             }
+
+            base.Update(buffer);
         }
 
         /// <summary>
         /// Draws the control.
         /// </summary>
-        protected override void Draw()
+        protected override void Draw(GraphicBuffer buffer)
         {
-            //Container usually have nothing to draw
+            GraphicBuffer local = new GraphicBuffer(this.Size);
+
+            buffer.Merge(local, new Coordinate());
         }
 
         /// <summary>
