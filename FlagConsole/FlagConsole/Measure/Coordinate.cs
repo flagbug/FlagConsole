@@ -7,6 +7,7 @@ namespace FlagConsole.Measure
     /// Provides a immutable Position, which encapsulates a x and y coordinate
     /// </summary>
     [Serializable]
+    [DebuggerStepThrough]
     [DebuggerDisplay("X = {X}, Y = {Y}")]
     public class Coordinate : ICloneable, IEquatable<Coordinate>
     {
