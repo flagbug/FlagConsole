@@ -24,9 +24,9 @@ namespace FlagConsole.Demo
             this.Controls.Add(this.circleLabel);
         }
 
-        protected override void Draw()
+        protected override void Draw(GraphicBuffer buffer)
         {
-            base.Draw();
+            base.Draw(buffer);
 
             Ellipse ellipse = new Ellipse(this.AbsoluteLocation + new Coordinate(10, 7), 4, 7, '#');
             ellipse.Draw();

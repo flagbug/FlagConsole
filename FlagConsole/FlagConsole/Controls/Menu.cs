@@ -94,10 +94,8 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Draws the control.
         /// </summary>
-        protected override void Draw()
+        protected override void Draw(GraphicBuffer buffer)
         {
-            GraphicBuffer buffer = new GraphicBuffer(this.Size, this.AbsoluteLocation);
-
             for (int i = 0; i < this.Items.Count; i++)
             {
                 if (this.SelectedIndex == i)
@@ -109,11 +107,7 @@ namespace FlagConsole.Controls
                 string bulletString = this.DisplayBullets ? this.Bullet + " " : String.Empty;
 
                 buffer.DrawLine(bulletString + this.items[i].Name, new Coordinate(0, i));
-
-                buffer.ResetColor();
             }
-
-            buffer.DrawToScreen(this.AbsoluteLocation);
         }
 
         /// <summary>
@@ -143,8 +137,6 @@ namespace FlagConsole.Controls
 
             do
             {
-                this.Update();
-
                 pressedKey = System.Console.ReadKey(true).Key;
 
                 if (this.UpKeys.Contains(pressedKey) && this.SelectedIndex > 0)

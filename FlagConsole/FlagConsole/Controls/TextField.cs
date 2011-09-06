@@ -67,9 +67,8 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Draws the control.
         /// </summary>
-        protected override void Draw()
+        protected override void Draw(GraphicBuffer buffer)
         {
-            GraphicBuffer buffer = new GraphicBuffer(this.Size, this.AbsoluteLocation);
             buffer.BackgroundDrawingColor = ConsoleColor.White;
             buffer.ForegroundDrawingColor = ConsoleColor.Black;
 
@@ -79,8 +78,6 @@ namespace FlagConsole.Controls
             buffer.DrawLine(background, new Coordinate());
 
             buffer.DrawLine(this.Text, new Coordinate());
-
-            buffer.DrawToScreen(this.AbsoluteLocation);
         }
 
         /// <summary>
@@ -107,7 +104,7 @@ namespace FlagConsole.Controls
 
             do
             {
-                this.Update();
+                //this.Update();
 
                 int offset = this.Text.Length == this.Length ? 1 : 0;
 

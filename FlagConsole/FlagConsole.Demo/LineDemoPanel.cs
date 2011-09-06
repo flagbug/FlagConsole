@@ -30,9 +30,9 @@ namespace FlagConsole.Demo
             this.Controls.Add(this.genericLineLabel);
         }
 
-        protected override void Draw()
+        protected override void Draw(GraphicBuffer buffer)
         {
-            base.Draw();
+            base.Draw(buffer);
 
             Line horizontalLine = new Line(this.AbsoluteLocation + new Coordinate(0, 2), this.AbsoluteLocation + new Coordinate(15, 2), '#');
             Line verticalLine = new Line(this.AbsoluteLocation + new Coordinate(0, 6), this.AbsoluteLocation + new Coordinate(0, 15), '#');
