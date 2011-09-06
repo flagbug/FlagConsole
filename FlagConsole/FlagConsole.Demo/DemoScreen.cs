@@ -68,6 +68,7 @@ namespace FlagConsole.Demo
         {
             this.Controls.Remove(this.presentationPanel);
             this.presentationPanel = panel;
+            this.presentationPanel.Size = new Size(45, 40);
             this.presentationPanel.RelativeLocation = new Coordinate(35, 7);
             this.Controls.Add(this.presentationPanel);
             //this.Update();
