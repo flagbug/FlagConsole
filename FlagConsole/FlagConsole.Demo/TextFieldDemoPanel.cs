@@ -33,7 +33,8 @@ namespace FlagConsole.Demo
         {
             this.textLabel.Text = "You have entered: " + this.textField.Text;
             this.textLabel.Size = new Size(this.textLabel.Text.Length, 1);
-            //this.Update();
+
+            this.OnInvalidated(EventArgs.Empty);
         }
 
         public void Activate()
