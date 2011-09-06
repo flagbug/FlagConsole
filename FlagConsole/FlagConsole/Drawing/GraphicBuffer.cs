@@ -10,14 +10,9 @@ namespace FlagConsole.Drawing
         private Pixel[,] buffer;
 
         /// <summary>
-        /// Gets the width of this graphic buffer.
+        /// Gets the size of the buffer.
         /// </summary>
-        public int Width { get; private set; }
-
-        /// <summary>
-        /// Gets the height of this graphic buffer.
-        /// </summary>
-        public int Height { get; private set; }
+        public Size Size { get; private set; }
 
         /// <summary>
         /// Gets or sets the foreground drawing color.
@@ -42,10 +37,9 @@ namespace FlagConsole.Drawing
         /// <param name="height">The height of the buffer.</param>
         public GraphicBuffer(Size size)
         {
-            this.Width = size.Width;
-            this.Height = size.Height;
+            this.Size = size;
 
-            this.buffer = new Pixel[this.Width, this.Height];
+            this.buffer = new Pixel[this.Size.Width, this.Size.Height];
 
             this.Clear();
         }
