@@ -152,6 +152,8 @@ namespace FlagConsole.Controls
                     this.SelectedIndex++;
                     this.OnSelectionChanged(new MenuEventArgs<T>(this.SelectedItem));
                 }
+
+                this.OnInvalidated(EventArgs.Empty);
             }
             while (pressedKey != ConsoleKey.Enter && this.IsVisible);
 
