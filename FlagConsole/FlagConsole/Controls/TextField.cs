@@ -69,7 +69,7 @@ namespace FlagConsole.Controls
         /// </summary>
         protected override void Draw()
         {
-            GraphicBuffer buffer = new GraphicBuffer(this.Size);
+            GraphicBuffer buffer = new GraphicBuffer(this.Size, this.AbsoluteLocation);
             buffer.BackgroundDrawingColor = ConsoleColor.White;
             buffer.ForegroundDrawingColor = ConsoleColor.Black;
 

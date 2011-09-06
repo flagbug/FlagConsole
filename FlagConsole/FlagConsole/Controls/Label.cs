@@ -63,7 +63,7 @@ namespace FlagConsole.Controls
             }
             while (words.Count > 0 && lines.Count < this.Size.Height);
 
-            GraphicBuffer buffer = new GraphicBuffer(this.Size);
+            GraphicBuffer buffer = new GraphicBuffer(this.Size, this.AbsoluteLocation);
 
             for (int i = 0; i < lines.Count; i++)
             {

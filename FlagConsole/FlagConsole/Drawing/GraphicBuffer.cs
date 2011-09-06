@@ -15,6 +15,11 @@ namespace FlagConsole.Drawing
         public Size Size { get; private set; }
 
         /// <summary>
+        /// Gets the location of the buffer.
+        /// </summary>
+        public Coordinate Location { get; private set; }
+
+        /// <summary>
         /// Gets or sets the foreground drawing color.
         /// </summary>
         /// <value>
@@ -35,9 +40,10 @@ namespace FlagConsole.Drawing
         /// </summary>
         /// <param name="width">The width of the buffer.</param>
         /// <param name="height">The height of the buffer.</param>
-        public GraphicBuffer(Size size)
+        public GraphicBuffer(Size size, Coordinate location)
         {
             this.Size = size;
+            this.Location = location;
 
             this.buffer = new Pixel[this.Size.Width, this.Size.Height];
 
