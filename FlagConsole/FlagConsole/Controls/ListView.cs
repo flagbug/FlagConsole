@@ -38,7 +38,7 @@ namespace FlagConsole.Controls
         /// </summary>
         protected override void Draw()
         {
-            GraphicBuffer buffer = new GraphicBuffer(this.Size);
+            GraphicBuffer buffer = new GraphicBuffer(this.Size, this.AbsoluteLocation);
 
             for (int i = 0; i < this.items.Count && i < this.Size.Height; i++)
             {
