@@ -77,6 +77,8 @@ namespace FlagConsole.Controls
                     {
                         control.Parent = this;
                         control.Invalidated += new EventHandler(control_Invalidated);
+
+                        this.OnInvalidated(EventArgs.Empty);
                     }
 
                     break;
@@ -86,6 +88,8 @@ namespace FlagConsole.Controls
                     {
                         control.Parent = null;
                         control.Invalidated -= control_Invalidated;
+
+                        this.OnInvalidated(EventArgs.Empty);
                     }
                     break;
             }
