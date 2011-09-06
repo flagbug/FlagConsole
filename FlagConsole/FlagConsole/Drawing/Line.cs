@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using FlagConsole.Measure;
 
 namespace FlagConsole.Drawing
@@ -8,7 +7,7 @@ namespace FlagConsole.Drawing
     /// <summary>
     /// Base class for lines (horizontal line and vertical line)
     /// </summary>
-    public class Line : Shape
+    internal class Line : Shape
     {
         /// <summary>
         /// Gets or sets the start point.
@@ -43,55 +42,12 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Draws the line.
         /// </summary>
-        public override void Draw()
-        {
-            if (this.StartPoint.X == this.EndPoint.X)
-            {
-                this.DrawVerticalLine();
-            }
-
-            else if (this.StartPoint.Y == this.EndPoint.Y)
-            {
-                this.DrawHorizontalLine();
-            }
-
-            else
-            {
-                this.DrawGenericLine();
-            }
-        }
-
-        /// <summary>
-        /// Draws a horizontal line.
-        /// </summary>
-        private void DrawHorizontalLine()
-        {
-            string line = new string(Enumerable.Repeat(this.Token, this.EndPoint.X - this.StartPoint.X + 1).ToArray());
-            System.Console.SetCursorPosition(this.StartPoint.X, this.StartPoint.Y);
-            System.Console.Write(line);
-        }
-
-        /// <summary>
-        /// Draws a vertical line.
-        /// </summary>
-        private void DrawVerticalLine()
-        {
-            for (int y = this.StartPoint.Y; y < this.EndPoint.Y + 1; y++)
-            {
-                System.Console.SetCursorPosition(this.StartPoint.X, y);
-                System.Console.Write(this.Token);
-            }
-        }
-
-        /// <summary>
-        /// Draws a generic line.
-        /// </summary>
-        private void DrawGenericLine()
+        /// <param name="buffer">The graphic buffer.</param>
+        public override void Draw(GraphicBuffer buffer)
         {
             foreach (Coordinate point in this.RasterLine(this.StartPoint.X, this.StartPoint.Y, this.EndPoint.X, this.EndPoint.Y))
             {
-                Console.SetCursorPosition(point.X, point.Y);
-                Console.Write(this.Token);
+                buffer.DrawPixel(this.Token, point);
             }
         }
 

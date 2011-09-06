@@ -28,11 +28,15 @@ namespace FlagConsole.Demo
         {
             base.Draw(buffer);
 
-            Rectangle filledRectangle = new Rectangle(this.AbsoluteLocation, new Size(15, 10), '#', true);
-            Rectangle emptyRectangle = new Rectangle(this.AbsoluteLocation + new Coordinate(0, 11), new Size(15, 10), '#', false);
+            buffer.DrawRectangle('#', new Coordinate(), new Size(15, 10), true);
+            buffer.DrawRectangle('#', new Coordinate(0, 11), new Size(15, 10), false);
 
-            filledRectangle.Draw();
-            emptyRectangle.Draw();
+            /*
+        Rectangle filledRectangle = new Rectangle(this.AbsoluteLocation, new Size(15, 10), '#', true);
+        Rectangle emptyRectangle = new Rectangle(this.AbsoluteLocation + new Coordinate(0, 11), new Size(15, 10), '#', false);
+
+        filledRectangle.Draw();
+        emptyRectangle.Draw();*/
         }
     }
 }

@@ -28,11 +28,8 @@ namespace FlagConsole.Demo
         {
             base.Draw(buffer);
 
-            Ellipse ellipse = new Ellipse(this.AbsoluteLocation + new Coordinate(10, 7), 4, 7, '#');
-            ellipse.Draw();
-
-            Ellipse circle = new Ellipse(this.AbsoluteLocation + new Coordinate(10, 25), 7, 7, '#');
-            circle.Draw();
+            buffer.DrawEllipse(new Coordinate(11, 7), 4, 7, '#');
+            buffer.DrawEllipse(new Coordinate(11, 25), 7, 7, '#');
         }
     }
 }

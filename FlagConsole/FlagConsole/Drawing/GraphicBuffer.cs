@@ -113,6 +113,18 @@ namespace FlagConsole.Drawing
         }
 
         /// <summary>
+        /// Draws a line.
+        /// </summary>
+        /// <param name="startPoint">The start point.</param>
+        /// <param name="endPoint">The end point.</param>
+        /// <param name="token">The token.</param>
+        public void DrawLine(Coordinate startPoint, Coordinate endPoint, char token)
+        {
+            Line line = new Line(startPoint, endPoint, token);
+            line.Draw(this);
+        }
+
+        /// <summary>
         /// Draws the specified line to the specified location.
         /// </summary>
         /// <param name="line">The line to draw.</param>
@@ -123,6 +135,32 @@ namespace FlagConsole.Drawing
             {
                 this.DrawPixel(line[i], location + new Coordinate(i, 0));
             }
+        }
+
+        /// <summary>
+        /// Draws a ellipse.
+        /// </summary>
+        /// <param name="midPoint">The mid point.</param>
+        /// <param name="a">A.</param>
+        /// <param name="b">The b.</param>
+        /// <param name="token">The token.</param>
+        public void DrawEllipse(Coordinate midPoint, int a, int b, char token)
+        {
+            Ellipse ellipse = new Ellipse(midPoint, a, b, token);
+            ellipse.Draw(this);
+        }
+
+        /// <summary>
+        /// Draws a rectangle.
+        /// </summary>
+        /// <param name="token">The token.</param>
+        /// <param name="location">The location.</param>
+        /// <param name="size">The size.</param>
+        /// <param name="isFilled">if set to true [is filled].</param>
+        public void DrawRectangle(char token, Coordinate location, Size size, bool isFilled)
+        {
+            Rectangle rectangle = new Rectangle(location, size, token, isFilled);
+            rectangle.Draw(this);
         }
 
         /// <summary>
