@@ -131,11 +131,11 @@ namespace FlagConsole.Drawing
         /// <param name="location">The location.</param>
         public void DrawToScreen(Coordinate location)
         {
-            for (int y = 0; y <= this.buffer.GetUpperBound(1); y++)
+            for (int y = 0; y < this.Size.Height; y++)
             {
-                Pixel[] pixels = new Pixel[this.buffer.GetUpperBound(0) + 1];
+                Pixel[] pixels = new Pixel[this.Size.Width];
 
-                for (int x = 0; x <= this.buffer.GetUpperBound(0); x++)
+                for (int x = 0; x < this.Size.Width; x++)
                 {
                     pixels[x] = this.buffer[x, y];
                 }
@@ -190,7 +190,7 @@ namespace FlagConsole.Drawing
                 return false;
             }
 
-            return this.buffer.GetUpperBound(0) >= point.X && this.buffer.GetUpperBound(1) >= point.Y;
+            return this.Size.Width > point.X && this.Size.Height > point.Y;
         }
 
         /// <summary>
@@ -199,12 +199,9 @@ namespace FlagConsole.Drawing
         /// <param name="action">The action.</param>
         private void TraversePixels(Action<int, int> action)
         {
-            int yBound = this.buffer.GetUpperBound(1);
-            int xBound = this.buffer.GetUpperBound(0);
-
-            for (int y = 0; y <= yBound; y++)
+            for (int y = 0; y < this.Size.Height; y++)
             {
-                for (int x = 0; x <= xBound; x++)
+                for (int x = 0; x < this.Size.Width; x++)
                 {
                     action(x, y);
                 }
