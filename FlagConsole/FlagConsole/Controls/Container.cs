@@ -37,19 +37,19 @@ namespace FlagConsole.Controls
         /// </summary>
         public override void Update(GraphicBuffer buffer)
         {
+            base.Update(buffer);
+
             if (this.IsVisible)
             {
                 foreach (Control control in this.controls)
                 {
                     GraphicBuffer localBuffer = new GraphicBuffer(control.Size);
 
-                    control.Update(buffer);
+                    control.Update(localBuffer);
 
                     buffer.Merge(localBuffer, control.RelativeLocation);
                 }
             }
-
-            base.Update(buffer);
         }
 
         /// <summary>

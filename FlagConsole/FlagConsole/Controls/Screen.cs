@@ -1,4 +1,5 @@
-﻿using FlagConsole.Measure;
+﻿using FlagConsole.Drawing;
+using FlagConsole.Measure;
 
 namespace FlagConsole.Controls
 {
@@ -30,9 +31,24 @@ namespace FlagConsole.Controls
             get { return this; }
         }
 
-        protected override void Draw(Drawing.GraphicBuffer buffer)
+        /// <summary>
+        /// Updates the container and it's child controls if their visiblity is set to true.
+        /// </summary>
+        public override void Update(GraphicBuffer buffer)
         {
-            base.Draw(buffer);
+            base.Update(buffer);
+
+            if (this.IsVisible)
+            {
+                foreach (Control control in this.Controls)
+                {
+                    GraphicBuffer localBuffer = new GraphicBuffer(control.Size);
+
+                    control.Update(localBuffer);
+
+                    buffer.Merge(localBuffer, control.RelativeLocation);
+                }
+            }
 
             buffer.DrawToScreen(this.AbsoluteLocation);
         }
