@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using FlagConsole.Drawing;
@@ -75,6 +76,7 @@ namespace FlagConsole.Controls
                     foreach (Control control in e.NewItems)
                     {
                         control.Parent = this;
+                        control.Invalidated += new EventHandler(control_Invalidated);
                     }
 
                     break;
@@ -83,9 +85,15 @@ namespace FlagConsole.Controls
                     foreach (Control control in e.OldItems)
                     {
                         control.Parent = null;
+                        control.Invalidated -= control_Invalidated;
                     }
                     break;
             }
+        }
+
+        private void control_Invalidated(object sender, System.EventArgs e)
+        {
+            this.OnInvalidated(EventArgs.Empty);
         }
     }
 }
