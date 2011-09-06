@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Timers;
 using FlagConsole.Controls;
 using FlagConsole.Measure;
 
@@ -41,6 +42,13 @@ namespace FlagConsole.Demo
             this.mainMenu.ItemChosen += new EventHandler<MenuEventArgs<Action>>(mainMenu_ItemChosen);
 
             this.mainMenuPanel.Controls.Add(this.mainMenu);
+
+            Timer t = new Timer(250);
+            t.Elapsed += (sender, e) =>
+            {
+                this.Update();
+            };
+            t.Start();
         }
 
         private void mainMenu_ItemChosen(object sender, MenuEventArgs<Action> e)
