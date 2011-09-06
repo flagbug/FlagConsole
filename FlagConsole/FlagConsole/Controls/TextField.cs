@@ -104,7 +104,7 @@ namespace FlagConsole.Controls
 
             do
             {
-                //this.Update();
+                this.OnInvalidated(EventArgs.Empty);
 
                 int offset = this.Text.Length == this.Length ? 1 : 0;
 
