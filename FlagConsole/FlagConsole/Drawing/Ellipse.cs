@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using FlagConsole.Measure;
 
 namespace FlagConsole.Drawing
 {
-    public class Ellipse : Shape
+    internal class Ellipse : Shape
     {
         /// <summary>
         /// Gets or sets the mid point.
@@ -48,16 +47,15 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Draws the circle.
         /// </summary>
-        public override void Draw()
+        public override void Draw(GraphicBuffer buffer)
         {
             foreach (System.Windows.Point point in this.RasterEllipse(
                 this.Centre.X,
                 this.Centre.Y,
-                this.A + (int)((double)this.A / (1.75)), //Compensate the proportions of the sympols in the console
+                this.A + (int)((double)this.A / (1.75)), //Compensate the proportions of the symbols in the console
                 this.B))
             {
-                Console.SetCursorPosition((int)point.X, (int)point.Y);
-                Console.Write(this.Token);
+                buffer.DrawPixel(this.Token, new Coordinate((int)point.X, (int)point.Y));
             }
         }
 

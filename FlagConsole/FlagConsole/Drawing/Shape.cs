@@ -3,7 +3,7 @@
     /// <summary>
     /// Base class for rectangles, lines, etc...
     /// </summary>
-    public abstract class Shape
+    internal abstract class Shape
     {
         /// <summary>
         /// Gets or sets the token.
@@ -26,6 +26,7 @@
         /// <summary>
         /// Draws the shape.
         /// </summary>
-        public abstract void Draw();
+        /// <param name="buffer">The graphic buffer.</param>
+        public abstract void Draw(GraphicBuffer buffer);
     }
 }
