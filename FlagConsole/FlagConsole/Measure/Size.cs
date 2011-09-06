@@ -7,6 +7,7 @@ namespace FlagConsole.Measure
     /// Provides a immutable size, which encapsulates a width and a height
     /// </summary>
     [Serializable]
+    [DebuggerStepThrough]
     [DebuggerDisplay("Width = {Width}, Height = {Height}")]
     public class Size : ICloneable, IEquatable<Size>
     {
