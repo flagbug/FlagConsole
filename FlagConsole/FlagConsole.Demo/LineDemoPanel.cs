@@ -20,13 +20,13 @@ namespace FlagConsole.Demo
             this.verticalLineLabel = new Label();
             this.verticalLineLabel.Text = "This is a vertical line.";
             this.verticalLineLabel.Size = new Size(this.verticalLineLabel.Text.Length, 1);
-            this.verticalLineLabel.RelativeLocation = new Point(0, 4);
+            this.verticalLineLabel.RelativeLocation = new Coordinate(0, 4);
             this.Controls.Add(this.verticalLineLabel);
 
             this.genericLineLabel = new Label();
             this.genericLineLabel.Text = "This is a generic line.";
             this.genericLineLabel.Size = new Size(this.genericLineLabel.Text.Length, 1);
-            this.genericLineLabel.RelativeLocation = new Point(0, 17);
+            this.genericLineLabel.RelativeLocation = new Coordinate(0, 17);
             this.Controls.Add(this.genericLineLabel);
         }
 
@@ -34,9 +34,9 @@ namespace FlagConsole.Demo
         {
             base.Draw();
 
-            Line horizontalLine = new Line(this.AbsoluteLocation + new Point(0, 2), this.AbsoluteLocation + new Point(15, 2), '#');
-            Line verticalLine = new Line(this.AbsoluteLocation + new Point(0, 6), this.AbsoluteLocation + new Point(0, 15), '#');
-            Line genericLine = new Line(this.AbsoluteLocation + new Point(0, 19), this.AbsoluteLocation + new Point(13, 36), '#');
+            Line horizontalLine = new Line(this.AbsoluteLocation + new Coordinate(0, 2), this.AbsoluteLocation + new Coordinate(15, 2), '#');
+            Line verticalLine = new Line(this.AbsoluteLocation + new Coordinate(0, 6), this.AbsoluteLocation + new Coordinate(0, 15), '#');
+            Line genericLine = new Line(this.AbsoluteLocation + new Coordinate(0, 19), this.AbsoluteLocation + new Coordinate(13, 36), '#');
 
             horizontalLine.Draw();
             verticalLine.Draw();

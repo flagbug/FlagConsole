@@ -24,7 +24,7 @@ namespace FlagConsole.Demo
             this.Controls.Add(this.listView);
 
             this.listView2 = new ListView<string>();
-            this.listView2.RelativeLocation = new Point(18, 0);
+            this.listView2.RelativeLocation = new Coordinate(18, 0);
             this.listView2.Size = new Size(14, 8);
             this.listView2.Bullet = '-';
             this.listView2.Items.Add("This");

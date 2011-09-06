@@ -16,7 +16,7 @@ namespace FlagConsole.Drawing
         /// <value>
         /// The start point.
         /// </value>
-        public Point StartPoint { get; set; }
+        public Coordinate StartPoint { get; set; }
 
         /// <summary>
         /// Gets or sets the end point.
@@ -24,7 +24,7 @@ namespace FlagConsole.Drawing
         /// <value>
         /// The end point.
         /// </value>
-        public Point EndPoint { get; set; }
+        public Coordinate EndPoint { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Line"/> class.
@@ -32,7 +32,8 @@ namespace FlagConsole.Drawing
         /// <param name="location">The location.</param>
         /// <param name="length">The lenght.</param>
         /// <param name="token">The token.</param>
-        public Line(Point startPoint, Point endPoint, char token)
+        public Line(Coordinate startPoint, Coordinate endPoint, char token)
+
             : base(token)
         {
             this.StartPoint = startPoint;
@@ -87,7 +88,7 @@ namespace FlagConsole.Drawing
         /// </summary>
         private void DrawGenericLine()
         {
-            foreach (Point point in this.RasterLine(this.StartPoint.X, this.StartPoint.Y, this.EndPoint.X, this.EndPoint.Y))
+            foreach (Coordinate point in this.RasterLine(this.StartPoint.X, this.StartPoint.Y, this.EndPoint.X, this.EndPoint.Y))
             {
                 Console.SetCursorPosition(point.X, point.Y);
                 Console.Write(this.Token);
@@ -100,7 +101,7 @@ namespace FlagConsole.Drawing
             lhs = rhs; rhs = temp;
         }
 
-        private IEnumerable<Point> RasterLine(int x0, int y0, int x1, int y1)
+        private IEnumerable<Coordinate> RasterLine(int x0, int y0, int x1, int y1)
         {
             bool steep = Math.Abs(y1 - y0) > Math.Abs(x1 - x0);
 
@@ -126,12 +127,12 @@ namespace FlagConsole.Drawing
             {
                 if (steep)
                 {
-                    yield return new Point(y, x);
+                    yield return new Coordinate(y, x);
                 }
 
                 else
                 {
-                    yield return new Point(x, y);
+                    yield return new Coordinate(x, y);
                 }
 
                 err = err - dY;

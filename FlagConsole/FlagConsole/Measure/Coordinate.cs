@@ -8,7 +8,7 @@ namespace FlagConsole.Measure
     /// </summary>
     [Serializable]
     [DebuggerDisplay("X = {X}, Y = {Y}")]
-    public class Point : ICloneable, IEquatable<Point>
+    public class Coordinate : ICloneable, IEquatable<Coordinate>
     {
         private readonly int x;
         private readonly int y;
@@ -30,17 +30,17 @@ namespace FlagConsole.Measure
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Point"/> class with the coordinates (0|0).
+        /// Initializes a new instance of the <see cref="Coordinate"/> class with the coordinates (0|0).
         /// </summary>
-        public Point()
+        public Coordinate()
             : this(0, 0) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Point"/> class.
+        /// Initializes a new instance of the <see cref="Coordinate"/> class.
         /// </summary>
         /// <param name="x">The x coordinate</param>
         /// <param name="y">The y coordinate</param>
-        public Point(int x, int y)
+        public Coordinate(int x, int y)
         {
             this.x = x;
             this.y = y;
@@ -54,7 +54,7 @@ namespace FlagConsole.Measure
         /// </returns>
         public object Clone()
         {
-            return new Point(this.X, this.Y);
+            return new Coordinate(this.X, this.Y);
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace FlagConsole.Measure
         /// </summary>
         /// <param name="position">The position.</param>
         /// <returns></returns>
-        public Point Add(Point position)
+        public Coordinate Add(Coordinate position)
         {
             return this + position;
         }
@@ -73,12 +73,12 @@ namespace FlagConsole.Measure
         /// <param name="positionA">The position A.</param>
         /// <param name="positionB">The position B.</param>
         /// <returns>The result of the operator.</returns>
-        public static Point operator +(Point positionA, Point positionB)
+        public static Coordinate operator +(Coordinate positionA, Coordinate positionB)
         {
             if (positionA == null || positionB == null)
                 return null;
 
-            return new Point(positionA.X + positionB.X, positionA.Y + positionB.Y);
+            return new Coordinate(positionA.X + positionB.X, positionA.Y + positionB.Y);
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace FlagConsole.Measure
         /// <param name="positionA">The position A.</param>
         /// <param name="positionB">The position B.</param>
         /// <returns>The result of the operator.</returns>
-        public static bool operator ==(Point positionA, Point positionB)
+        public static bool operator ==(Coordinate positionA, Coordinate positionB)
         {
             //Check reference
             if (Object.ReferenceEquals(positionA, positionB))
@@ -106,7 +106,7 @@ namespace FlagConsole.Measure
         /// <param name="positionA">The position A.</param>
         /// <param name="positionB">The position B.</param>
         /// <returns>The result of the operator.</returns>
-        public static bool operator !=(Point positionA, Point positionB)
+        public static bool operator !=(Coordinate positionA, Coordinate positionB)
         {
             return !(positionA == positionB);
         }
@@ -123,7 +123,7 @@ namespace FlagConsole.Measure
         /// </exception>
         public override bool Equals(object obj)
         {
-            Point position = obj as Point;
+            Coordinate position = obj as Coordinate;
 
             if (position == null)
             {
@@ -140,7 +140,7 @@ namespace FlagConsole.Measure
         /// <returns>
         /// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
         /// </returns>
-        public bool Equals(Point other)
+        public bool Equals(Coordinate other)
         {
             return this == other;
         }

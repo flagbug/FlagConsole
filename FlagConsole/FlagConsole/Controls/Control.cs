@@ -33,7 +33,7 @@ namespace FlagConsole.Controls
         /// <value>
         /// The relative location to the parent container.
         /// </value>
-        public virtual Point RelativeLocation { get; set; }
+        public virtual Coordinate RelativeLocation { get; set; }
 
         /// <summary>
         /// Gets the absolute location in the console.
@@ -41,11 +41,11 @@ namespace FlagConsole.Controls
         /// <value>
         /// The absolute location in the console.
         /// </value>
-        public virtual Point AbsoluteLocation
+        public virtual Coordinate AbsoluteLocation
         {
             get
             {
-                return new Point(
+                return new Coordinate(
                     this.RelativeLocation.X + this.Parent.AbsoluteLocation.X,
                     this.RelativeLocation.Y + this.Parent.AbsoluteLocation.Y);
             }
@@ -73,7 +73,7 @@ namespace FlagConsole.Controls
         public Control()
         {
             this.IsVisible = true;
-            this.RelativeLocation = new Point();
+            this.RelativeLocation = new Coordinate();
             this.Size = new Size();
         }
 

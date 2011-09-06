@@ -69,7 +69,7 @@ namespace FlagConsole.Drawing
 
             this.TraversePixels((x, y) =>
                 {
-                    this.DrawPixel(' ', new Point(x, y));
+                    this.DrawPixel(' ', new Coordinate(x, y));
                 });
         }
 
@@ -78,7 +78,7 @@ namespace FlagConsole.Drawing
         /// </summary>
         /// <param name="otherBuffer">The other buffer.</param>
         /// <param name="location">The location.</param>
-        public void Merge(GraphicBuffer otherBuffer, Point location)
+        public void Merge(GraphicBuffer otherBuffer, Coordinate location)
         {
             var fColor = this.ForegroundDrawingColor;
             var bColor = this.BackgroundDrawingColor;
@@ -88,7 +88,7 @@ namespace FlagConsole.Drawing
                     this.ForegroundDrawingColor = otherBuffer.buffer[x, y].ForegroundColor;
                     this.BackgroundDrawingColor = otherBuffer.buffer[x, y].BackgroundColor;
 
-                    this.DrawPixel(otherBuffer.buffer[x, y].Token, location + new Point(x, y));
+                    this.DrawPixel(otherBuffer.buffer[x, y].Token, location + new Coordinate(x, y));
                 });
 
             this.ForegroundDrawingColor = fColor;
@@ -100,7 +100,7 @@ namespace FlagConsole.Drawing
         /// </summary>
         /// <param name="pixel">The pixel to draw.</param>
         /// <param name="location">The location where the pixel shall be drawn.</param>
-        public void DrawPixel(char pixel, Point location)
+        public void DrawPixel(char pixel, Coordinate location)
         {
             if (this.IsInBounds(location))
             {
@@ -113,7 +113,7 @@ namespace FlagConsole.Drawing
         /// </summary>
         /// <param name="line">The line to draw.</param>
         /// <param name="location">The location where the line shall be drawn.</param>
-        public void DrawLine(string line, Point location)
+        public void DrawLine(string line, Coordinate location)
         {
             this.DrawLine(line.ToCharArray(), location);
         }
@@ -123,11 +123,11 @@ namespace FlagConsole.Drawing
         /// </summary>
         /// <param name="line">The line to draw.</param>
         /// <param name="location">The location where the line shall be drawn.</param>
-        public void DrawLine(char[] line, Point location)
+        public void DrawLine(char[] line, Coordinate location)
         {
             for (int i = 0; i < line.Length; i++)
             {
-                this.DrawPixel(line[i], location + new Point(i, 0));
+                this.DrawPixel(line[i], location + new Coordinate(i, 0));
             }
         }
 
@@ -135,7 +135,7 @@ namespace FlagConsole.Drawing
         /// Draws the buffer at the specified location to the screen.
         /// </summary>
         /// <param name="location">The location.</param>
-        public void DrawToScreen(Point location)
+        public void DrawToScreen(Coordinate location)
         {
             for (int y = 0; y <= this.buffer.GetUpperBound(1); y++)
             {
@@ -189,7 +189,7 @@ namespace FlagConsole.Drawing
         /// <returns>
         /// true if the specified point is in the bounds of the buffer; otherwise, false.
         /// </returns>
-        private bool IsInBounds(Point point)
+        private bool IsInBounds(Coordinate point)
         {
             if (point.X < 0 || point.Y < 0)
             {

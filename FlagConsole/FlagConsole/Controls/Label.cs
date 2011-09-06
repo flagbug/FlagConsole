@@ -67,7 +67,7 @@ namespace FlagConsole.Controls
 
             for (int i = 0; i < lines.Count; i++)
             {
-                buffer.DrawLine(lines[i], new Point(0, i));
+                buffer.DrawLine(lines[i], new Coordinate(0, i));
             }
 
             buffer.DrawToScreen(this.AbsoluteLocation);

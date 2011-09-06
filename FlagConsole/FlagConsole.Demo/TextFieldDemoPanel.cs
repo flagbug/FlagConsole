@@ -20,12 +20,12 @@ namespace FlagConsole.Demo
             this.textField = new TextField();
             this.textField.Size = new Size(8, 1);
             this.textField.Length = 8;
-            this.textField.RelativeLocation = new Point(0, 4);
+            this.textField.RelativeLocation = new Coordinate(0, 4);
             this.textField.TextEntered += new System.EventHandler(textField_TextEntered);
             this.Controls.Add(this.textField);
 
             this.textLabel = new Label();
-            this.textLabel.RelativeLocation = new Point(0, 6);
+            this.textLabel.RelativeLocation = new Coordinate(0, 6);
             this.Controls.Add(this.textLabel);
         }
 

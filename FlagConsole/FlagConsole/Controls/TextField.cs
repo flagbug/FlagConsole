@@ -76,9 +76,9 @@ namespace FlagConsole.Controls
             string background = String.Empty;
             background = background.PadRight(this.Length, ' ');
 
-            buffer.DrawLine(background, new Point());
+            buffer.DrawLine(background, new Coordinate());
 
-            buffer.DrawLine(this.Text, new Point());
+            buffer.DrawLine(this.Text, new Coordinate());
 
             buffer.DrawToScreen(this.AbsoluteLocation);
         }

@@ -12,7 +12,7 @@ namespace FlagConsole.Drawing
         /// <value>
         /// The mid point.
         /// </value>
-        public Point Centre { get; set; }
+        public Coordinate Centre { get; set; }
 
         /// <summary>
         /// Gets or sets the size on the x-axis.
@@ -37,7 +37,7 @@ namespace FlagConsole.Drawing
         /// <param name="a">The radius.</param>
         /// <param name="b">The b.</param>
         /// <param name="token">The token.</param>
-        public Ellipse(Point midPoint, int a, int b, char token)
+        public Ellipse(Coordinate midPoint, int a, int b, char token)
             : base(token)
         {
             this.Centre = midPoint;
