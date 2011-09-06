@@ -1,4 +1,5 @@
-﻿using FlagConsole.Drawing;
+﻿using System;
+using FlagConsole.Drawing;
 using FlagConsole.Measure;
 
 namespace FlagConsole.Controls
@@ -68,6 +69,11 @@ namespace FlagConsole.Controls
         public virtual bool IsVisible { get; set; }
 
         /// <summary>
+        /// Occurs when the control requires redrawing.
+        /// </summary>
+        public event EventHandler Invalidated;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Control"/> class.
         /// </summary>
         public Control()
@@ -94,12 +100,15 @@ namespace FlagConsole.Controls
         protected abstract void Draw(GraphicBuffer buffer);
 
         /// <summary>
-        /// Clears the control's area.
+        /// Raises the <see cref="E:Invalidated"/> event.
         /// </summary>
-        protected virtual void Clear()
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        protected virtual void OnInvalidated(EventArgs e)
         {
-            Rectangle eraseArea = new Rectangle(this.AbsoluteLocation, this.Size, ' ', true);
-            eraseArea.Draw();
+            if (this.Invalidated != null)
+            {
+                this.Invalidated(this, e);
+            }
         }
     }
 }

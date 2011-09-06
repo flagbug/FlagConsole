@@ -52,5 +52,12 @@ namespace FlagConsole.Controls
 
             buffer.DrawToScreen(this.AbsoluteLocation);
         }
+
+        protected override void OnInvalidated(System.EventArgs e)
+        {
+            base.OnInvalidated(e);
+
+            this.Update(new GraphicBuffer(this.Size));
+        }
     }
 }
