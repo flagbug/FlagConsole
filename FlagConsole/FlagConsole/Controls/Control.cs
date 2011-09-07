@@ -85,6 +85,8 @@ namespace FlagConsole.Controls
             this.IsVisible = true;
             this.RelativeLocation = new Coordinate();
             this.Size = new Size();
+            this.ForegroundColor = Console.ForegroundColor;
+            this.BackgroundColor = Console.BackgroundColor;
         }
 
         /// <summary>
