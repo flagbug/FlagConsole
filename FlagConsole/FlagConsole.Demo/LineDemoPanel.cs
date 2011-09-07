@@ -33,14 +33,10 @@ namespace FlagConsole.Demo
         protected override void Draw(GraphicBuffer buffer)
         {
             base.Draw(buffer);
-            /*
-            Line horizontalLine = new Line(this.AbsoluteLocation + new Coordinate(0, 2), this.AbsoluteLocation + new Coordinate(15, 2), '#');
-            Line verticalLine = new Line(this.AbsoluteLocation + new Coordinate(0, 6), this.AbsoluteLocation + new Coordinate(0, 15), '#');
-            Line genericLine = new Line(this.AbsoluteLocation + new Coordinate(0, 19), this.AbsoluteLocation + new Coordinate(13, 36), '#');
 
-            horizontalLine.Draw();
-            verticalLine.Draw();
-            genericLine.Draw();*/
+            buffer.DrawLine(new Coordinate(0, 2), new Coordinate(15, 2), '#');
+            buffer.DrawLine(new Coordinate(0, 6), new Coordinate(0, 15), '#');
+            buffer.DrawLine(new Coordinate(0, 19), new Coordinate(13, 36), '#');
         }
     }
 }
