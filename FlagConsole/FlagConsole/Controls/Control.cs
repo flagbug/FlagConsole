@@ -1,6 +1,5 @@
 ﻿using System;
 using FlagConsole.Drawing;
-using FlagConsole.Drawing;
 
 namespace FlagConsole.Controls
 {
@@ -83,7 +82,7 @@ namespace FlagConsole.Controls
         public Control()
         {
             this.IsVisible = true;
-            this.RelativeLocation = new Coordinate();
+            this.RelativeLocation = Coordinate.Origin;
             this.Size = new Size();
             this.ForegroundColor = Console.ForegroundColor;
             this.BackgroundColor = Console.BackgroundColor;

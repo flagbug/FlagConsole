@@ -1,6 +1,5 @@
 ﻿using FlagConsole.Controls;
 using FlagConsole.Drawing;
-using FlagConsole.Drawing;
 
 namespace FlagConsole.Demo
 {
@@ -28,7 +27,7 @@ namespace FlagConsole.Demo
         {
             base.Draw(buffer);
 
-            buffer.DrawRectangle('#', new Coordinate(), new Size(15, 10), true);
+            buffer.DrawRectangle('#', Coordinate.Origin, new Size(15, 10), true);
             buffer.DrawRectangle('#', new Coordinate(0, 11), new Size(15, 10), false);
 
             /*
