@@ -44,6 +44,8 @@ namespace FlagConsole.Controls
         public TextField()
         {
             this.Text = String.Empty;
+            this.BackgroundColor = ConsoleColor.White;
+            this.ForegroundColor = ConsoleColor.Black;
         }
 
         /// <summary>
@@ -69,8 +71,8 @@ namespace FlagConsole.Controls
         /// </summary>
         protected override void Draw(GraphicBuffer buffer)
         {
-            buffer.BackgroundDrawingColor = ConsoleColor.White;
-            buffer.ForegroundDrawingColor = ConsoleColor.Black;
+            buffer.BackgroundDrawingColor = this.BackgroundColor;
+            buffer.ForegroundDrawingColor = this.ForegroundColor;
 
             string background = String.Empty;
             background = background.PadRight(this.Length, ' ');
