@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using FlagConsole.Measure;
+using FlagConsole.Drawing;
 
 namespace FlagConsole.Drawing
 {

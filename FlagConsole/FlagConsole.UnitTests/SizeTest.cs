@@ -1,4 +1,4 @@
-﻿using FlagConsole.Measure;
+﻿using FlagConsole.Drawing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FlagConsole.UnitTests

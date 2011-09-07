@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using FlagConsole.Drawing;
-using FlagConsole.Measure;
+using FlagConsole.Drawing;
 
 namespace FlagConsole.Controls
 {

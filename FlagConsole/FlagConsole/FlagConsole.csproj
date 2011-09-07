@@ -59,8 +59,8 @@
     <Compile Include="Drawing\Pixel.cs" />
     <Compile Include="Drawing\Rectangle.cs" />
     <Compile Include="Drawing\Shape.cs" />
-    <Compile Include="Measure\Coordinate.cs" />
-    <Compile Include="Measure\Size.cs" />
+    <Compile Include="Drawing\Coordinate.cs" />
+    <Compile Include="Drawing\Size.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
