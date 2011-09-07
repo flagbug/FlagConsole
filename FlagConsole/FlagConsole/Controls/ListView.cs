@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using FlagConsole.Drawing;
-using FlagConsole.Drawing;
 
 namespace FlagConsole.Controls
 {
@@ -41,7 +40,7 @@ namespace FlagConsole.Controls
             buffer.ForegroundDrawingColor = this.ForegroundColor;
             buffer.BackgroundDrawingColor = this.BackgroundColor;
 
-            buffer.DrawRectangle(' ', new Coordinate(), this.Size, true);
+            buffer.DrawRectangle(' ', Coordinate.Origin, this.Size, true);
 
             for (int i = 0; i < this.items.Count && i < this.Size.Height; i++)
             {

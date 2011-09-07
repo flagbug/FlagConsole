@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using FlagConsole.Drawing;
-using FlagConsole.Drawing;
 
 namespace FlagConsole.Controls
 {
@@ -61,7 +60,7 @@ namespace FlagConsole.Controls
             buffer.BackgroundDrawingColor = this.BackgroundColor;
             buffer.ForegroundDrawingColor = this.ForegroundColor;
 
-            buffer.DrawRectangle(' ', new Coordinate(), this.Size, true);
+            buffer.DrawRectangle(' ', Coordinate.Origin, this.Size, true);
         }
 
         /// <summary>

@@ -1,6 +1,5 @@
 ﻿using System;
 using FlagConsole.Drawing;
-using FlagConsole.Drawing;
 
 namespace FlagConsole.Controls
 {
@@ -77,9 +76,9 @@ namespace FlagConsole.Controls
             string background = String.Empty;
             background = background.PadRight(this.Length, ' ');
 
-            buffer.DrawLine(background, new Coordinate());
+            buffer.DrawLine(background, Coordinate.Origin);
 
-            buffer.DrawLine(this.Text, new Coordinate());
+            buffer.DrawLine(this.Text, Coordinate.Origin);
         }
 
         /// <summary>

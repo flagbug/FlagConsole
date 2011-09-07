@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using FlagConsole.Drawing;
-using FlagConsole.Drawing;
 
 namespace FlagConsole.Controls
 {
@@ -34,7 +33,7 @@ namespace FlagConsole.Controls
             buffer.ForegroundDrawingColor = this.ForegroundColor;
             buffer.BackgroundDrawingColor = this.BackgroundColor;
 
-            buffer.DrawRectangle(' ', new Coordinate(), this.Size, true);
+            buffer.DrawRectangle(' ', Coordinate.Origin, this.Size, true);
 
             List<string> words = new List<string>();
             words.AddRange(this.Text.Split(' ')); //Split text into words

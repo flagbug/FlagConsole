@@ -24,7 +24,7 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void PointEmptyConstructorTest()
         {
-            Coordinate target = new Coordinate();
+            Coordinate target = Coordinate.Origin;
 
             Assert.AreEqual(0, target.X);
             Assert.AreEqual(0, target.Y);
@@ -195,7 +195,7 @@ namespace FlagConsole.UnitTests
         [TestMethod]
         public void GetHashCodeTest()
         {
-            int positionHash1 = new Coordinate().GetHashCode();
+            int positionHash1 = Coordinate.Origin.GetHashCode();
             int positionHash2 = new Coordinate(1, 1).GetHashCode();
             int positionHash3 = new Coordinate(2, 2).GetHashCode();
 

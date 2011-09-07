@@ -19,7 +19,7 @@ namespace FlagConsole.Drawing
         /// </summary>
         public static Coordinate Origin
         {
-            get { return new Coordinate(); }
+            get { return new Coordinate(0, 0); }
         }
 
         /// <summary>
@@ -37,12 +37,6 @@ namespace FlagConsole.Drawing
         {
             get { return this.y; }
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Coordinate"/> class with the coordinates (0|0).
-        /// </summary>
-        public Coordinate()
-            : this(0, 0) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Coordinate"/> class.
