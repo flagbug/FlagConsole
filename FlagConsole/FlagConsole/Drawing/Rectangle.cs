@@ -74,18 +74,28 @@ namespace FlagConsole.Drawing
         /// Draws a unfilled rectangle.
         /// </summary>
         private void DrawUnfilledRectangle(GraphicBuffer buffer)
-        {/*
-            Line xLine = new Line(this.Location, new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y), this.Token);
-            xLine.Draw();
-            xLine.StartPoint = new Coordinate(xLine.StartPoint.X, xLine.StartPoint.Y + this.Size.Height);
-            xLine.EndPoint = new Coordinate(xLine.EndPoint.X, xLine.EndPoint.Y + this.Size.Height);
-            xLine.Draw();
+        {
+            buffer.DrawLine(
+                this.Location,
+                new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y),
+                this.Token);
 
-            Line yLine = new Line(this.Location, new Coordinate(this.Location.X, this.Location.Y + this.Size.Height), this.Token);
-            yLine.Draw();
-            yLine.StartPoint = new Coordinate(yLine.StartPoint.X + this.Size.Width - 1, yLine.StartPoint.Y);
-            yLine.EndPoint = new Coordinate(yLine.EndPoint.X + this.Size.Width - 1, yLine.EndPoint.Y);
-            yLine.Draw();*/
+            buffer.DrawLine(
+                new Coordinate(this.Location.X, this.Location.Y + this.Size.Height),
+                new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y),
+                this.Token);
+
+            buffer.DrawLine(
+                this.Location,
+                new Coordinate(this.Location.X, this.Location.Y + this.Size.Height),
+                this.Token
+                );
+
+            buffer.DrawLine(
+                new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y),
+                new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y + this.Size.Height),
+                this.Token
+                );
         }
     }
 }
