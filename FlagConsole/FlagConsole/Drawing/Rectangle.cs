@@ -29,6 +29,38 @@ namespace FlagConsole.Drawing
         public Coordinate Location { get; set; }
 
         /// <summary>
+        /// Gets the x-coordinate that is the sum of X and Size.Width property values of this Rectangle structure.
+        /// </summary>
+        public int Right
+        {
+            get { return this.Location.X + this.Size.Width; }
+        }
+
+        /// <summary>
+        /// Gets the x-coordinate of the left edge of this Rectangle structure.
+        /// </summary>
+        public int Left
+        {
+            get { return this.Location.X; }
+        }
+
+        /// <summary>
+        /// Gets the y-coordinate of the top edge of this Rectangle structure.
+        /// </summary>
+        public int Top
+        {
+            get { return this.Location.Y; }
+        }
+
+        /// <summary>
+        /// Gets the y-coordinate that is the sum of the Y and Height property values of this Rectangle structure.
+        /// </summary>
+        public int Bottom
+        {
+            get { return this.Location.Y + this.Size.Height; }
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Rectangle"/> class.
         /// </summary>
         /// <param name="location">The location.</param>
