@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using FlagConsole.Drawing;
 
 namespace FlagConsole.Drawing
 {
@@ -33,8 +32,7 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Initializes a new instance of the <see cref="GraphicBuffer"/> class.
         /// </summary>
-        /// <param name="width">The width of the buffer.</param>
-        /// <param name="height">The height of the buffer.</param>
+        /// <param name="size">The size of the buffer.</param>
         public GraphicBuffer(Size size)
         {
             this.Size = size;
@@ -70,7 +68,7 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Merges the specified buffer at the specified location into this buffer.
         /// </summary>
-        /// <param name="otherBuffer">The other buffer.</param>
+        /// <param name="otherBuffer">The buffer, that should be merged into this instance.</param>
         /// <param name="location">The location.</param>
         public void Merge(GraphicBuffer otherBuffer, Coordinate location)
         {
