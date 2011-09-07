@@ -33,9 +33,9 @@ namespace FlagConsole.Demo
         {
             base.Draw(buffer);
 
-            buffer.DrawLine(new Coordinate(0, 2), new Coordinate(15, 2), '#');
-            buffer.DrawLine(new Coordinate(0, 6), new Coordinate(0, 15), '#');
-            buffer.DrawLine(new Coordinate(0, 19), new Coordinate(13, 36), '#');
+            buffer.DrawLine('#', new Coordinate(0, 2), new Coordinate(15, 2));
+            buffer.DrawLine('#', new Coordinate(0, 6), new Coordinate(0, 15));
+            buffer.DrawLine('#', new Coordinate(0, 19), new Coordinate(13, 36));
         }
     }
 }

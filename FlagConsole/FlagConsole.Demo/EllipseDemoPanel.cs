@@ -27,8 +27,8 @@ namespace FlagConsole.Demo
         {
             base.Draw(buffer);
 
-            buffer.DrawEllipse(new Coordinate(11, 7), 4, 7, '#');
-            buffer.DrawEllipse(new Coordinate(11, 25), 7, 7, '#');
+            buffer.DrawEllipse('#', new Coordinate(11, 7), 4, 7);
+            buffer.DrawEllipse('#', new Coordinate(11, 25), 7, 7);
         }
     }
 }
