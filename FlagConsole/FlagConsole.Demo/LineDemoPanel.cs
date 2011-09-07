@@ -1,6 +1,5 @@
 ﻿using FlagConsole.Controls;
 using FlagConsole.Drawing;
-using FlagConsole.Drawing;
 
 namespace FlagConsole.Demo
 {
