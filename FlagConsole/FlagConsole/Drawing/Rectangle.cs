@@ -98,7 +98,7 @@ namespace FlagConsole.Drawing
         {
             for (int y = this.Location.Y - 1; y < this.Location.Y + this.Size.Height - 1; y++)
             {
-                buffer.DrawLine(this.Location + new Coordinate(0, y + 1), new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y), this.Token);
+                buffer.DrawLine(this.Token, this.Location + new Coordinate(0, y + 1), new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y));
             }
         }
 
@@ -107,27 +107,13 @@ namespace FlagConsole.Drawing
         /// </summary>
         private void DrawUnfilledRectangle(GraphicBuffer buffer)
         {
-            buffer.DrawLine(
-                this.Location,
-                new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y),
-                this.Token);
+            buffer.DrawLine(this.Token, this.Location, new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y));
 
-            buffer.DrawLine(
-                new Coordinate(this.Location.X, this.Location.Y + this.Size.Height),
-                new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y),
-                this.Token);
+            buffer.DrawLine(this.Token, new Coordinate(this.Location.X, this.Location.Y + this.Size.Height), new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y));
 
-            buffer.DrawLine(
-                this.Location,
-                new Coordinate(this.Location.X, this.Location.Y + this.Size.Height),
-                this.Token
-                );
+            buffer.DrawLine(this.Token, this.Location, new Coordinate(this.Location.X, this.Location.Y + this.Size.Height));
 
-            buffer.DrawLine(
-                new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y),
-                new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y + this.Size.Height),
-                this.Token
-                );
+            buffer.DrawLine(this.Token, new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y), new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y + this.Size.Height));
         }
     }
 }

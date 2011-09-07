@@ -113,10 +113,10 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Draws a line.
         /// </summary>
+        /// <param name="token">The token.</param>
         /// <param name="startPoint">The start point.</param>
         /// <param name="endPoint">The end point.</param>
-        /// <param name="token">The token.</param>
-        public void DrawLine(Coordinate startPoint, Coordinate endPoint, char token)
+        public void DrawLine(char token, Coordinate startPoint, Coordinate endPoint)
         {
             Line line = new Line(startPoint, endPoint, token);
             line.Draw(this);
@@ -138,11 +138,11 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Draws a ellipse.
         /// </summary>
+        /// <param name="token">The token.</param>
         /// <param name="midPoint">The mid point.</param>
         /// <param name="a">A.</param>
         /// <param name="b">The b.</param>
-        /// <param name="token">The token.</param>
-        public void DrawEllipse(Coordinate midPoint, int a, int b, char token)
+        public void DrawEllipse(char token, Coordinate midPoint, int a, int b)
         {
             Ellipse ellipse = new Ellipse(midPoint, a, b, token);
             ellipse.Draw(this);
