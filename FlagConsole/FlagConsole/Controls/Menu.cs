@@ -71,6 +71,22 @@ namespace FlagConsole.Controls
         public virtual bool IsFocused { get; set; }
 
         /// <summary>
+        /// Gets or sets the foreground color of the selection.
+        /// </summary>
+        /// <value>
+        /// The foreground color of the selection.
+        /// </value>
+        public ConsoleColor SelectionForegroundColor { get; set; }
+
+        /// <summary>
+        /// Gets or sets the background color of the selection.
+        /// </summary>
+        /// <value>
+        /// The background color of the selection.
+        /// </value>
+        public ConsoleColor SelectionBackgroundColor { get; set; }
+
+        /// <summary>
         /// Occurs when a item has been chosen.
         /// </summary>
         public event EventHandler<MenuEventArgs<T>> ItemChosen;
@@ -89,6 +105,8 @@ namespace FlagConsole.Controls
             this.UpKeys = new List<ConsoleKey> { ConsoleKey.UpArrow };
             this.DownKeys = new List<ConsoleKey> { ConsoleKey.DownArrow };
             this.Bullet = '-';
+            this.SelectionForegroundColor = ConsoleColor.Black;
+            this.SelectionBackgroundColor = ConsoleColor.White;
         }
 
         /// <summary>
@@ -98,10 +116,13 @@ namespace FlagConsole.Controls
         {
             for (int i = 0; i < this.Items.Count; i++)
             {
+                buffer.ForegroundDrawingColor = this.ForegroundColor;
+                buffer.BackgroundDrawingColor = this.BackgroundColor;
+
                 if (this.SelectedIndex == i)
                 {
-                    buffer.ForegroundDrawingColor = ConsoleColor.Black;
-                    buffer.BackgroundDrawingColor = ConsoleColor.White;
+                    buffer.ForegroundDrawingColor = this.SelectionForegroundColor;
+                    buffer.BackgroundDrawingColor = this.SelectionBackgroundColor;
                 }
 
                 string bulletString = this.DisplayBullets ? this.Bullet + " " : String.Empty;
