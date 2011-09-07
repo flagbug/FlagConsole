@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using FlagConsole.Drawing;
-using FlagConsole.Measure;
+using FlagConsole.Drawing;
 
 namespace FlagConsole.Controls
 {

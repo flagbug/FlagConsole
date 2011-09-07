@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace FlagConsole.Measure
+namespace FlagConsole.Drawing
 {
     /// <summary>
     /// Provides a immutable size, which encapsulates a width and a height
