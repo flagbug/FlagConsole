@@ -68,6 +68,10 @@ namespace FlagConsole.Controls
         /// </value>
         public virtual bool IsVisible { get; set; }
 
+        public ConsoleColor ForegroundColor { get; set; }
+
+        public ConsoleColor BackgroundColor { get; set; }
+
         /// <summary>
         /// Occurs when the control requires redrawing.
         /// </summary>
