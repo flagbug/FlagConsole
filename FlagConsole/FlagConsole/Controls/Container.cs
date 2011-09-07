@@ -58,9 +58,10 @@ namespace FlagConsole.Controls
         /// </summary>
         protected override void Draw(GraphicBuffer buffer)
         {
-            GraphicBuffer local = new GraphicBuffer(this.Size);
+            buffer.BackgroundDrawingColor = this.BackgroundColor;
+            buffer.ForegroundDrawingColor = this.ForegroundColor;
 
-            buffer.Merge(local, new Coordinate());
+            buffer.DrawRectangle(' ', new Coordinate(), this.Size, true);
         }
 
         /// <summary>
