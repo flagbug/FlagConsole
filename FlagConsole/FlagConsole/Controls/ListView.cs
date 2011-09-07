@@ -38,6 +38,11 @@ namespace FlagConsole.Controls
         /// </summary>
         protected override void Draw(GraphicBuffer buffer)
         {
+            buffer.ForegroundDrawingColor = this.ForegroundColor;
+            buffer.BackgroundDrawingColor = this.BackgroundColor;
+
+            buffer.DrawRectangle(' ', new Coordinate(), this.Size, true);
+
             for (int i = 0; i < this.items.Count && i < this.Size.Height; i++)
             {
                 string bulletString = this.DisplayBullets ? this.Bullet + " " : String.Empty;
