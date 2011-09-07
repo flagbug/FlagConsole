@@ -15,6 +15,14 @@ namespace FlagConsole.Drawing
         private readonly int y;
 
         /// <summary>
+        /// Gets a coordinate, which represents the origin of a coordinate system (x = 0, y = 0).
+        /// </summary>
+        public static Coordinate Origin
+        {
+            get { return new Coordinate(); }
+        }
+
+        /// <summary>
         /// Gets the x coordinate
         /// </summary>
         public int X
