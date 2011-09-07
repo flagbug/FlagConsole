@@ -31,6 +31,11 @@ namespace FlagConsole.Controls
         /// </summary>
         protected override void Draw(GraphicBuffer buffer)
         {
+            buffer.ForegroundDrawingColor = this.ForegroundColor;
+            buffer.BackgroundDrawingColor = this.BackgroundColor;
+
+            buffer.DrawRectangle(' ', new Coordinate(), this.Size, true);
+
             List<string> words = new List<string>();
             words.AddRange(this.Text.Split(' ')); //Split text into words
 
