@@ -9,3 +9,4 @@ FlagConsole/FlagConsole/bin
 FlagConsole/TestResults
 *.psess
 *.vsp
+*.user
