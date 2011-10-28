@@ -16,7 +16,6 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Shape"/> class.
         /// </summary>
-        /// <param name="location">The position.</param>
         /// <param name="token">The token.</param>
         protected Shape(char token)
         {

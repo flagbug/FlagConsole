@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using FlagConsole.Drawing;
 
 namespace FlagConsole.Drawing
 {
@@ -49,11 +48,14 @@ namespace FlagConsole.Drawing
         /// </summary>
         public override void Draw(GraphicBuffer buffer)
         {
-            foreach (System.Windows.Point point in this.RasterEllipse(
-                this.Centre.X,
-                this.Centre.Y,
-                this.A + (int)((double)this.A / (1.75)), //Compensate the proportions of the symbols in the console
-                this.B))
+            var points = this.RasterEllipse
+                (
+                    this.Centre.X, this.Centre.Y,
+                    this.A + (int)((double)this.A / (1.75)), // Compensate the proportions of the symbols in the console
+                    this.B
+                );
+
+            foreach (System.Windows.Point point in points)
             {
                 buffer.DrawPixel(this.Token, new Coordinate((int)point.X, (int)point.Y));
             }
@@ -66,7 +68,6 @@ namespace FlagConsole.Drawing
             long a2 = a * a;
             long b2 = b * b;
             long error = b2 - (2 * b - 1) * a2;
-            long error2;
 
             do
             {
@@ -75,7 +76,8 @@ namespace FlagConsole.Drawing
                 yield return new System.Windows.Point(xMid - dx, yMid - dy);
                 yield return new System.Windows.Point(xMid + dx, yMid - dy);
 
-                error2 = 2 * error;
+                long error2 = 2 * error;
+
                 if (error2 < (2 * dx + 1) * b2)
                 {
                     dx++;

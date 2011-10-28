@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using FlagConsole.Drawing;
 
 namespace FlagConsole.Drawing
 {
@@ -28,11 +27,10 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Initializes a new instance of the <see cref="Line"/> class.
         /// </summary>
-        /// <param name="location">The location.</param>
-        /// <param name="length">The lenght.</param>
+        /// <param name="startPoint">The start point.</param>
+        /// <param name="endPoint">The end point.</param>
         /// <param name="token">The token.</param>
         public Line(Coordinate startPoint, Coordinate endPoint, char token)
-
             : base(token)
         {
             this.StartPoint = startPoint;
@@ -53,8 +51,10 @@ namespace FlagConsole.Drawing
 
         private static void Swap<T>(ref T lhs, ref T rhs)
         {
-            T temp; temp = lhs;
-            lhs = rhs; rhs = temp;
+            T temp = lhs;
+
+            lhs = rhs;
+            rhs = temp;
         }
 
         private IEnumerable<Coordinate> RasterLine(int x0, int y0, int x1, int y1)
@@ -63,14 +63,14 @@ namespace FlagConsole.Drawing
 
             if (steep)
             {
-                Swap<int>(ref x0, ref y0);
-                Swap<int>(ref x1, ref y1);
+                Swap(ref x0, ref y0);
+                Swap(ref x1, ref y1);
             }
 
             if (x0 > x1)
             {
-                Swap<int>(ref x0, ref x1);
-                Swap<int>(ref y0, ref y1);
+                Swap(ref x0, ref x1);
+                Swap(ref y0, ref y1);
             }
 
             int dX = (x1 - x0);

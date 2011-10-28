@@ -6,7 +6,7 @@ namespace FlagConsole.Drawing
 {
     public class GraphicBuffer
     {
-        private Pixel[,] buffer;
+        private readonly Pixel[,] buffer;
 
         /// <summary>
         /// Gets the size of the buffer.
@@ -59,10 +59,7 @@ namespace FlagConsole.Drawing
         {
             this.ResetColor();
 
-            this.TraversePixels((x, y) =>
-                {
-                    this.DrawPixel(' ', new Coordinate(x, y));
-                });
+            this.TraversePixels((x, y) => this.DrawPixel(' ', new Coordinate(x, y)));
         }
 
         /// <summary>
@@ -118,7 +115,7 @@ namespace FlagConsole.Drawing
         /// <param name="endPoint">The end point.</param>
         public void DrawLine(char token, Coordinate startPoint, Coordinate endPoint)
         {
-            Line line = new Line(startPoint, endPoint, token);
+            var line = new Line(startPoint, endPoint, token);
             line.Draw(this);
         }
 
@@ -144,7 +141,7 @@ namespace FlagConsole.Drawing
         /// <param name="b">The b.</param>
         public void DrawEllipse(char token, Coordinate midPoint, int a, int b)
         {
-            Ellipse ellipse = new Ellipse(midPoint, a, b, token);
+            var ellipse = new Ellipse(midPoint, a, b, token);
             ellipse.Draw(this);
         }
 
@@ -157,7 +154,7 @@ namespace FlagConsole.Drawing
         /// <param name="isFilled">if set to true [is filled].</param>
         public void DrawRectangle(char token, Coordinate location, Size size, bool isFilled)
         {
-            Rectangle rectangle = new Rectangle(location, size, token, isFilled);
+            var rectangle = new Rectangle(location, size, token, isFilled);
             rectangle.Draw(this);
         }
 
@@ -169,7 +166,7 @@ namespace FlagConsole.Drawing
         {
             for (int y = 0; y < this.Size.Height; y++)
             {
-                Pixel[] pixels = new Pixel[this.Size.Width];
+                var pixels = new Pixel[this.Size.Width];
 
                 for (int x = 0; x < this.Size.Width; x++)
                 {

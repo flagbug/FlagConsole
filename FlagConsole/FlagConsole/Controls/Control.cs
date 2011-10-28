@@ -17,11 +17,8 @@ namespace FlagConsole.Controls
         public virtual Container Parent { get; set; }
 
         /// <summary>
-        /// Gets the top container (the screen).
+        /// Gets the top container.
         /// </summary>
-        /// <value>
-        /// The top container.
-        /// </value>
         public virtual Container Top
         {
             get { return this.Parent.Top; }
@@ -38,16 +35,15 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets the absolute location in the console.
         /// </summary>
-        /// <value>
-        /// The absolute location in the console.
-        /// </value>
         public virtual Coordinate AbsoluteLocation
         {
             get
             {
-                return new Coordinate(
+                return new Coordinate
+                (
                     this.RelativeLocation.X + this.Parent.AbsoluteLocation.X,
-                    this.RelativeLocation.Y + this.Parent.AbsoluteLocation.Y);
+                    this.RelativeLocation.Y + this.Parent.AbsoluteLocation.Y
+                );
             }
         }
 
@@ -79,7 +75,7 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Initializes a new instance of the <see cref="Control"/> class.
         /// </summary>
-        public Control()
+        protected Control()
         {
             this.IsVisible = true;
             this.RelativeLocation = Coordinate.Origin;
@@ -102,10 +98,11 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Draws the control.
         /// </summary>
+        /// <param name="buffer">The graphic buffer.</param>
         protected abstract void Draw(GraphicBuffer buffer);
 
         /// <summary>
-        /// Raises the <see cref="E:Invalidated"/> event.
+        /// Raises the <see cref="Invalidated"/> event.
         /// </summary>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected virtual void OnInvalidated(EventArgs e)

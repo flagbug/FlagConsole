@@ -24,7 +24,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="ListControl"/> class.
         /// </summary>
-        public ListControl()
+        protected ListControl()
         {
             this.DisplayBullets = true;
         }

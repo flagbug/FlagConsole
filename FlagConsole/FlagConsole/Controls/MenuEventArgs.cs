@@ -3,9 +3,9 @@
 namespace FlagConsole.Controls
 {
     /// <summary>
-    /// Provides data for the events that are raised by the <see cref="Menu"/> class
+    /// Provides data for the events that are raised by the <see cref="Menu{T}"/> class.
     /// </summary>
-    /// <typeparam name="T">Type of the MenuItem</typeparam>
+    /// <typeparam name="T">The type of the MenuItem.</typeparam>
     public class MenuEventArgs<T> : EventArgs
     {
         /// <summary>

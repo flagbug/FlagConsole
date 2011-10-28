@@ -7,28 +7,27 @@ namespace FlagConsole.Demo
 {
     internal class DemoScreen : Screen
     {
-        private Menu<Action> mainMenu;
+        private readonly Menu<Action> mainMenu;
 
-        private Panel mainMenuPanel;
+        private readonly Panel mainMenuPanel;
         private Panel presentationPanel;
 
-        private Label mainManuTextLabel;
+        private readonly Label mainManuTextLabel;
 
         public DemoScreen()
         {
-            this.mainMenuPanel = new Panel();
-            this.mainMenuPanel.Size = new Size(30, 30);
-            this.mainMenuPanel.RelativeLocation = new Coordinate(2, 1);
+            this.mainMenuPanel = new Panel { Size = new Size(30, 30), RelativeLocation = new Coordinate(2, 1) };
             this.Controls.Add(this.mainMenuPanel);
 
-            this.mainManuTextLabel = new Label();
-            this.mainManuTextLabel.Size = new Size(30, 5);
-            this.mainManuTextLabel.Text = "This is the main menu. You can select items with the up and down arrows or the W and S keys. Press enter if you want to see the presentation.";
+            this.mainManuTextLabel =
+                new Label
+                {
+                    Size = new Size(30, 5),
+                    Text = "This is the main menu. You can select items with the up and down arrows or the W and S keys. Press enter if you want to see the presentation."
+                };
             this.mainMenuPanel.Controls.Add(mainManuTextLabel);
 
-            this.mainMenu = new Menu<Action>();
-            this.mainMenu.RelativeLocation = new Coordinate(0, 6);
-            this.mainMenu.Size = new Size(15, 10);
+            this.mainMenu = new Menu<Action> { RelativeLocation = new Coordinate(0, 6), Size = new Size(15, 10) };
             this.mainMenu.Items.Add(new MenuItem<Action>("Label", this.ShowLabelDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("ListView", this.ShowListViewDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("TextField", this.ShowTextFieldDemo));
@@ -40,7 +39,7 @@ namespace FlagConsole.Demo
             this.mainMenu.UpKeys.Add(ConsoleKey.W);
             this.mainMenu.DownKeys.Add(ConsoleKey.S);
 
-            this.mainMenu.ItemChosen += new EventHandler<MenuEventArgs<Action>>(mainMenu_ItemChosen);
+            this.mainMenu.ItemChosen += mainMenu_ItemChosen;
 
             this.mainMenuPanel.Controls.Add(this.mainMenu);
         }
@@ -53,7 +52,7 @@ namespace FlagConsole.Demo
 
         public void Activate()
         {
-            Timer t = new Timer(250);
+            var t = new Timer(250);
             t.Elapsed += (sender, e) =>
             {
                 //this.Update(new GraphicBuffer(this.Size));

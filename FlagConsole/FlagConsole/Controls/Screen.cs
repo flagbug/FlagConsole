@@ -1,4 +1,4 @@
-﻿using FlagConsole.Drawing;
+﻿using System;
 using FlagConsole.Drawing;
 
 namespace FlagConsole.Controls
@@ -12,9 +12,6 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets the absolute position to the console.
         /// </summary>
-        /// <value>
-        /// The absolute position to the console.
-        /// </value>
         public override Coordinate AbsoluteLocation
         {
             get { return this.RelativeLocation; }
@@ -23,9 +20,6 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets the top conainer (the screen).
         /// </summary>
-        /// <value>
-        /// The top conainer.
-        /// </value>
         public override Container Top
         {
             get { return this; }
@@ -42,7 +36,7 @@ namespace FlagConsole.Controls
             {
                 foreach (Control control in this.Controls)
                 {
-                    GraphicBuffer localBuffer = new GraphicBuffer(control.Size);
+                    var localBuffer = new GraphicBuffer(control.Size);
 
                     control.Update(localBuffer);
 
@@ -53,7 +47,11 @@ namespace FlagConsole.Controls
             buffer.DrawToScreen(this.AbsoluteLocation);
         }
 
-        protected override void OnInvalidated(System.EventArgs e)
+        /// <summary>
+        /// Raises the <see cref="Control.Invalidated"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        protected override void OnInvalidated(EventArgs e)
         {
             base.OnInvalidated(e);
 

@@ -10,3 +10,4 @@ FlagConsole/TestResults
 *.psess
 *.vsp
 *.user
+FlagConsole/_ReSharper.FlagConsole

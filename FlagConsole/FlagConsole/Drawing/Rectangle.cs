@@ -1,6 +1,4 @@
-﻿using FlagConsole.Drawing;
-
-namespace FlagConsole.Drawing
+﻿namespace FlagConsole.Drawing
 {
     internal class Rectangle : Shape
     {

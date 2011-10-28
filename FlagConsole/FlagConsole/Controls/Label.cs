@@ -35,10 +35,10 @@ namespace FlagConsole.Controls
 
             buffer.DrawRectangle(' ', Coordinate.Origin, this.Size, true);
 
-            List<string> words = new List<string>();
+            var words = new List<string>();
             words.AddRange(this.Text.Split(' ')); //Split text into words
 
-            List<string> lines = new List<string>();
+            var lines = new List<string>();
 
             do
             {
