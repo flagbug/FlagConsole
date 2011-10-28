@@ -126,7 +126,7 @@ namespace FlagConsole.Drawing
         /// </exception>
         public override bool Equals(object obj)
         {
-            Coordinate position = obj as Coordinate;
+            var position = obj as Coordinate;
 
             if (position == null)
             {
@@ -156,7 +156,7 @@ namespace FlagConsole.Drawing
         /// </returns>
         public override int GetHashCode()
         {
-            return new { X = this.X, Y = this.Y }.GetHashCode();
+            return new { this.X, this.Y }.GetHashCode();
         }
     }
 }

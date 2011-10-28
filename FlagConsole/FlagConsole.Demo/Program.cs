@@ -12,8 +12,7 @@ namespace FlagConsole.Demo
             Console.BufferHeight = 50;
             Console.BufferWidth = 80;
 
-            DemoScreen screen = new DemoScreen();
-            screen.Size = new Size(79, 49);
+            var screen = new DemoScreen { Size = new Size(79, 49) };
             screen.Activate();
         }
     }

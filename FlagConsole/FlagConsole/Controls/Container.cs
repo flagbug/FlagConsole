@@ -11,7 +11,7 @@ namespace FlagConsole.Controls
     /// </summary>
     public abstract class Container : Control
     {
-        private ObservableCollection<Control> controls = new ObservableCollection<Control>();
+        private readonly ObservableCollection<Control> controls;
 
         /// <summary>
         /// Gets the underlying controls.
@@ -29,7 +29,8 @@ namespace FlagConsole.Controls
         /// </summary>
         protected Container()
         {
-            this.controls.CollectionChanged += new NotifyCollectionChangedEventHandler(controls_CollectionChanged);
+            this.controls = new ObservableCollection<Control>();
+            this.controls.CollectionChanged += controls_CollectionChanged;
         }
 
         /// <summary>
@@ -43,7 +44,7 @@ namespace FlagConsole.Controls
             {
                 foreach (Control control in this.controls)
                 {
-                    GraphicBuffer localBuffer = new GraphicBuffer(control.Size);
+                    var localBuffer = new GraphicBuffer(control.Size);
 
                     control.Update(localBuffer);
 
@@ -76,11 +77,10 @@ namespace FlagConsole.Controls
                     foreach (Control control in e.NewItems)
                     {
                         control.Parent = this;
-                        control.Invalidated += new EventHandler(control_Invalidated);
+                        control.Invalidated += control_Invalidated;
 
                         this.OnInvalidated(EventArgs.Empty);
                     }
-
                     break;
 
                 case NotifyCollectionChangedAction.Remove:
@@ -95,7 +95,12 @@ namespace FlagConsole.Controls
             }
         }
 
-        private void control_Invalidated(object sender, System.EventArgs e)
+        /// <summary>
+        /// Handles the Invalidated event of the control control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void control_Invalidated(object sender, EventArgs e)
         {
             this.OnInvalidated(EventArgs.Empty);
         }

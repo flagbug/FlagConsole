@@ -82,7 +82,7 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Raises the <see cref="E:TextEntered"/> event.
+        /// Raises the <see cref="TextEntered"/> event.
         /// </summary>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected virtual void OnTextEntered(EventArgs e)
@@ -111,7 +111,7 @@ namespace FlagConsole.Controls
 
                 Console.SetCursorPosition(this.AbsoluteLocation.X + this.Text.Length - offset, this.AbsoluteLocation.Y);
 
-                key = System.Console.ReadKey(true);
+                key = Console.ReadKey(true);
 
                 if (key.Key != ConsoleKey.Enter)
                 {

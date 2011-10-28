@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using FlagConsole.Drawing;
-using FlagConsole.Drawing;
 
 namespace FlagConsole.Controls
 {
@@ -11,14 +10,11 @@ namespace FlagConsole.Controls
     /// <typeparam name="T">Type of the item that the user can select</typeparam>
     public class Menu<T> : ListControl, IFocusable
     {
-        private List<MenuItem<T>> items;
+        private readonly List<MenuItem<T>> items;
 
         /// <summary>
         /// Gets the items.
         /// </summary>
-        /// <value>
-        /// The items.
-        /// </value>
         public ICollection<MenuItem<T>> Items
         {
             get { return this.items; }
@@ -35,9 +31,6 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets the selected item.
         /// </summary>
-        /// <value>
-        /// The selected item.
-        /// </value>
         public MenuItem<T> SelectedItem
         {
             get
@@ -160,7 +153,7 @@ namespace FlagConsole.Controls
 
             do
             {
-                pressedKey = System.Console.ReadKey(true).Key;
+                pressedKey = Console.ReadKey(true).Key;
 
                 if (this.UpKeys.Contains(pressedKey) && this.SelectedIndex > 0)
                 {
@@ -182,9 +175,9 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Raises the <see cref="E:ItemChosen"/> event.
+        /// Raises the <see cref="ItemChosen"/> event.
         /// </summary>
-        /// <param name="e">The <see cref="FlagConsole.Console.Controls.MenuEventArgs&lt;T&gt;"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MenuEventArgs{T}"/> instance containing the event data.</param>
         protected virtual void OnItemChosen(MenuEventArgs<T> e)
         {
             if (this.ItemChosen != null)
@@ -194,9 +187,9 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Raises the <see cref="E:SelectionChanged"/> event.
+        /// Raises the <see cref="SelectionChanged"/> event.
         /// </summary>
-        /// <param name="e">The <see cref="FlagConsole.Console.Controls.MenuEventArgs&lt;T&gt;"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MenuEventArgs{T}"/> instance containing the event data.</param>
         protected virtual void OnSelectionChanged(MenuEventArgs<T> e)
         {
             if (this.SelectionChanged != null)

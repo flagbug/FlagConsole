@@ -5,13 +5,12 @@ namespace FlagConsole.Demo
 {
     internal class ListViewDemoPanel : Panel
     {
-        private ListView<string> listView;
-        private ListView<string> listView2;
+        private readonly ListView<string> listView;
+        private readonly ListView<string> listView2;
 
         public ListViewDemoPanel()
         {
-            this.listView = new ListView<string>();
-            this.listView.Size = new Size(14, 8);
+            this.listView = new ListView<string> { Size = new Size(14, 8) };
             this.listView.Items.Add("This");
             this.listView.Items.Add("is a");
             this.listView.Items.Add("list view.");
@@ -23,10 +22,13 @@ namespace FlagConsole.Demo
 
             this.Controls.Add(this.listView);
 
-            this.listView2 = new ListView<string>();
-            this.listView2.RelativeLocation = new Coordinate(18, 0);
-            this.listView2.Size = new Size(14, 8);
-            this.listView2.Bullet = '-';
+            this.listView2 =
+                new ListView<string>
+                    {
+                        RelativeLocation = new Coordinate(18, 0),
+                        Size = new Size(14, 8),
+                        Bullet = '-'
+                    };
             this.listView2.Items.Add("This");
             this.listView2.Items.Add("list view");
             this.listView2.Items.Add("has a other");

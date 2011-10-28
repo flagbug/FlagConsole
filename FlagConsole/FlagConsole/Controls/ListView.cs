@@ -11,14 +11,11 @@ namespace FlagConsole.Controls
     /// <typeparam name="T">Type of the item that gets displayed</typeparam>
     public class ListView<T> : ListControl
     {
-        private Collection<T> items = new Collection<T>();
+        private readonly Collection<T> items;
 
         /// <summary>
         /// Gets the items.
         /// </summary>
-        /// <value>
-        /// The items.
-        /// </value>
         public ICollection<T> Items
         {
             get { return this.items; }
@@ -29,6 +26,7 @@ namespace FlagConsole.Controls
         /// </summary>
         public ListView()
         {
+            this.items = new Collection<T>();
             this.Bullet = '+';
         }
 
@@ -46,7 +44,7 @@ namespace FlagConsole.Controls
             {
                 string bulletString = this.DisplayBullets ? this.Bullet + " " : String.Empty;
 
-                buffer.DrawLine(bulletString + this.items[i].ToString(), new Coordinate(0, i));
+                buffer.DrawLine(bulletString + this.items[i], new Coordinate(0, i));
             }
         }
     }

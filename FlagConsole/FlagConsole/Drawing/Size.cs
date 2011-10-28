@@ -86,9 +86,11 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Implements the operator !=.
         /// </summary>
-        /// <param name="positionA">The position A.</param>
-        /// <param name="positionB">The position B.</param>
-        /// <returns>The result of the operator.</returns>
+        /// <param name="sizeA">The size A.</param>
+        /// <param name="sizeB">The size B.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
         public static bool operator !=(Size sizeA, Size sizeB)
         {
             return !(sizeA == sizeB);
@@ -106,7 +108,7 @@ namespace FlagConsole.Drawing
         /// </exception>
         public override bool Equals(object obj)
         {
-            Size size = obj as Size;
+            var size = obj as Size;
 
             if (size == null)
             {
@@ -136,7 +138,7 @@ namespace FlagConsole.Drawing
         /// </returns>
         public override int GetHashCode()
         {
-            return new { Height = this.Height, Width = this.Width }.GetHashCode();
+            return new { this.Height, this.Width }.GetHashCode();
         }
     }
 }

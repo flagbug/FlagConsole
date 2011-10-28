@@ -6,15 +6,12 @@
     public class MenuItem<T>
     {
         /// <summary>
-        /// Gets or sets the name which is displayed in the menu.
+        /// Gets or sets the name that is displayed in the menu.
         /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
         public string Name { get; private set; }
 
         /// <summary>
-        /// Value of the item, returned when the user selects an item
+        /// The value of the item, returned when the user selects an item.
         /// </summary>
         public T Value { get; private set; }
 
