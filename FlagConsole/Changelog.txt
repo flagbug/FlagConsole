@@ -1,3 +1,9 @@
+------------------------------ v1.0.1 ------------------------------
+
+BUGFIXES:
+- Fixed a bug, which caused the label not to draw a word, if it had 
+  the same length as the label's length.
+
 ------------------------------ v1.0.0 ------------------------------
 
 - Release of the final version.
