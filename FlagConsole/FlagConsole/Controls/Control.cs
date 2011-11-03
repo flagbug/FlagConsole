@@ -14,7 +14,7 @@ namespace FlagConsole.Controls
         /// <value>
         /// The parent container.
         /// </value>
-        public virtual Container Parent { get; set; }
+        public Container Parent { get; set; }
 
         /// <summary>
         /// Gets the top container.
@@ -30,7 +30,7 @@ namespace FlagConsole.Controls
         /// <value>
         /// The relative location to the parent container.
         /// </value>
-        public virtual Coordinate RelativeLocation { get; set; }
+        public Coordinate RelativeLocation { get; set; }
 
         /// <summary>
         /// Gets the absolute location in the console.
@@ -53,7 +53,7 @@ namespace FlagConsole.Controls
         /// <value>
         /// The size of the control.
         /// </value>
-        public virtual Size Size { get; set; }
+        public Size Size { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Control"/> is visible.
@@ -61,7 +61,7 @@ namespace FlagConsole.Controls
         /// <value>
         ///   <c>true</c> if visible; otherwise, <c>false</c>.
         /// </value>
-        public virtual bool IsVisible { get; set; }
+        public bool IsVisible { get; set; }
 
         public ConsoleColor ForegroundColor { get; set; }
 
