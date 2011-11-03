@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Timers;
 using FlagConsole.Controls;
 using FlagConsole.Drawing;
 
@@ -44,67 +43,60 @@ namespace FlagConsole.Demo
             this.mainMenuPanel.Controls.Add(this.mainMenu);
         }
 
+        public void Activate()
+        {
+            this.Update(new GraphicBuffer(this.Size));
+            this.mainMenu.Focus();
+        }
+
         private void mainMenu_ItemChosen(object sender, MenuEventArgs<Action> e)
         {
             e.Item.Value.Invoke();
             this.mainMenu.Focus();
         }
 
-        public void Activate()
-        {
-            var t = new Timer(250);
-            t.Elapsed += (sender, e) =>
-            {
-                //this.Update(new GraphicBuffer(this.Size));
-            };
-            t.Start();
-            this.Update(new GraphicBuffer(this.Size));
-            this.mainMenu.Focus();
-        }
-
-        public void SwitchDemoPanel(Panel panel)
+        private void SwitchDemoPanel(Panel panel)
         {
             this.Controls.Remove(this.presentationPanel);
             this.presentationPanel = panel;
             this.presentationPanel.Size = new Size(45, 40);
             this.presentationPanel.RelativeLocation = new Coordinate(35, 7);
             this.Controls.Add(this.presentationPanel);
-            //this.Update();
         }
 
-        public void ShowLabelDemo()
+        private void ShowLabelDemo()
         {
             this.SwitchDemoPanel(new LabelDemoPanel());
         }
 
-        public void ShowListViewDemo()
+        private void ShowListViewDemo()
         {
             this.SwitchDemoPanel(new ListViewDemoPanel());
         }
 
-        public void ShowTextFieldDemo()
+        private void ShowTextFieldDemo()
         {
             var panel = new TextFieldDemoPanel();
             this.SwitchDemoPanel(panel);
             panel.Activate();
         }
 
-        public void ShowRectangleDemo()
+        private void ShowRectangleDemo()
         {
             this.SwitchDemoPanel(new RectangleDemoPanel());
         }
 
-        public void ShowLineDemo()
+        private void ShowLineDemo()
         {
             this.SwitchDemoPanel(new LineDemoPanel());
         }
 
-        public void ShowEllipseDemo()
+        private void ShowEllipseDemo()
         {
             this.SwitchDemoPanel(new EllipseDemoPanel());
         }
 
-        public void Exit()
+        private void Exit()
         {
             Environment.Exit(0);
         }
