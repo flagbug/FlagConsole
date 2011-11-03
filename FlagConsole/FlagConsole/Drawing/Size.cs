@@ -4,7 +4,7 @@ using System.Diagnostics;
 namespace FlagConsole.Drawing
 {
     /// <summary>
-    /// Provides a immutable size, which encapsulates a width and a height
+    /// Provides an immutable size, which encapsulates a width and a height
     /// </summary>
     [Serializable]
     [DebuggerStepThrough]
@@ -17,9 +17,6 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Gets the height.
         /// </summary>
-        /// <value>
-        /// The height.
-        /// </value>
         public int Height
         {
             get { return this.height; }
@@ -28,9 +25,6 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Gets the width.
         /// </summary>
-        /// <value>
-        /// The width.
-        /// </value>
         public int Width
         {
             get { return this.width; }
