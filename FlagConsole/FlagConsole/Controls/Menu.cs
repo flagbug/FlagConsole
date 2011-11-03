@@ -95,8 +95,8 @@ namespace FlagConsole.Controls
         public Menu()
         {
             this.items = new List<MenuItem<T>>();
-            this.UpKeys = new List<ConsoleKey> { ConsoleKey.UpArrow };
-            this.DownKeys = new List<ConsoleKey> { ConsoleKey.DownArrow };
+            this.UpKeys = new HashSet<ConsoleKey> { ConsoleKey.UpArrow };
+            this.DownKeys = new HashSet<ConsoleKey> { ConsoleKey.DownArrow };
             this.Bullet = '-';
             this.SelectionForegroundColor = ConsoleColor.Black;
             this.SelectionBackgroundColor = ConsoleColor.White;
