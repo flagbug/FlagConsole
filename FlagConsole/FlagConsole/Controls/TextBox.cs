@@ -127,8 +127,6 @@ namespace FlagConsole.Controls
 
                 key = Console.ReadKey(true);
 
-                this.OnTextChanged(EventArgs.Empty);
-
                 if (key.Key != ConsoleKey.Enter)
                 {
                     if (key.Key == ConsoleKey.Backspace)
@@ -143,6 +141,8 @@ namespace FlagConsole.Controls
                     {
                         this.Text += key.KeyChar.ToString();
                     }
+
+                    this.OnTextChanged(EventArgs.Empty);
                 }
             }
             while (key.Key != ConsoleKey.Enter && this.IsVisible);
