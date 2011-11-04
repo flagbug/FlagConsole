@@ -3,11 +3,7 @@ using FlagConsole.Drawing;
 
 namespace FlagConsole.Controls
 {
-    /// <summary>
-    /// Provides a text field where the user can do an input
-    /// </summary>
-    [Obsolete("This class is obsolete, use TextBox instead.")]
-    public class TextField : Control, IFocusable
+    public class TextBox : Control, IFocusable
     {
         /// <summary>
         /// Gets the input.
@@ -39,9 +35,9 @@ namespace FlagConsole.Controls
         public event EventHandler TextEntered;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TextField"/> class.
+        /// Initializes a new instance of the <see cref="TextBox"/> class.
         /// </summary>
-        public TextField()
+        public TextBox()
         {
             this.Text = String.Empty;
             this.BackgroundColor = ConsoleColor.White;
