@@ -29,7 +29,7 @@ namespace FlagConsole.Demo
             this.mainMenu = new Menu<Action> { RelativeLocation = new Coordinate(0, 6), Size = new Size(15, 10) };
             this.mainMenu.Items.Add(new MenuItem<Action>("Label", this.ShowLabelDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("ListView", this.ShowListViewDemo));
-            this.mainMenu.Items.Add(new MenuItem<Action>("TextField", this.ShowTextFieldDemo));
+            this.mainMenu.Items.Add(new MenuItem<Action>("TextBox", this.ShowTextBoxDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("Rectangle", this.ShowRectangleDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("Line", this.ShowLineDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("Ellipse", this.ShowEllipseDemo));
@@ -74,9 +74,9 @@ namespace FlagConsole.Demo
             this.SwitchDemoPanel(new ListViewDemoPanel());
         }
 
-        private void ShowTextFieldDemo()
+        private void ShowTextBoxDemo()
         {
-            var panel = new TextFieldDemoPanel();
+            var panel = new TextBoxDemoPanel();
             this.SwitchDemoPanel(panel);
             panel.Activate();
         }
