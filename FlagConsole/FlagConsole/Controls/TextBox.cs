@@ -11,7 +11,7 @@ namespace FlagConsole.Controls
         /// <value>
         /// The input.
         /// </value>
-        public virtual string Text { get; private set; }
+        public virtual string Text { get; set; }
 
         /// <summary>
         /// Gets or sets the length of the text field.
