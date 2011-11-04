@@ -21,12 +21,12 @@ namespace FlagConsole.Demo
             this.mainManuTextLabel =
                 new Label
                 {
-                    Size = new Size(30, 5),
-                    Text = "This is the main menu. You can select items with the up and down arrows or the W and S keys. Press enter if you want to see the presentation."
+                    Size = new Size(30, 7),
+                    Text = "This is the main menu. You can select items with the UP and DOWN arrows or the W and S keys (this can be customized). Press enter if you want to see the presentation."
                 };
             this.mainMenuPanel.Controls.Add(mainManuTextLabel);
 
-            this.mainMenu = new Menu<Action> { RelativeLocation = new Coordinate(0, 6), Size = new Size(15, 10) };
+            this.mainMenu = new Menu<Action> { RelativeLocation = new Coordinate(0, 7), Size = new Size(15, 10) };
             this.mainMenu.Items.Add(new MenuItem<Action>("Label", this.ShowLabelDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("ListView", this.ShowListViewDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("TextBox", this.ShowTextBoxDemo));
