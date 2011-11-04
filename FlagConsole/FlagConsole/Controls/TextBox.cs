@@ -30,9 +30,14 @@ namespace FlagConsole.Controls
         public virtual bool IsFocused { get; set; }
 
         /// <summary>
-        /// Occurs when the input has been entered.
+        /// Occurs when the input has been submitted.
         /// </summary>
         public event EventHandler TextSubmitted;
+
+        /// <summary>
+        /// Occurs when the text has changed.
+        /// </summary>
+        public event EventHandler TextChanged;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TextBox"/> class.
@@ -91,6 +96,18 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
+        /// Raises the <see cref="TextChanged"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        protected virtual void OnTextChanged(EventArgs e)
+        {
+            if (this.TextChanged != null)
+            {
+                this.TextChanged(this, e);
+            }
+        }
+
+        /// <summary>
         /// Scans the input.
         /// </summary>
         protected virtual void ScanInput()
@@ -109,6 +126,8 @@ namespace FlagConsole.Controls
                 Console.SetCursorPosition(this.AbsoluteLocation.X + this.Text.Length - offset, this.AbsoluteLocation.Y);
 
                 key = Console.ReadKey(true);
+
+                this.OnTextChanged(EventArgs.Empty);
 
                 if (key.Key != ConsoleKey.Enter)
                 {
