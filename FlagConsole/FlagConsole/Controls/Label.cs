@@ -40,32 +40,43 @@ namespace FlagConsole.Controls
 
             var lines = new List<string>();
 
-            do
+            // If there is only one word, draw it immediately.
+            // This fixes a bug, which caues a cut-off at the end of a line
+            // (the cut-off for only one word is desired)
+            if (words.Count == 1)
             {
-                string line = String.Empty;
-                bool first = true;
-
-                for (int i = 0; i < words.Count; i++)
-                {
-                    if (line.Length + words[0].Length <= this.Size.Width) //check if the line fits into the label
-                    {
-                        string space = first ? String.Empty : " ";
-                        first = false;
-
-                        line += space + words[0];
-                        words.Remove(words[0]);
-                        i--;
-                    }
-
-                    else
-                    {
-                        break;
-                    }
-                }
-
-                lines.Add(line);
+                lines.Add(words[0]);
             }
-            while (words.Count > 0 && lines.Count < this.Size.Height);
+
+            else
+            {
+                do
+                {
+                    string line = String.Empty;
+                    bool first = true;
+
+                    for (int i = 0; i < words.Count; i++)
+                    {
+                        if (line.Length + words[0].Length < this.Size.Width) //check if the line fits into the label
+                        {
+                            string space = first ? String.Empty : " ";
+                            first = false;
+
+                            line += space + words[0];
+                            words.Remove(words[0]);
+                            i--;
+                        }
+
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                    lines.Add(line);
+                }
+                while (words.Count > 0 && lines.Count < this.Size.Height);
+            }
 
             for (int i = 0; i < lines.Count; i++)
             {
