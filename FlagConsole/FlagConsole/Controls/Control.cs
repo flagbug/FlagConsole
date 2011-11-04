@@ -85,6 +85,14 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
+        /// Invalidates the control and causes a redraw.
+        /// </summary>
+        public void Invalidate()
+        {
+            this.OnInvalidated(EventArgs.Empty);
+        }
+
+        /// <summary>
         /// Updates the control if it's visibility is set to true.
         /// </summary>
         public virtual void Update(GraphicBuffer buffer)
