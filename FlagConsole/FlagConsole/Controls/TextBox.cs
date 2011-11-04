@@ -32,7 +32,7 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Occurs when the input has been entered.
         /// </summary>
-        public event EventHandler TextEntered;
+        public event EventHandler TextSubmitted;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TextBox"/> class.
@@ -79,14 +79,14 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Raises the <see cref="TextEntered"/> event.
+        /// Raises the <see cref="TextSubmitted"/> event.
         /// </summary>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        protected virtual void OnTextEntered(EventArgs e)
+        protected virtual void OnTextSubmitted(EventArgs e)
         {
-            if (this.TextEntered != null)
+            if (this.TextSubmitted != null)
             {
-                this.TextEntered(this, e);
+                this.TextSubmitted(this, e);
             }
         }
 
@@ -128,7 +128,7 @@ namespace FlagConsole.Controls
             }
             while (key.Key != ConsoleKey.Enter && this.IsVisible);
 
-            this.OnTextEntered(EventArgs.Empty);
+            this.OnTextSubmitted(EventArgs.Empty);
 
             Console.CursorVisible = cursorVisible;
         }
