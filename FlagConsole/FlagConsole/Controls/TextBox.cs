@@ -11,15 +11,15 @@ namespace FlagConsole.Controls
         /// <value>
         /// The input.
         /// </value>
-        public virtual string Text { get; set; }
+        public string Text { get; set; }
 
         /// <summary>
-        /// Gets or sets the length of the text field.
+        /// Gets or sets the maximum number of characters the user can type into the text box.
         /// </summary>
         /// <value>
-        /// The length of the text field.
+        /// The maximum number of characters the user can type into the text box.
         /// </value>
-        public virtual int Length { get; set; }
+        public int MaxLength { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether this <see cref="IFocusable"/> is focused.
@@ -27,7 +27,7 @@ namespace FlagConsole.Controls
         /// <value>
         /// true if focused; otherwise, false.
         /// </value>
-        public virtual bool IsFocused { get; set; }
+        public bool IsFocused { get; set; }
 
         /// <summary>
         /// Occurs when the input has been submitted.
@@ -76,7 +76,7 @@ namespace FlagConsole.Controls
             buffer.ForegroundDrawingColor = this.ForegroundColor;
 
             string background = String.Empty;
-            background = background.PadRight(this.Length, ' ');
+            background = background.PadRight(this.Size.Width, ' ');
 
             buffer.DrawLine(background, Coordinate.Origin);
 
@@ -119,9 +119,9 @@ namespace FlagConsole.Controls
 
             do
             {
-                this.OnInvalidated(EventArgs.Empty);
+                this.Invalidate();
 
-                int offset = this.Text.Length == this.Length ? 1 : 0;
+                int offset = this.Text.Length == this.MaxLength ? 1 : 0;
 
                 Console.SetCursorPosition(this.AbsoluteLocation.X + this.Text.Length - offset, this.AbsoluteLocation.Y);
 
@@ -137,7 +137,7 @@ namespace FlagConsole.Controls
                         }
                     }
 
-                    else if (this.Text.Length < this.Length)
+                    else if (this.Text.Length < this.MaxLength)
                     {
                         this.Text += key.KeyChar.ToString();
                     }

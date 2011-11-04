@@ -167,7 +167,7 @@ namespace FlagConsole.Controls
                     this.OnSelectionChanged(new MenuEventArgs<T>(this.SelectedItem));
                 }
 
-                this.OnInvalidated(EventArgs.Empty);
+                this.Invalidate();
             }
             while (pressedKey != ConsoleKey.Enter && this.IsVisible);
 
@@ -182,7 +182,7 @@ namespace FlagConsole.Controls
         {
             if (this.ItemChosen != null)
             {
-                this.ItemChosen.Invoke(this, e);
+                this.ItemChosen(this, e);
             }
         }
 
@@ -194,7 +194,7 @@ namespace FlagConsole.Controls
         {
             if (this.SelectionChanged != null)
             {
-                this.SelectionChanged.Invoke(this, e);
+                this.SelectionChanged(this, e);
             }
         }
     }
