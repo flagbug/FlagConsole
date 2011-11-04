@@ -21,14 +21,14 @@ namespace FlagConsole.Demo
             this.Controls.Add(this.descriptionLabel);
 
             this.textBox = new TextBox { Size = new Size(8, 1), Length = 8, RelativeLocation = new Coordinate(0, 4) };
-            this.textBox.TextSubmitted += textBox_TextEntered;
+            this.textBox.TextSubmitted += textBox_TextSubmitted;
             this.Controls.Add(this.textBox);
 
             this.textLabel = new Label { RelativeLocation = new Coordinate(0, 6) };
             this.Controls.Add(this.textLabel);
         }
 
-        private void textBox_TextEntered(object sender, EventArgs e)
+        private void textBox_TextSubmitted(object sender, EventArgs e)
         {
             this.textLabel.Text = "You have entered: " + this.textBox.Text;
             this.textLabel.Size = new Size(this.textLabel.Text.Length, 1);
