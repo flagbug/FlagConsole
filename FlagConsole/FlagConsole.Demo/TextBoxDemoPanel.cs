@@ -15,12 +15,12 @@ namespace FlagConsole.Demo
             this.descriptionLabel =
                 new Label
                     {
-                        Text = "Enter some text and press enter. The maximum length is set to 8 characters. Of course, this limit can be increased."
+                        Text = "Enter some text and press enter. The maximum length is set to 5 characters. Of course, this limit can be increased."
                     };
             this.descriptionLabel.Size = new Size(this.descriptionLabel.Text.Length / 3 + 1, 3);
             this.Controls.Add(this.descriptionLabel);
 
-            this.textBox = new TextBox { Size = new Size(8, 1), Length = 8, RelativeLocation = new Coordinate(0, 4) };
+            this.textBox = new TextBox { Size = new Size(8, 1), MaxLength = 5, RelativeLocation = new Coordinate(0, 4) };
             this.textBox.TextSubmitted += textBox_TextSubmitted;
             this.Controls.Add(this.textBox);
 
