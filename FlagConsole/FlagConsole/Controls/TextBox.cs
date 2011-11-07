@@ -3,6 +3,9 @@ using FlagConsole.Drawing;
 
 namespace FlagConsole.Controls
 {
+    /// <summary>
+    /// Provides a control, where the user can type text.
+    /// </summary>
     public class TextBox : Control, IFocusable
     {
         /// <summary>
@@ -148,6 +151,8 @@ namespace FlagConsole.Controls
             while (key.Key != ConsoleKey.Enter && this.IsVisible);
 
             this.OnTextSubmitted(EventArgs.Empty);
+
+            this.Defocus();
 
             Console.CursorVisible = cursorVisible;
         }
