@@ -32,18 +32,6 @@ namespace FlagConsole.Controls
         {
             base.Update(buffer);
 
-            if (this.IsVisible)
-            {
-                foreach (Control control in this.Controls)
-                {
-                    var localBuffer = new GraphicBuffer(control.Size);
-
-                    control.Update(localBuffer);
-
-                    buffer.Merge(localBuffer, control.RelativeLocation);
-                }
-            }
-
             buffer.DrawToScreen(this.AbsoluteLocation);
         }
 
