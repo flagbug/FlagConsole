@@ -126,7 +126,7 @@ namespace FlagConsole.Controls
 
                     else if (this.Text.Length < this.Length)
                     {
-                        this.Text += key.KeyChar.ToString();
+                        this.Text += key.KeyChar;
                     }
                 }
             }
