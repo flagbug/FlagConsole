@@ -63,7 +63,7 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Defocuses the control and stopps it's behaviour.
+        /// Defocuses the control and stops it's behaviour.
         /// </summary>
         public void Defocus()
         {
