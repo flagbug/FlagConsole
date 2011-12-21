@@ -37,14 +37,7 @@ namespace FlagConsole.Controls
         /// </summary>
         public virtual Coordinate AbsoluteLocation
         {
-            get
-            {
-                return new Coordinate
-                (
-                    this.RelativeLocation.X + this.Parent.AbsoluteLocation.X,
-                    this.RelativeLocation.Y + this.Parent.AbsoluteLocation.Y
-                );
-            }
+            get { return this.RelativeLocation + this.Parent.AbsoluteLocation; }
         }
 
         /// <summary>
