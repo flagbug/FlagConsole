@@ -142,7 +142,7 @@ namespace FlagConsole.Controls
 
                     else if (this.Text.Length < this.MaxLength)
                     {
-                        this.Text += key.KeyChar.ToString();
+                        this.Text += key.KeyChar;
                     }
 
                     this.OnTextChanged(EventArgs.Empty);
