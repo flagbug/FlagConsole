@@ -15,9 +15,9 @@ namespace FlagConsole.Demo
             this.descriptionLabel =
                 new Label
                     {
-                        Text = "Enter some text and press enter. The maximum length is set to 5 characters. Of course, this limit can be increased."
+                        Text = "Enter some text and press enter. The maximum length is set to 5 characters, but it has a width of 8. Of course, this limits can be increased."
                     };
-            this.descriptionLabel.Size = new Size(this.descriptionLabel.Text.Length / 3 + 1, 3);
+            this.descriptionLabel.Size = new Size(this.descriptionLabel.Text.Length / 3 + 1, 4);
             this.Controls.Add(this.descriptionLabel);
 
             this.textBox = new TextBox { Size = new Size(8, 1), MaxLength = 5, RelativeLocation = new Coordinate(0, 4) };
