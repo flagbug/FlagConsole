@@ -51,7 +51,7 @@ namespace FlagConsole.Drawing
             var points = this.RasterEllipse
                 (
                     this.Centre.X, this.Centre.Y,
-                    this.A + (int)((double)this.A / (1.75)), // Compensate the proportions of the symbols in the console
+                    this.A + (int)(this.A / (1.75)), // Compensate the proportions of the symbols in the console
                     this.B
                 );
 
