@@ -8,13 +8,26 @@ namespace FlagConsole.Controls
     /// </summary>
     public class TextBox : Control, IFocusable
     {
+        private string text;
+
         /// <summary>
-        /// Gets the input.
+        /// Gets or sets the current text of the <see cref="TextBox"/>.
         /// </summary>
         /// <value>
-        /// The input.
+        /// The current text of the <see cref="TextBox"/>.
         /// </value>
-        public string Text { get; set; }
+        public string Text
+        {
+            get { return this.text; }
+            set
+            {
+                if (this.text != value)
+                {
+                    this.text = value;
+                    this.OnTextChanged(EventArgs.Empty);
+                }
+            }
+        }
 
         /// <summary>
         /// Gets or sets the maximum number of characters the user can type into the text box.
@@ -144,8 +157,6 @@ namespace FlagConsole.Controls
                     {
                         this.Text += key.KeyChar;
                     }
-
-                    this.OnTextChanged(EventArgs.Empty);
                 }
             }
             while (key.Key != ConsoleKey.Enter && this.IsVisible);
