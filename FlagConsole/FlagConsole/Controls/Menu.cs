@@ -61,7 +61,7 @@ namespace FlagConsole.Controls
         /// <value>
         /// true if the control has input focus; otherwise, false.
         /// </value>
-        public virtual bool IsFocused { get; set; }
+        public virtual bool IsFocused { get; private set; }
 
         /// <summary>
         /// Gets or sets the foreground color of the selection.
