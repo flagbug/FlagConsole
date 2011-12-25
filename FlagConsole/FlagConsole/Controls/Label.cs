@@ -13,7 +13,7 @@ namespace FlagConsole.Controls
         /// Gets or sets the text that is displayed in the label.
         /// </summary>
         /// <value>
-        /// The text taht is displayed in the label.
+        /// The text that is displayed in the label.
         /// </value>
         public string Text { get; set; }
 
