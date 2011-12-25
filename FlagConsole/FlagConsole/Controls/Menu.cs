@@ -129,7 +129,7 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Focuses the control and executes it's behaviour (e.g the selection of a menu or the input of a textfield)
         /// </summary>
-        public virtual void Focus()
+        public void Focus()
         {
             this.IsFocused = true;
             this.IsVisible = true;
@@ -139,7 +139,7 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Defocuses the control and stopps it's behaviour.
         /// </summary>
-        public virtual void Defocus()
+        public void Defocus()
         {
             this.IsFocused = false;
         }
