@@ -9,15 +9,15 @@ namespace FlagConsole.Controls
     public abstract class Control
     {
         /// <summary>
-        /// Gets or sets the parent container.
+        /// Gets or sets the parent <see cref="Container"/> that contains the control.
         /// </summary>
         /// <value>
-        /// The parent container.
+        /// The parent <see cref="Container"/> that contains the control.
         /// </value>
         public Container Parent { get; set; }
 
         /// <summary>
-        /// Gets the top container.
+        /// Gets the top <see cref="Container"/>.
         /// </summary>
         public virtual Container Top
         {
@@ -25,10 +25,10 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Gets or sets the relative location to the parent container.
+        /// Gets or sets the relative location to the parent <see cref="Container"/>.
         /// </summary>
         /// <value>
-        /// The relative location to the parent container.
+        /// The relative location to the parent <see cref="Container"/>.
         /// </value>
         public Coordinate RelativeLocation { get; set; }
 
@@ -49,15 +49,27 @@ namespace FlagConsole.Controls
         public Size Size { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="Control"/> is visible.
+        /// Gets or sets a value indicating whether the control is visible.
         /// </summary>
         /// <value>
-        ///   <c>true</c> if visible; otherwise, <c>false</c>.
+        ///   <c>true</c> if the control is visible; otherwise, <c>false</c>.
         /// </value>
         public bool IsVisible { get; set; }
 
+        /// <summary>
+        /// Gets or sets the foreground color for the control.
+        /// </summary>
+        /// <value>
+        /// The foregound color for the control.
+        /// </value>
         public ConsoleColor ForegroundColor { get; set; }
 
+        /// <summary>
+        /// Gets or sets the background color for the control.
+        /// </summary>
+        /// <value>
+        /// The backgound color for the control.
+        /// </value>
         public ConsoleColor BackgroundColor { get; set; }
 
         /// <summary>
@@ -86,7 +98,7 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Updates the control if it's visibility is set to true.
+        /// Updates the control if <see cref="IsVisible"/> is set to true.
         /// </summary>
         public virtual void Update(GraphicBuffer buffer)
         {
@@ -99,7 +111,7 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Draws the control.
         /// </summary>
-        /// <param name="buffer">The graphic buffer.</param>
+        /// <param name="buffer">The graphic buffer to draw on.</param>
         protected abstract void Draw(GraphicBuffer buffer);
 
         /// <summary>
