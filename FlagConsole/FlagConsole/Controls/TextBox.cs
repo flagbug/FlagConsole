@@ -30,18 +30,18 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Gets or sets the maximum number of characters the user can type into the text box.
+        /// Gets or sets the maximum number of characters the user can type into the <see cref="TextBox"/>.
         /// </summary>
         /// <value>
-        /// The maximum number of characters the user can type into the text box.
+        /// The maximum number of characters the user can type into the <see cref="TextBox"/>.
         /// </value>
         public int MaxLength { get; set; }
 
         /// <summary>
-        /// Gets a value indicating whether this <see cref="IFocusable"/> is focused.
+        /// Gets a value indicating whether the control has input focus.
         /// </summary>
         /// <value>
-        /// true if focused; otherwise, false.
+        /// true if the control has input focus; otherwise, false.
         /// </value>
         public bool IsFocused { get; set; }
 

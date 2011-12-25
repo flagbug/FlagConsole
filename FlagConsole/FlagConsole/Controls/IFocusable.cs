@@ -6,10 +6,10 @@
     public interface IFocusable
     {
         /// <summary>
-        /// Gets a value indicating whether this <see cref="IFocusable"/> is focused.
+        /// Gets a value indicating whether the control has input focus.
         /// </summary>
         /// <value>
-        /// true if focused; otherwise, false.
+        /// true if the control has input focus; otherwise, false.
         /// </value>
         bool IsFocused { get; }
 
