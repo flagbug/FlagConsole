@@ -33,6 +33,7 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Draws the control.
         /// </summary>
+        /// <param name="buffer">The <see cref="GraphicBuffer"/> to draw on.</param>
         protected override void Draw(GraphicBuffer buffer)
         {
             buffer.ForegroundDrawingColor = this.ForegroundColor;

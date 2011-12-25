@@ -34,8 +34,9 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Updates the container and it's child controls if their visiblity is set to true.
+        /// Updates the control if <see cref="Control.IsVisible"/> is set to true.
         /// </summary>
+        /// <param name="buffer">The <see cref="GraphicBuffer"/> to draw on.</param>
         public override void Update(GraphicBuffer buffer)
         {
             base.Update(buffer);

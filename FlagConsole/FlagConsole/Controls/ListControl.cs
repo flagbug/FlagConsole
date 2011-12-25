@@ -6,18 +6,18 @@
     public abstract class ListControl : Control
     {
         /// <summary>
-        /// Gets or sets the bullet.
+        /// Gets or sets the bullet that is prepended before each item.
         /// </summary>
         /// <value>
-        /// The bullet.
+        /// The bullet that is prepended before each item..
         /// </value>
         public char Bullet { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the bullets shall be displayed.
+        /// Gets or sets a value indicating whether the bullets should be displayed.
         /// </summary>
         /// <value>
-        /// true if the bullets shall be displayed; otherwise, false.
+        /// true if the bullets should be displayed; otherwise, false.
         /// </value>
         public bool DisplayBullets { get; set; }
 

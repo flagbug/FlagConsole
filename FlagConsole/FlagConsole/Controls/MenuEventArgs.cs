@@ -9,10 +9,10 @@ namespace FlagConsole.Controls
     public class MenuEventArgs<T> : EventArgs
     {
         /// <summary>
-        /// Gets the item.
+        /// Gets the item that was affected.
         /// </summary>
         /// <value>
-        /// The item.
+        /// The item that was affected.
         /// </value>
         public MenuItem<T> Item { get; private set; }
 

@@ -100,6 +100,7 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Updates the control if <see cref="IsVisible"/> is set to true.
         /// </summary>
+        /// <param name="buffer">The <see cref="GraphicBuffer"/> to draw on.</param>
         public virtual void Update(GraphicBuffer buffer)
         {
             if (this.IsVisible)
@@ -111,7 +112,7 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Draws the control.
         /// </summary>
-        /// <param name="buffer">The graphic buffer to draw on.</param>
+        /// <param name="buffer">The <see cref="GraphicBuffer"/> to draw on.</param>
         protected abstract void Draw(GraphicBuffer buffer);
 
         /// <summary>
