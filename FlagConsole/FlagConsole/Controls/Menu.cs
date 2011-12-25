@@ -40,18 +40,18 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Gets the up keys.
+        /// Gets a collection of <see cref="ConsoleKey"/>s that can be used to scroll upward in the menu.
         /// </summary>
         /// <value>
-        /// Up key.
+        /// A collection of <see cref="ConsoleKey"/>s that can be used to scroll upward in the menu.
         /// </value>
         public ICollection<ConsoleKey> UpKeys { get; private set; }
 
         /// <summary>
-        /// Gets the down keys.
+        /// Gets a collection of <see cref="ConsoleKey"/>s that can be used to scroll downward in the menu.
         /// </summary>
         /// <value>
-        /// Down key.
+        /// A collection of <see cref="ConsoleKey"/>s that can be used to scroll downward in the menu.
         /// </value>
         public ICollection<ConsoleKey> DownKeys { get; private set; }
 
@@ -64,18 +64,18 @@ namespace FlagConsole.Controls
         public virtual bool IsFocused { get; private set; }
 
         /// <summary>
-        /// Gets or sets the foreground color of the selection.
+        /// Gets or sets the foreground color of the current selected item.
         /// </summary>
         /// <value>
-        /// The foreground color of the selection.
+        /// The foreground color of the current selected item.
         /// </value>
         public ConsoleColor SelectionForegroundColor { get; set; }
 
         /// <summary>
-        /// Gets or sets the background color of the selection.
+        /// Gets or sets the background color of the current selected item.
         /// </summary>
         /// <value>
-        /// The background color of the selection.
+        /// The background color of the current selected item.
         /// </value>
         public ConsoleColor SelectionBackgroundColor { get; set; }
 
@@ -85,7 +85,7 @@ namespace FlagConsole.Controls
         public event EventHandler<MenuEventArgs<T>> ItemChosen;
 
         /// <summary>
-        /// Occurs when the selection has been changed.
+        /// Occurs when the current selected item has changed.
         /// </summary>
         public event EventHandler<MenuEventArgs<T>> SelectionChanged;
 
@@ -105,6 +105,7 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Draws the control.
         /// </summary>
+        /// <param name="buffer">The <see cref="GraphicBuffer"/> to draw on.</param>
         protected override void Draw(GraphicBuffer buffer)
         {
             for (int i = 0; i < this.Items.Count; i++)

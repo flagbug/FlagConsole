@@ -46,12 +46,12 @@ namespace FlagConsole.Controls
         public bool IsFocused { get; private set; }
 
         /// <summary>
-        /// Occurs when the input has been submitted.
+        /// Occurs when the user pressed the enter key.
         /// </summary>
         public event EventHandler TextSubmitted;
 
         /// <summary>
-        /// Occurs when the text has changed.
+        /// Occurs when the <see cref="Text"/> property value changes.
         /// </summary>
         public event EventHandler TextChanged;
 
@@ -86,6 +86,7 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Draws the control.
         /// </summary>
+        /// <param name="buffer">The <see cref="GraphicBuffer"/> to draw on.</param>
         protected override void Draw(GraphicBuffer buffer)
         {
             buffer.BackgroundDrawingColor = this.BackgroundColor;

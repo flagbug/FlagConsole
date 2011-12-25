@@ -18,7 +18,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="MenuItem&lt;T&gt;"/> class.
         /// </summary>
-        /// <param name="name">The name.</param>
+        /// <param name="name">The name of the item.</param>
         /// <param name="value">The value.</param>
         public MenuItem(string name, T value)
         {
