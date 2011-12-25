@@ -43,7 +43,7 @@ namespace FlagConsole.Controls
         /// <value>
         /// true if the control has input focus; otherwise, false.
         /// </value>
-        public bool IsFocused { get; set; }
+        public bool IsFocused { get; private set; }
 
         /// <summary>
         /// Occurs when the input has been submitted.
