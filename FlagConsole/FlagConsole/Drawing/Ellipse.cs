@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows;
 
 namespace FlagConsole.Drawing
 {
@@ -44,24 +45,26 @@ namespace FlagConsole.Drawing
         }
 
         /// <summary>
-        /// Draws the circle.
+        /// Draws the ellipse.
         /// </summary>
+        /// <param name="buffer">The <see cref="GraphicBuffer"/> to draw on.</param>
         public override void Draw(GraphicBuffer buffer)
         {
             var points = this.RasterEllipse
                 (
-                    this.Centre.X, this.Centre.Y,
+                    this.Centre.X,
+                    this.Centre.Y,
                     this.A + (int)(this.A / (1.75)), // Compensate the proportions of the symbols in the console
                     this.B
                 );
 
-            foreach (System.Windows.Point point in points)
+            foreach (Point point in points)
             {
                 buffer.DrawPixel(this.Token, new Coordinate((int)point.X, (int)point.Y));
             }
         }
 
-        private IEnumerable<System.Windows.Point> RasterEllipse(int xMid, int yMid, int a, int b)
+        private IEnumerable<Point> RasterEllipse(int xMid, int yMid, int a, int b)
         {
             int dx = 0;
             int dy = b;
@@ -71,10 +74,10 @@ namespace FlagConsole.Drawing
 
             do
             {
-                yield return new System.Windows.Point(xMid + dx, yMid + dy);
-                yield return new System.Windows.Point(xMid - dx, yMid + dy);
-                yield return new System.Windows.Point(xMid - dx, yMid - dy);
-                yield return new System.Windows.Point(xMid + dx, yMid - dy);
+                yield return new Point(xMid + dx, yMid + dy);
+                yield return new Point(xMid - dx, yMid + dy);
+                yield return new Point(xMid - dx, yMid - dy);
+                yield return new Point(xMid + dx, yMid - dy);
 
                 long error2 = 2 * error;
 
@@ -94,8 +97,8 @@ namespace FlagConsole.Drawing
 
             while (dx++ < a)
             {
-                yield return new System.Windows.Point(xMid + dx, yMid);
-                yield return new System.Windows.Point(xMid - dx, yMid);
+                yield return new Point(xMid + dx, yMid);
+                yield return new Point(xMid - dx, yMid);
             }
         }
     }
