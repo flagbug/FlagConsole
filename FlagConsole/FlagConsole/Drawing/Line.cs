@@ -49,37 +49,37 @@ namespace FlagConsole.Drawing
             }
         }
 
-        private static void Swap<T>(ref T lhs, ref T rhs)
+        private static void Swap<T>(ref T first, ref T second)
         {
-            T temp = lhs;
+            T temp = first;
 
-            lhs = rhs;
-            rhs = temp;
+            first = second;
+            second = temp;
         }
 
-        private static IEnumerable<Coordinate> RasterLine(int x0, int y0, int x1, int y1)
+        private static IEnumerable<Coordinate> RasterLine(int xStart, int yStart, int xEnd, int yEnd)
         {
-            bool steep = Math.Abs(y1 - y0) > Math.Abs(x1 - x0);
+            bool steep = Math.Abs(yEnd - yStart) > Math.Abs(xEnd - xStart);
 
             if (steep)
             {
-                Swap(ref x0, ref y0);
-                Swap(ref x1, ref y1);
+                Swap(ref xStart, ref yStart);
+                Swap(ref xEnd, ref yEnd);
             }
 
-            if (x0 > x1)
+            if (xStart > xEnd)
             {
-                Swap(ref x0, ref x1);
-                Swap(ref y0, ref y1);
+                Swap(ref xStart, ref xEnd);
+                Swap(ref yStart, ref yEnd);
             }
 
-            int dX = (x1 - x0);
-            int dY = (y1 - y0);
-            int err = (dX / 2);
-            int ystep = (y0 < y1 ? 1 : -1);
-            int y = y0;
+            int dX = (xEnd - xStart);
+            int dY = (yEnd - yStart);
+            int error = (dX / 2);
+            int ystep = (yStart < yEnd ? 1 : -1);
+            int y = yStart;
 
-            for (int x = x0; x <= x1; ++x)
+            for (int x = xStart; x <= xEnd; ++x)
             {
                 if (steep)
                 {
@@ -91,11 +91,11 @@ namespace FlagConsole.Drawing
                     yield return new Coordinate(x, y);
                 }
 
-                err = err - dY;
+                error = error - dY;
 
-                if (err < 0)
+                if (error < 0)
                 {
-                    y += ystep; err += dX;
+                    y += ystep; error += dX;
                 }
             }
         }
