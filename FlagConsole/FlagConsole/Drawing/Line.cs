@@ -29,7 +29,7 @@ namespace FlagConsole.Drawing
         /// </summary>
         /// <param name="startPoint">The start point.</param>
         /// <param name="endPoint">The end point.</param>
-        /// <param name="token">The token.</param>
+        /// <param name="token">The token of which the line consists.</param>
         public Line(Coordinate startPoint, Coordinate endPoint, char token)
             : base(token)
         {
@@ -43,7 +43,7 @@ namespace FlagConsole.Drawing
         /// <param name="buffer">The graphic buffer.</param>
         public override void Draw(GraphicBuffer buffer)
         {
-            foreach (Coordinate point in this.RasterLine(this.StartPoint.X, this.StartPoint.Y, this.EndPoint.X, this.EndPoint.Y))
+            foreach (Coordinate point in RasterLine(this.StartPoint.X, this.StartPoint.Y, this.EndPoint.X, this.EndPoint.Y))
             {
                 buffer.DrawPixel(this.Token, point);
             }
@@ -57,7 +57,7 @@ namespace FlagConsole.Drawing
             rhs = temp;
         }
 
-        private IEnumerable<Coordinate> RasterLine(int x0, int y0, int x1, int y1)
+        private static IEnumerable<Coordinate> RasterLine(int x0, int y0, int x1, int y1)
         {
             bool steep = Math.Abs(y1 - y0) > Math.Abs(x1 - x0);
 
