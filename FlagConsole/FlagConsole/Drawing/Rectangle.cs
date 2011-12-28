@@ -74,8 +74,9 @@
         }
 
         /// <summary>
-        /// Draws this rectangle.
+        /// Draws the shape.
         /// </summary>
+        /// <param name="buffer">The <see cref="GraphicBuffer"/> to draw on.</param>
         public override void Draw(GraphicBuffer buffer)
         {
             if (this.IsFilled)
@@ -92,17 +93,19 @@
         /// <summary>
         /// Draws a filled rectangle.
         /// </summary>
+        /// <param name="buffer">The <see cref="GraphicBuffer"/> to draw on.</param>
         private void DrawFilledRectangle(GraphicBuffer buffer)
         {
             for (int y = this.Location.Y - 1; y < this.Location.Y + this.Size.Height - 1; y++)
             {
-                buffer.DrawLine(this.Token, this.Location + new Coordinate(0, y + 1), new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y));
+                buffer.DrawLine(this.Token, this.Location + new Coordinate(0, y + 1), this.Location + new Coordinate(this.Size.Width - 1, 0));
             }
         }
 
         /// <summary>
         /// Draws a unfilled rectangle.
         /// </summary>
+        /// <param name="buffer">The <see cref="GraphicBuffer"/> to draw on.</param>
         private void DrawUnfilledRectangle(GraphicBuffer buffer)
         {
             buffer.DrawLine(this.Token, this.Location, new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y));
