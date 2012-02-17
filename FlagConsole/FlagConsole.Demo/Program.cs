@@ -7,6 +7,8 @@ namespace FlagConsole.Demo
     {
         private static void Main(string[] args)
         {
+            Console.Title = "FlagConsole Demo Application";
+
             Console.WindowHeight = 50;
             Console.WindowWidth = 80;
             Console.BufferHeight = 50;
