@@ -27,7 +27,7 @@ A list view can have multiple entries that are displayed in one row.
 The menu control looks like a ListView, but lets the user navigate through the items with the keyboard and select one item when pressing the enter key.
 
 - **Panel:**
-On a panel can be places various controls, that can be arranged relative to the position of the panel, so that not every control has to be manually arranged when changing the position.
+On a panel can be placed various controls, that can be arranged relative to the position of the panel, so that not every control has to be manually arranged when changing the position.
 
 - **Screen:**
 The screen is the topmost control and is responsible for updating and drawing its child controls.
