@@ -48,7 +48,7 @@ Ellipses and circels can easily be drawn. Support for filled ellipses and cricle
 
 In the download section is a demo application available, that shows the FlagConsole library in action.
 
-## Screenshots from of the demo application
+## Screenshots of the demo application
 
 ### The main menu
 
