@@ -1,0 +1,45 @@
+------------------------------ v1.1.1 ------------------------------
+
+CHANGES:
+- TextBox: The IsFocused property is now set to false before the 
+  TextSubmitted event is fired.
+- TextBox: The setter of the IsFocused property is now private.
+- Menu: The setter of the IsFocused property is now private.
+- Menu: The Focus and Defocus methods arent' virtual anymore.
+
+BUGFIXES:
+- TextBox: The TextChanged event is now also raised  when the Text 
+  property is set directly.
+- TextBox: Fixed a bug, that caused the Console.CursorVisible 
+  property to always be true after the TextSubmitted event is fired.
+- Menu: Fixed the defocusing of the menu after the enter key is 
+  pressed.
+
+------------------------------ v1.1.0 ------------------------------
+
+FEATURES:
+- Added the new TextBox control.
+- Each control now implements the Invalidate method, which causes 
+  a redraw of the control.
+
+CHANGES:
+- The TextField is marked as obsolete. It is replaced by the new 
+  TextBox control.
+
+BUGFIXES:
+- Label: Fixed a bug, which caused a cut-off in the text.
+- Screen: Fixed a bug, whih caused it to be redrawn twice.
+
+------------------------------ v1.0.1 ------------------------------
+
+BUGFIXES:
+- Label: Fixed a bug, which caused the label not to draw a word, if 
+  it had the same length as the label's length.
+
+------------------------------ v1.0.0 ------------------------------
+
+- Release of the final version.
+
+------------------------------ v0.0.0 ------------------------------
+
+- Initial release.
