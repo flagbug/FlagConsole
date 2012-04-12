@@ -173,6 +173,10 @@ namespace FlagConsole.Drawing
                     pixels[x] = this.buffer[x, y];
                 }
 
+                /*
+                 * Go through each row and group pixel with the same color together.
+                 * This drastically improves performance when the graphic buffer contains pixel with different colors.
+                 */
                 var final = new List<List<Pixel>>();
                 var currentGroup = new List<Pixel>();
                 Pixel prevPixel = null;
