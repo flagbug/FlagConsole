@@ -164,9 +164,9 @@ namespace FlagConsole.Controls
 
             Console.CursorVisible = cursorVisible;
 
-            this.OnTextSubmitted(EventArgs.Empty);
-
             this.Defocus();
+
+            this.OnTextSubmitted(EventArgs.Empty);
         }
     }
 }
