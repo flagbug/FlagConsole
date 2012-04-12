@@ -33,10 +33,7 @@ namespace FlagConsole.Controls
         /// </summary>
         public MenuItem<T> SelectedItem
         {
-            get
-            {
-                return this.items[this.SelectedIndex];
-            }
+            get { return this.items[this.SelectedIndex]; }
         }
 
         /// <summary>
@@ -171,6 +168,8 @@ namespace FlagConsole.Controls
                 this.Invalidate();
             }
             while (pressedKey != ConsoleKey.Enter && this.IsVisible);
+
+            this.Defocus();
 
             this.OnItemChosen(new MenuEventArgs<T>(this.SelectedItem));
         }
