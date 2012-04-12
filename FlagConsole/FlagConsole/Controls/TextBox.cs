@@ -162,11 +162,11 @@ namespace FlagConsole.Controls
             }
             while (key.Key != ConsoleKey.Enter && this.IsVisible);
 
+            Console.CursorVisible = cursorVisible;
+
             this.OnTextSubmitted(EventArgs.Empty);
 
             this.Defocus();
-
-            Console.CursorVisible = cursorVisible;
         }
     }
 }
