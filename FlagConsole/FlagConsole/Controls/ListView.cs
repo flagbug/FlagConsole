@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using FlagConsole.Drawing;
 
 namespace FlagConsole.Controls
@@ -11,7 +10,7 @@ namespace FlagConsole.Controls
     /// <typeparam name="T">Type of the item that gets displayed</typeparam>
     public class ListView<T> : ListControl
     {
-        private readonly Collection<T> items;
+        private readonly List<T> items;
 
         /// <summary>
         /// Gets the items.
@@ -26,7 +25,7 @@ namespace FlagConsole.Controls
         /// </summary>
         public ListView()
         {
-            this.items = new Collection<T>();
+            this.items = new List<T>();
             this.Bullet = '+';
         }
 
