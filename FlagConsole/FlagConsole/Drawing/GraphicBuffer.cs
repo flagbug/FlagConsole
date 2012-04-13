@@ -184,8 +184,8 @@ namespace FlagConsole.Drawing
                 foreach (var pixel in pixels)
                 {
                     if (prevPixel != null
-                        && pixel.BackgroundColor != prevPixel.BackgroundColor
-                        && pixel.ForegroundColor != prevPixel.ForegroundColor)
+                        && (pixel.BackgroundColor != prevPixel.BackgroundColor
+                        || pixel.ForegroundColor != prevPixel.ForegroundColor))
                     {
                         final.Add(currentGroup);
                         currentGroup = new List<Pixel>();
