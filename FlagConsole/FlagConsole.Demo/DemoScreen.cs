@@ -11,20 +11,20 @@ namespace FlagConsole.Demo
         private readonly Panel mainMenuPanel;
         private Panel presentationPanel;
 
-        private readonly Label mainManuTextLabel;
+        private readonly Label mainMenuTextLabel;
 
         public DemoScreen()
         {
             this.mainMenuPanel = new Panel { Size = new Size(30, 30), RelativeLocation = new Coordinate(2, 1) };
             this.Controls.Add(this.mainMenuPanel);
 
-            this.mainManuTextLabel =
+            this.mainMenuTextLabel =
                 new Label
                 {
                     Size = new Size(30, 7),
                     Text = "This is the main menu. You can select items with the UP and DOWN arrows or the W and S keys (this can be customized). Press enter if you want to see the presentation."
                 };
-            this.mainMenuPanel.Controls.Add(mainManuTextLabel);
+            this.mainMenuPanel.Controls.Add(mainMenuTextLabel);
 
             this.mainMenu = new Menu<Action> { RelativeLocation = new Coordinate(0, 7), Size = new Size(15, 10) };
             this.mainMenu.Items.Add(new MenuItem<Action>("Label", this.ShowLabelDemo));
