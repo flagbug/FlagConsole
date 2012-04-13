@@ -1,3 +1,9 @@
+------------------------------ v1.1.2 ------------------------------
+
+BUGFIXES:
+- Fixed a fatal bug in the GraphicBuffer that caused a wrong drawing 
+  of colors. 
+
 ------------------------------ v1.1.1 ------------------------------
 
 CHANGES:
