@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlagConsole.UnitTests", "Fl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{93B4F384-973F-44BA-8E96-CF1A9FCE6F6E}"
 	ProjectSection(SolutionItems) = preProject
-		Changelog.txt = Changelog.txt
+		..\Changelog.txt = ..\Changelog.txt
 		FlagConsole.vsmdi = FlagConsole.vsmdi
 		Local.testsettings = Local.testsettings
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
