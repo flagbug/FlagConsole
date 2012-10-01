@@ -1,33 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace FlagConsole.Drawing
 {
     public class GraphicBuffer
     {
         private readonly Pixel[,] buffer;
-
-        /// <summary>
-        /// Gets the size of the buffer.
-        /// </summary>
-        public Size Size { get; private set; }
-
-        /// <summary>
-        /// Gets or sets the foreground drawing color.
-        /// </summary>
-        /// <value>
-        /// The foreground drawing color.
-        /// </value>
-        public ConsoleColor ForegroundDrawingColor { get; set; }
-
-        /// <summary>
-        /// Gets or sets the background drawing color.
-        /// </summary>
-        /// <value>
-        /// The background drawing color.
-        /// </value>
-        public ConsoleColor BackgroundDrawingColor { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GraphicBuffer"/> class.
@@ -43,14 +21,25 @@ namespace FlagConsole.Drawing
         }
 
         /// <summary>
-        /// Sets the foreground and background drawing colors to their default values.
+        /// Gets or sets the background drawing color.
         /// </summary>
-        public void ResetColor()
-        {
-            Console.ResetColor();
-            this.ForegroundDrawingColor = Console.ForegroundColor;
-            this.BackgroundDrawingColor = Console.BackgroundColor;
-        }
+        /// <value>
+        /// The background drawing color.
+        /// </value>
+        public ConsoleColor BackgroundDrawingColor { get; set; }
+
+        /// <summary>
+        /// Gets or sets the foreground drawing color.
+        /// </summary>
+        /// <value>
+        /// The foreground drawing color.
+        /// </value>
+        public ConsoleColor ForegroundDrawingColor { get; set; }
+
+        /// <summary>
+        /// Gets the size of the buffer.
+        /// </summary>
+        public Size Size { get; private set; }
 
         /// <summary>
         /// Clears the graphic buffer and resets the drawing colors.
@@ -63,38 +52,16 @@ namespace FlagConsole.Drawing
         }
 
         /// <summary>
-        /// Merges the specified buffer at the specified location into this buffer.
+        /// Draws a ellipse.
         /// </summary>
-        /// <param name="otherBuffer">The buffer, that should be merged into this instance.</param>
-        /// <param name="location">The location.</param>
-        public void Merge(GraphicBuffer otherBuffer, Coordinate location)
+        /// <param name="token">The token.</param>
+        /// <param name="midPoint">The mid point.</param>
+        /// <param name="a">A.</param>
+        /// <param name="b">The b.</param>
+        public void DrawEllipse(char token, Coordinate midPoint, int a, int b)
         {
-            var fColor = this.ForegroundDrawingColor;
-            var bColor = this.BackgroundDrawingColor;
-
-            otherBuffer.TraversePixels((x, y) =>
-                {
-                    this.ForegroundDrawingColor = otherBuffer.buffer[x, y].ForegroundColor;
-                    this.BackgroundDrawingColor = otherBuffer.buffer[x, y].BackgroundColor;
-
-                    this.DrawPixel(otherBuffer.buffer[x, y].Token, location + new Coordinate(x, y));
-                });
-
-            this.ForegroundDrawingColor = fColor;
-            this.BackgroundDrawingColor = bColor;
-        }
-
-        /// <summary>
-        /// Draws the specified pixel at the specified location in the buffer.
-        /// </summary>
-        /// <param name="pixel">The pixel to draw.</param>
-        /// <param name="location">The location where the pixel shall be drawn.</param>
-        public void DrawPixel(char pixel, Coordinate location)
-        {
-            if (this.IsInBounds(location))
-            {
-                this.buffer[location.X, location.Y] = new Pixel(pixel, this.ForegroundDrawingColor, this.BackgroundDrawingColor);
-            }
+            var ellipse = new Ellipse(midPoint, a, b, token);
+            ellipse.Draw(this);
         }
 
         /// <summary>
@@ -133,16 +100,16 @@ namespace FlagConsole.Drawing
         }
 
         /// <summary>
-        /// Draws a ellipse.
+        /// Draws the specified pixel at the specified location in the buffer.
         /// </summary>
-        /// <param name="token">The token.</param>
-        /// <param name="midPoint">The mid point.</param>
-        /// <param name="a">A.</param>
-        /// <param name="b">The b.</param>
-        public void DrawEllipse(char token, Coordinate midPoint, int a, int b)
+        /// <param name="pixel">The pixel to draw.</param>
+        /// <param name="location">The location where the pixel shall be drawn.</param>
+        public void DrawPixel(char pixel, Coordinate location)
         {
-            var ellipse = new Ellipse(midPoint, a, b, token);
-            ellipse.Draw(this);
+            if (this.IsInBounds(location))
+            {
+                this.buffer[location.X, location.Y] = new Pixel(pixel, this.ForegroundDrawingColor, this.BackgroundDrawingColor);
+            }
         }
 
         /// <summary>
@@ -204,13 +171,63 @@ namespace FlagConsole.Drawing
 
                 foreach (var pixelLine in final)
                 {
-                    Console.ForegroundColor = pixelLine[0].ForegroundColor;
-                    Console.BackgroundColor = pixelLine[0].BackgroundColor;
+                    // The whole line has the same color, therefore we select the color of the first item
+                    ConsoleColor newForegroundColor = pixelLine[0].ForegroundColor;
 
-                    var l = pixelLine.Select(pixel => pixel.Token).ToArray();
-                    Console.Write(l);
+                    if (Console.ForegroundColor != newForegroundColor)
+                    {
+                        Console.ForegroundColor = newForegroundColor;
+                    }
+
+                    ConsoleColor newBackgroundColor = pixelLine[0].BackgroundColor;
+
+                    if (Console.BackgroundColor != newBackgroundColor)
+                    {
+                        Console.BackgroundColor = newBackgroundColor;
+                    }
+
+                    var line = new char[pixelLine.Count];
+
+                    for (int i = 0; i < line.Length; i++)
+                    {
+                        line[i] = pixelLine[i].Token;
+                    }
+
+                    Console.Write(line);
                 }
             }
+        }
+
+        /// <summary>
+        /// Merges the specified buffer at the specified location into this buffer.
+        /// </summary>
+        /// <param name="otherBuffer">The buffer, that should be merged into this instance.</param>
+        /// <param name="location">The location.</param>
+        public void Merge(GraphicBuffer otherBuffer, Coordinate location)
+        {
+            var fColor = this.ForegroundDrawingColor;
+            var bColor = this.BackgroundDrawingColor;
+
+            otherBuffer.TraversePixels((x, y) =>
+                {
+                    this.ForegroundDrawingColor = otherBuffer.buffer[x, y].ForegroundColor;
+                    this.BackgroundDrawingColor = otherBuffer.buffer[x, y].BackgroundColor;
+
+                    this.DrawPixel(otherBuffer.buffer[x, y].Token, location + new Coordinate(x, y));
+                });
+
+            this.ForegroundDrawingColor = fColor;
+            this.BackgroundDrawingColor = bColor;
+        }
+
+        /// <summary>
+        /// Sets the foreground and background drawing colors to their default values.
+        /// </summary>
+        public void ResetColor()
+        {
+            Console.ResetColor();
+            this.ForegroundDrawingColor = Console.ForegroundColor;
+            this.BackgroundDrawingColor = Console.BackgroundColor;
         }
 
         /// <summary>
