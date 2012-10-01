@@ -1,9 +1,15 @@
 
-/FlagConsole/_ReSharper.FlagConsole
-/FlagConsole/FlagConsole.UnitTests/bin
-/FlagConsole/FlagConsole.UnitTests/obj
-/FlagConsole/FlagConsole.Demo/bin
-/FlagConsole/FlagConsole.Demo/obj
-/FlagConsole/FlagConsole/bin
-/FlagConsole/TestResults
-/FlagConsole/FlagConsole/obj
+_ReSharper*
+[Bb]in/
+[Oo]bj/
+TestResults
+publish
+_NCrunch*
+
+*.suo
+*.user
+*.psess
+*.vsp
+*.ncrunchproject
+*.ncrunchsolution
+*.pdb
