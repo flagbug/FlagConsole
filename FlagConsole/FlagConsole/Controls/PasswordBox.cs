@@ -5,25 +5,25 @@ namespace FlagConsole.Controls
     /// <summary>
     /// Provides a TextBox control, where the user can type passwords.
     /// </summary>
-    public class PasswordTextBox : TextBox
+    public class PasswordBox : TextBox
     {
-        public PasswordTextBox()
+        public PasswordBox()
         {
             Password = string.Empty;
             TextChanged += OnTextChanged;
         }
 
         /// <summary>
-        /// Gets the current password of the <see cref="PasswordTextBox"/>.
+        /// Gets the current password of the <see cref="PasswordBox"/>.
         /// </summary>
         /// <value>
-        /// The current password of the <see cref="PasswordTextBox"/>.
+        /// The current password of the <see cref="PasswordBox"/>.
         /// </value>
         public string Password { get; private set; }
 
         /// <summary>
-        /// Replace the entered character in the <see cref="PasswordTextBox"/> if any with * and save in Password property.
-        /// If character is deleted from the <see cref="PasswordTextBox"/> the character is deleted from the Password property.
+        /// Replace the entered character in the <see cref="PasswordBox"/> if any with * and save in Password property.
+        /// If character is deleted from the <see cref="PasswordBox"/> the character is deleted from the Password property.
         /// </summary>
         private void OnTextChanged(object sender, EventArgs eventArgs)
         {

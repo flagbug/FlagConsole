@@ -84,7 +84,7 @@ namespace FlagConsole.Demo
 
         private void ShowPasswordTextBoxDemo()
         {
-            var panel = new PasswordTextBoxDemoPanel();
+            var panel = new PasswordBoxDemoPanel();
             this.SwitchDemoPanel(panel);
             panel.Activate();
         }

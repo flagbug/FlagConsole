@@ -4,20 +4,20 @@ using FlagConsole.Drawing;
 
 namespace FlagConsole.Demo
 {
-    public class PasswordTextBoxDemoPanel : Panel
+    public class PasswordBoxDemoPanel : Panel
     {
         private readonly Label _descriptionLabel;
         private readonly Label _textLabel;
-        private readonly PasswordTextBox _passwordTextBox;
+        private readonly PasswordBox _passwordTextBox;
 
-        public PasswordTextBoxDemoPanel()
+        public PasswordBoxDemoPanel()
         {
             _descriptionLabel = new Label
                 { Text = "Enter a password and press enter. The maximum length is set to 5 characters, but it has a width of 8. Of course, this limits can be increased." };
             _descriptionLabel.Size = new Size(_descriptionLabel.Text.Length/3 + 1, 4);
             Controls.Add(_descriptionLabel);
 
-            _passwordTextBox = new PasswordTextBox { Size = new Size(8, 1), MaxLength = 5, RelativeLocation = new Coordinate(0, 4) };
+            _passwordTextBox = new PasswordBox { Size = new Size(8, 1), MaxLength = 5, RelativeLocation = new Coordinate(0, 4) };
             _passwordTextBox.TextSubmitted += PasswordTextBoxPasswordSubmitted;
             Controls.Add(_passwordTextBox);
 

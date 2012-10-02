@@ -48,7 +48,7 @@
     <Compile Include="Controls\MenuEventArgs.cs" />
     <Compile Include="Controls\MenuItem.cs" />
     <Compile Include="Controls\Panel.cs" />
-    <Compile Include="Controls\PasswordTextBox.cs" />
+    <Compile Include="Controls\PasswordBox.cs" />
     <Compile Include="Controls\Screen.cs" />
     <Compile Include="Controls\TextBox.cs" />
     <Compile Include="Controls\TextField.cs" />
