@@ -9,8 +9,8 @@ namespace FlagConsole.Controls
     {
         public PasswordBox()
         {
-            Password = string.Empty;
-            TextChanged += OnTextChanged;
+            this.Password = String.Empty;
+            this.PasswordChar = '*';
         }
 
         /// <summary>
@@ -22,21 +22,29 @@ namespace FlagConsole.Controls
         public string Password { get; private set; }
 
         /// <summary>
-        /// Replace the entered character in the <see cref="PasswordBox"/> if any with * and save in Password property.
-        /// If character is deleted from the <see cref="PasswordBox"/> the character is deleted from the Password property.
+        /// Gets or sets the masking character for the <see cref="PasswordBox"/>.
         /// </summary>
-        private void OnTextChanged(object sender, EventArgs eventArgs)
+        /// <value>
+        /// A masking character to echo when the user enters text into the <see cref="PasswordBox"/>.
+        /// The default value is a star character (*).
+        /// </value>
+        public char PasswordChar { get; set; }
+
+        protected override void OnTextChanged(EventArgs e)
         {
-            if(Text.Length > Password.Length)
+            if (this.Text.Length > this.Password.Length)
             {
-                var lastChar = Text[Text.Length - 1];
-                Password += lastChar;
-                Text = Text.Replace(lastChar, '*');
+                char lastChar = this.Text[this.Text.Length - 1];
+                this.Password += lastChar;
+                this.Text = new string(this.PasswordChar, this.Text.Length);
             }
-            else if(Text.Length < Password.Length)
+
+            else if (this.Text.Length < this.Password.Length)
             {
-                Password = Password.Remove(Password.Length - 1);
+                this.Password = this.Password.Remove(this.Password.Length - 1);
             }
+
+            base.OnTextChanged(e);
         }
     }
 }
