@@ -1,6 +1,6 @@
-﻿using System;
+﻿using FlagConsole.Drawing;
+using System;
 using System.Collections.Generic;
-using FlagConsole.Drawing;
 
 namespace FlagConsole.Controls
 {
@@ -10,20 +10,20 @@ namespace FlagConsole.Controls
     public class Label : Control
     {
         /// <summary>
-        /// Gets or sets the text that is displayed in the label.
-        /// </summary>
-        /// <value>
-        /// The text that is displayed in the label.
-        /// </value>
-        public string Text { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="Label"/> class.
         /// </summary>
         public Label()
         {
             this.Text = String.Empty;
         }
+
+        /// <summary>
+        /// Gets or sets the text that is displayed in the label.
+        /// </summary>
+        /// <value>
+        /// The text that is displayed in the label.
+        /// </value>
+        public string Text { get; set; }
 
         /// <summary>
         /// Draws the control.

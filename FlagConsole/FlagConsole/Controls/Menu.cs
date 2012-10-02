@@ -1,6 +1,6 @@
-﻿using System;
+﻿using FlagConsole.Drawing;
+using System;
 using System.Collections.Generic;
-using FlagConsole.Drawing;
 
 namespace FlagConsole.Controls
 {
@@ -11,6 +11,45 @@ namespace FlagConsole.Controls
     public class Menu<T> : ListControl, IFocusable
     {
         private readonly List<MenuItem<T>> items;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Menu&lt;T&gt;"/> class.
+        /// </summary>
+        public Menu()
+        {
+            this.items = new List<MenuItem<T>>();
+            this.UpKeys = new HashSet<ConsoleKey> { ConsoleKey.UpArrow };
+            this.DownKeys = new HashSet<ConsoleKey> { ConsoleKey.DownArrow };
+            this.Bullet = '-';
+            this.SelectionForegroundColor = ConsoleColor.Black;
+            this.SelectionBackgroundColor = ConsoleColor.White;
+        }
+
+        /// <summary>
+        /// Occurs when a item has been chosen.
+        /// </summary>
+        public event EventHandler<MenuEventArgs<T>> ItemChosen;
+
+        /// <summary>
+        /// Occurs when the current selected item has changed.
+        /// </summary>
+        public event EventHandler<MenuEventArgs<T>> SelectionChanged;
+
+        /// <summary>
+        /// Gets a collection of <see cref="ConsoleKey"/>s that can be used to scroll downward in the menu.
+        /// </summary>
+        /// <value>
+        /// A collection of <see cref="ConsoleKey"/>s that can be used to scroll downward in the menu.
+        /// </value>
+        public ICollection<ConsoleKey> DownKeys { get; private set; }
+
+        /// <summary>
+        /// Gets a value indicating whether the control has input focus.
+        /// </summary>
+        /// <value>
+        /// true if the control has input focus; otherwise, false.
+        /// </value>
+        public virtual bool IsFocused { get; private set; }
 
         /// <summary>
         /// Gets the items.
@@ -37,28 +76,12 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Gets a collection of <see cref="ConsoleKey"/>s that can be used to scroll upward in the menu.
+        /// Gets or sets the background color of the current selected item.
         /// </summary>
         /// <value>
-        /// A collection of <see cref="ConsoleKey"/>s that can be used to scroll upward in the menu.
+        /// The background color of the current selected item.
         /// </value>
-        public ICollection<ConsoleKey> UpKeys { get; private set; }
-
-        /// <summary>
-        /// Gets a collection of <see cref="ConsoleKey"/>s that can be used to scroll downward in the menu.
-        /// </summary>
-        /// <value>
-        /// A collection of <see cref="ConsoleKey"/>s that can be used to scroll downward in the menu.
-        /// </value>
-        public ICollection<ConsoleKey> DownKeys { get; private set; }
-
-        /// <summary>
-        /// Gets a value indicating whether the control has input focus.
-        /// </summary>
-        /// <value>
-        /// true if the control has input focus; otherwise, false.
-        /// </value>
-        public virtual bool IsFocused { get; private set; }
+        public ConsoleColor SelectionBackgroundColor { get; set; }
 
         /// <summary>
         /// Gets or sets the foreground color of the current selected item.
@@ -69,34 +92,29 @@ namespace FlagConsole.Controls
         public ConsoleColor SelectionForegroundColor { get; set; }
 
         /// <summary>
-        /// Gets or sets the background color of the current selected item.
+        /// Gets a collection of <see cref="ConsoleKey"/>s that can be used to scroll upward in the menu.
         /// </summary>
         /// <value>
-        /// The background color of the current selected item.
+        /// A collection of <see cref="ConsoleKey"/>s that can be used to scroll upward in the menu.
         /// </value>
-        public ConsoleColor SelectionBackgroundColor { get; set; }
+        public ICollection<ConsoleKey> UpKeys { get; private set; }
 
         /// <summary>
-        /// Occurs when a item has been chosen.
+        /// Defocuses the control and stopps it's behaviour.
         /// </summary>
-        public event EventHandler<MenuEventArgs<T>> ItemChosen;
-
-        /// <summary>
-        /// Occurs when the current selected item has changed.
-        /// </summary>
-        public event EventHandler<MenuEventArgs<T>> SelectionChanged;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Menu&lt;T&gt;"/> class.
-        /// </summary>
-        public Menu()
+        public void Defocus()
         {
-            this.items = new List<MenuItem<T>>();
-            this.UpKeys = new HashSet<ConsoleKey> { ConsoleKey.UpArrow };
-            this.DownKeys = new HashSet<ConsoleKey> { ConsoleKey.DownArrow };
-            this.Bullet = '-';
-            this.SelectionForegroundColor = ConsoleColor.Black;
-            this.SelectionBackgroundColor = ConsoleColor.White;
+            this.IsFocused = false;
+        }
+
+        /// <summary>
+        /// Focuses the control and executes it's behaviour (e.g the selection of a menu or the input of a textfield)
+        /// </summary>
+        public void Focus()
+        {
+            this.IsFocused = true;
+            this.IsVisible = true;
+            this.ScanInput();
         }
 
         /// <summary>
@@ -125,21 +143,27 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Focuses the control and executes it's behaviour (e.g the selection of a menu or the input of a textfield)
+        /// Raises the <see cref="ItemChosen"/> event.
         /// </summary>
-        public void Focus()
+        /// <param name="e">The <see cref="MenuEventArgs{T}"/> instance containing the event data.</param>
+        protected virtual void OnItemChosen(MenuEventArgs<T> e)
         {
-            this.IsFocused = true;
-            this.IsVisible = true;
-            this.ScanInput();
+            if (this.ItemChosen != null)
+            {
+                this.ItemChosen(this, e);
+            }
         }
 
         /// <summary>
-        /// Defocuses the control and stopps it's behaviour.
+        /// Raises the <see cref="SelectionChanged"/> event.
         /// </summary>
-        public void Defocus()
+        /// <param name="e">The <see cref="MenuEventArgs{T}"/> instance containing the event data.</param>
+        protected virtual void OnSelectionChanged(MenuEventArgs<T> e)
         {
-            this.IsFocused = false;
+            if (this.SelectionChanged != null)
+            {
+                this.SelectionChanged(this, e);
+            }
         }
 
         /// <summary>
@@ -172,30 +196,6 @@ namespace FlagConsole.Controls
             this.Defocus();
 
             this.OnItemChosen(new MenuEventArgs<T>(this.SelectedItem));
-        }
-
-        /// <summary>
-        /// Raises the <see cref="ItemChosen"/> event.
-        /// </summary>
-        /// <param name="e">The <see cref="MenuEventArgs{T}"/> instance containing the event data.</param>
-        protected virtual void OnItemChosen(MenuEventArgs<T> e)
-        {
-            if (this.ItemChosen != null)
-            {
-                this.ItemChosen(this, e);
-            }
-        }
-
-        /// <summary>
-        /// Raises the <see cref="SelectionChanged"/> event.
-        /// </summary>
-        /// <param name="e">The <see cref="MenuEventArgs{T}"/> instance containing the event data.</param>
-        protected virtual void OnSelectionChanged(MenuEventArgs<T> e)
-        {
-            if (this.SelectionChanged != null)
-            {
-                this.SelectionChanged(this, e);
-            }
         }
     }
 }

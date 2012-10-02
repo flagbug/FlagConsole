@@ -6,14 +6,6 @@
     internal abstract class Shape
     {
         /// <summary>
-        /// Gets or sets the token of which the shape consists.
-        /// </summary>
-        /// <value>
-        /// The token of which the shape consists.
-        /// </value>
-        public char Token { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="Shape"/> class.
         /// </summary>
         /// <param name="token">The token of whih the shape consists.</param>
@@ -21,6 +13,14 @@
         {
             this.Token = token;
         }
+
+        /// <summary>
+        /// Gets or sets the token of which the shape consists.
+        /// </summary>
+        /// <value>
+        /// The token of which the shape consists.
+        /// </value>
+        public char Token { get; set; }
 
         /// <summary>
         /// Draws the shape.

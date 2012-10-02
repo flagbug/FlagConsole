@@ -1,5 +1,5 @@
-﻿using System;
-using FlagConsole.Drawing;
+﻿using FlagConsole.Drawing;
+using System;
 
 namespace FlagConsole.Controls
 {
@@ -9,35 +9,6 @@ namespace FlagConsole.Controls
     [Obsolete("This class is obsolete, use TextBox instead.")]
     public class TextField : Control, IFocusable
     {
-        /// <summary>
-        /// Gets the input.
-        /// </summary>
-        /// <value>
-        /// The input.
-        /// </value>
-        public virtual string Text { get; private set; }
-
-        /// <summary>
-        /// Gets or sets the length of the text field.
-        /// </summary>
-        /// <value>
-        /// The length of the text field.
-        /// </value>
-        public virtual int Length { get; set; }
-
-        /// <summary>
-        /// Gets a value indicating whether this <see cref="IFocusable"/> is focused.
-        /// </summary>
-        /// <value>
-        /// true if focused; otherwise, false.
-        /// </value>
-        public virtual bool IsFocused { get; set; }
-
-        /// <summary>
-        /// Occurs when the input has been entered.
-        /// </summary>
-        public event EventHandler TextEntered;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="TextField"/> class.
         /// </summary>
@@ -49,14 +20,33 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Focuses the control and executes it's behaviour (e.g the selection of a menu or the input of a textfield)
+        /// Occurs when the input has been entered.
         /// </summary>
-        public void Focus()
-        {
-            this.IsFocused = true;
-            this.IsVisible = true;
-            this.ScanInput();
-        }
+        public event EventHandler TextEntered;
+
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="IFocusable"/> is focused.
+        /// </summary>
+        /// <value>
+        /// true if focused; otherwise, false.
+        /// </value>
+        public virtual bool IsFocused { get; set; }
+
+        /// <summary>
+        /// Gets or sets the length of the text field.
+        /// </summary>
+        /// <value>
+        /// The length of the text field.
+        /// </value>
+        public virtual int Length { get; set; }
+
+        /// <summary>
+        /// Gets the input.
+        /// </summary>
+        /// <value>
+        /// The input.
+        /// </value>
+        public virtual string Text { get; private set; }
 
         /// <summary>
         /// Defocuses the control and stopps it's behaviour.
@@ -64,6 +54,16 @@ namespace FlagConsole.Controls
         public void Defocus()
         {
             this.IsFocused = false;
+        }
+
+        /// <summary>
+        /// Focuses the control and executes it's behaviour (e.g the selection of a menu or the input of a textfield)
+        /// </summary>
+        public void Focus()
+        {
+            this.IsFocused = true;
+            this.IsVisible = true;
+            this.ScanInput();
         }
 
         /// <summary>

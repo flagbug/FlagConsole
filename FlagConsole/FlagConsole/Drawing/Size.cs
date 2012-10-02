@@ -15,22 +15,6 @@ namespace FlagConsole.Drawing
         private readonly int width;
 
         /// <summary>
-        /// Gets the height.
-        /// </summary>
-        public int Height
-        {
-            get { return this.height; }
-        }
-
-        /// <summary>
-        /// Gets the width.
-        /// </summary>
-        public int Width
-        {
-            get { return this.width; }
-        }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="Size"/> class.
         /// </summary>
         public Size()
@@ -48,14 +32,32 @@ namespace FlagConsole.Drawing
         }
 
         /// <summary>
-        /// Creates a new object that is a copy of the current instance.
+        /// Gets the height.
         /// </summary>
-        /// <returns>
-        /// A new object that is a copy of this instance.
-        /// </returns>
-        public object Clone()
+        public int Height
         {
-            return new Size(this.Width, this.Height);
+            get { return this.height; }
+        }
+
+        /// <summary>
+        /// Gets the width.
+        /// </summary>
+        public int Width
+        {
+            get { return this.width; }
+        }
+
+        /// <summary>
+        /// Implements the operator !=.
+        /// </summary>
+        /// <param name="sizeA">The size A.</param>
+        /// <param name="sizeB">The size B.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
+        public static bool operator !=(Size sizeA, Size sizeB)
+        {
+            return !(sizeA == sizeB);
         }
 
         /// <summary>
@@ -78,16 +80,14 @@ namespace FlagConsole.Drawing
         }
 
         /// <summary>
-        /// Implements the operator !=.
+        /// Creates a new object that is a copy of the current instance.
         /// </summary>
-        /// <param name="sizeA">The size A.</param>
-        /// <param name="sizeB">The size B.</param>
         /// <returns>
-        /// The result of the operator.
+        /// A new object that is a copy of this instance.
         /// </returns>
-        public static bool operator !=(Size sizeA, Size sizeB)
+        public object Clone()
         {
-            return !(sizeA == sizeB);
+            return new Size(this.Width, this.Height);
         }
 
         /// <summary>

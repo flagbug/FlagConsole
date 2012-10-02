@@ -6,6 +6,14 @@
     public abstract class ListControl : Control
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="ListControl"/> class.
+        /// </summary>
+        protected ListControl()
+        {
+            this.DisplayBullets = true;
+        }
+
+        /// <summary>
         /// Gets or sets the bullet that is prepended before each item.
         /// </summary>
         /// <value>
@@ -20,13 +28,5 @@
         /// true if the bullets should be displayed; otherwise, false.
         /// </value>
         public bool DisplayBullets { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ListControl"/> class.
-        /// </summary>
-        protected ListControl()
-        {
-            this.DisplayBullets = true;
-        }
     }
 }

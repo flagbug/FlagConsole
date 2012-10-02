@@ -5,8 +5,8 @@ namespace FlagConsole.Demo
 {
     internal class RectangleDemoPanel : Panel
     {
-        private readonly Label filledRectangleLabel;
         private readonly Label emptyRectangleLabel;
+        private readonly Label filledRectangleLabel;
 
         public RectangleDemoPanel()
         {

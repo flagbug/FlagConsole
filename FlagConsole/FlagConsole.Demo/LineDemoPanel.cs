@@ -5,9 +5,9 @@ namespace FlagConsole.Demo
 {
     internal class LineDemoPanel : Panel
     {
+        private readonly Label genericLineLabel;
         private readonly Label horizontalLineLabel;
         private readonly Label verticalLineLabel;
-        private readonly Label genericLineLabel;
 
         public LineDemoPanel()
         {

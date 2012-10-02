@@ -1,6 +1,6 @@
-﻿using System;
+﻿using FlagConsole.Drawing;
+using System;
 using System.Collections.Generic;
-using FlagConsole.Drawing;
 
 namespace FlagConsole.Controls
 {
@@ -13,20 +13,20 @@ namespace FlagConsole.Controls
         private readonly List<T> items;
 
         /// <summary>
-        /// Gets the items.
-        /// </summary>
-        public ICollection<T> Items
-        {
-            get { return this.items; }
-        }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="ListView&lt;T&gt;"/> class.
         /// </summary>
         public ListView()
         {
             this.items = new List<T>();
             this.Bullet = '+';
+        }
+
+        /// <summary>
+        /// Gets the items.
+        /// </summary>
+        public ICollection<T> Items
+        {
+            get { return this.items; }
         }
 
         /// <summary>

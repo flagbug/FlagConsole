@@ -5,8 +5,8 @@ namespace FlagConsole.Demo
 {
     internal class EllipseDemoPanel : Panel
     {
-        private readonly Label ellipseLabel;
         private readonly Label circleLabel;
+        private readonly Label ellipseLabel;
 
         public EllipseDemoPanel()
         {

@@ -6,12 +6,19 @@ namespace FlagConsole.Drawing
     internal class Ellipse : Shape
     {
         /// <summary>
-        /// Gets or sets the mid point.
+        /// Initializes a new instance of the <see cref="Ellipse"/> class.
         /// </summary>
-        /// <value>
-        /// The mid point.
-        /// </value>
-        public Coordinate Centre { get; set; }
+        /// <param name="midPoint">The mid point.</param>
+        /// <param name="a">The radius.</param>
+        /// <param name="b">The b.</param>
+        /// <param name="token">The token.</param>
+        public Ellipse(Coordinate midPoint, int a, int b, char token)
+            : base(token)
+        {
+            this.Centre = midPoint;
+            this.A = a;
+            this.B = b;
+        }
 
         /// <summary>
         /// Gets or sets the size on the x-axis.
@@ -30,19 +37,12 @@ namespace FlagConsole.Drawing
         public int B { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Ellipse"/> class.
+        /// Gets or sets the mid point.
         /// </summary>
-        /// <param name="midPoint">The mid point.</param>
-        /// <param name="a">The radius.</param>
-        /// <param name="b">The b.</param>
-        /// <param name="token">The token.</param>
-        public Ellipse(Coordinate midPoint, int a, int b, char token)
-            : base(token)
-        {
-            this.Centre = midPoint;
-            this.A = a;
-            this.B = b;
-        }
+        /// <value>
+        /// The mid point.
+        /// </value>
+        public Coordinate Centre { get; set; }
 
         /// <summary>
         /// Draws the ellipse.

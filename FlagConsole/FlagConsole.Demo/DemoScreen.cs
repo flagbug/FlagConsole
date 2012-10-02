@@ -1,6 +1,6 @@
-﻿using System;
-using FlagConsole.Controls;
+﻿using FlagConsole.Controls;
 using FlagConsole.Drawing;
+using System;
 
 namespace FlagConsole.Demo
 {
@@ -9,9 +9,8 @@ namespace FlagConsole.Demo
         private readonly Menu<Action> mainMenu;
 
         private readonly Panel mainMenuPanel;
-        private Panel presentationPanel;
-
         private readonly Label mainMenuTextLabel;
+        private Panel presentationPanel;
 
         public DemoScreen()
         {
@@ -30,7 +29,7 @@ namespace FlagConsole.Demo
             this.mainMenu.Items.Add(new MenuItem<Action>("Label", this.ShowLabelDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("ListView", this.ShowListViewDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("TextBox", this.ShowTextBoxDemo));
-            this.mainMenu.Items.Add(new MenuItem<Action>("PasswordTextBox", this.ShowPasswordTextBoxDemo));
+            this.mainMenu.Items.Add(new MenuItem<Action>("PasswordBox", this.ShowPasswordBoxDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("Rectangle", this.ShowRectangleDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("Line", this.ShowLineDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("Ellipse", this.ShowEllipseDemo));
@@ -39,7 +38,7 @@ namespace FlagConsole.Demo
             this.mainMenu.UpKeys.Add(ConsoleKey.W);
             this.mainMenu.DownKeys.Add(ConsoleKey.S);
 
-            this.mainMenu.ItemChosen += mainMenu_ItemChosen;
+            this.mainMenu.ItemChosen += this.MainMenuItemChosen;
 
             this.mainMenuPanel.Controls.Add(this.mainMenu);
         }
@@ -50,19 +49,20 @@ namespace FlagConsole.Demo
             this.mainMenu.Focus();
         }
 
-        private void mainMenu_ItemChosen(object sender, MenuEventArgs<Action> e)
+        private void Exit()
+        {
+            Environment.Exit(0);
+        }
+
+        private void MainMenuItemChosen(object sender, MenuEventArgs<Action> e)
         {
             e.Item.Value.Invoke();
             this.mainMenu.Focus();
         }
 
-        private void SwitchDemoPanel(Panel panel)
+        private void ShowEllipseDemo()
         {
-            this.Controls.Remove(this.presentationPanel);
-            this.presentationPanel = panel;
-            this.presentationPanel.Size = new Size(45, 40);
-            this.presentationPanel.RelativeLocation = new Coordinate(33, 7);
-            this.Controls.Add(this.presentationPanel);
+            this.SwitchDemoPanel(new EllipseDemoPanel());
         }
 
         private void ShowLabelDemo()
@@ -70,19 +70,17 @@ namespace FlagConsole.Demo
             this.SwitchDemoPanel(new LabelDemoPanel());
         }
 
+        private void ShowLineDemo()
+        {
+            this.SwitchDemoPanel(new LineDemoPanel());
+        }
+
         private void ShowListViewDemo()
         {
             this.SwitchDemoPanel(new ListViewDemoPanel());
         }
 
-        private void ShowTextBoxDemo()
-        {
-            var panel = new TextBoxDemoPanel();
-            this.SwitchDemoPanel(panel);
-            panel.Activate();
-        }
-
-        private void ShowPasswordTextBoxDemo()
+        private void ShowPasswordBoxDemo()
         {
             var panel = new PasswordBoxDemoPanel();
             this.SwitchDemoPanel(panel);
@@ -94,19 +92,20 @@ namespace FlagConsole.Demo
             this.SwitchDemoPanel(new RectangleDemoPanel());
         }
 
-        private void ShowLineDemo()
+        private void ShowTextBoxDemo()
         {
-            this.SwitchDemoPanel(new LineDemoPanel());
+            var panel = new TextBoxDemoPanel();
+            this.SwitchDemoPanel(panel);
+            panel.Activate();
         }
 
-        private void ShowEllipseDemo()
+        private void SwitchDemoPanel(Panel panel)
         {
-            this.SwitchDemoPanel(new EllipseDemoPanel());
-        }
-
-        private void Exit()
-        {
-            Environment.Exit(0);
+            this.Controls.Remove(this.presentationPanel);
+            this.presentationPanel = panel;
+            this.presentationPanel.Size = new Size(45, 40);
+            this.presentationPanel.RelativeLocation = new Coordinate(33, 7);
+            this.Controls.Add(this.presentationPanel);
         }
     }
 }

@@ -1,8 +1,8 @@
-﻿using System;
+﻿using FlagConsole.Drawing;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
-using FlagConsole.Drawing;
 
 namespace FlagConsole.Controls
 {
@@ -14,6 +14,15 @@ namespace FlagConsole.Controls
         private readonly ObservableCollection<Control> controls;
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Container"/> class.
+        /// </summary>
+        protected Container()
+        {
+            this.controls = new ObservableCollection<Control>();
+            this.controls.CollectionChanged += controls_CollectionChanged;
+        }
+
+        /// <summary>
         /// Gets the underlying controls.
         /// </summary>
         /// <value>
@@ -22,15 +31,6 @@ namespace FlagConsole.Controls
         public ICollection<Control> Controls
         {
             get { return this.controls; }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Container"/> class.
-        /// </summary>
-        protected Container()
-        {
-            this.controls = new ObservableCollection<Control>();
-            this.controls.CollectionChanged += controls_CollectionChanged;
         }
 
         /// <summary>
@@ -66,6 +66,16 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
+        /// Handles the Invalidated event of the control control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void control_Invalidated(object sender, EventArgs e)
+        {
+            this.OnInvalidated(EventArgs.Empty);
+        }
+
+        /// <summary>
         /// Handles the CollectionChanged event of the controls control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
@@ -94,16 +104,6 @@ namespace FlagConsole.Controls
                     }
                     break;
             }
-        }
-
-        /// <summary>
-        /// Handles the Invalidated event of the control control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        private void control_Invalidated(object sender, EventArgs e)
-        {
-            this.OnInvalidated(EventArgs.Empty);
         }
     }
 }

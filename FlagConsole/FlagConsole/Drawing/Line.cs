@@ -9,22 +9,6 @@ namespace FlagConsole.Drawing
     internal class Line : Shape
     {
         /// <summary>
-        /// Gets or sets the start point.
-        /// </summary>
-        /// <value>
-        /// The start point.
-        /// </value>
-        public Coordinate StartPoint { get; set; }
-
-        /// <summary>
-        /// Gets or sets the end point.
-        /// </summary>
-        /// <value>
-        /// The end point.
-        /// </value>
-        public Coordinate EndPoint { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="Line"/> class.
         /// </summary>
         /// <param name="startPoint">The start point.</param>
@@ -38,6 +22,22 @@ namespace FlagConsole.Drawing
         }
 
         /// <summary>
+        /// Gets or sets the end point.
+        /// </summary>
+        /// <value>
+        /// The end point.
+        /// </value>
+        public Coordinate EndPoint { get; set; }
+
+        /// <summary>
+        /// Gets or sets the start point.
+        /// </summary>
+        /// <value>
+        /// The start point.
+        /// </value>
+        public Coordinate StartPoint { get; set; }
+
+        /// <summary>
         /// Draws the line.
         /// </summary>
         /// <param name="buffer">The graphic buffer.</param>
@@ -47,14 +47,6 @@ namespace FlagConsole.Drawing
             {
                 buffer.DrawPixel(this.Token, point);
             }
-        }
-
-        private static void Swap<T>(ref T first, ref T second)
-        {
-            T temp = first;
-
-            first = second;
-            second = temp;
         }
 
         private static IEnumerable<Coordinate> RasterLine(int xStart, int yStart, int xEnd, int yEnd)
@@ -98,6 +90,14 @@ namespace FlagConsole.Drawing
                     y += ystep; error += dX;
                 }
             }
+        }
+
+        private static void Swap<T>(ref T first, ref T second)
+        {
+            T temp = first;
+
+            first = second;
+            second = temp;
         }
     }
 }

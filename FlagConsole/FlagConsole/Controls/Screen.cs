@@ -1,5 +1,5 @@
-﻿using System;
-using FlagConsole.Drawing;
+﻿using FlagConsole.Drawing;
+using System;
 
 namespace FlagConsole.Controls
 {

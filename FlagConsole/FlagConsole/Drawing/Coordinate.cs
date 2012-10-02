@@ -15,6 +15,17 @@ namespace FlagConsole.Drawing
         private readonly int y;
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Coordinate"/> class.
+        /// </summary>
+        /// <param name="x">The x coordinate</param>
+        /// <param name="y">The y coordinate</param>
+        public Coordinate(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+
+        /// <summary>
         /// Gets a coordinate, which represents the origin of a coordinate system (x = 0, y = 0).
         /// </summary>
         public static Coordinate Origin
@@ -39,35 +50,14 @@ namespace FlagConsole.Drawing
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Coordinate"/> class.
+        /// Implements the operator !=.
         /// </summary>
-        /// <param name="x">The x coordinate</param>
-        /// <param name="y">The y coordinate</param>
-        public Coordinate(int x, int y)
+        /// <param name="positionA">The position A.</param>
+        /// <param name="positionB">The position B.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator !=(Coordinate positionA, Coordinate positionB)
         {
-            this.x = x;
-            this.y = y;
-        }
-
-        /// <summary>
-        /// Creates a new object that is a copy of the current instance.
-        /// </summary>
-        /// <returns>
-        /// A new object that is a copy of this instance.
-        /// </returns>
-        public object Clone()
-        {
-            return new Coordinate(this.X, this.Y);
-        }
-
-        /// <summary>
-        /// Adds the specified position.
-        /// </summary>
-        /// <param name="position">The position.</param>
-        /// <returns></returns>
-        public Coordinate Add(Coordinate position)
-        {
-            return this + position;
+            return !(positionA == positionB);
         }
 
         /// <summary>
@@ -104,14 +94,24 @@ namespace FlagConsole.Drawing
         }
 
         /// <summary>
-        /// Implements the operator !=.
+        /// Adds the specified position.
         /// </summary>
-        /// <param name="positionA">The position A.</param>
-        /// <param name="positionB">The position B.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator !=(Coordinate positionA, Coordinate positionB)
+        /// <param name="position">The position.</param>
+        /// <returns></returns>
+        public Coordinate Add(Coordinate position)
         {
-            return !(positionA == positionB);
+            return this + position;
+        }
+
+        /// <summary>
+        /// Creates a new object that is a copy of the current instance.
+        /// </summary>
+        /// <returns>
+        /// A new object that is a copy of this instance.
+        /// </returns>
+        public object Clone()
+        {
+            return new Coordinate(this.X, this.Y);
         }
 
         /// <summary>

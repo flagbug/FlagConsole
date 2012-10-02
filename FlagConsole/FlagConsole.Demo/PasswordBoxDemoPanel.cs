@@ -1,41 +1,44 @@
-﻿using System;
-using FlagConsole.Controls;
+﻿using FlagConsole.Controls;
 using FlagConsole.Drawing;
+using System;
 
 namespace FlagConsole.Demo
 {
-    public class PasswordBoxDemoPanel : Panel
+    internal class PasswordBoxDemoPanel : Panel
     {
-        private readonly Label _descriptionLabel;
-        private readonly Label _textLabel;
-        private readonly PasswordBox _passwordTextBox;
+        private readonly Label descriptionLabel;
+        private readonly PasswordBox passwordBox;
+        private readonly Label textLabel;
 
         public PasswordBoxDemoPanel()
         {
-            _descriptionLabel = new Label
-                { Text = "Enter a password and press enter. The maximum length is set to 5 characters, but it has a width of 8. Of course, this limits can be increased." };
-            _descriptionLabel.Size = new Size(_descriptionLabel.Text.Length/3 + 1, 4);
-            Controls.Add(_descriptionLabel);
+            this.descriptionLabel =
+                new Label
+                {
+                    Text = "Enter a password and press enter. The maximum length is set to 5 characters, but it has a width of 8. Of course, this limits can be increased."
+                };
+            this.descriptionLabel.Size = new Size(this.descriptionLabel.Text.Length / 3 + 1, 4);
+            this.Controls.Add(this.descriptionLabel);
 
-            _passwordTextBox = new PasswordBox { Size = new Size(8, 1), MaxLength = 5, RelativeLocation = new Coordinate(0, 4) };
-            _passwordTextBox.TextSubmitted += PasswordTextBoxPasswordSubmitted;
-            Controls.Add(_passwordTextBox);
+            this.passwordBox = new PasswordBox { Size = new Size(8, 1), MaxLength = 5, RelativeLocation = new Coordinate(0, 4) };
+            this.passwordBox.TextSubmitted += PasswordTextBoxPasswordSubmitted;
+            this.Controls.Add(this.passwordBox);
 
-            _textLabel = new Label { RelativeLocation = new Coordinate(0, 6) };
-            Controls.Add(_textLabel);
-        }
-
-        private void PasswordTextBoxPasswordSubmitted(object sender, EventArgs e)
-        {
-            _textLabel.Text = "You have entered: " + _passwordTextBox.Password;
-            _textLabel.Size = new Size(_textLabel.Text.Length, 1);
-
-            OnInvalidated(EventArgs.Empty);
+            this.textLabel = new Label { RelativeLocation = new Coordinate(0, 6) };
+            this.Controls.Add(this.textLabel);
         }
 
         public void Activate()
         {
-            _passwordTextBox.Focus();
+            this.passwordBox.Focus();
+        }
+
+        private void PasswordTextBoxPasswordSubmitted(object sender, EventArgs e)
+        {
+            this.textLabel.Text = "You have entered: " + this.passwordBox.Password;
+            this.textLabel.Size = new Size(this.textLabel.Text.Length, 1);
+
+            OnInvalidated(EventArgs.Empty);
         }
     }
 }

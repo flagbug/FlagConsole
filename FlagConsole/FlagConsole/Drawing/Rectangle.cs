@@ -3,6 +3,29 @@
     internal class Rectangle : Shape
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="Rectangle"/> class.
+        /// </summary>
+        /// <param name="location">The location.</param>
+        /// <param name="size">The size.</param>
+        /// <param name="token">The token.</param>
+        /// <param name="filled">if set to <c>true</c>, the rectangle is filled.</param>
+        public Rectangle(Coordinate location, Size size, char token, bool filled)
+            : base(token)
+        {
+            this.Location = location;
+            this.Size = size;
+            this.IsFilled = filled;
+        }
+
+        /// <summary>
+        /// Gets the y-coordinate that is the sum of the Y and Height property values of this Rectangle structure.
+        /// </summary>
+        public int Bottom
+        {
+            get { return this.Location.Y + this.Size.Height; }
+        }
+
+        /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Rectangle"/> is filled.
         /// </summary>
         /// <value>
@@ -11,12 +34,12 @@
         public bool IsFilled { get; set; }
 
         /// <summary>
-        /// Gets or sets the size.
+        /// Gets the x-coordinate of the left edge of this Rectangle structure.
         /// </summary>
-        /// <value>
-        /// The size.
-        /// </value>
-        public Size Size { get; set; }
+        public int Left
+        {
+            get { return this.Location.X; }
+        }
 
         /// <summary>
         /// Gets or sets the location.
@@ -35,12 +58,12 @@
         }
 
         /// <summary>
-        /// Gets the x-coordinate of the left edge of this Rectangle structure.
+        /// Gets or sets the size.
         /// </summary>
-        public int Left
-        {
-            get { return this.Location.X; }
-        }
+        /// <value>
+        /// The size.
+        /// </value>
+        public Size Size { get; set; }
 
         /// <summary>
         /// Gets the y-coordinate of the top edge of this Rectangle structure.
@@ -48,29 +71,6 @@
         public int Top
         {
             get { return this.Location.Y; }
-        }
-
-        /// <summary>
-        /// Gets the y-coordinate that is the sum of the Y and Height property values of this Rectangle structure.
-        /// </summary>
-        public int Bottom
-        {
-            get { return this.Location.Y + this.Size.Height; }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Rectangle"/> class.
-        /// </summary>
-        /// <param name="location">The location.</param>
-        /// <param name="size">The size.</param>
-        /// <param name="token">The token.</param>
-        /// <param name="filled">if set to <c>true</c>, the rectangle is filled.</param>
-        public Rectangle(Coordinate location, Size size, char token, bool filled)
-            : base(token)
-        {
-            this.Location = location;
-            this.Size = size;
-            this.IsFilled = filled;
         }
 
         /// <summary>
