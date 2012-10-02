@@ -26,10 +26,11 @@ namespace FlagConsole.Demo
                 };
             this.mainMenuPanel.Controls.Add(mainMenuTextLabel);
 
-            this.mainMenu = new Menu<Action> { RelativeLocation = new Coordinate(0, 7), Size = new Size(15, 10) };
+            this.mainMenu = new Menu<Action> { RelativeLocation = new Coordinate(0, 7), Size = new Size(18, 10) };
             this.mainMenu.Items.Add(new MenuItem<Action>("Label", this.ShowLabelDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("ListView", this.ShowListViewDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("TextBox", this.ShowTextBoxDemo));
+            this.mainMenu.Items.Add(new MenuItem<Action>("PasswordTextBox", this.ShowPasswordTextBoxDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("Rectangle", this.ShowRectangleDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("Line", this.ShowLineDemo));
             this.mainMenu.Items.Add(new MenuItem<Action>("Ellipse", this.ShowEllipseDemo));
@@ -60,7 +61,7 @@ namespace FlagConsole.Demo
             this.Controls.Remove(this.presentationPanel);
             this.presentationPanel = panel;
             this.presentationPanel.Size = new Size(45, 40);
-            this.presentationPanel.RelativeLocation = new Coordinate(35, 7);
+            this.presentationPanel.RelativeLocation = new Coordinate(33, 7);
             this.Controls.Add(this.presentationPanel);
         }
 
@@ -77,6 +78,13 @@ namespace FlagConsole.Demo
         private void ShowTextBoxDemo()
         {
             var panel = new TextBoxDemoPanel();
+            this.SwitchDemoPanel(panel);
+            panel.Activate();
+        }
+
+        private void ShowPasswordTextBoxDemo()
+        {
+            var panel = new PasswordTextBoxDemoPanel();
             this.SwitchDemoPanel(panel);
             panel.Activate();
         }
