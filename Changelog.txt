@@ -1,3 +1,18 @@
+------------------------------ v1.2.0 ------------------------------
+
+FEATURES:
+- Added the new PasswordBox control. 
+  This control behaves like a TextBox, but the text is masked with 
+  the character specified in the "PasswordChar" property.
+  The password can be obtained through the "Password" property.
+
+IMPROVEMENTS:
+- Improved the overall drawing performance.
+
+BUGFIXES:
+- Fixed a bug, that caused a TextBox to raise the TextChanged event 
+  in the constructor.
+
 ------------------------------ v1.1.2 ------------------------------
 
 BUGFIXES:
