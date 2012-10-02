@@ -15,7 +15,7 @@ namespace FlagConsole.Controls
         /// </summary>
         public TextBox()
         {
-            this.Text = String.Empty;
+            this.text = String.Empty;
             this.BackgroundColor = ConsoleColor.White;
             this.ForegroundColor = ConsoleColor.Black;
         }
