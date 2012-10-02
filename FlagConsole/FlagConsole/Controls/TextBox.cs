@@ -1,5 +1,5 @@
-﻿using System;
-using FlagConsole.Drawing;
+﻿using FlagConsole.Drawing;
+using System;
 
 namespace FlagConsole.Controls
 {
@@ -9,6 +9,42 @@ namespace FlagConsole.Controls
     public class TextBox : Control, IFocusable
     {
         private string text;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TextBox"/> class.
+        /// </summary>
+        public TextBox()
+        {
+            this.Text = String.Empty;
+            this.BackgroundColor = ConsoleColor.White;
+            this.ForegroundColor = ConsoleColor.Black;
+        }
+
+        /// <summary>
+        /// Occurs when the <see cref="Text"/> property value changes.
+        /// </summary>
+        public event EventHandler TextChanged;
+
+        /// <summary>
+        /// Occurs when the user pressed the enter key.
+        /// </summary>
+        public event EventHandler TextSubmitted;
+
+        /// <summary>
+        /// Gets a value indicating whether the control has input focus.
+        /// </summary>
+        /// <value>
+        /// true if the control has input focus; otherwise, false.
+        /// </value>
+        public bool IsFocused { get; private set; }
+
+        /// <summary>
+        /// Gets or sets the maximum number of characters the user can type into the <see cref="TextBox"/>.
+        /// </summary>
+        /// <value>
+        /// The maximum number of characters the user can type into the <see cref="TextBox"/>.
+        /// </value>
+        public int MaxLength { get; set; }
 
         /// <summary>
         /// Gets or sets the current text of the <see cref="TextBox"/>.
@@ -30,39 +66,11 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Gets or sets the maximum number of characters the user can type into the <see cref="TextBox"/>.
+        /// Defocuses the control and stops it's behaviour.
         /// </summary>
-        /// <value>
-        /// The maximum number of characters the user can type into the <see cref="TextBox"/>.
-        /// </value>
-        public int MaxLength { get; set; }
-
-        /// <summary>
-        /// Gets a value indicating whether the control has input focus.
-        /// </summary>
-        /// <value>
-        /// true if the control has input focus; otherwise, false.
-        /// </value>
-        public bool IsFocused { get; private set; }
-
-        /// <summary>
-        /// Occurs when the user pressed the enter key.
-        /// </summary>
-        public event EventHandler TextSubmitted;
-
-        /// <summary>
-        /// Occurs when the <see cref="Text"/> property value changes.
-        /// </summary>
-        public event EventHandler TextChanged;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TextBox"/> class.
-        /// </summary>
-        public TextBox()
+        public void Defocus()
         {
-            this.Text = String.Empty;
-            this.BackgroundColor = ConsoleColor.White;
-            this.ForegroundColor = ConsoleColor.Black;
+            this.IsFocused = false;
         }
 
         /// <summary>
@@ -73,14 +81,6 @@ namespace FlagConsole.Controls
             this.IsFocused = true;
             this.IsVisible = true;
             this.ScanInput();
-        }
-
-        /// <summary>
-        /// Defocuses the control and stops it's behaviour.
-        /// </summary>
-        public void Defocus()
-        {
-            this.IsFocused = false;
         }
 
         /// <summary>
@@ -101,18 +101,6 @@ namespace FlagConsole.Controls
         }
 
         /// <summary>
-        /// Raises the <see cref="TextSubmitted"/> event.
-        /// </summary>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        protected virtual void OnTextSubmitted(EventArgs e)
-        {
-            if (this.TextSubmitted != null)
-            {
-                this.TextSubmitted(this, e);
-            }
-        }
-
-        /// <summary>
         /// Raises the <see cref="TextChanged"/> event.
         /// </summary>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
@@ -121,6 +109,18 @@ namespace FlagConsole.Controls
             if (this.TextChanged != null)
             {
                 this.TextChanged(this, e);
+            }
+        }
+
+        /// <summary>
+        /// Raises the <see cref="TextSubmitted"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        protected virtual void OnTextSubmitted(EventArgs e)
+        {
+            if (this.TextSubmitted != null)
+            {
+                this.TextSubmitted(this, e);
             }
         }
 
