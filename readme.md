@@ -15,68 +15,61 @@ http://nuget.org/List/Packages/FlagConsole
 FlagConsole tries to make everything as simple as possible and offers the following features:
 
 - **Control:**
-The control class is the base class for all other controls. When extending, it also allows to create new controls.
+The control class is the base class for all other controls. It is extendable to create custom controls.
 
 - **Label:**
-A can have a text and wraps this text into it's drawing area.
+A label can have a text and wraps this text into its drawing area.
 
 - **ListView:**
-A list view can have multiple entries that are displayed in one row.
+A list view can have multiple entries that are displayed among each other.
 
 - **Menu:**
-The menu control looks like a ListView, but lets the user navigate through the items with the keyboard and select one item when pressing the enter key.
+The menu control looks like a ListView, but lets the user navigate through the items with the keyboard and select an item when pressing the enter key.
 
 - **Panel:**
-On a panel can be placed various controls, that can be arranged relative to the position of the panel, so that not every control has to be manually arranged when changing the position.
+A panel can contain multiple other controls that can be placed relative to the panel, so that not every control has to be manually arranged when changing the position.
 
 - **Screen:**
-The screen is the topmost control and is responsible for updating and drawing its child controls.
+The screen is the topmost control and is responsible for updating and drawing its child controls. Think of it as a `Form` in WinForms or `Window` in WPF.
 
 - **TextBox:**
-A textbox is a highlighted input field and lets the user input text and submit this text when pressing the enter key. The length of the text can also be restricted.
+A textbox is a highlighted input field and lets the user type text and submit it by pressing the enter key. The maximum length of the text can be restricted.
 
-- **Lines:**
-There are various line types, horizontal, vertical and generic. While the horizontal and vertical lines can be drawn very fast, the generic line is more dynamic and can be drawn in every direction.
+- **Line:**
+There are three line types: horizontal, vertical and generic. While the horizontal and vertical lines can be drawn very fast, the generic line is dynamic and can be drawn in every direction.
 
-- **Rectangles:**
+- **Rectangle:**
 There is support for drawing filled and unfilled rectangles.
 
-- **Ellipses and Circles:**
+- **Ellipse and Circle:**
 Ellipses and circels can easily be drawn. Support for filled ellipses and cricles will be added in the future.
 
 ## Demo application
 
-In the download section is a demo application available, that shows the FlagConsole library in action.
+The download section contains an demo application, that shows the FlagConsole library in action.
 
 ## Screenshots of the demo application
 
 ### The main menu
 
-![][1]
+![](http://flagbug.github.com/flagconsole/mainmenu.jpg)
 
-### A listview
+### A label
 
-![][2]
+![](http://flagbug.github.com/flagconsole/label.jpg)
 
 ### A text box
 
-![][3]
+![](http://flagbug.github.com/flagconsole/textbox.jpg)
 
 ### Rectangles
 
-![][4]
+![](http://flagbug.github.com/flagconsole/rectangle.jpg)
 
 ### Lines
 
-![][5]
+![](http://flagbug.github.com/flagconsole/line.jpg)
 
 ### Ellipses
 
-![][6]
-
-[1]: http://flagbug.github.com/flagconsole/mainmenu.jpg
-[2]: http://flagbug.github.com/flagconsole/listview.jpg
-[3]: http://flagbug.github.com/flagconsole/textbox.jpg
-[4]: http://flagbug.github.com/flagconsole/rectangle.jpg
-[5]: http://flagbug.github.com/flagconsole/line.jpg
-[6]: http://flagbug.github.com/flagconsole/ellipse.jpg
+![](http://flagbug.github.com/flagconsole/ellipse.jpg)
