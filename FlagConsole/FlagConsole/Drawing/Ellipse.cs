@@ -50,13 +50,13 @@ namespace FlagConsole.Drawing
         /// <param name="buffer">The <see cref="GraphicBuffer"/> to draw on.</param>
         public override void Draw(GraphicBuffer buffer)
         {
-            var points = this.RasterEllipse
-                (
-                    this.Centre.X,
-                    this.Centre.Y,
-                    this.A + (int)(this.A / (1.75)), // Compensate the proportions of the symbols in the console
-                    this.B
-                );
+            var points = RasterEllipse
+            (
+                this.Centre.X,
+                this.Centre.Y,
+                this.A + (int)(this.A / (1.75)), // Compensate the proportions of the symbols in the console
+                this.B
+            );
 
             foreach (Point point in points)
             {
@@ -64,7 +64,7 @@ namespace FlagConsole.Drawing
             }
         }
 
-        private IEnumerable<Point> RasterEllipse(int xMid, int yMid, int a, int b)
+        private static IEnumerable<Point> RasterEllipse(int xMid, int yMid, int a, int b)
         {
             int dx = 0;
             int dy = b;

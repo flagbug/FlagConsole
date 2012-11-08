@@ -209,12 +209,12 @@ namespace FlagConsole.Drawing
             var bColor = this.BackgroundDrawingColor;
 
             otherBuffer.TraversePixels((x, y) =>
-                {
-                    this.ForegroundDrawingColor = otherBuffer.buffer[x, y].ForegroundColor;
-                    this.BackgroundDrawingColor = otherBuffer.buffer[x, y].BackgroundColor;
+            {
+                this.ForegroundDrawingColor = otherBuffer.buffer[x, y].ForegroundColor;
+                this.BackgroundDrawingColor = otherBuffer.buffer[x, y].BackgroundColor;
 
-                    this.DrawPixel(otherBuffer.buffer[x, y].Token, location + new Coordinate(x, y));
-                });
+                this.DrawPixel(otherBuffer.buffer[x, y].Token, location + new Coordinate(x, y));
+            });
 
             this.ForegroundDrawingColor = fColor;
             this.BackgroundDrawingColor = bColor;
