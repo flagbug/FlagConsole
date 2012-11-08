@@ -1,19 +1,13 @@
 ﻿using FlagConsole.Drawing;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
+using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
-namespace FlagConsole.UnitTests
+namespace FlagConsole.Tests
 {
-    /// <summary>
-    ///This is a test class for SizeTest and is intended
-    ///to contain all SizeTest Unit Tests
-    ///</summary>
-    [TestClass]
+    [TestFixture]
     public class SizeTest
     {
-        /// <summary>
-        ///A test for Clone
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void CloneTest()
         {
             var target = new Size(5, 15);
@@ -24,10 +18,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for Equals
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void EqualsTest()
         {
             var target = new Size(5, 15);
@@ -39,10 +30,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for Equals
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void GenericEqualsTest()
         {
             var target = new Size(5, 15);
@@ -54,10 +42,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for GetHashCode
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void GetHashCodeTest()
         {
             int sizeHash1 = new Size().GetHashCode();
@@ -67,10 +52,7 @@ namespace FlagConsole.UnitTests
             Assert.IsTrue(sizeHash1 != sizeHash2 && sizeHash1 != sizeHash3 && sizeHash2 != sizeHash3);
         }
 
-        /// <summary>
-        ///A test for Size Constructor
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void SizeConstructorTest()
         {
             const int width = 5;
@@ -81,10 +63,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(15, target.Height);
         }
 
-        /// <summary>
-        ///A test for Size Constructor
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void SizeEmptyConstructorTest()
         {
             var target = new Size();

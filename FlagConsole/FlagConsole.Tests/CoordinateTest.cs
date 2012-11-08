@@ -1,19 +1,12 @@
 ﻿using FlagConsole.Drawing;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
-namespace FlagConsole.UnitTests
+namespace FlagConsole.Tests
 {
-    /// <summary>
-    ///This is a test class for PointTest and is intended
-    ///to contain all PointTest Unit Tests
-    ///</summary>
-    [TestClass]
+    [TestFixture]
     public class CoordinateTest
     {
-        /// <summary>
-        ///A test for Add
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void AddTest()
         {
             var target = new Coordinate(5, 15);
@@ -25,10 +18,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for Clone
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void CloneTest()
         {
             var target = new Coordinate(5, 15);
@@ -39,10 +29,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for Equals
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void EqualsInverseTest()
         {
             var target = new Coordinate(5, 15);
@@ -54,10 +41,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for Equals
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void EqualsNullTest()
         {
             var target = new Coordinate(5, 15);
@@ -69,10 +53,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for Equals
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void EqualsReferenceTest()
         {
             var target = new Coordinate(5, 15);
@@ -84,10 +65,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for Equals
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void EqualsTest()
         {
             var target = new Coordinate(5, 15);
@@ -99,10 +77,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for Equals
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void GenericEqualsInverseTest()
         {
             var target = new Coordinate(5, 15);
@@ -114,10 +89,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for Equals
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void GenericEqualsNullTest()
         {
             var target = new Coordinate(5, 15);
@@ -129,10 +101,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for Equals
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void GenericEqualsReferenceTest()
         {
             var target = new Coordinate(5, 15);
@@ -144,10 +113,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for Equals
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void GenericEqualsTest()
         {
             var target = new Coordinate(5, 15);
@@ -159,10 +125,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for GetHashCode
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void GetHashCodeTest()
         {
             int positionHash1 = Coordinate.Origin.GetHashCode();
@@ -172,10 +135,7 @@ namespace FlagConsole.UnitTests
             Assert.IsTrue(positionHash1 != positionHash2 && positionHash1 != positionHash3 && positionHash2 != positionHash3);
         }
 
-        /// <summary>
-        ///A test for op_Addition
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void op_AdditionTest()
         {
             var positionA = new Coordinate(5, 15);
@@ -187,10 +147,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for op_Equality
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void op_EqualityInverseTest()
         {
             var positionA = new Coordinate(5, 15);
@@ -202,10 +159,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for op_Equality
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void op_EqualityNullTest()
         {
             var positionA = new Coordinate(5, 15);
@@ -217,10 +171,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for op_Equality
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void op_EqualityReferenceTest()
         {
             var positionA = new Coordinate(5, 15);
@@ -232,10 +183,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for op_Equality
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void op_EqualityTest()
         {
             var positionA = new Coordinate(5, 15);
@@ -247,10 +195,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for op_Inequality
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void op_InequalityInverseTest()
         {
             var positionA = new Coordinate(5, 15);
@@ -262,10 +207,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for op_Inequality
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void op_InequalityNullTest()
         {
             var positionA = new Coordinate(5, 15);
@@ -277,10 +219,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for op_Inequality
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void op_InequalityReferenceTest()
         {
             var positionA = new Coordinate(5, 15);
@@ -292,10 +231,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        /// <summary>
-        ///A test for op_Inequality
-        ///</summary>
-        [TestMethod]
+        [Test]
         public void op_InequalityTest()
         {
             var positionA = new Coordinate(5, 15);
@@ -307,7 +243,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        [TestMethod]
+        [Test]
         public void PointConstructorTest()
         {
             const int x = 5;
@@ -318,7 +254,7 @@ namespace FlagConsole.UnitTests
             Assert.AreEqual(15, target.Y);
         }
 
-        [TestMethod]
+        [Test]
         public void PointEmptyConstructorTest()
         {
             Coordinate target = Coordinate.Origin;
