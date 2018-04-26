@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace FlagConsole.Controls
+﻿namespace FlagConsole.Controls
 {
+    using System;
+
     /// <summary>
     /// Provides data for the events that are raised by the <see cref="Menu{T}"/> class.
     /// </summary>

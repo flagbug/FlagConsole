@@ -1,8 +1,9 @@
-﻿using FlagConsole.Drawing;
-using System;
-
-namespace FlagConsole.Controls
+﻿namespace FlagConsole.Controls
 {
+    using System;
+
+    using FlagConsole.Drawing;
+
     /// <summary>
     /// Provides a text field where the user can do an input
     /// </summary>
@@ -14,7 +15,7 @@ namespace FlagConsole.Controls
         /// </summary>
         public TextField()
         {
-            this.Text = String.Empty;
+            this.Text = string.Empty;
             this.BackgroundColor = ConsoleColor.White;
             this.ForegroundColor = ConsoleColor.Black;
         }
@@ -74,7 +75,7 @@ namespace FlagConsole.Controls
             buffer.BackgroundDrawingColor = this.BackgroundColor;
             buffer.ForegroundDrawingColor = this.ForegroundColor;
 
-            string background = String.Empty;
+            string background = string.Empty;
             background = background.PadRight(this.Length, ' ');
 
             buffer.DrawLine(background, Coordinate.Origin);
@@ -88,10 +89,7 @@ namespace FlagConsole.Controls
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected virtual void OnTextEntered(EventArgs e)
         {
-            if (this.TextEntered != null)
-            {
-                this.TextEntered(this, e);
-            }
+            this.TextEntered?.Invoke(this, e);
         }
 
         /// <summary>
@@ -123,7 +121,6 @@ namespace FlagConsole.Controls
                             this.Text = this.Text.Substring(0, this.Text.Length - 1);
                         }
                     }
-
                     else if (this.Text.Length < this.Length)
                     {
                         this.Text += key.KeyChar;

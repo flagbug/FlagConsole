@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace FlagConsole.Drawing
+﻿namespace FlagConsole.Drawing
 {
+    using System;
+    using System.Collections.Generic;
+
     public class GraphicBuffer
     {
         private readonly Pixel[,] buffer;
@@ -108,7 +108,10 @@ namespace FlagConsole.Drawing
         {
             if (this.IsInBounds(location))
             {
-                this.buffer[location.X, location.Y] = new Pixel(pixel, this.ForegroundDrawingColor, this.BackgroundDrawingColor);
+                this.buffer[location.X, location.Y] = new Pixel(
+                    pixel,
+                    this.ForegroundDrawingColor,
+                    this.BackgroundDrawingColor);
             }
         }
 
@@ -150,9 +153,8 @@ namespace FlagConsole.Drawing
 
                 foreach (var pixel in pixels)
                 {
-                    if (prevPixel != null
-                        && (pixel.BackgroundColor != prevPixel.BackgroundColor
-                        || pixel.ForegroundColor != prevPixel.ForegroundColor))
+                    if (prevPixel != null && (pixel.BackgroundColor != prevPixel.BackgroundColor
+                                              || pixel.ForegroundColor != prevPixel.ForegroundColor))
                     {
                         final.Add(currentGroup);
                         currentGroup = new List<Pixel>();
@@ -208,13 +210,14 @@ namespace FlagConsole.Drawing
             var fColor = this.ForegroundDrawingColor;
             var bColor = this.BackgroundDrawingColor;
 
-            otherBuffer.TraversePixels((x, y) =>
-            {
-                this.ForegroundDrawingColor = otherBuffer.buffer[x, y].ForegroundColor;
-                this.BackgroundDrawingColor = otherBuffer.buffer[x, y].BackgroundColor;
+            otherBuffer.TraversePixels(
+                (x, y) =>
+                    {
+                        this.ForegroundDrawingColor = otherBuffer.buffer[x, y].ForegroundColor;
+                        this.BackgroundDrawingColor = otherBuffer.buffer[x, y].BackgroundColor;
 
-                this.DrawPixel(otherBuffer.buffer[x, y].Token, location + new Coordinate(x, y));
-            });
+                        this.DrawPixel(otherBuffer.buffer[x, y].Token, location + new Coordinate(x, y));
+                    });
 
             this.ForegroundDrawingColor = fColor;
             this.BackgroundDrawingColor = bColor;
@@ -254,11 +257,9 @@ namespace FlagConsole.Drawing
         private void TraversePixels(Action<int, int> action)
         {
             for (int y = 0; y < this.Size.Height; y++)
+            for (int x = 0; x < this.Size.Width; x++)
             {
-                for (int x = 0; x < this.Size.Width; x++)
-                {
-                    action(x, y);
-                }
+                action(x, y);
             }
         }
     }

@@ -1,7 +1,7 @@
-﻿using FlagConsole.Drawing;
-
-namespace FlagConsole.Tests
+﻿namespace FlagConsole.UnitTests
 {
+    using FlagConsole.Drawing;
+
     using Xunit;
 
     public class SizeTest
@@ -22,11 +22,11 @@ namespace FlagConsole.Tests
         {
             var target = new Size(5, 15);
             var other = new Size(5, 15);
-            const bool expected = true;
+            const bool Expected = true;
 
             bool actual = target.Equals(other);
 
-            Assert.Equal(expected, actual);
+            Assert.Equal(Expected, actual);
         }
 
         [Fact]
@@ -34,11 +34,11 @@ namespace FlagConsole.Tests
         {
             var target = new Size(5, 15);
             object obj = new Size(5, 15);
-            const bool expected = true;
+            const bool Expected = true;
 
             bool actual = target.Equals(obj);
 
-            Assert.Equal(expected, actual);
+            Assert.Equal(Expected, actual);
         }
 
         [Fact]
@@ -54,9 +54,9 @@ namespace FlagConsole.Tests
         [Fact]
         public void SizeConstructorTest()
         {
-            const int width = 5;
-            const int height = 15;
-            var target = new Size(width, height);
+            const int Width = 5;
+            const int Height = 15;
+            var target = new Size(Width, Height);
 
             Assert.Equal(5, target.Width);
             Assert.Equal(15, target.Height);

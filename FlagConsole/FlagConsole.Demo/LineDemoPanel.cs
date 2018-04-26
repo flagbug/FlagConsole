@@ -1,12 +1,14 @@
-﻿using FlagConsole.Controls;
-using FlagConsole.Drawing;
-
-namespace FlagConsole.Demo
+﻿namespace FlagConsole.Demo
 {
+    using FlagConsole.Controls;
+    using FlagConsole.Drawing;
+
     internal class LineDemoPanel : Panel
     {
         private readonly Label genericLineLabel;
+
         private readonly Label horizontalLineLabel;
+
         private readonly Label verticalLineLabel;
 
         public LineDemoPanel()

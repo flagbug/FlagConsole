@@ -20,10 +20,7 @@
         /// <summary>
         /// Gets the y-coordinate that is the sum of the Y and Height property values of this Rectangle structure.
         /// </summary>
-        public int Bottom
-        {
-            get { return this.Location.Y + this.Size.Height; }
-        }
+        public int Bottom => this.Location.Y + this.Size.Height;
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Rectangle"/> is filled.
@@ -36,10 +33,7 @@
         /// <summary>
         /// Gets the x-coordinate of the left edge of this Rectangle structure.
         /// </summary>
-        public int Left
-        {
-            get { return this.Location.X; }
-        }
+        public int Left => this.Location.X;
 
         /// <summary>
         /// Gets or sets the location.
@@ -52,10 +46,7 @@
         /// <summary>
         /// Gets the x-coordinate that is the sum of X and Size.Width property values of this Rectangle structure.
         /// </summary>
-        public int Right
-        {
-            get { return this.Location.X + this.Size.Width; }
-        }
+        public int Right => this.Location.X + this.Size.Width;
 
         /// <summary>
         /// Gets or sets the size.
@@ -68,10 +59,7 @@
         /// <summary>
         /// Gets the y-coordinate of the top edge of this Rectangle structure.
         /// </summary>
-        public int Top
-        {
-            get { return this.Location.Y; }
-        }
+        public int Top => this.Location.Y;
 
         /// <summary>
         /// Draws the shape.
@@ -83,7 +71,6 @@
             {
                 this.DrawFilledRectangle(buffer);
             }
-
             else
             {
                 this.DrawUnfilledRectangle(buffer);
@@ -98,7 +85,10 @@
         {
             for (int y = this.Location.Y - 1; y < this.Location.Y + this.Size.Height - 1; y++)
             {
-                buffer.DrawLine(this.Token, this.Location + new Coordinate(0, y + 1), this.Location + new Coordinate(this.Size.Width - 1, 0));
+                buffer.DrawLine(
+                    this.Token,
+                    this.Location + new Coordinate(0, y + 1),
+                    this.Location + new Coordinate(this.Size.Width - 1, 0));
             }
         }
 
@@ -108,13 +98,25 @@
         /// <param name="buffer">The <see cref="GraphicBuffer"/> to draw on.</param>
         private void DrawUnfilledRectangle(GraphicBuffer buffer)
         {
-            buffer.DrawLine(this.Token, this.Location, new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y));
+            buffer.DrawLine(
+                this.Token,
+                this.Location,
+                new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y));
 
-            buffer.DrawLine(this.Token, new Coordinate(this.Location.X, this.Location.Y + this.Size.Height), new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y));
+            buffer.DrawLine(
+                this.Token,
+                new Coordinate(this.Location.X, this.Location.Y + this.Size.Height),
+                new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y));
 
-            buffer.DrawLine(this.Token, this.Location, new Coordinate(this.Location.X, this.Location.Y + this.Size.Height));
+            buffer.DrawLine(
+                this.Token,
+                this.Location,
+                new Coordinate(this.Location.X, this.Location.Y + this.Size.Height));
 
-            buffer.DrawLine(this.Token, new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y), new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y + this.Size.Height));
+            buffer.DrawLine(
+                this.Token,
+                new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y),
+                new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y + this.Size.Height));
         }
     }
 }
