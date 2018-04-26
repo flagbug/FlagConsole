@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{887711
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlagConsole.Tests", "FlagConsole.Tests\FlagConsole.Tests.csproj", "{FB14B503-CDDA-4801-9780-E5D120F764D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlagConsole.UnitTests", "FlagConsole.UnitTests\FlagConsole.UnitTests.csproj", "{FB14B503-CDDA-4801-9780-E5D120F764D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

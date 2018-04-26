@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace FlagConsole.Drawing
+﻿namespace FlagConsole.Drawing
 {
+    using System;
+
     internal class Pixel
     {
         /// <summary>

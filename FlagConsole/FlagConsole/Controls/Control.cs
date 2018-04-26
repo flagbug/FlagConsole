@@ -1,8 +1,9 @@
-﻿using FlagConsole.Drawing;
-using System;
-
-namespace FlagConsole.Controls
+﻿namespace FlagConsole.Controls
 {
+    using System;
+
+    using FlagConsole.Drawing;
+
     /// <summary>
     /// Base class for all controls
     /// </summary>
@@ -28,10 +29,7 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets the absolute location in the console.
         /// </summary>
-        public virtual Coordinate AbsoluteLocation
-        {
-            get { return this.RelativeLocation + this.Parent.AbsoluteLocation; }
-        }
+        public virtual Coordinate AbsoluteLocation => this.RelativeLocation + this.Parent.AbsoluteLocation;
 
         /// <summary>
         /// Gets or sets the background color for the control.
@@ -84,10 +82,7 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets the top <see cref="Container"/>.
         /// </summary>
-        public virtual Container Top
-        {
-            get { return this.Parent.Top; }
-        }
+        public virtual Container Top => this.Parent.Top;
 
         /// <summary>
         /// Invalidates the control and causes a redraw.
@@ -121,10 +116,7 @@ namespace FlagConsole.Controls
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected virtual void OnInvalidated(EventArgs e)
         {
-            if (this.Invalidated != null)
-            {
-                this.Invalidated(this, e);
-            }
+            this.Invalidated?.Invoke(this, e);
         }
     }
 }

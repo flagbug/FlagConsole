@@ -1,9 +1,9 @@
-﻿using FlagConsole.Drawing;
-using System;
-using System.Collections.Generic;
-
-namespace FlagConsole.Controls
+﻿namespace FlagConsole.Controls
 {
+    using System.Collections.Generic;
+
+    using FlagConsole.Drawing;
+
     /// <summary>
     /// Provides a list view, that displays items in a table with one column
     /// </summary>
@@ -24,10 +24,7 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets the items.
         /// </summary>
-        public ICollection<T> Items
-        {
-            get { return this.items; }
-        }
+        public ICollection<T> Items => this.items;
 
         /// <summary>
         /// Draws the control.
@@ -42,7 +39,7 @@ namespace FlagConsole.Controls
 
             for (int i = 0; i < this.items.Count && i < this.Size.Height; i++)
             {
-                string bulletString = this.DisplayBullets ? this.Bullet + " " : String.Empty;
+                string bulletString = this.DisplayBullets ? this.Bullet + " " : string.Empty;
 
                 buffer.DrawLine(bulletString + this.items[i], new Coordinate(0, i));
             }

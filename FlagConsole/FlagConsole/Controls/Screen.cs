@@ -1,8 +1,9 @@
-﻿using FlagConsole.Drawing;
-using System;
-
-namespace FlagConsole.Controls
+﻿namespace FlagConsole.Controls
 {
+    using System;
+
+    using FlagConsole.Drawing;
+
     /// <summary>
     /// Top container, equals the <see cref="System.Windows.Forms.Form"/> class. <para />
     /// Every control and container should be placed here
@@ -12,18 +13,12 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets the absolute position to the console.
         /// </summary>
-        public override Coordinate AbsoluteLocation
-        {
-            get { return this.RelativeLocation; }
-        }
+        public override Coordinate AbsoluteLocation => this.RelativeLocation;
 
         /// <summary>
         /// Gets the top conainer (the screen).
         /// </summary>
-        public override Container Top
-        {
-            get { return this; }
-        }
+        public override Container Top => this;
 
         /// <summary>
         /// Updates the control if <see cref="Control.IsVisible"/> is set to true.

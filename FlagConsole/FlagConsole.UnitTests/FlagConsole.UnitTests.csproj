@@ -9,8 +9,8 @@
     <ProjectGuid>{FB14B503-CDDA-4801-9780-E5D120F764D4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FlagConsole.Tests</RootNamespace>
-    <AssemblyName>FlagConsole.Tests</AssemblyName>
+    <RootNamespace>FlagConsole.UnitTests</RootNamespace>
+    <AssemblyName>FlagConsole.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <OutputPath>$(SolutionDir)Build\$(AssemblyName)\$(Platform)\$(Configuration)\bin\</OutputPath>
     <IntermediateOutputPath>$(SolutionDir)Build\$(AssemblyName)\$(Platform)\$(Configuration)\obj\</IntermediateOutputPath>

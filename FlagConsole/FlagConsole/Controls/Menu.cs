@@ -1,9 +1,10 @@
-﻿using FlagConsole.Drawing;
-using System;
-using System.Collections.Generic;
-
-namespace FlagConsole.Controls
+﻿namespace FlagConsole.Controls
 {
+    using System;
+    using System.Collections.Generic;
+
+    using FlagConsole.Drawing;
+
     /// <summary>
     /// Provides a text-based menu in the console, where the user can select an item
     /// </summary>
@@ -54,10 +55,7 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets the items.
         /// </summary>
-        public ICollection<MenuItem<T>> Items
-        {
-            get { return this.items; }
-        }
+        public ICollection<MenuItem<T>> Items => this.items;
 
         /// <summary>
         /// Gets or sets the index of the selected.
@@ -70,10 +68,7 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets the selected item.
         /// </summary>
-        public MenuItem<T> SelectedItem
-        {
-            get { return this.items[this.SelectedIndex]; }
-        }
+        public MenuItem<T> SelectedItem => this.items[this.SelectedIndex];
 
         /// <summary>
         /// Gets or sets the background color of the current selected item.
@@ -134,7 +129,7 @@ namespace FlagConsole.Controls
                     buffer.BackgroundDrawingColor = this.SelectionBackgroundColor;
                 }
 
-                string bulletString = this.DisplayBullets ? this.Bullet + " " : String.Empty;
+                string bulletString = this.DisplayBullets ? this.Bullet + " " : string.Empty;
 
                 buffer.DrawLine(bulletString + this.items[i].Name, new Coordinate(0, i));
 
@@ -148,10 +143,7 @@ namespace FlagConsole.Controls
         /// <param name="e">The <see cref="MenuEventArgs{T}"/> instance containing the event data.</param>
         protected virtual void OnItemChosen(MenuEventArgs<T> e)
         {
-            if (this.ItemChosen != null)
-            {
-                this.ItemChosen(this, e);
-            }
+            this.ItemChosen?.Invoke(this, e);
         }
 
         /// <summary>
@@ -160,10 +152,7 @@ namespace FlagConsole.Controls
         /// <param name="e">The <see cref="MenuEventArgs{T}"/> instance containing the event data.</param>
         protected virtual void OnSelectionChanged(MenuEventArgs<T> e)
         {
-            if (this.SelectionChanged != null)
-            {
-                this.SelectionChanged(this, e);
-            }
+            this.SelectionChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -182,7 +171,6 @@ namespace FlagConsole.Controls
                     this.SelectedIndex--;
                     this.OnSelectionChanged(new MenuEventArgs<T>(this.SelectedItem));
                 }
-
                 else if (this.DownKeys.Contains(pressedKey) && this.SelectedIndex < this.Items.Count - 1)
                 {
                     this.SelectedIndex++;
