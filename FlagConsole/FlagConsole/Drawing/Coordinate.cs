@@ -1,8 +1,8 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace FlagConsole.Drawing
+﻿namespace FlagConsole.Drawing
 {
+    using System;
+    using System.Diagnostics;
+
     /// <summary>
     /// Provides a immutable Position, which encapsulates a x and y coordinate
     /// </summary>
@@ -12,6 +12,7 @@ namespace FlagConsole.Drawing
     public class Coordinate : ICloneable, IEquatable<Coordinate>
     {
         private readonly int x;
+
         private readonly int y;
 
         /// <summary>
@@ -28,37 +29,17 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Gets a coordinate, which represents the origin of a coordinate system (x = 0, y = 0).
         /// </summary>
-        public static Coordinate Origin
-        {
-            get { return new Coordinate(0, 0); }
-        }
+        public static Coordinate Origin => new Coordinate(0, 0);
 
         /// <summary>
         /// Gets the x coordinate
         /// </summary>
-        public int X
-        {
-            get { return this.x; }
-        }
+        public int X => this.x;
 
         /// <summary>
         /// Gets the y coordinate
         /// </summary>
-        public int Y
-        {
-            get { return this.y; }
-        }
-
-        /// <summary>
-        /// Implements the operator !=.
-        /// </summary>
-        /// <param name="positionA">The position A.</param>
-        /// <param name="positionB">The position B.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator !=(Coordinate positionA, Coordinate positionB)
-        {
-            return !(positionA == positionB);
-        }
+        public int Y => this.y;
 
         /// <summary>
         /// Implements the operator +.
@@ -69,7 +50,9 @@ namespace FlagConsole.Drawing
         public static Coordinate operator +(Coordinate positionA, Coordinate positionB)
         {
             if (positionA == null || positionB == null)
+            {
                 return null;
+            }
 
             return new Coordinate(positionA.X + positionB.X, positionA.Y + positionB.Y);
         }
@@ -82,15 +65,30 @@ namespace FlagConsole.Drawing
         /// <returns>The result of the operator.</returns>
         public static bool operator ==(Coordinate positionA, Coordinate positionB)
         {
-            //Check reference
-            if (Object.ReferenceEquals(positionA, positionB))
+            // Check reference
+            if (ReferenceEquals(positionA, positionB))
+            {
                 return true;
+            }
 
-            //Check null (cast to object type to avoid infinite loop)
+            // Check null (cast to object type to avoid infinite loop)
             if ((object)positionA == null || (object)positionB == null)
+            {
                 return false;
+            }
 
             return positionA.X == positionB.X && positionA.Y == positionB.Y;
+        }
+
+        /// <summary>
+        /// Implements the operator !=.
+        /// </summary>
+        /// <param name="positionA">The position A.</param>
+        /// <param name="positionB">The position B.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator !=(Coordinate positionA, Coordinate positionB)
+        {
+            return !(positionA == positionB);
         }
 
         /// <summary>
@@ -128,12 +126,7 @@ namespace FlagConsole.Drawing
         {
             var position = obj as Coordinate;
 
-            if (position == null)
-            {
-                return false;
-            }
-
-            return this.Equals(position);
+            return position != null && this.Equals(position);
         }
 
         /// <summary>

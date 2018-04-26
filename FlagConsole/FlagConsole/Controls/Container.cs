@@ -1,11 +1,12 @@
-﻿using FlagConsole.Drawing;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-
-namespace FlagConsole.Controls
+﻿namespace FlagConsole.Controls
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Collections.Specialized;
+
+    using FlagConsole.Drawing;
+
     /// <summary>
     /// Base class for all containers
     /// </summary>
@@ -19,7 +20,7 @@ namespace FlagConsole.Controls
         protected Container()
         {
             this.controls = new ObservableCollection<Control>();
-            this.controls.CollectionChanged += controls_CollectionChanged;
+            this.controls.CollectionChanged += this.controls_CollectionChanged;
         }
 
         /// <summary>
@@ -28,10 +29,7 @@ namespace FlagConsole.Controls
         /// <value>
         /// The underlying controls.
         /// </value>
-        public ICollection<Control> Controls
-        {
-            get { return this.controls; }
-        }
+        public ICollection<Control> Controls => this.controls;
 
         /// <summary>
         /// Updates the control if <see cref="Control.IsVisible"/> is set to true.
@@ -88,20 +86,22 @@ namespace FlagConsole.Controls
                     foreach (Control control in e.NewItems)
                     {
                         control.Parent = this;
-                        control.Invalidated += control_Invalidated;
+                        control.Invalidated += this.control_Invalidated;
 
                         this.OnInvalidated(EventArgs.Empty);
                     }
+
                     break;
 
                 case NotifyCollectionChangedAction.Remove:
                     foreach (Control control in e.OldItems)
                     {
                         control.Parent = null;
-                        control.Invalidated -= control_Invalidated;
+                        control.Invalidated -= this.control_Invalidated;
 
                         this.OnInvalidated(EventArgs.Empty);
                     }
+
                     break;
             }
         }

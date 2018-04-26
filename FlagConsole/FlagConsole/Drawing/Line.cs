@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace FlagConsole.Drawing
+﻿namespace FlagConsole.Drawing
 {
+    using System;
+    using System.Collections.Generic;
+
     /// <summary>
     /// Base class for lines (horizontal line and vertical line)
     /// </summary>
@@ -43,7 +43,11 @@ namespace FlagConsole.Drawing
         /// <param name="buffer">The graphic buffer.</param>
         public override void Draw(GraphicBuffer buffer)
         {
-            foreach (Coordinate point in RasterLine(this.StartPoint.X, this.StartPoint.Y, this.EndPoint.X, this.EndPoint.Y))
+            foreach (Coordinate point in RasterLine(
+                this.StartPoint.X,
+                this.StartPoint.Y,
+                this.EndPoint.X,
+                this.EndPoint.Y))
             {
                 buffer.DrawPixel(this.Token, point);
             }
@@ -65,10 +69,10 @@ namespace FlagConsole.Drawing
                 Swap(ref yStart, ref yEnd);
             }
 
-            int dX = (xEnd - xStart);
-            int dY = (yEnd - yStart);
-            int error = (dX / 2);
-            int ystep = (yStart < yEnd ? 1 : -1);
+            int dX = xEnd - xStart;
+            int dY = yEnd - yStart;
+            int error = dX / 2;
+            int ystep = yStart < yEnd ? 1 : -1;
             int y = yStart;
 
             for (int x = xStart; x <= xEnd; ++x)
@@ -77,7 +81,6 @@ namespace FlagConsole.Drawing
                 {
                     yield return new Coordinate(y, x);
                 }
-
                 else
                 {
                     yield return new Coordinate(x, y);
@@ -87,7 +90,8 @@ namespace FlagConsole.Drawing
 
                 if (error < 0)
                 {
-                    y += ystep; error += dX;
+                    y += ystep;
+                    error += dX;
                 }
             }
         }

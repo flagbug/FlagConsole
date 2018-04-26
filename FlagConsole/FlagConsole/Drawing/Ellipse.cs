@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Windows;
-
-namespace FlagConsole.Drawing
+﻿namespace FlagConsole.Drawing
 {
+    using System.Collections.Generic;
+    using System.Windows;
+
     internal class Ellipse : Shape
     {
         /// <summary>
@@ -50,13 +50,11 @@ namespace FlagConsole.Drawing
         /// <param name="buffer">The <see cref="GraphicBuffer"/> to draw on.</param>
         public override void Draw(GraphicBuffer buffer)
         {
-            var points = RasterEllipse
-            (
+            var points = RasterEllipse(
                 this.Centre.X,
                 this.Centre.Y,
-                this.A + (int)(this.A / (1.75)), // Compensate the proportions of the symbols in the console
-                this.B
-            );
+                this.A + (int)(this.A / 1.75), // Compensate the proportions of the symbols in the console
+                this.B);
 
             foreach (Point point in points)
             {

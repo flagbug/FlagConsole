@@ -1,11 +1,12 @@
-﻿using FlagConsole.Controls;
-using FlagConsole.Drawing;
-
-namespace FlagConsole.Demo
+﻿namespace FlagConsole.Demo
 {
+    using FlagConsole.Controls;
+    using FlagConsole.Drawing;
+
     internal class RectangleDemoPanel : Panel
     {
         private readonly Label emptyRectangleLabel;
+
         private readonly Label filledRectangleLabel;
 
         public RectangleDemoPanel()

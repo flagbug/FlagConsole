@@ -1,8 +1,9 @@
-﻿using FlagConsole.Drawing;
-using System;
-
-namespace FlagConsole.Controls
+﻿namespace FlagConsole.Controls
 {
+    using System;
+
+    using FlagConsole.Drawing;
+
     /// <summary>
     /// Provides a control, where the user can type text.
     /// </summary>
@@ -15,7 +16,7 @@ namespace FlagConsole.Controls
         /// </summary>
         public TextBox()
         {
-            this.text = String.Empty;
+            this.text = string.Empty;
             this.BackgroundColor = ConsoleColor.White;
             this.ForegroundColor = ConsoleColor.Black;
         }
@@ -54,7 +55,7 @@ namespace FlagConsole.Controls
         /// </value>
         public string Text
         {
-            get { return this.text; }
+            get => this.text;
             set
             {
                 if (this.text != value)
@@ -92,7 +93,7 @@ namespace FlagConsole.Controls
             buffer.BackgroundDrawingColor = this.BackgroundColor;
             buffer.ForegroundDrawingColor = this.ForegroundColor;
 
-            string background = String.Empty;
+            string background = string.Empty;
             background = background.PadRight(this.Size.Width, ' ');
 
             buffer.DrawLine(background, Coordinate.Origin);
@@ -106,10 +107,7 @@ namespace FlagConsole.Controls
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected virtual void OnTextChanged(EventArgs e)
         {
-            if (this.TextChanged != null)
-            {
-                this.TextChanged(this, e);
-            }
+            this.TextChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -118,10 +116,7 @@ namespace FlagConsole.Controls
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected virtual void OnTextSubmitted(EventArgs e)
         {
-            if (this.TextSubmitted != null)
-            {
-                this.TextSubmitted(this, e);
-            }
+            this.TextSubmitted?.Invoke(this, e);
         }
 
         /// <summary>
@@ -153,7 +148,6 @@ namespace FlagConsole.Controls
                             this.Text = this.Text.Substring(0, this.Text.Length - 1);
                         }
                     }
-
                     else if (this.Text.Length < this.MaxLength)
                     {
                         this.Text += key.KeyChar;

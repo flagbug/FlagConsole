@@ -1,11 +1,12 @@
-﻿using FlagConsole.Controls;
-using FlagConsole.Drawing;
-
-namespace FlagConsole.Demo
+﻿namespace FlagConsole.Demo
 {
+    using FlagConsole.Controls;
+    using FlagConsole.Drawing;
+
     internal class EllipseDemoPanel : Panel
     {
         private readonly Label circleLabel;
+
         private readonly Label ellipseLabel;
 
         public EllipseDemoPanel()

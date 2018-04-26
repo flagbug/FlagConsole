@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace FlagConsole.Controls
+﻿namespace FlagConsole.Controls
 {
+    using System;
+
     /// <summary>
     /// Provides a TextBox control, where the user can type passwords.
     /// </summary>
@@ -9,7 +9,7 @@ namespace FlagConsole.Controls
     {
         public PasswordBox()
         {
-            this.Password = String.Empty;
+            this.Password = string.Empty;
             this.PasswordChar = '*';
         }
 
@@ -38,7 +38,6 @@ namespace FlagConsole.Controls
                 this.Password += lastChar;
                 this.Text = new string(this.PasswordChar, this.Text.Length);
             }
-
             else if (this.Text.Length < this.Password.Length)
             {
                 this.Password = this.Password.Remove(this.Password.Length - 1);

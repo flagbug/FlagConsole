@@ -1,9 +1,9 @@
-﻿using FlagConsole.Drawing;
-using System;
-using System.Collections.Generic;
-
-namespace FlagConsole.Controls
+﻿namespace FlagConsole.Controls
 {
+    using System.Collections.Generic;
+
+    using FlagConsole.Drawing;
+
     /// <summary>
     /// Represents a label that can show a text
     /// </summary>
@@ -14,7 +14,7 @@ namespace FlagConsole.Controls
         /// </summary>
         public Label()
         {
-            this.Text = String.Empty;
+            this.Text = string.Empty;
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace FlagConsole.Controls
             buffer.DrawRectangle(' ', Coordinate.Origin, this.Size, true);
 
             var words = new List<string>();
-            words.AddRange(this.Text.Split(' ')); //Split text into words
+            words.AddRange(this.Text.Split(' ')); // Split text into words
 
             var lines = new List<string>();
 
@@ -48,26 +48,25 @@ namespace FlagConsole.Controls
             {
                 lines.Add(words[0]);
             }
-
             else
             {
                 do
                 {
-                    string line = String.Empty;
+                    string line = string.Empty;
                     bool first = true;
 
                     for (int i = 0; i < words.Count; i++)
                     {
-                        if (line.Length + words[0].Length < this.Size.Width) //check if the line fits into the label
+                        if (line.Length + words[0].Length < this.Size.Width)
                         {
-                            string space = first ? String.Empty : " ";
+                            // check if the line fits into the label
+                            string space = first ? string.Empty : " ";
                             first = false;
 
                             line += space + words[0];
                             words.Remove(words[0]);
                             i--;
                         }
-
                         else
                         {
                             break;

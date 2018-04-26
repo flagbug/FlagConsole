@@ -1,8 +1,8 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace FlagConsole.Drawing
+﻿namespace FlagConsole.Drawing
 {
+    using System;
+    using System.Diagnostics;
+
     /// <summary>
     /// Provides an immutable size, which encapsulates a width and a height
     /// </summary>
@@ -12,13 +12,16 @@ namespace FlagConsole.Drawing
     public class Size : ICloneable, IEquatable<Size>
     {
         private readonly int height;
+
         private readonly int width;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Size"/> class.
         /// </summary>
         public Size()
-            : this(0, 0) { }
+            : this(0, 0)
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Size"/> class.
@@ -34,17 +37,34 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Gets the height.
         /// </summary>
-        public int Height
-        {
-            get { return this.height; }
-        }
+        public int Height => this.height;
 
         /// <summary>
         /// Gets the width.
         /// </summary>
-        public int Width
+        public int Width => this.width;
+
+        /// <summary>
+        /// Implements the operator ==.
+        /// </summary>
+        /// <param name="sizeA">The position A.</param>
+        /// <param name="sizeB">The position B.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator ==(Size sizeA, Size sizeB)
         {
-            get { return this.width; }
+            // Check reference
+            if (ReferenceEquals(sizeA, sizeB))
+            {
+                return true;
+            }
+
+            // Check null (cast to object type to avoid infinite loop)
+            if ((object)sizeA == null || (object)sizeB == null)
+            {
+                return false;
+            }
+
+            return sizeA.Height == sizeB.Height && sizeA.Width == sizeB.Width;
         }
 
         /// <summary>
@@ -58,25 +78,6 @@ namespace FlagConsole.Drawing
         public static bool operator !=(Size sizeA, Size sizeB)
         {
             return !(sizeA == sizeB);
-        }
-
-        /// <summary>
-        /// Implements the operator ==.
-        /// </summary>
-        /// <param name="sizeA">The position A.</param>
-        /// <param name="sizeB">The position B.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator ==(Size sizeA, Size sizeB)
-        {
-            //Check reference
-            if (Object.ReferenceEquals(sizeA, sizeB))
-                return true;
-
-            //Check null (cast to object type to avoid infinite loop)
-            if ((object)sizeA == null || (object)sizeB == null)
-                return false;
-
-            return sizeA.Height == sizeB.Height && sizeA.Width == sizeB.Width;
         }
 
         /// <summary>
@@ -104,12 +105,7 @@ namespace FlagConsole.Drawing
         {
             var size = obj as Size;
 
-            if (size == null)
-            {
-                return false;
-            }
-
-            return this.Equals(size);
+            return size != null && this.Equals(size);
         }
 
         /// <summary>
