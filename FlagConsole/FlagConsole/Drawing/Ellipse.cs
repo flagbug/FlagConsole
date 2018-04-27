@@ -1,10 +1,21 @@
-﻿namespace FlagConsole.Drawing
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Ellipse.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Defines the Ellipse type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Drawing
 {
     using System.Collections.Generic;
     using System.Windows;
 
     internal class Ellipse : Shape
     {
+        #region Constructors and Destructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Ellipse"/> class.
         /// </summary>
@@ -13,12 +24,14 @@
         /// <param name="b">The b.</param>
         /// <param name="token">The token.</param>
         public Ellipse(Coordinate midPoint, int a, int b, char token)
-            : base(token)
+                : base(token)
         {
             this.Centre = midPoint;
             this.A = a;
             this.B = b;
         }
+
+        #endregion
 
         /// <summary>
         /// Gets or sets the size on the x-axis.
@@ -51,10 +64,11 @@
         public override void Draw(GraphicBuffer buffer)
         {
             var points = RasterEllipse(
-                this.Centre.X,
-                this.Centre.Y,
-                this.A + (int)(this.A / 1.75), // Compensate the proportions of the symbols in the console
-                this.B);
+                                       this.Centre.X,
+                                       this.Centre.Y,
+                                       this.A
+                                     + (int)(this.A / 1.75), // Compensate the proportions of the symbols in the console
+                                       this.B);
 
             foreach (Point point in points)
             {

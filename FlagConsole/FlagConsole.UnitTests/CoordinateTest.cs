@@ -1,4 +1,13 @@
-﻿namespace FlagConsole.UnitTests
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="CoordinateTest.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Defines the CoordinateTest type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.UnitTests
 {
     using FlagConsole.Drawing;
 
@@ -133,7 +142,9 @@
             int positionHash3 = new Coordinate(2, 2).GetHashCode();
 
             Assert.True(
-                positionHash1 != positionHash2 && positionHash1 != positionHash3 && positionHash2 != positionHash3);
+                        positionHash1 != positionHash2
+                     && positionHash1 != positionHash3
+                     && positionHash2 != positionHash3);
         }
 
         [Fact]

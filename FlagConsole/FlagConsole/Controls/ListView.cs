@@ -1,4 +1,13 @@
-﻿namespace FlagConsole.Controls
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ListView.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Provides a list view, that displays items in a table with one column
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Controls
 {
     using System.Collections.Generic;
 
@@ -10,7 +19,13 @@
     /// <typeparam name="T">Type of the item that gets displayed</typeparam>
     public class ListView<T> : ListControl
     {
+        #region Fields
+
         private readonly List<T> items;
+
+        #endregion
+
+        #region Constructors and Destructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ListView&lt;T&gt;"/> class.
@@ -20,6 +35,8 @@
             this.items = new List<T>();
             this.Bullet = '+';
         }
+
+        #endregion
 
         /// <summary>
         /// Gets the items.

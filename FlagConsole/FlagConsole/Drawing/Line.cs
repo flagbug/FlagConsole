@@ -1,4 +1,13 @@
-﻿namespace FlagConsole.Drawing
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Line.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Base class for lines (horizontal line and vertical line)
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Drawing
 {
     using System;
     using System.Collections.Generic;
@@ -8,6 +17,8 @@
     /// </summary>
     internal class Line : Shape
     {
+        #region Constructors and Destructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Line"/> class.
         /// </summary>
@@ -15,11 +26,13 @@
         /// <param name="endPoint">The end point.</param>
         /// <param name="token">The token of which the line consists.</param>
         public Line(Coordinate startPoint, Coordinate endPoint, char token)
-            : base(token)
+                : base(token)
         {
             this.StartPoint = startPoint;
             this.EndPoint = endPoint;
         }
+
+        #endregion
 
         /// <summary>
         /// Gets or sets the end point.
@@ -44,10 +57,10 @@
         public override void Draw(GraphicBuffer buffer)
         {
             foreach (Coordinate point in RasterLine(
-                this.StartPoint.X,
-                this.StartPoint.Y,
-                this.EndPoint.X,
-                this.EndPoint.Y))
+                                                    this.StartPoint.X,
+                                                    this.StartPoint.Y,
+                                                    this.EndPoint.X,
+                                                    this.EndPoint.Y))
             {
                 buffer.DrawPixel(this.Token, point);
             }

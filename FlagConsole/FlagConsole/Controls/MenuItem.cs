@@ -1,10 +1,21 @@
-﻿namespace FlagConsole.Controls
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="MenuItem.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   An menu item for selection
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Controls
 {
     /// <summary>
     /// An menu item for selection
     /// </summary>
     public class MenuItem<T>
     {
+        #region Constructors and Destructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MenuItem&lt;T&gt;"/> class.
         /// </summary>
@@ -15,6 +26,8 @@
             this.Name = name;
             this.Value = value;
         }
+
+        #endregion
 
         /// <summary>
         /// Gets or sets the name that is displayed in the menu.

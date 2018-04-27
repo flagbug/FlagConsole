@@ -1,4 +1,13 @@
-﻿namespace FlagConsole.UnitTests
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="SizeTest.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Defines the SizeTest type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.UnitTests
 {
     using FlagConsole.Drawing;
 

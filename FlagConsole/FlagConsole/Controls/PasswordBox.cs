@@ -1,4 +1,13 @@
-﻿namespace FlagConsole.Controls
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="PasswordBox.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Provides a TextBox control, where the user can type passwords.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Controls
 {
     using System;
 
@@ -7,11 +16,15 @@
     /// </summary>
     public class PasswordBox : TextBox
     {
+        #region Constructors and Destructors
+
         public PasswordBox()
         {
             this.Password = string.Empty;
             this.PasswordChar = '*';
         }
+
+        #endregion
 
         /// <summary>
         /// Gets the current password of the <see cref="PasswordBox"/>.

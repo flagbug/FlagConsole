@@ -1,13 +1,28 @@
-﻿namespace FlagConsole.Demo
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ListViewDemoPanel.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Defines the ListViewDemoPanel type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Demo
 {
     using FlagConsole.Controls;
     using FlagConsole.Drawing;
 
     internal class ListViewDemoPanel : Panel
     {
+        #region Fields
+
         private readonly ListView<string> listView;
 
         private readonly ListView<string> listView2;
+
+        #endregion
+
+        #region Constructors and Destructors
 
         public ListViewDemoPanel()
         {
@@ -24,11 +39,11 @@
             this.Controls.Add(this.listView);
 
             this.listView2 = new ListView<string>
-                                 {
+                             {
                                      RelativeLocation = new Coordinate(18, 0),
                                      Size = new Size(14, 8),
                                      Bullet = '-'
-                                 };
+                             };
             this.listView2.Items.Add("This");
             this.listView2.Items.Add("list view");
             this.listView2.Items.Add("has a other");
@@ -39,5 +54,7 @@
 
             this.Controls.Add(this.listView2);
         }
+
+        #endregion
     }
 }

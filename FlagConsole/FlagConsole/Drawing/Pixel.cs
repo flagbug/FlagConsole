@@ -1,9 +1,20 @@
-﻿namespace FlagConsole.Drawing
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Pixel.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Defines the Pixel type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Drawing
 {
     using System;
 
     internal class Pixel
     {
+        #region Constructors and Destructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Pixel"/> class.
         /// </summary>
@@ -16,6 +27,8 @@
             this.ForegroundColor = foregroundColor;
             this.BackgroundColor = backgroundColor;
         }
+
+        #endregion
 
         /// <summary>
         /// Gets the background color.

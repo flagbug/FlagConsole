@@ -1,13 +1,28 @@
-﻿namespace FlagConsole.Demo
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="RectangleDemoPanel.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Defines the RectangleDemoPanel type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Demo
 {
     using FlagConsole.Controls;
     using FlagConsole.Drawing;
 
     internal class RectangleDemoPanel : Panel
     {
+        #region Fields
+
         private readonly Label emptyRectangleLabel;
 
         private readonly Label filledRectangleLabel;
+
+        #endregion
+
+        #region Constructors and Destructors
 
         public RectangleDemoPanel()
         {
@@ -21,6 +36,8 @@
             this.emptyRectangleLabel.RelativeLocation = new Coordinate(17, 11);
             this.Controls.Add(this.emptyRectangleLabel);
         }
+
+        #endregion
 
         protected override void Draw(GraphicBuffer buffer)
         {

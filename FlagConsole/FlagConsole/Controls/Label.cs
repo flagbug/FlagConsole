@@ -1,4 +1,13 @@
-﻿namespace FlagConsole.Controls
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Label.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Represents a label that can show a text
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Controls
 {
     using System.Collections.Generic;
 
@@ -9,6 +18,8 @@
     /// </summary>
     public class Label : Control
     {
+        #region Constructors and Destructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Label"/> class.
         /// </summary>
@@ -16,6 +27,8 @@
         {
             this.Text = string.Empty;
         }
+
+        #endregion
 
         /// <summary>
         /// Gets or sets the text that is displayed in the label.

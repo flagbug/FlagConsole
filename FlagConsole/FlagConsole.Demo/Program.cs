@@ -1,4 +1,13 @@
-﻿namespace FlagConsole.Demo
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Program.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Defines the Program type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Demo
 {
     using System;
 

@@ -1,4 +1,13 @@
-﻿namespace FlagConsole.Controls
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="IFocusable.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Provides methods for focusable controls
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Controls
 {
     /// <summary>
     /// Provides methods for focusable controls

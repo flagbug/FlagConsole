@@ -1,4 +1,13 @@
-﻿namespace FlagConsole.Controls
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Container.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Base class for all containers
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Controls
 {
     using System;
     using System.Collections.Generic;
@@ -12,7 +21,13 @@
     /// </summary>
     public abstract class Container : Control
     {
+        #region Fields
+
         private readonly ObservableCollection<Control> controls;
+
+        #endregion
+
+        #region Constructors and Destructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Container"/> class.
@@ -22,6 +37,8 @@
             this.controls = new ObservableCollection<Control>();
             this.controls.CollectionChanged += this.controls_CollectionChanged;
         }
+
+        #endregion
 
         /// <summary>
         /// Gets the underlying controls.

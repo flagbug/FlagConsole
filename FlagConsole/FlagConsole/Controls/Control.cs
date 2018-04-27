@@ -1,4 +1,13 @@
-﻿namespace FlagConsole.Controls
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Control.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Base class for all controls
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Controls
 {
     using System;
 
@@ -9,6 +18,8 @@
     /// </summary>
     public abstract class Control
     {
+        #region Constructors and Destructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Control"/> class.
         /// </summary>
@@ -21,10 +32,16 @@
             this.BackgroundColor = Console.BackgroundColor;
         }
 
+        #endregion
+
+        #region Events
+
         /// <summary>
         /// Occurs when the control requires redrawing.
         /// </summary>
         public event EventHandler Invalidated;
+
+        #endregion
 
         /// <summary>
         /// Gets the absolute location in the console.

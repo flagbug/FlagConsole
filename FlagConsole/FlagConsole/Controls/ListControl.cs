@@ -1,10 +1,21 @@
-﻿namespace FlagConsole.Controls
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ListControl.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Represents a control that displays a list of items (like a Menu or a ListView)
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Controls
 {
     /// <summary>
     /// Represents a control that displays a list of items (like a Menu or a ListView)
     /// </summary>
     public abstract class ListControl : Control
     {
+        #region Constructors and Destructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ListControl"/> class.
         /// </summary>
@@ -12,6 +23,8 @@
         {
             this.DisplayBullets = true;
         }
+
+        #endregion
 
         /// <summary>
         /// Gets or sets the bullet that is prepended before each item.

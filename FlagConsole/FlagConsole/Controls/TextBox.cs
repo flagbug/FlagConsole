@@ -1,4 +1,13 @@
-﻿namespace FlagConsole.Controls
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="TextBox.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Provides a control, where the user can type text.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Controls
 {
     using System;
 
@@ -9,7 +18,13 @@
     /// </summary>
     public class TextBox : Control, IFocusable
     {
+        #region Fields
+
         private string text;
+
+        #endregion
+
+        #region Constructors and Destructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TextBox"/> class.
@@ -21,6 +36,10 @@
             this.ForegroundColor = ConsoleColor.Black;
         }
 
+        #endregion
+
+        #region Events
+
         /// <summary>
         /// Occurs when the <see cref="Text"/> property value changes.
         /// </summary>
@@ -30,6 +49,8 @@
         /// Occurs when the user pressed the enter key.
         /// </summary>
         public event EventHandler TextSubmitted;
+
+        #endregion
 
         /// <summary>
         /// Gets a value indicating whether the control has input focus.

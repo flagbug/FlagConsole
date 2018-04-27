@@ -1,4 +1,13 @@
-﻿namespace FlagConsole.Controls
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Menu.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Provides a text-based menu in the console, where the user can select an item
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Controls
 {
     using System;
     using System.Collections.Generic;
@@ -11,7 +20,13 @@
     /// <typeparam name="T">Type of the item that the user can select</typeparam>
     public class Menu<T> : ListControl, IFocusable
     {
+        #region Fields
+
         private readonly List<MenuItem<T>> items;
+
+        #endregion
+
+        #region Constructors and Destructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Menu&lt;T&gt;"/> class.
@@ -26,6 +41,10 @@
             this.SelectionBackgroundColor = ConsoleColor.White;
         }
 
+        #endregion
+
+        #region Events
+
         /// <summary>
         /// Occurs when a item has been chosen.
         /// </summary>
@@ -35,6 +54,8 @@
         /// Occurs when the current selected item has changed.
         /// </summary>
         public event EventHandler<MenuEventArgs<T>> SelectionChanged;
+
+        #endregion
 
         /// <summary>
         /// Gets a collection of <see cref="ConsoleKey"/>s that can be used to scroll downward in the menu.

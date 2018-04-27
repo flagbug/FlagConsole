@@ -1,10 +1,21 @@
-﻿namespace FlagConsole.Drawing
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Shape.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Base class for rectangles, lines, etc...
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Drawing
 {
     /// <summary>
     /// Base class for rectangles, lines, etc...
     /// </summary>
     internal abstract class Shape
     {
+        #region Constructors and Destructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Shape"/> class.
         /// </summary>
@@ -13,6 +24,8 @@
         {
             this.Token = token;
         }
+
+        #endregion
 
         /// <summary>
         /// Gets or sets the token of which the shape consists.

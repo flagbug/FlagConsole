@@ -1,4 +1,13 @@
-﻿namespace FlagConsole.Controls
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="TextField.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Provides a text field where the user can do an input
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Controls
 {
     using System;
 
@@ -10,6 +19,8 @@
     [Obsolete("This class is obsolete, use TextBox instead.")]
     public class TextField : Control, IFocusable
     {
+        #region Constructors and Destructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TextField"/> class.
         /// </summary>
@@ -20,10 +31,16 @@
             this.ForegroundColor = ConsoleColor.Black;
         }
 
+        #endregion
+
+        #region Events
+
         /// <summary>
         /// Occurs when the input has been entered.
         /// </summary>
         public event EventHandler TextEntered;
+
+        #endregion
 
         /// <summary>
         /// Gets a value indicating whether this <see cref="IFocusable"/> is focused.

@@ -1,4 +1,13 @@
-﻿namespace FlagConsole.Drawing
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Size.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Provides an immutable size, which encapsulates a width and a height
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Drawing
 {
     using System;
     using System.Diagnostics;
@@ -11,15 +20,21 @@
     [DebuggerDisplay("Width = {Width}, Height = {Height}")]
     public class Size : ICloneable, IEquatable<Size>
     {
+        #region Fields
+
         private readonly int height;
 
         private readonly int width;
+
+        #endregion
+
+        #region Constructors and Destructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Size"/> class.
         /// </summary>
         public Size()
-            : this(0, 0)
+                : this(0, 0)
         {
         }
 
@@ -33,6 +48,8 @@
             this.height = height;
             this.width = width;
         }
+
+        #endregion
 
         /// <summary>
         /// Gets the height.

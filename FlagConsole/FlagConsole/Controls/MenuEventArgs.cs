@@ -1,4 +1,13 @@
-﻿namespace FlagConsole.Controls
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="MenuEventArgs.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Provides data for the events that are raised by the <see cref="Menu{T}" /> class.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Controls
 {
     using System;
 
@@ -8,6 +17,8 @@
     /// <typeparam name="T">The type of the MenuItem.</typeparam>
     public class MenuEventArgs<T> : EventArgs
     {
+        #region Constructors and Destructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MenuEventArgs&lt;T&gt;"/> class.
         /// </summary>
@@ -16,6 +27,8 @@
         {
             this.Item = item;
         }
+
+        #endregion
 
         /// <summary>
         /// Gets the item that was affected.

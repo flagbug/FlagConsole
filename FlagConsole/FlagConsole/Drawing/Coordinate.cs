@@ -1,4 +1,13 @@
-﻿namespace FlagConsole.Drawing
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Coordinate.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Provides a immutable Position, which encapsulates a x and y coordinate
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Drawing
 {
     using System;
     using System.Diagnostics;
@@ -11,9 +20,15 @@
     [DebuggerDisplay("X = {X}, Y = {Y}")]
     public class Coordinate : ICloneable, IEquatable<Coordinate>
     {
+        #region Fields
+
         private readonly int x;
 
         private readonly int y;
+
+        #endregion
+
+        #region Constructors and Destructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Coordinate"/> class.
@@ -25,6 +40,8 @@
             this.x = x;
             this.y = y;
         }
+
+        #endregion
 
         /// <summary>
         /// Gets a coordinate, which represents the origin of a coordinate system (x = 0, y = 0).
