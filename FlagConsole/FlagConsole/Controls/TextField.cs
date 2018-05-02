@@ -84,6 +84,12 @@ namespace FlagConsole.Controls
             this.ScanInput();
         }
 
+        public new void Hide()
+        {
+            this.Defocus();
+            base.Hide();
+        }
+
         /// <summary>
         /// Draws the control.
         /// </summary>
