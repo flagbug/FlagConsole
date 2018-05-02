@@ -28,7 +28,12 @@ namespace FlagConsole.Controls
 
         #region Constructors and Destructors
 
+        public Screen()
+        {
+        }
+
         public Screen(Screen parent)
+                : this()
         {
             this.parent = parent;
         }
@@ -44,6 +49,17 @@ namespace FlagConsole.Controls
         /// Gets the top conainer (the screen).
         /// </summary>
         public override Container Top => this;
+
+        public virtual void Activate()
+        {
+            this.Show();
+            this.Update(new GraphicBuffer(this.Size));
+        }
+
+        public virtual void Deactivate()
+        {
+            this.Hide();
+        }
 
         public override void Hide()
         {
