@@ -20,6 +20,21 @@ namespace FlagConsole.Controls
     /// </summary>
     public class Screen : Container
     {
+        #region Fields
+
+        private readonly Screen parent;
+
+        #endregion
+
+        #region Constructors and Destructors
+
+        public Screen(Screen parent)
+        {
+            this.parent = parent;
+        }
+
+        #endregion
+
         /// <summary>
         /// Gets the absolute position to the console.
         /// </summary>
@@ -29,6 +44,18 @@ namespace FlagConsole.Controls
         /// Gets the top conainer (the screen).
         /// </summary>
         public override Container Top => this;
+
+        public override void Hide()
+        {
+            base.Hide();
+            this.parent?.Show();
+        }
+
+        public override void Show()
+        {
+            this.parent?.Hide();
+            base.Show();
+        }
 
         /// <summary>
         /// Updates the control if <see cref="Control.IsVisible"/> is set to true.
