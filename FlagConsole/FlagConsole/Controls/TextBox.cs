@@ -105,7 +105,7 @@ namespace FlagConsole.Controls
             this.ScanInput();
         }
 
-        public new void Hide()
+        public override void Hide()
         {
             this.Defocus();
             base.Hide();

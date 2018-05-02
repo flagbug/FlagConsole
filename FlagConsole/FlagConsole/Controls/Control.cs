@@ -101,7 +101,7 @@ namespace FlagConsole.Controls
         /// </summary>
         public virtual Container Top => this.Parent.Top;
 
-        public void Hide()
+        public virtual void Hide()
         {
             this.IsVisible = false;
         }
@@ -114,7 +114,7 @@ namespace FlagConsole.Controls
             this.OnInvalidated(EventArgs.Empty);
         }
 
-        public void Show()
+        public virtual void Show()
         {
             this.IsVisible = true;
         }
