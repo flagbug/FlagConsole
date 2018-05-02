@@ -101,7 +101,7 @@ namespace FlagConsole.Controls
         public void Focus()
         {
             this.IsFocused = true;
-            this.IsVisible = true;
+            this.Show();
             this.ScanInput();
         }
 

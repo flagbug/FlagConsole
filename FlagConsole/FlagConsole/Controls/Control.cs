@@ -70,7 +70,7 @@ namespace FlagConsole.Controls
         /// <value>
         ///   <c>true</c> if the control is visible; otherwise, <c>false</c>.
         /// </value>
-        public bool IsVisible { get; set; }
+        public bool IsVisible { get; private set; }
 
         /// <summary>
         /// Gets or sets the parent <see cref="Container"/> that contains the control.
@@ -101,12 +101,22 @@ namespace FlagConsole.Controls
         /// </summary>
         public virtual Container Top => this.Parent.Top;
 
+        public void Hide()
+        {
+            this.IsVisible = false;
+        }
+
         /// <summary>
         /// Invalidates the control and causes a redraw.
         /// </summary>
         public void Invalidate()
         {
             this.OnInvalidated(EventArgs.Empty);
+        }
+
+        public void Show()
+        {
+            this.IsVisible = true;
         }
 
         /// <summary>
