@@ -13,6 +13,7 @@ namespace FlagConsole.Controls
 
     using FlagConsole.Drawing;
 
+    /// <inheritdoc />
     /// <summary>
     /// Represents a label that can show a text
     /// </summary>
@@ -20,6 +21,7 @@ namespace FlagConsole.Controls
     {
         #region Constructors and Destructors
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="Label"/> class.
         /// </summary>
@@ -38,6 +40,7 @@ namespace FlagConsole.Controls
         /// </value>
         public string Text { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Draws the control.
         /// </summary>
@@ -55,7 +58,7 @@ namespace FlagConsole.Controls
             var lines = new List<string>();
 
             // If there is only one word, draw it immediately.
-            // This fixes a bug, which caues a cut-off at the end of a line
+            // This fixes a bug, which causes a cut-off at the end of a line
             // (the cut-off for only one word is desired)
             if (words.Count == 1)
             {
@@ -65,15 +68,15 @@ namespace FlagConsole.Controls
             {
                 do
                 {
-                    string line = string.Empty;
-                    bool first = true;
+                    var line = string.Empty;
+                    var first = true;
 
-                    for (int i = 0; i < words.Count; i++)
+                    for (var i = 0; i < words.Count; i++)
                     {
                         if (line.Length + words[0].Length < this.Size.Width)
                         {
                             // check if the line fits into the label
-                            string space = first ? string.Empty : " ";
+                            var space = first ? string.Empty : " ";
                             first = false;
 
                             line += space + words[0];
@@ -91,7 +94,7 @@ namespace FlagConsole.Controls
                 while (words.Count > 0 && lines.Count < this.Size.Height);
             }
 
-            for (int i = 0; i < lines.Count; i++)
+            for (var i = 0; i < lines.Count; i++)
             {
                 buffer.DrawLine(lines[i], new Coordinate(0, i));
             }

@@ -14,33 +14,23 @@ namespace FlagConsole.Demo
 
     internal class LineDemoPanel : Panel
     {
-        #region Fields
-
-        private readonly Label genericLineLabel;
-
-        private readonly Label horizontalLineLabel;
-
-        private readonly Label verticalLineLabel;
-
-        #endregion
-
         #region Constructors and Destructors
 
         public LineDemoPanel()
         {
-            this.horizontalLineLabel = new Label { Text = "This is a horizontal line." };
-            this.horizontalLineLabel.Size = new Size(this.horizontalLineLabel.Text.Length, 1);
-            this.Controls.Add(this.horizontalLineLabel);
+            var horizontalLineLabel = new Label { Text = "This is a horizontal line." };
+            horizontalLineLabel.Size = new Size(horizontalLineLabel.Text.Length, 1);
+            this.Controls.Add(horizontalLineLabel);
 
-            this.verticalLineLabel = new Label { Text = "This is a vertical line." };
-            this.verticalLineLabel.Size = new Size(this.verticalLineLabel.Text.Length, 1);
-            this.verticalLineLabel.RelativeLocation = new Coordinate(0, 4);
-            this.Controls.Add(this.verticalLineLabel);
+            var verticalLineLabel = new Label { Text = "This is a vertical line." };
+            verticalLineLabel.Size = new Size(verticalLineLabel.Text.Length, 1);
+            verticalLineLabel.RelativeLocation = new Coordinate(0, 4);
+            this.Controls.Add(verticalLineLabel);
 
-            this.genericLineLabel = new Label { Text = "This is a generic line." };
-            this.genericLineLabel.Size = new Size(this.genericLineLabel.Text.Length, 1);
-            this.genericLineLabel.RelativeLocation = new Coordinate(0, 17);
-            this.Controls.Add(this.genericLineLabel);
+            var genericLineLabel = new Label { Text = "This is a generic line." };
+            genericLineLabel.Size = new Size(genericLineLabel.Text.Length, 1);
+            genericLineLabel.RelativeLocation = new Coordinate(0, 17);
+            this.Controls.Add(genericLineLabel);
         }
 
         #endregion

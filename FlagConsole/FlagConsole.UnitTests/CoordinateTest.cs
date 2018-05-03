@@ -22,7 +22,7 @@ namespace FlagConsole.UnitTests
             var position = new Coordinate(5, 15);
             var expected = new Coordinate(10, 30);
 
-            Coordinate actual = target.Add(position);
+            var actual = target.Add(position);
 
             Assert.Equal(expected, actual);
         }
@@ -33,7 +33,7 @@ namespace FlagConsole.UnitTests
             var target = new Coordinate(5, 15);
             object expected = new Coordinate(5, 15);
 
-            object actual = target.Clone();
+            var actual = target.Clone();
 
             Assert.Equal(expected, actual);
         }
@@ -45,7 +45,7 @@ namespace FlagConsole.UnitTests
             object obj = new Coordinate(15, 5);
             const bool Expected = false;
 
-            bool actual = target.Equals(obj);
+            var actual = target.Equals(obj);
 
             Assert.Equal(Expected, actual);
         }
@@ -57,7 +57,7 @@ namespace FlagConsole.UnitTests
             object obj = null;
             const bool Expected = false;
 
-            bool actual = target.Equals(obj);
+            var actual = target.Equals(obj);
 
             Assert.Equal(Expected, actual);
         }
@@ -69,7 +69,7 @@ namespace FlagConsole.UnitTests
             object obj = target;
             const bool Expected = true;
 
-            bool actual = target.Equals(obj);
+            var actual = target.Equals(obj);
 
             Assert.Equal(Expected, actual);
         }
@@ -81,7 +81,7 @@ namespace FlagConsole.UnitTests
             object obj = new Coordinate(5, 15);
             const bool Expected = true;
 
-            bool actual = target.Equals(obj);
+            var actual = target.Equals(obj);
 
             Assert.Equal(Expected, actual);
         }
@@ -93,7 +93,7 @@ namespace FlagConsole.UnitTests
             var position = new Coordinate(15, 5);
             const bool Expected = false;
 
-            bool actual = target.Equals(position);
+            var actual = target.Equals(position);
 
             Assert.Equal(Expected, actual);
         }
@@ -105,7 +105,7 @@ namespace FlagConsole.UnitTests
             Coordinate position = null;
             const bool Expected = false;
 
-            bool actual = target.Equals(position);
+            var actual = target.Equals(position);
 
             Assert.Equal(Expected, actual);
         }
@@ -114,10 +114,10 @@ namespace FlagConsole.UnitTests
         public void GenericEqualsReferenceTest()
         {
             var target = new Coordinate(5, 15);
-            Coordinate position = target;
+            var position = target;
             const bool Expected = true;
 
-            bool actual = target.Equals(position);
+            var actual = target.Equals(position);
 
             Assert.Equal(Expected, actual);
         }
@@ -129,7 +129,7 @@ namespace FlagConsole.UnitTests
             var position = new Coordinate(5, 15);
             const bool Expected = true;
 
-            bool actual = target.Equals(position);
+            var actual = target.Equals(position);
 
             Assert.Equal(Expected, actual);
         }
@@ -137,9 +137,9 @@ namespace FlagConsole.UnitTests
         [Fact]
         public void GetHashCodeTest()
         {
-            int positionHash1 = Coordinate.Origin.GetHashCode();
-            int positionHash2 = new Coordinate(1, 1).GetHashCode();
-            int positionHash3 = new Coordinate(2, 2).GetHashCode();
+            var positionHash1 = Coordinate.Origin.GetHashCode();
+            var positionHash2 = new Coordinate(1, 1).GetHashCode();
+            var positionHash3 = new Coordinate(2, 2).GetHashCode();
 
             Assert.True(
                         positionHash1 != positionHash2
@@ -148,109 +148,109 @@ namespace FlagConsole.UnitTests
         }
 
         [Fact]
-        public void op_AdditionTest()
+        public void OpAdditionTest()
         {
             var positionA = new Coordinate(5, 15);
             var positionB = new Coordinate(5, 15);
             var expected = new Coordinate(10, 30);
 
-            Coordinate actual = positionA + positionB;
+            var actual = positionA + positionB;
 
             Assert.Equal(expected, actual);
         }
 
         [Fact]
-        public void op_EqualityInverseTest()
+        public void OpEqualityInverseTest()
         {
             var positionA = new Coordinate(5, 15);
             var positionB = new Coordinate(15, 5);
             const bool Expected = false;
 
-            bool actual = positionA == positionB;
+            var actual = positionA == positionB;
 
             Assert.Equal(Expected, actual);
         }
 
         [Fact]
-        public void op_EqualityNullTest()
+        public void OpEqualityNullTest()
         {
             var positionA = new Coordinate(5, 15);
             Coordinate positionB = null;
             const bool Expected = false;
 
-            bool actual = positionA == positionB;
+            var actual = positionA == positionB;
 
             Assert.Equal(Expected, actual);
         }
 
         [Fact]
-        public void op_EqualityReferenceTest()
+        public void OpEqualityReferenceTest()
         {
             var positionA = new Coordinate(5, 15);
-            Coordinate positionB = positionA;
+            var positionB = positionA;
             const bool Expected = true;
 
-            bool actual = positionA == positionB;
+            var actual = positionA == positionB;
 
             Assert.Equal(Expected, actual);
         }
 
         [Fact]
-        public void op_EqualityTest()
+        public void OpEqualityTest()
         {
             var positionA = new Coordinate(5, 15);
             var positionB = new Coordinate(5, 15);
             const bool Expected = true;
 
-            bool actual = positionA == positionB;
+            var actual = positionA == positionB;
 
             Assert.Equal(Expected, actual);
         }
 
         [Fact]
-        public void op_InequalityInverseTest()
+        public void OpInequalityInverseTest()
         {
             var positionA = new Coordinate(5, 15);
             var positionB = new Coordinate(5, 15);
             const bool Expected = false;
 
-            bool actual = positionA != positionB;
+            var actual = positionA != positionB;
 
             Assert.Equal(Expected, actual);
         }
 
         [Fact]
-        public void op_InequalityNullTest()
+        public void OpInequalityNullTest()
         {
             var positionA = new Coordinate(5, 15);
             Coordinate positionB = null;
             const bool Expected = true;
 
-            bool actual = positionA != positionB;
+            var actual = positionA != positionB;
 
             Assert.Equal(Expected, actual);
         }
 
         [Fact]
-        public void op_InequalityReferenceTest()
+        public void OpInequalityReferenceTest()
         {
             var positionA = new Coordinate(5, 15);
-            Coordinate positionB = positionA;
+            var positionB = positionA;
             const bool Expected = false;
 
-            bool actual = positionA != positionB;
+            var actual = positionA != positionB;
 
             Assert.Equal(Expected, actual);
         }
 
         [Fact]
-        public void op_InequalityTest()
+        public void OpInequalityTest()
         {
             var positionA = new Coordinate(5, 15);
             var positionB = new Coordinate(10, 30);
             const bool Expected = true;
 
-            bool actual = positionA != positionB;
+            var actual = positionA != positionB;
 
             Assert.Equal(Expected, actual);
         }
@@ -269,7 +269,7 @@ namespace FlagConsole.UnitTests
         [Fact]
         public void PointEmptyConstructorTest()
         {
-            Coordinate target = Coordinate.Origin;
+            var target = Coordinate.Origin;
 
             Assert.Equal(0, target.X);
             Assert.Equal(0, target.Y);

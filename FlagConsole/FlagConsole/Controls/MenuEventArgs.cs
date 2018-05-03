@@ -11,14 +11,16 @@ namespace FlagConsole.Controls
 {
     using System;
 
+    /// <inheritdoc />
     /// <summary>
-    /// Provides data for the events that are raised by the <see cref="Menu{T}"/> class.
+    /// Provides data for the events that are raised by the <see cref="Menu&lt;T&gt;"/> class.
     /// </summary>
     /// <typeparam name="T">The type of the MenuItem.</typeparam>
     public class MenuEventArgs<T> : EventArgs
     {
         #region Constructors and Destructors
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="MenuEventArgs&lt;T&gt;"/> class.
         /// </summary>

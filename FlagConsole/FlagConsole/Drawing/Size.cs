@@ -20,16 +20,9 @@ namespace FlagConsole.Drawing
     [DebuggerDisplay("Width = {Width}, Height = {Height}")]
     public class Size : ICloneable, IEquatable<Size>
     {
-        #region Fields
-
-        private readonly int height;
-
-        private readonly int width;
-
-        #endregion
-
         #region Constructors and Destructors
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="Size"/> class.
         /// </summary>
@@ -45,8 +38,8 @@ namespace FlagConsole.Drawing
         /// <param name="height">The height.</param>
         public Size(int width, int height)
         {
-            this.height = height;
-            this.width = width;
+            this.Height = height;
+            this.Width = width;
         }
 
         #endregion
@@ -54,12 +47,12 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Gets the height.
         /// </summary>
-        public int Height => this.height;
+        public int Height { get; }
 
         /// <summary>
         /// Gets the width.
         /// </summary>
-        public int Width => this.width;
+        public int Width { get; }
 
         /// <summary>
         /// Implements the operator ==.
@@ -97,6 +90,7 @@ namespace FlagConsole.Drawing
             return !(sizeA == sizeB);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Creates a new object that is a copy of the current instance.
         /// </summary>
@@ -113,7 +107,7 @@ namespace FlagConsole.Drawing
         /// </summary>
         /// <param name="obj">The <see cref="System.Object"/> to compare with this instance.</param>
         /// <returns>
-        /// 	<c>true</c> if the specified <see cref="System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+        ///   <c>true</c> if the specified <see cref="System.Object"/> is equal to this instance; otherwise, <c>false</c>.
         /// </returns>
         /// <exception cref="T:System.NullReferenceException">
         /// The <paramref name="obj"/> parameter is null.
@@ -125,12 +119,13 @@ namespace FlagConsole.Drawing
             return size != null && this.Equals(size);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Indicates whether the current object is equal to another object of the same type.
         /// </summary>
         /// <param name="other">An object to compare with this object.</param>
         /// <returns>
-        /// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+        /// true if the current object is equal to the <paramref name="other" /> parameter; otherwise, false.
         /// </returns>
         public bool Equals(Size other)
         {

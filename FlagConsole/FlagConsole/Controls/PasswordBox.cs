@@ -11,6 +11,7 @@ namespace FlagConsole.Controls
 {
     using System;
 
+    /// <inheritdoc />
     /// <summary>
     /// Provides a TextBox control, where the user can type passwords.
     /// </summary>
@@ -47,7 +48,7 @@ namespace FlagConsole.Controls
         {
             if (this.Text.Length > this.Password.Length)
             {
-                char lastChar = this.Text[this.Text.Length - 1];
+                var lastChar = this.Text[this.Text.Length - 1];
                 this.Password += lastChar;
                 this.Text = new string(this.PasswordChar, this.Text.Length);
             }

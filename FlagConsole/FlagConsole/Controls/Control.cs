@@ -52,7 +52,7 @@ namespace FlagConsole.Controls
         /// Gets or sets the background color for the control.
         /// </summary>
         /// <value>
-        /// The backgound color for the control.
+        /// The background color for the control.
         /// </value>
         public ConsoleColor BackgroundColor { get; set; }
 
@@ -60,12 +60,12 @@ namespace FlagConsole.Controls
         /// Gets or sets the foreground color for the control.
         /// </summary>
         /// <value>
-        /// The foregound color for the control.
+        /// The foreground color for the control.
         /// </value>
         public ConsoleColor ForegroundColor { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the control is visible.
+        /// Gets a value indicating whether the control is visible.
         /// </summary>
         /// <value>
         ///   <c>true</c> if the control is visible; otherwise, <c>false</c>.

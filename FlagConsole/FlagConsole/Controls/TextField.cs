@@ -21,6 +21,7 @@ namespace FlagConsole.Controls
     {
         #region Constructors and Destructors
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="TextField"/> class.
         /// </summary>
@@ -42,6 +43,7 @@ namespace FlagConsole.Controls
 
         #endregion
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value indicating whether this <see cref="IFocusable"/> is focused.
         /// </summary>
@@ -66,16 +68,18 @@ namespace FlagConsole.Controls
         /// </value>
         public virtual string Text { get; private set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Defocuses the control and stopps it's behaviour.
+        /// Defocuses the control and stops it's behavior.
         /// </summary>
         public void Defocus()
         {
             this.IsFocused = false;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Focuses the control and executes it's behaviour (e.g the selection of a menu or the input of a textfield)
+        /// Focuses the control and executes it's behavior (e.g the selection of a menu or the input of a textfield)
         /// </summary>
         public void Focus()
         {
@@ -90,6 +94,7 @@ namespace FlagConsole.Controls
             base.Hide();
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Draws the control.
         /// </summary>
@@ -98,7 +103,7 @@ namespace FlagConsole.Controls
             buffer.BackgroundDrawingColor = this.BackgroundColor;
             buffer.ForegroundDrawingColor = this.ForegroundColor;
 
-            string background = string.Empty;
+            var background = string.Empty;
             background = background.PadRight(this.Length, ' ');
 
             buffer.DrawLine(background, Coordinate.Origin);
@@ -120,7 +125,7 @@ namespace FlagConsole.Controls
         /// </summary>
         protected virtual void ScanInput()
         {
-            bool cursorVisible = Console.CursorVisible;
+            var cursorVisible = Console.CursorVisible;
             ConsoleKeyInfo key;
 
             Console.CursorVisible = true;
@@ -129,7 +134,7 @@ namespace FlagConsole.Controls
             {
                 this.OnInvalidated(EventArgs.Empty);
 
-                int offset = this.Text.Length == this.Length ? 1 : 0;
+                var offset = this.Text.Length == this.Length ? 1 : 0;
 
                 Console.SetCursorPosition(this.AbsoluteLocation.X + this.Text.Length - offset, this.AbsoluteLocation.Y);
 

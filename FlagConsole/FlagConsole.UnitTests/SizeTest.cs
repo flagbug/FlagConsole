@@ -21,7 +21,7 @@ namespace FlagConsole.UnitTests
             var target = new Size(5, 15);
             object expected = new Size(5, 15);
 
-            object actual = target.Clone();
+            var actual = target.Clone();
 
             Assert.Equal(expected, actual);
         }
@@ -33,7 +33,7 @@ namespace FlagConsole.UnitTests
             var other = new Size(5, 15);
             const bool Expected = true;
 
-            bool actual = target.Equals(other);
+            var actual = target.Equals(other);
 
             Assert.Equal(Expected, actual);
         }
@@ -45,7 +45,7 @@ namespace FlagConsole.UnitTests
             object obj = new Size(5, 15);
             const bool Expected = true;
 
-            bool actual = target.Equals(obj);
+            var actual = target.Equals(obj);
 
             Assert.Equal(Expected, actual);
         }
@@ -53,9 +53,9 @@ namespace FlagConsole.UnitTests
         [Fact]
         public void GetHashCodeTest()
         {
-            int sizeHash1 = new Size().GetHashCode();
-            int sizeHash2 = new Size(1, 1).GetHashCode();
-            int sizeHash3 = new Size(2, 2).GetHashCode();
+            var sizeHash1 = new Size().GetHashCode();
+            var sizeHash2 = new Size(1, 1).GetHashCode();
+            var sizeHash3 = new Size(2, 2).GetHashCode();
 
             Assert.True(sizeHash1 != sizeHash2 && sizeHash1 != sizeHash3 && sizeHash2 != sizeHash3);
         }

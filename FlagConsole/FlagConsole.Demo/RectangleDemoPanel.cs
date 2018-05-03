@@ -14,27 +14,19 @@ namespace FlagConsole.Demo
 
     internal class RectangleDemoPanel : Panel
     {
-        #region Fields
-
-        private readonly Label emptyRectangleLabel;
-
-        private readonly Label filledRectangleLabel;
-
-        #endregion
-
         #region Constructors and Destructors
 
         public RectangleDemoPanel()
         {
-            this.filledRectangleLabel = new Label { Text = "This is a filled rectangle." };
-            this.filledRectangleLabel.Size = new Size(this.filledRectangleLabel.Text.Length, 1);
-            this.filledRectangleLabel.RelativeLocation = new Coordinate(17, 0);
-            this.Controls.Add(this.filledRectangleLabel);
+            var filledRectangleLabel = new Label { Text = "This is a filled rectangle." };
+            filledRectangleLabel.Size = new Size(filledRectangleLabel.Text.Length, 1);
+            filledRectangleLabel.RelativeLocation = new Coordinate(17, 0);
+            this.Controls.Add(filledRectangleLabel);
 
-            this.emptyRectangleLabel = new Label { Text = "This is an empty rectangle." };
-            this.emptyRectangleLabel.Size = new Size(this.emptyRectangleLabel.Text.Length, 1);
-            this.emptyRectangleLabel.RelativeLocation = new Coordinate(17, 11);
-            this.Controls.Add(this.emptyRectangleLabel);
+            var emptyRectangleLabel = new Label { Text = "This is an empty rectangle." };
+            emptyRectangleLabel.Size = new Size(emptyRectangleLabel.Text.Length, 1);
+            emptyRectangleLabel.RelativeLocation = new Coordinate(17, 11);
+            this.Controls.Add(emptyRectangleLabel);
         }
 
         #endregion

@@ -20,14 +20,6 @@ namespace FlagConsole.Drawing
     [DebuggerDisplay("X = {X}, Y = {Y}")]
     public class Coordinate : ICloneable, IEquatable<Coordinate>
     {
-        #region Fields
-
-        private readonly int x;
-
-        private readonly int y;
-
-        #endregion
-
         #region Constructors and Destructors
 
         /// <summary>
@@ -37,8 +29,8 @@ namespace FlagConsole.Drawing
         /// <param name="y">The y coordinate</param>
         public Coordinate(int x, int y)
         {
-            this.x = x;
-            this.y = y;
+            this.X = x;
+            this.Y = y;
         }
 
         #endregion
@@ -51,12 +43,12 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Gets the x coordinate
         /// </summary>
-        public int X => this.x;
+        public int X { get; }
 
         /// <summary>
         /// Gets the y coordinate
         /// </summary>
-        public int Y => this.y;
+        public int Y { get; }
 
         /// <summary>
         /// Implements the operator +.
@@ -118,6 +110,7 @@ namespace FlagConsole.Drawing
             return this + position;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Creates a new object that is a copy of the current instance.
         /// </summary>
@@ -134,7 +127,7 @@ namespace FlagConsole.Drawing
         /// </summary>
         /// <param name="obj">The <see cref="System.Object"/> to compare with this instance.</param>
         /// <returns>
-        /// 	<c>true</c> if the specified <see cref="System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+        ///   <c>true</c> if the specified <see cref="System.Object"/> is equal to this instance; otherwise, <c>false</c>.
         /// </returns>
         /// <exception cref="T:System.NullReferenceException">
         /// The <paramref name="obj"/> parameter is null.
@@ -146,12 +139,13 @@ namespace FlagConsole.Drawing
             return position != null && this.Equals(position);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Indicates whether the current object is equal to another object of the same type.
         /// </summary>
         /// <param name="other">An object to compare with this object.</param>
         /// <returns>
-        /// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+        /// true if the current object is equal to the <paramref name="other" /> parameter; otherwise, false.
         /// </returns>
         public bool Equals(Coordinate other)
         {

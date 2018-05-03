@@ -56,7 +56,7 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Gets the size of the buffer.
         /// </summary>
-        public Size Size { get; private set; }
+        public Size Size { get; }
 
         /// <summary>
         /// Clears the graphic buffer and resets the drawing colors.
@@ -110,7 +110,7 @@ namespace FlagConsole.Drawing
         /// <param name="location">The location where the line shall be drawn.</param>
         public void DrawLine(char[] line, Coordinate location)
         {
-            for (int i = 0; i < line.Length; i++)
+            for (var i = 0; i < line.Length; i++)
             {
                 this.DrawPixel(line[i], location + new Coordinate(i, 0));
             }
@@ -151,11 +151,11 @@ namespace FlagConsole.Drawing
         /// <param name="location">The location.</param>
         public void DrawToScreen(Coordinate location)
         {
-            for (int y = 0; y < this.Size.Height; y++)
+            for (var y = 0; y < this.Size.Height; y++)
             {
                 var pixels = new Pixel[this.Size.Width];
 
-                for (int x = 0; x < this.Size.Width; x++)
+                for (var x = 0; x < this.Size.Width; x++)
                 {
                     pixels[x] = this.buffer[x, y];
                 }
@@ -192,14 +192,14 @@ namespace FlagConsole.Drawing
                 foreach (var pixelLine in final)
                 {
                     // The whole line has the same color, therefore we select the color of the first item
-                    ConsoleColor newForegroundColor = pixelLine[0].ForegroundColor;
+                    var newForegroundColor = pixelLine[0].ForegroundColor;
 
                     if (Console.ForegroundColor != newForegroundColor)
                     {
                         Console.ForegroundColor = newForegroundColor;
                     }
 
-                    ConsoleColor newBackgroundColor = pixelLine[0].BackgroundColor;
+                    var newBackgroundColor = pixelLine[0].BackgroundColor;
 
                     if (Console.BackgroundColor != newBackgroundColor)
                     {
@@ -208,7 +208,7 @@ namespace FlagConsole.Drawing
 
                     var line = new char[pixelLine.Count];
 
-                    for (int i = 0; i < line.Length; i++)
+                    for (var i = 0; i < line.Length; i++)
                     {
                         line[i] = pixelLine[i].Token;
                     }
@@ -276,10 +276,12 @@ namespace FlagConsole.Drawing
         /// <param name="action">The action.</param>
         private void TraversePixels(Action<int, int> action)
         {
-            for (int y = 0; y < this.Size.Height; y++)
-            for (int x = 0; x < this.Size.Width; x++)
+            for (var y = 0; y < this.Size.Height; y++)
             {
-                action(x, y);
+                for (var x = 0; x < this.Size.Width; x++)
+                {
+                    action(x, y);
+                }
             }
         }
     }

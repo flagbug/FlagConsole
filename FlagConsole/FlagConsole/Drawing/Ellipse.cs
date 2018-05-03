@@ -16,6 +16,7 @@ namespace FlagConsole.Drawing
     {
         #region Constructors and Destructors
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="Ellipse"/> class.
         /// </summary>
@@ -26,7 +27,7 @@ namespace FlagConsole.Drawing
         public Ellipse(Coordinate midPoint, int a, int b, char token)
                 : base(token)
         {
-            this.Centre = midPoint;
+            this.Center = midPoint;
             this.A = a;
             this.B = b;
         }
@@ -55,8 +56,9 @@ namespace FlagConsole.Drawing
         /// <value>
         /// The mid point.
         /// </value>
-        public Coordinate Centre { get; set; }
+        public Coordinate Center { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Draws the ellipse.
         /// </summary>
@@ -64,13 +66,13 @@ namespace FlagConsole.Drawing
         public override void Draw(GraphicBuffer buffer)
         {
             var points = RasterEllipse(
-                                       this.Centre.X,
-                                       this.Centre.Y,
+                                       this.Center.X,
+                                       this.Center.Y,
                                        this.A
                                      + (int)(this.A / 1.75), // Compensate the proportions of the symbols in the console
                                        this.B);
 
-            foreach (Point point in points)
+            foreach (var point in points)
             {
                 buffer.DrawPixel(this.Token, new Coordinate((int)point.X, (int)point.Y));
             }
@@ -91,7 +93,7 @@ namespace FlagConsole.Drawing
                 yield return new Point(xMid - dx, yMid - dy);
                 yield return new Point(xMid + dx, yMid - dy);
 
-                long error2 = 2 * error;
+                var error2 = 2 * error;
 
                 if (error2 < (2 * dx + 1) * b2)
                 {

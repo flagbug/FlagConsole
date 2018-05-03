@@ -30,12 +30,12 @@ namespace FlagConsole.Controls
         #endregion
 
         /// <summary>
-        /// Gets or sets the name that is displayed in the menu.
+        /// Gets the name that is displayed in the menu.
         /// </summary>
         public string Name { get; private set; }
 
         /// <summary>
-        /// The value of the item, returned when the user selects an item.
+        /// Gets the value of the item, returned when the user selects an item.
         /// </summary>
         public T Value { get; private set; }
     }

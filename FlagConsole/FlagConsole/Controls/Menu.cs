@@ -14,6 +14,7 @@ namespace FlagConsole.Controls
 
     using FlagConsole.Drawing;
 
+    /// <inheritdoc />
     /// <summary>
     /// Provides a text-based menu in the console, where the user can select an item
     /// </summary>
@@ -28,6 +29,7 @@ namespace FlagConsole.Controls
 
         #region Constructors and Destructors
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="Menu&lt;T&gt;"/> class.
         /// </summary>
@@ -65,6 +67,7 @@ namespace FlagConsole.Controls
         /// </value>
         public ICollection<ConsoleKey> DownKeys { get; private set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value indicating whether the control has input focus.
         /// </summary>
@@ -115,16 +118,18 @@ namespace FlagConsole.Controls
         /// </value>
         public ICollection<ConsoleKey> UpKeys { get; private set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Defocuses the control and stopps it's behaviour.
+        /// Defocuses the control and stops it's behavior.
         /// </summary>
         public void Defocus()
         {
             this.IsFocused = false;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Focuses the control and executes it's behaviour (e.g the selection of a menu or the input of a textfield)
+        /// Focuses the control and executes it's behavior (e.g the selection of a menu or the input of a textfield)
         /// </summary>
         public void Focus()
         {
@@ -139,13 +144,14 @@ namespace FlagConsole.Controls
             base.Hide();
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Draws the control.
         /// </summary>
         /// <param name="buffer">The <see cref="GraphicBuffer"/> to draw on.</param>
         protected override void Draw(GraphicBuffer buffer)
         {
-            for (int i = 0; i < this.Items.Count; i++)
+            for (var i = 0; i < this.Items.Count; i++)
             {
                 buffer.ForegroundDrawingColor = this.ForegroundColor;
                 buffer.BackgroundDrawingColor = this.BackgroundColor;
@@ -156,7 +162,7 @@ namespace FlagConsole.Controls
                     buffer.BackgroundDrawingColor = this.SelectionBackgroundColor;
                 }
 
-                string bulletString = this.DisplayBullets ? this.Bullet + " " : string.Empty;
+                var bulletString = this.DisplayBullets ? this.Bullet + " " : string.Empty;
 
                 buffer.DrawLine(bulletString + this.items[i].Name, new Coordinate(0, i));
 

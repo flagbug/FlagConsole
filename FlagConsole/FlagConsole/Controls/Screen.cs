@@ -14,8 +14,9 @@ namespace FlagConsole.Controls
 
     using FlagConsole.Drawing;
 
+    /// <inheritdoc />
     /// <summary>
-    /// Top container, equals the <see cref="System.Windows.Forms.Form"/> class. <para />
+    /// Top container, equals the <see cref="!:System.Windows.Forms.Form" /> class. <para />
     /// Every control and container should be placed here
     /// </summary>
     public class Screen : Container
@@ -40,13 +41,15 @@ namespace FlagConsole.Controls
 
         #endregion
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the absolute position to the console.
         /// </summary>
         public override Coordinate AbsoluteLocation => this.RelativeLocation;
 
+        /// <inheritdoc />
         /// <summary>
-        /// Gets the top conainer (the screen).
+        /// Gets the top container (the screen).
         /// </summary>
         public override Container Top => this;
 
@@ -75,6 +78,7 @@ namespace FlagConsole.Controls
             base.Show();
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Updates the control if <see cref="Control.IsVisible"/> is set to true.
         /// </summary>
@@ -86,6 +90,7 @@ namespace FlagConsole.Controls
             buffer.DrawToScreen(this.AbsoluteLocation);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Raises the <see cref="Control.Invalidated"/> event.
         /// </summary>

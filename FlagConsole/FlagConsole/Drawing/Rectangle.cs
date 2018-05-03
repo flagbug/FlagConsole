@@ -13,6 +13,7 @@ namespace FlagConsole.Drawing
     {
         #region Constructors and Destructors
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="Rectangle"/> class.
         /// </summary>
@@ -74,6 +75,7 @@ namespace FlagConsole.Drawing
         /// </summary>
         public int Top => this.Location.Y;
 
+        /// <inheritdoc />
         /// <summary>
         /// Draws the shape.
         /// </summary>
@@ -96,7 +98,7 @@ namespace FlagConsole.Drawing
         /// <param name="buffer">The <see cref="GraphicBuffer"/> to draw on.</param>
         private void DrawFilledRectangle(GraphicBuffer buffer)
         {
-            for (int y = this.Location.Y - 1; y < this.Location.Y + this.Size.Height - 1; y++)
+            for (var y = this.Location.Y - 1; y < this.Location.Y + this.Size.Height - 1; y++)
             {
                 buffer.DrawLine(
                                 this.Token,

@@ -13,6 +13,7 @@ namespace FlagConsole.Controls
 
     using FlagConsole.Drawing;
 
+    /// <inheritdoc />
     /// <summary>
     /// Provides a list view, that displays items in a table with one column
     /// </summary>
@@ -27,6 +28,7 @@ namespace FlagConsole.Controls
 
         #region Constructors and Destructors
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="ListView&lt;T&gt;"/> class.
         /// </summary>
@@ -43,6 +45,7 @@ namespace FlagConsole.Controls
         /// </summary>
         public ICollection<T> Items => this.items;
 
+        /// <inheritdoc />
         /// <summary>
         /// Draws the control.
         /// </summary>
@@ -54,9 +57,9 @@ namespace FlagConsole.Controls
 
             buffer.DrawRectangle(' ', Coordinate.Origin, this.Size, true);
 
-            for (int i = 0; i < this.items.Count && i < this.Size.Height; i++)
+            for (var i = 0; i < this.items.Count && i < this.Size.Height; i++)
             {
-                string bulletString = this.DisplayBullets ? this.Bullet + " " : string.Empty;
+                var bulletString = this.DisplayBullets ? this.Bullet + " " : string.Empty;
 
                 buffer.DrawLine(bulletString + this.items[i], new Coordinate(0, i));
             }

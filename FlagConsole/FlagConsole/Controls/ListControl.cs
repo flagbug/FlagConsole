@@ -9,6 +9,7 @@
 
 namespace FlagConsole.Controls
 {
+    /// <inheritdoc />
     /// <summary>
     /// Represents a control that displays a list of items (like a Menu or a ListView)
     /// </summary>
@@ -16,6 +17,7 @@ namespace FlagConsole.Controls
     {
         #region Constructors and Destructors
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="ListControl"/> class.
         /// </summary>

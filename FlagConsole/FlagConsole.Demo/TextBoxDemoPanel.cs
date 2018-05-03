@@ -18,8 +18,6 @@ namespace FlagConsole.Demo
     {
         #region Fields
 
-        private readonly Label descriptionLabel;
-
         private readonly TextBox textBox;
 
         private readonly Label textLabel;
@@ -30,13 +28,13 @@ namespace FlagConsole.Demo
 
         public TextBoxDemoPanel()
         {
-            this.descriptionLabel = new Label
-                                    {
-                                            Text =
-                                                    "Enter some text and press enter. The maximum length is set to 5 characters, but it has a width of 8. Of course, this limits can be increased."
-                                    };
-            this.descriptionLabel.Size = new Size(this.descriptionLabel.Text.Length / 3 + 1, 4);
-            this.Controls.Add(this.descriptionLabel);
+            var descriptionLabel = new Label
+                                   {
+                                           Text =
+                                                   "Enter some text and press enter. The maximum length is set to 5 characters, but it has a width of 8. Of course, this limits can be increased."
+                                   };
+            descriptionLabel.Size = new Size(descriptionLabel.Text.Length / 3 + 1, 4);
+            this.Controls.Add(descriptionLabel);
 
             this.textBox = new TextBox
                            {

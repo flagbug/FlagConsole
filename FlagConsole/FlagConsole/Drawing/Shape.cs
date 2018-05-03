@@ -19,7 +19,7 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Initializes a new instance of the <see cref="Shape"/> class.
         /// </summary>
-        /// <param name="token">The token of whih the shape consists.</param>
+        /// <param name="token">The token of which the shape consists.</param>
         protected Shape(char token)
         {
             this.Token = token;

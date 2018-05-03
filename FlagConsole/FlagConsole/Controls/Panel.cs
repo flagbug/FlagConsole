@@ -9,6 +9,7 @@
 
 namespace FlagConsole.Controls
 {
+    /// <inheritdoc />
     /// <summary>
     /// Provides a <see cref="Panel"/> that can contain controls
     /// </summary>

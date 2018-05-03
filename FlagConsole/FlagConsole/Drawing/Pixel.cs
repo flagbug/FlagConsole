@@ -36,7 +36,7 @@ namespace FlagConsole.Drawing
         /// <value>
         /// The background color.
         /// </value>
-        public ConsoleColor BackgroundColor { get; private set; }
+        public ConsoleColor BackgroundColor { get; }
 
         /// <summary>
         /// Gets the foreground color.
@@ -44,11 +44,11 @@ namespace FlagConsole.Drawing
         /// <value>
         /// The foreground color.
         /// </value>
-        public ConsoleColor ForegroundColor { get; private set; }
+        public ConsoleColor ForegroundColor { get; }
 
         /// <summary>
         /// Gets the token.
         /// </summary>
-        public char Token { get; private set; }
+        public char Token { get; }
     }
 }

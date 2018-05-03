@@ -23,12 +23,12 @@ namespace FlagConsole.Controls
         bool IsFocused { get; }
 
         /// <summary>
-        /// Defocuses the control and stopps it's behaviour.
+        /// Defocuses the control and stops it's behavior.
         /// </summary>
         void Defocus();
 
         /// <summary>
-        /// Focuses the control and executes it's behaviour (e.g the selection of a menu or the input of a textfield)
+        /// Focuses the control and executes it's behavior (e.g the selection of a menu or the input of a textfield)
         /// </summary>
         void Focus();
     }
