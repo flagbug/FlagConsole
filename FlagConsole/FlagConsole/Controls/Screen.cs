@@ -52,6 +52,7 @@ namespace FlagConsole.Controls
 
         public virtual void Activate()
         {
+            this.parent?.Deactivate();
             this.Show();
             this.Update(new GraphicBuffer(this.Size));
         }
@@ -59,6 +60,7 @@ namespace FlagConsole.Controls
         public virtual void Deactivate()
         {
             this.Hide();
+            this.parent?.Activate();
         }
 
         public override void Hide()
