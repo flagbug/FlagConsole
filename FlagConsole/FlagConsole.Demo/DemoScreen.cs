@@ -1,28 +1,45 @@
-﻿using FlagConsole.Controls;
-using FlagConsole.Drawing;
-using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="DemoScreen.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Defines the DemoScreen type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace FlagConsole.Demo
 {
+    using System;
+
+    using FlagConsole.Controls;
+    using FlagConsole.Drawing;
+
     internal class DemoScreen : Screen
     {
+        #region Fields
+
         private readonly Menu<Action> mainMenu;
 
+        // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
         private readonly Panel mainMenuPanel;
-        private readonly Label mainMenuTextLabel;
+
         private Panel presentationPanel;
+
+        #endregion
+
+        #region Constructors and Destructors
 
         public DemoScreen()
         {
             this.mainMenuPanel = new Panel { Size = new Size(30, 30), RelativeLocation = new Coordinate(2, 1) };
             this.Controls.Add(this.mainMenuPanel);
 
-            this.mainMenuTextLabel =
-                new Label
-                {
-                    Size = new Size(30, 7),
-                    Text = "This is the main menu. You can select items with the UP and DOWN arrows or the W and S keys (this can be customized). Press enter if you want to see the presentation."
-                };
+            var mainMenuTextLabel = new Label
+                                    {
+                                            Size = new Size(30, 7),
+                                            Text =
+                                                    "This is the main menu. You can select items with the UP and DOWN arrows or the W and S keys (this can be customized). Press enter if you want to see the presentation."
+                                    };
             this.mainMenuPanel.Controls.Add(mainMenuTextLabel);
 
             this.mainMenu = new Menu<Action> { RelativeLocation = new Coordinate(0, 7), Size = new Size(18, 10) };
@@ -43,9 +60,11 @@ namespace FlagConsole.Demo
             this.mainMenuPanel.Controls.Add(this.mainMenu);
         }
 
-        public void Activate()
+        #endregion
+
+        public override void Activate()
         {
-            this.Update(new GraphicBuffer(this.Size));
+            base.Activate();
             this.mainMenu.Focus();
         }
 

@@ -1,13 +1,25 @@
-﻿using FlagConsole.Drawing;
-using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Control.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Base class for all controls
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace FlagConsole.Controls
 {
+    using System;
+
+    using FlagConsole.Drawing;
+
     /// <summary>
     /// Base class for all controls
     /// </summary>
     public abstract class Control
     {
+        #region Constructors and Destructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Control"/> class.
         /// </summary>
@@ -20,24 +32,27 @@ namespace FlagConsole.Controls
             this.BackgroundColor = Console.BackgroundColor;
         }
 
+        #endregion
+
+        #region Events
+
         /// <summary>
         /// Occurs when the control requires redrawing.
         /// </summary>
         public event EventHandler Invalidated;
 
+        #endregion
+
         /// <summary>
         /// Gets the absolute location in the console.
         /// </summary>
-        public virtual Coordinate AbsoluteLocation
-        {
-            get { return this.RelativeLocation + this.Parent.AbsoluteLocation; }
-        }
+        public virtual Coordinate AbsoluteLocation => this.RelativeLocation + this.Parent.AbsoluteLocation;
 
         /// <summary>
         /// Gets or sets the background color for the control.
         /// </summary>
         /// <value>
-        /// The backgound color for the control.
+        /// The background color for the control.
         /// </value>
         public ConsoleColor BackgroundColor { get; set; }
 
@@ -45,17 +60,17 @@ namespace FlagConsole.Controls
         /// Gets or sets the foreground color for the control.
         /// </summary>
         /// <value>
-        /// The foregound color for the control.
+        /// The foreground color for the control.
         /// </value>
         public ConsoleColor ForegroundColor { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the control is visible.
+        /// Gets a value indicating whether the control is visible.
         /// </summary>
         /// <value>
         ///   <c>true</c> if the control is visible; otherwise, <c>false</c>.
         /// </value>
-        public bool IsVisible { get; set; }
+        public bool IsVisible { get; private set; }
 
         /// <summary>
         /// Gets or sets the parent <see cref="Container"/> that contains the control.
@@ -84,9 +99,11 @@ namespace FlagConsole.Controls
         /// <summary>
         /// Gets the top <see cref="Container"/>.
         /// </summary>
-        public virtual Container Top
+        public virtual Container Top => this.Parent.Top;
+
+        public virtual void Hide()
         {
-            get { return this.Parent.Top; }
+            this.IsVisible = false;
         }
 
         /// <summary>
@@ -95,6 +112,11 @@ namespace FlagConsole.Controls
         public void Invalidate()
         {
             this.OnInvalidated(EventArgs.Empty);
+        }
+
+        public virtual void Show()
+        {
+            this.IsVisible = true;
         }
 
         /// <summary>
@@ -121,10 +143,7 @@ namespace FlagConsole.Controls
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected virtual void OnInvalidated(EventArgs e)
         {
-            if (this.Invalidated != null)
-            {
-                this.Invalidated(this, e);
-            }
+            this.Invalidated?.Invoke(this, e);
         }
     }
 }

@@ -1,17 +1,31 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="PasswordBox.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Provides a TextBox control, where the user can type passwords.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace FlagConsole.Controls
 {
+    using System;
+
+    /// <inheritdoc />
     /// <summary>
     /// Provides a TextBox control, where the user can type passwords.
     /// </summary>
     public class PasswordBox : TextBox
     {
+        #region Constructors and Destructors
+
         public PasswordBox()
         {
-            this.Password = String.Empty;
+            this.Password = string.Empty;
             this.PasswordChar = '*';
         }
+
+        #endregion
 
         /// <summary>
         /// Gets the current password of the <see cref="PasswordBox"/>.
@@ -34,11 +48,10 @@ namespace FlagConsole.Controls
         {
             if (this.Text.Length > this.Password.Length)
             {
-                char lastChar = this.Text[this.Text.Length - 1];
+                var lastChar = this.Text[this.Text.Length - 1];
                 this.Password += lastChar;
                 this.Text = new string(this.PasswordChar, this.Text.Length);
             }
-
             else if (this.Text.Length < this.Password.Length)
             {
                 this.Password = this.Password.Remove(this.Password.Length - 1);

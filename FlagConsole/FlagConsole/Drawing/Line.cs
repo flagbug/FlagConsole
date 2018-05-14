@@ -1,13 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Line.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Base class for lines (horizontal line and vertical line)
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace FlagConsole.Drawing
 {
+    using System;
+    using System.Collections.Generic;
+
+    /// <inheritdoc />
     /// <summary>
     /// Base class for lines (horizontal line and vertical line)
     /// </summary>
     internal class Line : Shape
     {
+        #region Constructors and Destructors
+
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="Line"/> class.
         /// </summary>
@@ -15,11 +28,13 @@ namespace FlagConsole.Drawing
         /// <param name="endPoint">The end point.</param>
         /// <param name="token">The token of which the line consists.</param>
         public Line(Coordinate startPoint, Coordinate endPoint, char token)
-            : base(token)
+                : base(token)
         {
             this.StartPoint = startPoint;
             this.EndPoint = endPoint;
         }
+
+        #endregion
 
         /// <summary>
         /// Gets or sets the end point.
@@ -37,13 +52,14 @@ namespace FlagConsole.Drawing
         /// </value>
         public Coordinate StartPoint { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Draws the line.
         /// </summary>
         /// <param name="buffer">The graphic buffer.</param>
         public override void Draw(GraphicBuffer buffer)
         {
-            foreach (Coordinate point in RasterLine(this.StartPoint.X, this.StartPoint.Y, this.EndPoint.X, this.EndPoint.Y))
+            foreach (var point in RasterLine(this.StartPoint.X, this.StartPoint.Y, this.EndPoint.X, this.EndPoint.Y))
             {
                 buffer.DrawPixel(this.Token, point);
             }
@@ -51,7 +67,7 @@ namespace FlagConsole.Drawing
 
         private static IEnumerable<Coordinate> RasterLine(int xStart, int yStart, int xEnd, int yEnd)
         {
-            bool steep = Math.Abs(yEnd - yStart) > Math.Abs(xEnd - xStart);
+            var steep = Math.Abs(yEnd - yStart) > Math.Abs(xEnd - xStart);
 
             if (steep)
             {
@@ -65,11 +81,11 @@ namespace FlagConsole.Drawing
                 Swap(ref yStart, ref yEnd);
             }
 
-            int dX = (xEnd - xStart);
-            int dY = (yEnd - yStart);
-            int error = (dX / 2);
-            int ystep = (yStart < yEnd ? 1 : -1);
-            int y = yStart;
+            var dX = xEnd - xStart;
+            var dY = yEnd - yStart;
+            var error = dX / 2;
+            var yStep = yStart < yEnd ? 1 : -1;
+            var y = yStart;
 
             for (int x = xStart; x <= xEnd; ++x)
             {
@@ -77,7 +93,6 @@ namespace FlagConsole.Drawing
                 {
                     yield return new Coordinate(y, x);
                 }
-
                 else
                 {
                     yield return new Coordinate(x, y);
@@ -87,14 +102,15 @@ namespace FlagConsole.Drawing
 
                 if (error < 0)
                 {
-                    y += ystep; error += dX;
+                    y += yStep;
+                    error += dX;
                 }
             }
         }
 
         private static void Swap<T>(ref T first, ref T second)
         {
-            T temp = first;
+            var temp = first;
 
             first = second;
             second = temp;

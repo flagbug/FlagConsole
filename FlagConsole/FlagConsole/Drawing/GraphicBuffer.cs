@@ -1,11 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="GraphicBuffer.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Defines the GraphicBuffer type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace FlagConsole.Drawing
 {
+    using System;
+    using System.Collections.Generic;
+
     public class GraphicBuffer
     {
+        #region Fields
+
         private readonly Pixel[,] buffer;
+
+        #endregion
+
+        #region Constructors and Destructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GraphicBuffer"/> class.
@@ -19,6 +34,8 @@ namespace FlagConsole.Drawing
 
             this.Clear();
         }
+
+        #endregion
 
         /// <summary>
         /// Gets or sets the background drawing color.
@@ -39,7 +56,7 @@ namespace FlagConsole.Drawing
         /// <summary>
         /// Gets the size of the buffer.
         /// </summary>
-        public Size Size { get; private set; }
+        public Size Size { get; }
 
         /// <summary>
         /// Clears the graphic buffer and resets the drawing colors.
@@ -93,7 +110,7 @@ namespace FlagConsole.Drawing
         /// <param name="location">The location where the line shall be drawn.</param>
         public void DrawLine(char[] line, Coordinate location)
         {
-            for (int i = 0; i < line.Length; i++)
+            for (var i = 0; i < line.Length; i++)
             {
                 this.DrawPixel(line[i], location + new Coordinate(i, 0));
             }
@@ -108,7 +125,10 @@ namespace FlagConsole.Drawing
         {
             if (this.IsInBounds(location))
             {
-                this.buffer[location.X, location.Y] = new Pixel(pixel, this.ForegroundDrawingColor, this.BackgroundDrawingColor);
+                this.buffer[location.X, location.Y] = new Pixel(
+                                                                pixel,
+                                                                this.ForegroundDrawingColor,
+                                                                this.BackgroundDrawingColor);
             }
         }
 
@@ -131,11 +151,11 @@ namespace FlagConsole.Drawing
         /// <param name="location">The location.</param>
         public void DrawToScreen(Coordinate location)
         {
-            for (int y = 0; y < this.Size.Height; y++)
+            for (var y = 0; y < this.Size.Height; y++)
             {
                 var pixels = new Pixel[this.Size.Width];
 
-                for (int x = 0; x < this.Size.Width; x++)
+                for (var x = 0; x < this.Size.Width; x++)
                 {
                     pixels[x] = this.buffer[x, y];
                 }
@@ -151,8 +171,8 @@ namespace FlagConsole.Drawing
                 foreach (var pixel in pixels)
                 {
                     if (prevPixel != null
-                        && (pixel.BackgroundColor != prevPixel.BackgroundColor
-                        || pixel.ForegroundColor != prevPixel.ForegroundColor))
+                     && (pixel.BackgroundColor != prevPixel.BackgroundColor
+                      || pixel.ForegroundColor != prevPixel.ForegroundColor))
                     {
                         final.Add(currentGroup);
                         currentGroup = new List<Pixel>();
@@ -172,14 +192,14 @@ namespace FlagConsole.Drawing
                 foreach (var pixelLine in final)
                 {
                     // The whole line has the same color, therefore we select the color of the first item
-                    ConsoleColor newForegroundColor = pixelLine[0].ForegroundColor;
+                    var newForegroundColor = pixelLine[0].ForegroundColor;
 
                     if (Console.ForegroundColor != newForegroundColor)
                     {
                         Console.ForegroundColor = newForegroundColor;
                     }
 
-                    ConsoleColor newBackgroundColor = pixelLine[0].BackgroundColor;
+                    var newBackgroundColor = pixelLine[0].BackgroundColor;
 
                     if (Console.BackgroundColor != newBackgroundColor)
                     {
@@ -188,7 +208,7 @@ namespace FlagConsole.Drawing
 
                     var line = new char[pixelLine.Count];
 
-                    for (int i = 0; i < line.Length; i++)
+                    for (var i = 0; i < line.Length; i++)
                     {
                         line[i] = pixelLine[i].Token;
                     }
@@ -208,13 +228,16 @@ namespace FlagConsole.Drawing
             var fColor = this.ForegroundDrawingColor;
             var bColor = this.BackgroundDrawingColor;
 
-            otherBuffer.TraversePixels((x, y) =>
-            {
-                this.ForegroundDrawingColor = otherBuffer.buffer[x, y].ForegroundColor;
-                this.BackgroundDrawingColor = otherBuffer.buffer[x, y].BackgroundColor;
+            otherBuffer.TraversePixels(
+                                       (x, y) =>
+                                       {
+                                           this.ForegroundDrawingColor = otherBuffer.buffer[x, y].ForegroundColor;
+                                           this.BackgroundDrawingColor = otherBuffer.buffer[x, y].BackgroundColor;
 
-                this.DrawPixel(otherBuffer.buffer[x, y].Token, location + new Coordinate(x, y));
-            });
+                                           this.DrawPixel(
+                                                          otherBuffer.buffer[x, y].Token,
+                                                          location + new Coordinate(x, y));
+                                       });
 
             this.ForegroundDrawingColor = fColor;
             this.BackgroundDrawingColor = bColor;
@@ -253,9 +276,9 @@ namespace FlagConsole.Drawing
         /// <param name="action">The action.</param>
         private void TraversePixels(Action<int, int> action)
         {
-            for (int y = 0; y < this.Size.Height; y++)
+            for (var y = 0; y < this.Size.Height; y++)
             {
-                for (int x = 0; x < this.Size.Width; x++)
+                for (var x = 0; x < this.Size.Width; x++)
                 {
                     action(x, y);
                 }

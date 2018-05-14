@@ -1,8 +1,17 @@
-﻿using System;
-using System.Diagnostics;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Size.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Provides an immutable size, which encapsulates a width and a height
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace FlagConsole.Drawing
 {
+    using System;
+    using System.Diagnostics;
+
     /// <summary>
     /// Provides an immutable size, which encapsulates a width and a height
     /// </summary>
@@ -11,14 +20,16 @@ namespace FlagConsole.Drawing
     [DebuggerDisplay("Width = {Width}, Height = {Height}")]
     public class Size : ICloneable, IEquatable<Size>
     {
-        private readonly int height;
-        private readonly int width;
+        #region Constructors and Destructors
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="Size"/> class.
         /// </summary>
         public Size()
-            : this(0, 0) { }
+                : this(0, 0)
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Size"/> class.
@@ -27,24 +38,43 @@ namespace FlagConsole.Drawing
         /// <param name="height">The height.</param>
         public Size(int width, int height)
         {
-            this.height = height;
-            this.width = width;
+            this.Height = height;
+            this.Width = width;
         }
+
+        #endregion
 
         /// <summary>
         /// Gets the height.
         /// </summary>
-        public int Height
-        {
-            get { return this.height; }
-        }
+        public int Height { get; }
 
         /// <summary>
         /// Gets the width.
         /// </summary>
-        public int Width
+        public int Width { get; }
+
+        /// <summary>
+        /// Implements the operator ==.
+        /// </summary>
+        /// <param name="sizeA">The position A.</param>
+        /// <param name="sizeB">The position B.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator ==(Size sizeA, Size sizeB)
         {
-            get { return this.width; }
+            // Check reference
+            if (ReferenceEquals(sizeA, sizeB))
+            {
+                return true;
+            }
+
+            // Check null (cast to object type to avoid infinite loop)
+            if ((object)sizeA == null || (object)sizeB == null)
+            {
+                return false;
+            }
+
+            return sizeA.Height == sizeB.Height && sizeA.Width == sizeB.Width;
         }
 
         /// <summary>
@@ -60,25 +90,7 @@ namespace FlagConsole.Drawing
             return !(sizeA == sizeB);
         }
 
-        /// <summary>
-        /// Implements the operator ==.
-        /// </summary>
-        /// <param name="sizeA">The position A.</param>
-        /// <param name="sizeB">The position B.</param>
-        /// <returns>The result of the operator.</returns>
-        public static bool operator ==(Size sizeA, Size sizeB)
-        {
-            //Check reference
-            if (Object.ReferenceEquals(sizeA, sizeB))
-                return true;
-
-            //Check null (cast to object type to avoid infinite loop)
-            if ((object)sizeA == null || (object)sizeB == null)
-                return false;
-
-            return sizeA.Height == sizeB.Height && sizeA.Width == sizeB.Width;
-        }
-
+        /// <inheritdoc />
         /// <summary>
         /// Creates a new object that is a copy of the current instance.
         /// </summary>
@@ -95,7 +107,7 @@ namespace FlagConsole.Drawing
         /// </summary>
         /// <param name="obj">The <see cref="System.Object"/> to compare with this instance.</param>
         /// <returns>
-        /// 	<c>true</c> if the specified <see cref="System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+        ///   <c>true</c> if the specified <see cref="System.Object"/> is equal to this instance; otherwise, <c>false</c>.
         /// </returns>
         /// <exception cref="T:System.NullReferenceException">
         /// The <paramref name="obj"/> parameter is null.
@@ -104,20 +116,16 @@ namespace FlagConsole.Drawing
         {
             var size = obj as Size;
 
-            if (size == null)
-            {
-                return false;
-            }
-
-            return this.Equals(size);
+            return size != null && this.Equals(size);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Indicates whether the current object is equal to another object of the same type.
         /// </summary>
         /// <param name="other">An object to compare with this object.</param>
         /// <returns>
-        /// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+        /// true if the current object is equal to the <paramref name="other" /> parameter; otherwise, false.
         /// </returns>
         public bool Equals(Size other)
         {

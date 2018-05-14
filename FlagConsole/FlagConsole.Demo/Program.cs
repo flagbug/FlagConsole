@@ -1,11 +1,21 @@
-﻿using FlagConsole.Drawing;
-using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Program.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Defines the Program type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace FlagConsole.Demo
 {
+    using System;
+
+    using FlagConsole.Drawing;
+
     internal class Program
     {
-        private static void Main(string[] args)
+        private static void Main()
         {
             Console.Title = "FlagConsole Demo Application";
 

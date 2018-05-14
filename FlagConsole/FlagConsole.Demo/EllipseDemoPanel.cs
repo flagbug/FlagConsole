@@ -1,25 +1,35 @@
-﻿using FlagConsole.Controls;
-using FlagConsole.Drawing;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="EllipseDemoPanel.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Defines the EllipseDemoPanel type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace FlagConsole.Demo
 {
+    using FlagConsole.Controls;
+    using FlagConsole.Drawing;
+
     internal class EllipseDemoPanel : Panel
     {
-        private readonly Label circleLabel;
-        private readonly Label ellipseLabel;
+        #region Constructors and Destructors
 
         public EllipseDemoPanel()
         {
-            this.ellipseLabel = new Label { Text = "This is an ellipse." };
-            this.ellipseLabel.Size = new Size(this.ellipseLabel.Text.Length, 1);
-            this.ellipseLabel.RelativeLocation = new Coordinate(17, 0);
-            this.Controls.Add(this.ellipseLabel);
+            var ellipseLabel = new Label { Text = "This is an ellipse." };
+            ellipseLabel.Size = new Size(ellipseLabel.Text.Length, 1);
+            ellipseLabel.RelativeLocation = new Coordinate(17, 0);
+            this.Controls.Add(ellipseLabel);
 
-            this.circleLabel = new Label { Text = "This is a circle." };
-            this.circleLabel.Size = new Size(this.circleLabel.Text.Length, 1);
-            this.circleLabel.RelativeLocation = new Coordinate(19, 18);
-            this.Controls.Add(this.circleLabel);
+            var circleLabel = new Label { Text = "This is a circle." };
+            circleLabel.Size = new Size(circleLabel.Text.Length, 1);
+            circleLabel.RelativeLocation = new Coordinate(19, 18);
+            this.Controls.Add(circleLabel);
         }
+
+        #endregion
 
         protected override void Draw(GraphicBuffer buffer)
         {

@@ -1,24 +1,46 @@
-﻿using FlagConsole.Drawing;
-using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="TextBox.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Provides a control, where the user can type text.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace FlagConsole.Controls
 {
+    using System;
+
+    using FlagConsole.Drawing;
+
+    /// <inheritdoc />
     /// <summary>
     /// Provides a control, where the user can type text.
     /// </summary>
     public class TextBox : Control, IFocusable
     {
+        #region Fields
+
         private string text;
 
+        #endregion
+
+        #region Constructors and Destructors
+
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="TextBox"/> class.
         /// </summary>
         public TextBox()
         {
-            this.text = String.Empty;
+            this.text = string.Empty;
             this.BackgroundColor = ConsoleColor.White;
             this.ForegroundColor = ConsoleColor.Black;
         }
+
+        #endregion
+
+        #region Events
 
         /// <summary>
         /// Occurs when the <see cref="Text"/> property value changes.
@@ -30,6 +52,9 @@ namespace FlagConsole.Controls
         /// </summary>
         public event EventHandler TextSubmitted;
 
+        #endregion
+
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value indicating whether the control has input focus.
         /// </summary>
@@ -54,7 +79,7 @@ namespace FlagConsole.Controls
         /// </value>
         public string Text
         {
-            get { return this.text; }
+            get => this.text;
             set
             {
                 if (this.text != value)
@@ -65,24 +90,33 @@ namespace FlagConsole.Controls
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Defocuses the control and stops it's behaviour.
+        /// Defocuses the control and stops it's behavior.
         /// </summary>
         public void Defocus()
         {
             this.IsFocused = false;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Focuses the control and executes it's behaviour (e.g the selection of a menu or the input of a textfield)
+        /// Focuses the control and executes it's behavior (e.g the selection of a menu or the input of a textfield)
         /// </summary>
         public void Focus()
         {
             this.IsFocused = true;
-            this.IsVisible = true;
+            this.Show();
             this.ScanInput();
         }
 
+        public override void Hide()
+        {
+            this.Defocus();
+            base.Hide();
+        }
+
+        /// <inheritdoc />
         /// <summary>
         /// Draws the control.
         /// </summary>
@@ -92,7 +126,7 @@ namespace FlagConsole.Controls
             buffer.BackgroundDrawingColor = this.BackgroundColor;
             buffer.ForegroundDrawingColor = this.ForegroundColor;
 
-            string background = String.Empty;
+            var background = string.Empty;
             background = background.PadRight(this.Size.Width, ' ');
 
             buffer.DrawLine(background, Coordinate.Origin);
@@ -106,10 +140,7 @@ namespace FlagConsole.Controls
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected virtual void OnTextChanged(EventArgs e)
         {
-            if (this.TextChanged != null)
-            {
-                this.TextChanged(this, e);
-            }
+            this.TextChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -118,10 +149,7 @@ namespace FlagConsole.Controls
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected virtual void OnTextSubmitted(EventArgs e)
         {
-            if (this.TextSubmitted != null)
-            {
-                this.TextSubmitted(this, e);
-            }
+            this.TextSubmitted?.Invoke(this, e);
         }
 
         /// <summary>
@@ -129,7 +157,7 @@ namespace FlagConsole.Controls
         /// </summary>
         protected virtual void ScanInput()
         {
-            bool cursorVisible = Console.CursorVisible;
+            var cursorVisible = Console.CursorVisible;
             ConsoleKeyInfo key;
 
             Console.CursorVisible = true;
@@ -138,7 +166,7 @@ namespace FlagConsole.Controls
             {
                 this.Invalidate();
 
-                int offset = this.Text.Length == this.MaxLength ? 1 : 0;
+                var offset = this.Text.Length == this.MaxLength ? 1 : 0;
 
                 Console.SetCursorPosition(this.AbsoluteLocation.X + this.Text.Length - offset, this.AbsoluteLocation.Y);
 
@@ -153,7 +181,6 @@ namespace FlagConsole.Controls
                             this.Text = this.Text.Substring(0, this.Text.Length - 1);
                         }
                     }
-
                     else if (this.Text.Length < this.MaxLength)
                     {
                         this.Text += key.KeyChar;

@@ -1,7 +1,19 @@
-﻿namespace FlagConsole.Drawing
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Rectangle.cs" company="???">
+//   Copyright (c) ???. All rights reserved.
+// </copyright>
+// <summary>
+//   Defines the Rectangle type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace FlagConsole.Drawing
 {
     internal class Rectangle : Shape
     {
+        #region Constructors and Destructors
+
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="Rectangle"/> class.
         /// </summary>
@@ -10,20 +22,19 @@
         /// <param name="token">The token.</param>
         /// <param name="filled">if set to <c>true</c>, the rectangle is filled.</param>
         public Rectangle(Coordinate location, Size size, char token, bool filled)
-            : base(token)
+                : base(token)
         {
             this.Location = location;
             this.Size = size;
             this.IsFilled = filled;
         }
 
+        #endregion
+
         /// <summary>
         /// Gets the y-coordinate that is the sum of the Y and Height property values of this Rectangle structure.
         /// </summary>
-        public int Bottom
-        {
-            get { return this.Location.Y + this.Size.Height; }
-        }
+        public int Bottom => this.Location.Y + this.Size.Height;
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Rectangle"/> is filled.
@@ -36,10 +47,7 @@
         /// <summary>
         /// Gets the x-coordinate of the left edge of this Rectangle structure.
         /// </summary>
-        public int Left
-        {
-            get { return this.Location.X; }
-        }
+        public int Left => this.Location.X;
 
         /// <summary>
         /// Gets or sets the location.
@@ -52,10 +60,7 @@
         /// <summary>
         /// Gets the x-coordinate that is the sum of X and Size.Width property values of this Rectangle structure.
         /// </summary>
-        public int Right
-        {
-            get { return this.Location.X + this.Size.Width; }
-        }
+        public int Right => this.Location.X + this.Size.Width;
 
         /// <summary>
         /// Gets or sets the size.
@@ -68,11 +73,9 @@
         /// <summary>
         /// Gets the y-coordinate of the top edge of this Rectangle structure.
         /// </summary>
-        public int Top
-        {
-            get { return this.Location.Y; }
-        }
+        public int Top => this.Location.Y;
 
+        /// <inheritdoc />
         /// <summary>
         /// Draws the shape.
         /// </summary>
@@ -83,7 +86,6 @@
             {
                 this.DrawFilledRectangle(buffer);
             }
-
             else
             {
                 this.DrawUnfilledRectangle(buffer);
@@ -96,9 +98,12 @@
         /// <param name="buffer">The <see cref="GraphicBuffer"/> to draw on.</param>
         private void DrawFilledRectangle(GraphicBuffer buffer)
         {
-            for (int y = this.Location.Y - 1; y < this.Location.Y + this.Size.Height - 1; y++)
+            for (var y = this.Location.Y - 1; y < this.Location.Y + this.Size.Height - 1; y++)
             {
-                buffer.DrawLine(this.Token, this.Location + new Coordinate(0, y + 1), this.Location + new Coordinate(this.Size.Width - 1, 0));
+                buffer.DrawLine(
+                                this.Token,
+                                this.Location + new Coordinate(0, y + 1),
+                                this.Location + new Coordinate(this.Size.Width - 1, 0));
             }
         }
 
@@ -108,13 +113,25 @@
         /// <param name="buffer">The <see cref="GraphicBuffer"/> to draw on.</param>
         private void DrawUnfilledRectangle(GraphicBuffer buffer)
         {
-            buffer.DrawLine(this.Token, this.Location, new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y));
+            buffer.DrawLine(
+                            this.Token,
+                            this.Location,
+                            new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y));
 
-            buffer.DrawLine(this.Token, new Coordinate(this.Location.X, this.Location.Y + this.Size.Height), new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y));
+            buffer.DrawLine(
+                            this.Token,
+                            new Coordinate(this.Location.X, this.Location.Y + this.Size.Height),
+                            new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y));
 
-            buffer.DrawLine(this.Token, this.Location, new Coordinate(this.Location.X, this.Location.Y + this.Size.Height));
+            buffer.DrawLine(
+                            this.Token,
+                            this.Location,
+                            new Coordinate(this.Location.X, this.Location.Y + this.Size.Height));
 
-            buffer.DrawLine(this.Token, new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y), new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y + this.Size.Height));
+            buffer.DrawLine(
+                            this.Token,
+                            new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y),
+                            new Coordinate(this.Location.X + this.Size.Width - 1, this.Location.Y + this.Size.Height));
         }
     }
 }
